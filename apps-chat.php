@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>File Manager | Powerx - Bootstrap 5 Admin & Dashboard Template</title>
+        <title>Chat | Powerx - Bootstrap 5 Admin & Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -34,7 +34,7 @@
                         <!-- Topbar Brand Logo -->
                         <div class="logo-topbar">
                             <!-- Logo light -->
-                            <a href="index.html" class="logo-light">
+                            <a href="index.php" class="logo-light">
                                 <span class="logo-lg">
                                     <img src="assets/images/logo.png" alt="logo">
                                 </span>
@@ -44,7 +44,7 @@
                             </a>
 
                             <!-- Logo Dark -->
-                            <a href="index.html" class="logo-dark">
+                            <a href="index.php" class="logo-dark">
                                 <span class="logo-lg">
                                     <img src="assets/images/logo-dark.png" alt="dark logo">
                                 </span>
@@ -376,31 +376,31 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="pages-profile.html" class="dropdown-item">
+                                <a href="pages-profile.php" class="dropdown-item">
                                     <i class="ri-account-circle-line fs-18 align-middle me-1"></i>
                                     <span>My Account</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="pages-profile.html" class="dropdown-item">
+                                <a href="pages-profile.php" class="dropdown-item">
                                     <i class="ri-settings-4-line fs-18 align-middle me-1"></i>
                                     <span>Settings</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="pages-faq.html" class="dropdown-item">
+                                <a href="pages-faq.php" class="dropdown-item">
                                     <i class="ri-customer-service-2-line fs-18 align-middle me-1"></i>
                                     <span>Support</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="auth-lock-screen.html" class="dropdown-item">
+                                <a href="auth-lock-screen.php" class="dropdown-item">
                                     <i class="ri-lock-password-line fs-18 align-middle me-1"></i>
                                     <span>Lock Screen</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="auth-logout-2.html" class="dropdown-item">
+                                <a href="auth-logout-2.php" class="dropdown-item">
                                     <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
                                     <span>Logout</span>
                                 </a>
@@ -415,7 +415,7 @@
             <div class="leftside-menu">
 
                 <!-- Brand Logo Light -->
-                <a href="index.html" class="logo logo-light">
+                <a href="index.php" class="logo logo-light">
                     <span class="logo-lg">
                         <img src="assets/images/logo.png" alt="logo">
                     </span>
@@ -425,7 +425,7 @@
                 </a>
 
                 <!-- Brand Logo Dark -->
-                <a href="index.html" class="logo logo-dark">
+                <a href="index.php" class="logo logo-dark">
                     <span class="logo-lg">
                         <img src="assets/images/logo-dark.png" alt="dark logo">
                     </span>
@@ -442,7 +442,7 @@
                 <div class="h-100" id="leftside-menu-container" data-simplebar>
                     <!-- Leftbar User -->
                     <div class="leftbar-user">
-                        <a href="pages-profile.html">
+                        <a href="pages-profile.php">
                             <img src="assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
                             <span class="leftbar-user-name mt-2">Michael Berndt</span>
                         </a>
@@ -454,21 +454,21 @@
                         <li class="side-nav-title">Main</li>
 
                         <li class="side-nav-item">
-                            <a href="index.html" class="side-nav-link">
+                            <a href="index.php" class="side-nav-link">
                                 <i class="ri-dashboard-2-fill"></i>
                                 <span> Dashboard </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="apps-calendar.html" class="side-nav-link">
+                            <a href="apps-calendar.php" class="side-nav-link">
                                 <i class="ri-calendar-event-fill"></i>
                                 <span> Calendar </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="apps-chat.html" class="side-nav-link">
+                            <a href="apps-chat.php" class="side-nav-link">
                                 <i class="ri-message-3-fill"></i>
                                 <span> Chat </span>
                             </a>
@@ -483,10 +483,10 @@
                             <div class="collapse" id="sidebarEmail">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="apps-email-inbox.html">Inbox</a>
+                                        <a href="apps-email-inbox.php">Inbox</a>
                                     </li>
                                     <li>
-                                        <a href="apps-email-read.html">Read Email</a>
+                                        <a href="apps-email-read.php">Read Email</a>
                                     </li>
                                 </ul>
                             </div>
@@ -503,82 +503,82 @@
                             <div class="collapse" id="sidebarBaseUI">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="ui-accordions.html">Accordions</a>
+                                        <a href="ui-accordions.php">Accordions</a>
                                     </li>
                                     <li>
-                                        <a href="ui-alerts.html">Alerts</a>
+                                        <a href="ui-alerts.php">Alerts</a>
                                     </li>
                                     <li>
-                                        <a href="ui-avatars.html">Avatars</a>
+                                        <a href="ui-avatars.php">Avatars</a>
                                     </li>
                                     <li>
-                                        <a href="ui-badges.html">Badges</a>
+                                        <a href="ui-badges.php">Badges</a>
                                     </li>
                                     <li>
-                                        <a href="ui-breadcrumb.html">Breadcrumb</a>
+                                        <a href="ui-breadcrumb.php">Breadcrumb</a>
                                     </li>
                                     <li>
-                                        <a href="ui-buttons.html">Buttons</a>
+                                        <a href="ui-buttons.php">Buttons</a>
                                     </li>
                                     <li>
-                                        <a href="ui-cards.html">Cards</a>
+                                        <a href="ui-cards.php">Cards</a>
                                     </li>
                                     <li>
-                                        <a href="ui-carousel.html">Carousel</a>
+                                        <a href="ui-carousel.php">Carousel</a>
                                     </li>
                                     <li>
-                                        <a href="ui-collapse.html">Collapse</a>
+                                        <a href="ui-collapse.php">Collapse</a>
                                     </li>
                                     <li>
-                                        <a href="ui-dropdowns.html">Dropdowns</a>
+                                        <a href="ui-dropdowns.php">Dropdowns</a>
                                     </li>
                                     <li>
-                                        <a href="ui-embed-video.html">Embed Video</a>
+                                        <a href="ui-embed-video.php">Embed Video</a>
                                     </li>
                                     <li>
-                                        <a href="ui-grid.html">Grid</a>
+                                        <a href="ui-grid.php">Grid</a>
                                     </li>
                                     <li>
-                                        <a href="ui-links.html">Links</a>
+                                        <a href="ui-links.php">Links</a>
                                     </li>
                                     <li>
-                                        <a href="ui-list-group.html">List Group</a>
+                                        <a href="ui-list-group.php">List Group</a>
                                     </li>
                                     <li>
-                                        <a href="ui-modals.html">Modals</a>
+                                        <a href="ui-modals.php">Modals</a>
                                     </li>
                                     <li>
-                                        <a href="ui-notifications.html">Notifications</a>
+                                        <a href="ui-notifications.php">Notifications</a>
                                     </li>
                                     <li>
-                                        <a href="ui-offcanvas.html">Offcanvas</a>
+                                        <a href="ui-offcanvas.php">Offcanvas</a>
                                     </li>
                                     <li>
-                                        <a href="ui-placeholders.html">Placeholders</a>
+                                        <a href="ui-placeholders.php">Placeholders</a>
                                     </li>
                                     <li>
-                                        <a href="ui-pagination.html">Pagination</a>
+                                        <a href="ui-pagination.php">Pagination</a>
                                     </li>
                                     <li>
-                                        <a href="ui-popovers.html">Popovers</a>
+                                        <a href="ui-popovers.php">Popovers</a>
                                     </li>
                                     <li>
-                                        <a href="ui-progress.html">Progress</a>
+                                        <a href="ui-progress.php">Progress</a>
                                     </li>
                                     <li>
-                                        <a href="ui-spinners.html">Spinners</a>
+                                        <a href="ui-spinners.php">Spinners</a>
                                     </li>
                                     <li>
-                                        <a href="ui-tabs.html">Tabs</a>
+                                        <a href="ui-tabs.php">Tabs</a>
                                     </li>
                                     <li>
-                                        <a href="ui-tooltips.html">Tooltips</a>
+                                        <a href="ui-tooltips.php">Tooltips</a>
                                     </li>
                                     <li>
-                                        <a href="ui-typography.html">Typography</a>
+                                        <a href="ui-typography.php">Typography</a>
                                     </li>
                                     <li>
-                                        <a href="ui-utilities.html">Utilities</a>
+                                        <a href="ui-utilities.php">Utilities</a>
                                     </li>
                                 </ul>
                             </div>
@@ -593,19 +593,19 @@
                             <div class="collapse" id="sidebarExtendedUI">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="extended-dragula.html">Dragula</a>
+                                        <a href="extended-dragula.php">Dragula</a>
                                     </li>
                                     <li>
-                                        <a href="extended-range-slider.html">Range Slider</a>
+                                        <a href="extended-range-slider.php">Range Slider</a>
                                     </li>
                                     <li>
-                                        <a href="extended-ratings.html">Ratings</a>
+                                        <a href="extended-ratings.php">Ratings</a>
                                     </li>
                                     <li>
-                                        <a href="extended-scrollbar.html">Scrollbar</a>
+                                        <a href="extended-scrollbar.php">Scrollbar</a>
                                     </li>
                                     <li>
-                                        <a href="extended-scrollspy.html">Scrollspy</a>
+                                        <a href="extended-scrollspy.php">Scrollspy</a>
                                     </li>
                                 </ul>
                             </div>
@@ -620,10 +620,10 @@
                             <div class="collapse" id="sidebarIcons">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="icons-remixicons.html">Remix Icons</a>
+                                        <a href="icons-remixicons.php">Remix Icons</a>
                                     </li>
                                     <li>
-                                        <a href="icons-bootstrap.html">Bootstrap Icons</a>
+                                        <a href="icons-bootstrap.php">Bootstrap Icons</a>
                                     </li>
                                 </ul>
                             </div>
@@ -638,55 +638,55 @@
                             <div class="collapse" id="sidebarCharts">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="charts-apex-area.html">Area</a>
+                                        <a href="charts-apex-area.php">Area</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-bar.html">Bar</a>
+                                        <a href="charts-apex-bar.php">Bar</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-bubble.html">Bubble</a>
+                                        <a href="charts-apex-bubble.php">Bubble</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-candlestick.html">Candlestick</a>
+                                        <a href="charts-apex-candlestick.php">Candlestick</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-column.html">Column</a>
+                                        <a href="charts-apex-column.php">Column</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-heatmap.html">Heatmap</a>
+                                        <a href="charts-apex-heatmap.php">Heatmap</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-line.html">Line</a>
+                                        <a href="charts-apex-line.php">Line</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-mixed.html">Mixed</a>
+                                        <a href="charts-apex-mixed.php">Mixed</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-timeline.html">Timeline</a>
+                                        <a href="charts-apex-timeline.php">Timeline</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-boxplot.html">Boxplot</a>
+                                        <a href="charts-apex-boxplot.php">Boxplot</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-treemap.html">Treemap</a>
+                                        <a href="charts-apex-treemap.php">Treemap</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-pie.html">Pie</a>
+                                        <a href="charts-apex-pie.php">Pie</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-radar.html">Radar</a>
+                                        <a href="charts-apex-radar.php">Radar</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-radialbar.html">RadialBar</a>
+                                        <a href="charts-apex-radialbar.php">RadialBar</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-scatter.html">Scatter</a>
+                                        <a href="charts-apex-scatter.php">Scatter</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-polar-area.html">Polar Area</a>
+                                        <a href="charts-apex-polar-area.php">Polar Area</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-sparklines.html">Sparklines</a>
+                                        <a href="charts-apex-sparklines.php">Sparklines</a>
                                     </li>
                                 </ul>
                             </div>
@@ -701,22 +701,22 @@
                             <div class="collapse" id="sidebarForms">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="form-elements.html">Basic Elements</a>
+                                        <a href="form-elements.php">Basic Elements</a>
                                     </li>
                                     <li>
-                                        <a href="form-advanced.html">Form Advanced</a>
+                                        <a href="form-advanced.php">Form Advanced</a>
                                     </li>
                                     <li>
-                                        <a href="form-validation.html">Validation</a>
+                                        <a href="form-validation.php">Validation</a>
                                     </li>
                                     <li>
-                                        <a href="form-wizard.html">Wizard</a>
+                                        <a href="form-wizard.php">Wizard</a>
                                     </li>
                                     <li>
-                                        <a href="form-fileuploads.html">File Uploads</a>
+                                        <a href="form-fileuploads.php">File Uploads</a>
                                     </li>
                                     <li>
-                                        <a href="form-editors.html">Editors</a>
+                                        <a href="form-editors.php">Editors</a>
                                     </li>
                                 </ul>
                             </div>
@@ -731,10 +731,10 @@
                             <div class="collapse" id="sidebarTables">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="tables-basic.html">Basic Tables</a>
+                                        <a href="tables-basic.php">Basic Tables</a>
                                     </li>
                                     <li>
-                                        <a href="tables-datatable.html">Data Tables</a>
+                                        <a href="tables-datatable.php">Data Tables</a>
                                     </li>
                                 </ul>
                             </div>
@@ -749,10 +749,10 @@
                             <div class="collapse" id="sidebarMaps">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="maps-google.html">Google Maps</a>
+                                        <a href="maps-google.php">Google Maps</a>
                                     </li>
                                     <li>
-                                        <a href="maps-vector.html">Vector Maps</a>
+                                        <a href="maps-vector.php">Vector Maps</a>
                                     </li>
                                 </ul>
                             </div>
@@ -769,25 +769,25 @@
                             <div class="collapse" id="sidebarPages">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="pages-invoice.html">Invoice</a>
+                                        <a href="pages-invoice.php">Invoice</a>
                                     </li>
                                     <li>
-                                        <a href="pages-faq.html">FAQ</a>
+                                        <a href="pages-faq.php">FAQ</a>
                                     </li>
                                     <li>
-                                        <a href="pages-pricing.html">Pricing</a>
+                                        <a href="pages-pricing.php">Pricing</a>
                                     </li>
                                     <li>
-                                        <a href="pages-maintenance.html">Maintenance</a>
+                                        <a href="pages-maintenance.php">Maintenance</a>
                                     </li>
                                     <li>
-                                        <a href="pages-starter.html">Starter Page</a>
+                                        <a href="pages-starter.php">Starter Page</a>
                                     </li>
                                     <li>
-                                        <a href="pages-preloader.html">With Preloader</a>
+                                        <a href="pages-preloader.php">With Preloader</a>
                                     </li>
                                     <li>
-                                        <a href="pages-timeline.html">Timeline</a>
+                                        <a href="pages-timeline.php">Timeline</a>
                                     </li>
                                 </ul>
                             </div>
@@ -802,22 +802,22 @@
                             <div class="collapse" id="sidebarPagesAuth">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="auth-login.html">Login</a>
+                                        <a href="auth-login.php">Login</a>
                                     </li>
                                     <li>
-                                        <a href="auth-register.html">Register</a>
+                                        <a href="auth-register.php">Register</a>
                                     </li>
                                     <li>
-                                        <a href="auth-logout.html">Logout</a>
+                                        <a href="auth-logout.php">Logout</a>
                                     </li>
                                     <li>
-                                        <a href="auth-recoverpw.html">Recover Password</a>
+                                        <a href="auth-recoverpw.php">Recover Password</a>
                                     </li>
                                     <li>
-                                        <a href="auth-lock-screen.html">Lock Screen</a>
+                                        <a href="auth-lock-screen.php">Lock Screen</a>
                                     </li>
                                     <li>
-                                        <a href="auth-confirm-mail.html">Confirm Mail</a>
+                                        <a href="auth-confirm-mail.php">Confirm Mail</a>
                                     </li>
                                 </ul>
                             </div>
@@ -832,13 +832,13 @@
                             <div class="collapse" id="sidebarPagesError">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="error-404.html">Error 404</a>
+                                        <a href="error-404.php">Error 404</a>
                                     </li>
                                     <li>
-                                        <a href="error-404-alt.html">Error 404-alt</a>
+                                        <a href="error-404-alt.php">Error 404-alt</a>
                                     </li>
                                     <li>
-                                        <a href="error-500.html">Error 500</a>
+                                        <a href="error-500.php">Error 500</a>
                                     </li>
                                 </ul>
                             </div>
@@ -853,16 +853,16 @@
                             <div class="collapse" id="sidebarLayouts">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="layouts-compact.html" target="_blank">Compact</a>
+                                        <a href="layouts-compact.php" target="_blank">Compact</a>
                                     </li>
                                     <li>
-                                        <a href="layouts-icon-view.html" target="_blank">Icon View</a>
+                                        <a href="layouts-icon-view.php" target="_blank">Icon View</a>
                                     </li>
                                     <li>
-                                        <a href="layouts-full.html" target="_blank">Full View</a>
+                                        <a href="layouts-full.php" target="_blank">Full View</a>
                                     </li>
                                     <li>
-                                        <a href="layouts-fullscreen.html" target="_blank">Fullscreen View</a>
+                                        <a href="layouts-fullscreen.php" target="_blank">Fullscreen View</a>
                                     </li>
                                 </ul>
                             </div>
@@ -960,459 +960,504 @@
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Powerx</a></li>
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Apps</a></li>
-                                            <li class="breadcrumb-item active">File Manager</li>
+                                            <li class="breadcrumb-item active">Chat</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">File Manager</h4>
+                                    <h4 class="page-title">Chat</h4>
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
 
                         <div class="row">
-
-                            <!-- Right Sidebar -->
-                            <div class="col-12">
+                            <!-- start chat users-->
+                            <div class="col-xl-3 col-lg-4">
                                 <div class="card">
                                     <div class="card-body">
-                                        <!-- Left sidebar -->
-                                        <div class="page-aside-left">
 
-                                            <div class="btn-group d-block mb-2">
-                                                <button type="button" class="btn btn-success dropdown-toggle w-100" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ri-file-add-line"></i> Create New </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#"><i class="ri-folder-5-line me-1"></i> Folder</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-file-2-line me-1"></i> File</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-file-list-3-line me-1"></i> Document</a>
-                                                    <a class="dropdown-item" href="#"><i class="ri-upload-line me-1"></i> Choose File</a>
-                                                </div>
+                                        <div class="d-flex align-items-start mb-3">
+                                            <img src="assets/images/users/avatar-1.jpg" class="me-2 rounded-circle" height="42" alt="Brandon Smith">
+                                            <div class="w-100">
+                                                <h5 class="mb-0">
+                                                    <a href="pages-profile.php" class="text-reset lh-base">Michael Berndt</a>
+                                                </h5>
+                                                <p class="mb-0 text-muted">
+                                                    <small class="ri-checkbox-blank-circle-fill text-success"></small> Online
+                                                </p>
                                             </div>
-                                            <div class="email-menu-list mt-3">
-                                                <a href="#" class="list-group-item border-0"><i class="ri-folders-line fs-18 align-middle me-2"></i>My Files</a>
-                                                <a href="#" class="list-group-item border-0"><i class="ri-drive-line fs-18 align-middle me-2"></i>Google Drive</a>
-                                                <a href="#" class="list-group-item border-0"><i class="ri-dropbox-line fs-18 align-middle me-2"></i>Dropbox</a>
-                                                <a href="#" class="list-group-item border-0"><i class="ri-user-voice-line fs-18 align-middle me-2"></i>Share with me</a>
-                                                <a href="#" class="list-group-item border-0"><i class="ri-time-line fs-18 align-middle me-2"></i>Recent</a>
-                                                <a href="#" class="list-group-item border-0"><i class="ri-star-line fs-18 align-middle me-2"></i>Starred</a>
-                                                <a href="#" class="list-group-item border-0"><i class="ri-delete-bin-line fs-18 align-middle me-2"></i>Deleted Files</a>
-                                            </div>
-    
-                                            <div class="mt-5">
-                                                <h4><span class="badge rounded-pill p-1 px-2 bg-dark-subtle text-dark">FREE</span></h4>
-                                                <h6 class="text-uppercase mt-3">Storage</h6>
-                                                <div class="progress my-2 progress-sm">
-                                                    <div class="progress-bar progress-lg bg-success" role="progressbar" style="width: 46%" aria-valuenow="46" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <p class="text-muted fs-13 mb-0">7.02 GB (46%) of 15 GB used</p>
-                                            </div>
-
+                                            <a href="javascript: void(0);" class="text-reset fs-20">
+                                                <i class="ri-settings-5-line"></i>
+                                            </a>
                                         </div>
-                                        <!-- End Left sidebar -->
 
-                                        <div class="page-aside-right">
+                                        <!-- start search box -->
+                                        <div class="app-search">
+                                            <form>
+                                                <div class="mb-2 w-100 position-relative">
+                                                    <input type="search" class="form-control" placeholder="People, groups &amp; messages...">
+                                                    <span class="ri-search-line search-icon"></span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- end search box -->
 
-                                            <div class="d-lg-flex justify-content-between align-items-center">
-                                                <div class="app-search">
-                                                    <form>
-                                                        <div class="mb-2 position-relative">
-                                                            <input type="text" class="form-control" placeholder="Search files...">
-                                                            <span class="ri-search-line search-icon"></span>
+                                        <h6 class="fs-13 text-muted text-uppercase mt-2">Group Chats</h6>
+                                        <div class="py-2">
+                                            <a href="javascript: void(0);" class="text-reset mb-2 d-block">
+                                                <i class="ri-checkbox-blank-circle-line me-1 text-success"></i>
+                                                <span class="mb-0 mt-1">App Development</span>
+                                            </a>
+
+                                            <a href="javascript: void(0);" class="text-reset mb-2 d-block">
+                                                <i class="ri-checkbox-blank-circle-line me-1 text-warning"></i>
+                                                <span class="mb-0 mt-1">Office Work</span>
+                                            </a>
+                                        </div>
+
+                                        <h6 class="fs-13 text-muted text-uppercase mb-2">Contacts</h6>
+                                    </div> <!-- end card-body-->
+
+                                    <div class="card-body p-0">
+                                        <!-- users -->
+                                        <div class="row">
+                                            <div class="col">
+                                                <div data-simplebar style="max-height: 380px;">
+                                                    <a href="javascript:void(0);" class="text-body">
+                                                        <div class="d-flex align-items-start py-2 px-3">
+                                                            <img src="assets/images/users/avatar-2.jpg" class="me-2 rounded-circle" height="42" alt="Brandon Smith" />
+                                                            <div class="w-100">
+                                                                <h5 class="my-0">
+                                                                    <span class="float-end text-muted fw-normal fs-12">4:30am</span>
+                                                                    Brandon Smith
+                                                                </h5>
+                                                                <p class="mt-1 mb-0 text-muted">
+                                                                    <span class="w-25 float-end text-end"><span class="badge bg-danger-subtle text-danger">3</span></span>
+                                                                    <span class="w-75">How are you today?</span>
+                                                                </p>
+                                                            </div>
                                                         </div>
+                                                    </a>
+
+                                                    <a href="javascript:void(0);" class="text-body">
+                                                        <div class="d-flex align-items-start py-2 px-3 bg-light-subtle border-top border-bottom border-light">
+                                                            <img src="assets/images/users/avatar-5.jpg" class="me-2 rounded-circle" height="42" alt="James Z" />
+                                                            <div class="w-100">
+                                                                <h5 class="my-0">
+                                                                    <span class="float-end text-muted fw-normal fs-12">5:30am</span>
+                                                                    James Zavel
+                                                                </h5>
+                                                                <p class="mt-1 mb-0 text-muted">
+                                                                    <span class="w-75">typing...</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="javascript:void(0);" class="text-body">
+                                                        <div class="d-flex align-items-start py-2 px-3">
+                                                            <img src="assets/images/users/avatar-7.jpg" class="me-2 rounded-circle" height="42" alt="Maria C" />
+                                                            <div class="w-100">
+                                                                <h5 class="my-0">
+                                                                    <span class="float-end text-muted fw-normal fs-12">Thu</span>
+                                                                    Maria C
+                                                                </h5>
+                                                                <p class="mt-1 mb-0 text-muted">
+                                                                    <span class="w-25 float-end text-end"><span class="badge bg-danger-subtle text-danger">2</span></span>
+                                                                    <span class="w-75">Are we going to have this week's planning meeting today?</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="javascript:void(0);" class="text-body">
+                                                        <div class="d-flex align-items-start py-2 px-3">
+                                                            <img src="assets/images/users/avatar-10.jpg" class="me-2 rounded-circle" height="42" alt="Rhonda D" />
+                                                            <div class="w-100">
+                                                                <h5 class="my-0">
+                                                                    <span class="float-end text-muted fw-normal fs-12">Wed</span>
+                                                                    Rhonda D
+                                                                </h5>
+                                                                <p class="mt-1 mb-0 text-muted">
+                                                                    <span class="w-75">Please check these design assets...</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="javascript:void(0);" class="text-body">
+                                                        <div class="d-flex align-items-start py-2 px-3">
+                                                            <img src="assets/images/users/avatar-3.jpg" class="me-2 rounded-circle" height="42" alt="Michael H" />
+                                                            <div class="w-100">
+                                                                <h5 class="my-0">
+                                                                    <span class="float-end text-muted fw-normal fs-12">Tue</span>
+                                                                    Michael H
+                                                                </h5>
+                                                                <p class="mt-1 mb-0 text-muted">
+                                                                    <span class="w-75">Are you free for 15 min? I would like to discuss something...</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="javascript:void(0);" class="text-body">
+                                                        <div class="d-flex align-items-start py-2 px-3">
+                                                            <img src="assets/images/users/avatar-6.jpg" class="me-2 rounded-circle" height="42" alt="Thomas R" />
+                                                            <div class="w-100">
+                                                                <h5 class="my-0">
+                                                                    <span class="float-end text-muted fw-normal fs-12">Tue</span>
+                                                                    Thomas R
+                                                                </h5>
+                                                                <p class="mt-1 mb-0 text-muted">
+                                                                    <span class="w-75">Let's have meeting today between me, you and Tony...</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="javascript:void(0);" class="text-body">
+                                                        <div class="d-flex align-items-start py-2 px-3">
+                                                            <img src="assets/images/users/avatar-8.jpg" class="me-2 rounded-circle" height="42" alt="Thomas J" />
+                                                            <div class="w-100">
+                                                                <h5 class="my-0">
+                                                                    <span class="float-end text-muted fw-normal fs-12">Tue</span>
+                                                                    Thomas J
+                                                                </h5>
+                                                                <p class="mt-1 mb-0 text-muted">
+                                                                    <span class="w-75">Howdy?</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="javascript:void(0);" class="text-body">
+                                                        <div class="d-flex align-items-start py-2 px-3">
+                                                            <img src="assets/images/users/avatar-4.jpg" class="me-2 rounded-circle" height="42" alt="Ricky J" />
+                                                            <div class="w-100">
+                                                                <h5 class="my-0">
+                                                                    <span class="float-end text-muted fw-normal fs-12">Mon</span>
+                                                                    Ricky J
+                                                                </h5>
+                                                                <p class="mt-1 mb-0 text-muted">
+                                                                    <span class="w-75">Are you interested in learning?</span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <!-- end slimscroll-->
+                                            </div>
+                                            <!-- End col -->
+                                        </div>
+                                        <!-- end users -->
+                                    </div>
+                                </div> <!-- end card-->
+                            </div>
+                            <!-- end chat users-->
+
+                            <!-- chat area -->
+                            <div class="col-xl-9 col-lg-8">
+
+                                <div class="card">
+                                    <div class="card-body py-2 px-3 border-bottom border-light">
+                                        <div class="row justify-content-between py-1">
+                                            <div class="col-sm-7">
+                                                <div class="d-flex align-items-start">
+                                                    <img src="assets/images/users/avatar-5.jpg" class="me-2 rounded-circle" height="36" alt="Brandon Smith">
+                                                    <div>
+                                                        <h5 class="my-0 font-15">
+                                                            <a href="pages-profile.php" class="text-reset">James Zavel</a>
+                                                        </h5>
+                                                        <p class="mt-1 mb-0 text-muted fs-12">
+                                                            <small class="ri-checkbox-blank-circle-fill text-danger"></small> Offline
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div id="tooltips-container">
+                                                    <a href="javascript: void(0);" class="text-reset fs-20 p-1 d-inline-block">
+                                                        <i class="ri-phone-line" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Voice Call"></i>
+                                                    </a>
+                                                    <a href="javascript: void(0);" class="text-reset fs-20 p-1 d-inline-block">
+                                                        <i class="ri-vidicon-line" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Video Call"></i>
+                                                    </a>
+                                                    <a href="javascript: void(0);" class="text-reset fs-20 p-1 d-inline-block">
+                                                        <i class="ri-group-line" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Add Users"></i>
+                                                    </a>
+                                                    <a href="javascript: void(0);" class="text-reset fs-20 p-1 d-inline-block">
+                                                        <i class="ri-delete-bin-line" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete Chat"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <ul class="conversation-list p-3" data-simplebar style="max-height: 520px;">
+                                            <li class="clearfix">
+                                                <div class="chat-avatar">
+                                                    <img src="assets/images/users/avatar-5.jpg" class="rounded" alt="James Z" />
+                                                    <i>10:00</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>James Z</i>
+                                                        <p>
+                                                            Hello!
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix odd">
+                                                <div class="chat-avatar">
+                                                    <img src="assets/images/users/avatar-1.jpg" class="rounded" alt="Geneva M" />
+                                                    <i>10:01</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>Geneva M</i>
+                                                        <p>
+                                                            Hi, How are you? What about our next meeting?
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <div class="chat-avatar">
+                                                    <img src="assets/images/users/avatar-5.jpg" class="rounded" alt="James Z" />
+                                                    <i>10:01</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>James Z</i>
+                                                        <p>
+                                                            Yeah everything is fine
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix odd">
+                                                <div class="chat-avatar">
+                                                    <img src="assets/images/users/avatar-1.jpg" class="rounded" alt="Geneva M" />
+                                                    <i>10:02</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>Geneva M</i>
+                                                        <p>
+                                                            Wow that's great
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <div class="chat-avatar">
+                                                    <img src="assets/images/users/avatar-5.jpg" alt="James Z" class="rounded" />
+                                                    <i>10:02</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>James Z</i>
+                                                        <p>
+                                                            Let's have it today if you are free
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix odd">
+                                                <div class="chat-avatar">
+                                                    <img src="assets/images/users/avatar-1.jpg" alt="Geneva M" class="rounded" />
+                                                    <i>10:03</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>Geneva M</i>
+                                                        <p>
+                                                            Sure thing! let me know if 2pm works for you
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <div class="chat-avatar">
+                                                    <img src="assets/images/users/avatar-5.jpg" alt="James Z" class="rounded" />
+                                                    <i>10:04</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>James Z</i>
+                                                        <p>
+                                                            Sorry, I have another meeting scheduled at 2pm. Can we have it at 3pm instead?
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix">
+                                                <div class="chat-avatar">
+                                                    <img src="assets/images/users/avatar-5.jpg" alt="James Z" class="rounded" />
+                                                    <i>10:04</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>James Z</i>
+                                                        <p>
+                                                            We can also discuss about the presentation talk format if you have some extra mins
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="clearfix odd">
+                                                <div class="chat-avatar">
+                                                    <img src="assets/images/users/avatar-1.jpg" alt="Geneva M" class="rounded" />
+                                                    <i>10:05</i>
+                                                </div>
+                                                <div class="conversation-text">
+                                                    <div class="ctext-wrap">
+                                                        <i>Geneva M</i>
+                                                        <p>
+                                                            3pm it is. Sure, let's discuss about presentation format, it would be great to finalize today. I am attaching the last year format and assets here...
+                                                        </p>
+                                                    </div>
+                                                    <div class="card mt-2 mb-1 shadow-none border text-start">
+                                                        <div class="p-2">
+                                                            <div class="row align-items-center">
+                                                                <div class="col-auto">
+                                                                    <div class="avatar-sm">
+                                                                        <span class="avatar-title bg-primary rounded">
+                                                                            .ZIP
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col ps-0">
+                                                                    <a href="javascript:void(0);" class="text-muted fw-bold">Powerx-sketch.zip</a>
+                                                                    <p class="mb-0 text-muted">2.3 MB</p>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <!-- Button -->
+                                                                    <a href="javascript:void(0);" class="btn btn-link btn-lg text-muted">
+                                                                        <i class="ri-download-2-line"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="conversation-actions dropdown">
+                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Copy Message</a>
+                                                        <a class="dropdown-item" href="#">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="bg-light p-3 rounded">
+                                                    <form class="needs-validation" novalidate="" name="chat-form" id="chat-form">
+                                                        <div class="row">
+                                                            <div class="col mb-2 mb-sm-0">
+                                                                <input type="text" class="form-control border-0" placeholder="Enter your text" required="" />
+                                                                <div class="invalid-feedback">
+                                                                    Please enter your messsage
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-auto">
+                                                                <div class="btn-group">
+                                                                    <a href="#" class="btn btn-light"><i class="ri-attachment-2"></i></a>
+                                                                    <button type="submit" class="btn btn-success chat-send w-100"><i class="ri-send-plane-2-line"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- end col -->
+                                                        </div>
+                                                        <!-- end row-->
                                                     </form>
                                                 </div>
-                                                <div>
-                                                    <button type="submit" class="btn btn-sm btn-light"><i class="ri-list-check"></i></button>
-                                                    <button type="submit" class="btn btn-sm"><i class="ri-grid-fill"></i></button>
-                                                </div>
                                             </div>
-    
-                                            <div class="mt-3">
-                                                <h5 class="mb-2">Quick Access</h5>
-    
-                                                <div class="row mx-n1 g-0">
-                                                    <div class="col-xxl-3 col-lg-6">
-                                                        <div class="card m-1 shadow-none border">
-                                                            <div class="p-2">
-                                                                <div class="row align-items-center">
-                                                                    <div class="col-auto">
-                                                                        <div class="avatar-sm">
-                                                                            <span class="avatar-title bg-light text-secondary rounded">
-                                                                                <i class="ri-file-zip-line fs-20 fw-normal"></i>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col ps-0">
-                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Powerx-sketch.zip</a>
-                                                                        <p class="mb-0 fs-13">2.3 MB</p>
-                                                                    </div>
-                                                                </div> <!-- end row -->
-                                                            </div> <!-- end .p-2-->
-                                                        </div> <!-- end col -->
-                                                    </div> <!-- end col-->
-    
-                                                    <div class="col-xxl-3 col-lg-6">
-                                                        <div class="card m-1 shadow-none border">
-                                                            <div class="p-2">
-                                                                <div class="row align-items-center">
-                                                                    <div class="col-auto">
-                                                                        <div class="avatar-sm">
-                                                                            <span class="avatar-title bg-light text-secondary rounded">
-                                                                                <i class="ri-folder-2-line fw-normal fs-20"></i>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col ps-0">
-                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Compile Version</a>
-                                                                        <p class="mb-0 fs-13">87.2 MB</p>
-                                                                    </div>
-                                                                </div> <!-- end row -->
-                                                            </div> <!-- end .p-2-->
-                                                        </div> <!-- end col -->
-                                                    </div> <!-- end col-->
-    
-                                                    <div class="col-xxl-3 col-lg-6">
-                                                        <div class="card m-1 shadow-none border">
-                                                            <div class="p-2">
-                                                                <div class="row align-items-center">
-                                                                    <div class="col-auto">
-                                                                        <div class="avatar-sm">
-                                                                            <span class="avatar-title bg-primary-subtle text-primary rounded">
-                                                                                <i class="ri-folder-2-line fw-normal fs-20"></i>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col ps-0">
-                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">admin.zip</a>
-                                                                        <p class="mb-0 fs-13">45.1 MB</p>
-                                                                    </div>
-                                                                </div> <!-- end row -->
-                                                            </div> <!-- end .p-2-->
-                                                        </div> <!-- end col -->
-                                                    </div> <!-- end col-->
-    
-                                                    <div class="col-xxl-3 col-lg-6">
-                                                        <div class="card m-1 shadow-none border">
-                                                            <div class="p-2">
-                                                                <div class="row align-items-center">
-                                                                    <div class="col-auto">
-                                                                        <div class="avatar-sm">
-                                                                            <span class="avatar-title bg-light text-secondary rounded">
-                                                                                <i class="ri-file-pdf-line fw-normal fs-20"></i>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col ps-0">
-                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Docs.pdf</a>
-                                                                        <p class="mb-0 fs-13">7.5 MB</p>
-                                                                    </div>
-                                                                </div> <!-- end row -->
-                                                            </div> <!-- end .p-2-->
-                                                        </div> <!-- end col -->
-                                                    </div> <!-- end col-->
-    
-                                                    <div class="col-xxl-3 col-lg-6">
-                                                        <div class="card m-1 shadow-none border">
-                                                            <div class="p-2">
-                                                                <div class="row align-items-center">
-                                                                    <div class="col-auto">
-                                                                        <div class="avatar-sm">
-                                                                            <span class="avatar-title bg-light text-secondary rounded">
-                                                                                <i class="ri-file-pdf-line fw-normal fs-20"></i>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col ps-0">
-                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">License-details.pdf</a>
-                                                                        <p class="mb-0 fs-13">784 KB</p>
-                                                                    </div>
-                                                                </div> <!-- end row -->
-                                                            </div> <!-- end .p-2-->
-                                                        </div> <!-- end col -->
-                                                    </div> <!-- end col-->
-    
-                                                    <div class="col-xxl-3 col-lg-6">
-                                                        <div class="card m-1 shadow-none border">
-                                                            <div class="p-2">
-                                                                <div class="row align-items-center">
-                                                                    <div class="col-auto">
-                                                                        <div class="avatar-sm">
-                                                                            <span class="avatar-title bg-light text-secondary rounded">
-                                                                                <i class="ri-folder-5-line fw-normal fs-20"></i>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col ps-0">
-                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Purchase Verification</a>
-                                                                        <p class="mb-0 fs-13">2.2 MB</p>
-                                                                    </div>
-                                                                </div> <!-- end row -->
-                                                            </div> <!-- end .p-2-->
-                                                        </div> <!-- end col -->
-                                                    </div> <!-- end col-->
-    
-                                                    <div class="col-xxl-3 col-lg-6">
-                                                        <div class="card m-1 shadow-none border">
-                                                            <div class="p-2">
-                                                                <div class="row align-items-center">
-                                                                    <div class="col-auto">
-                                                                        <div class="avatar-sm">
-                                                                            <span class="avatar-title bg-light text-secondary rounded">
-                                                                                <i class="ri-folder-5-line fw-normal fs-20"></i>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col ps-0">
-                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Powerx Integrations</a>
-                                                                        <p class="mb-0 fs-13">874 MB</p>
-                                                                    </div>
-                                                                </div> <!-- end row -->
-                                                            </div> <!-- end .p-2-->
-                                                        </div> <!-- end col -->
-                                                    </div> <!-- end col-->
-                                                </div> <!-- end row-->
-                                            </div> <!-- end .mt-3-->
-    
-    
-                                            <div class="mt-3">
-                                                <h5 class="mb-3">Recent</h5>
-    
-                                                <div class="table-responsive">
-                                                    <table class="table table-centered table-nowrap table-borderless table-hover mb-0">
-                                                        <thead class="border-top border-bottom bg-light-subtle border-light">
-                                                            <tr>
-                                                                <th class="border-0">Name</th>
-                                                                <th class="border-0">Last Modified</th>
-                                                                <th class="border-0">Size</th>
-                                                                <th class="border-0">Owner</th>
-                                                                <th class="border-0">Members</th>
-                                                                <th class="border-0" style="width: 80px;">Action</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <span class="fw-semibold"><a href="javascript: void(0);" class="text-reset">App Design & Development</a></span>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="mb-0">Jan 03, 2023</p>
-                                                                    <span class="fs-12">by Andrew</span>
-                                                                </td>
-                                                                <td>128 MB</td>
-                                                                <td>
-                                                                    Danielle Thompson
-                                                                </td>
-                                                                <td id="tooltip-container">
-                                                                    <div class="avatar-group">
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Mat Helme">
-                                                                            <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Michael Zenaty">
-                                                                            <img src="assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" title="James Anderson">
-                                                                            <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Username">
-                                                                            <img src="assets/images/users/avatar-5.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
-                                                                <td class="">
-                                                                    <div class="btn-group dropdown">
-                                                                        <a href="#" class="table-action-btn dropdown-toggle arrow-none btn btn-light px-1 btn-xs" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted vertical-middle"></i>Share</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-link me-2 text-muted vertical-middle"></i>Get Sharable Link</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-pencil-line me-2 text-muted vertical-middle"></i>Rename</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-download-line me-2 text-muted vertical-middle"></i>Download</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-delete-bin-line me-2 text-muted vertical-middle"></i>Remove</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            
-                                                            <tr>
-                                                                <td>
-                                                                    <span class="fw-semibold"><a href="javascript: void(0);" class="text-reset">Powerx-sketch-design.zip</a></span>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="mb-0">Feb 13, 2023</p>
-                                                                    <span class="fs-12">by Coderthemes</span>
-                                                                </td>
-                                                                <td>521 MB</td>
-                                                                <td>
-                                                                    Coder Themes
-                                                                </td>
-                                                                <td id="tooltip-container1">
-                                                                    <div class="avatar-group">
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="Mat Helme">
-                                                                            <img src="assets/images/users/avatar-4.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="Michael Zenaty">
-                                                                            <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="James Anderson">
-                                                                            <img src="assets/images/users/avatar-6.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="btn-group dropdown">
-                                                                        <a href="#" class="table-action-btn dropdown-toggle arrow-none btn btn-light px-1 btn-xs" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted vertical-middle"></i>Share</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-link me-2 text-muted vertical-middle"></i>Get Sharable Link</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-pencil-line me-2 text-muted vertical-middle"></i>Rename</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-download-line me-2 text-muted vertical-middle"></i>Download</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-delete-bin-line me-2 text-muted vertical-middle"></i>Remove</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-    
-                                                            <tr>
-                                                                <td>
-                                                                    <span class="fw-semibold"><a href="javascript: void(0);" class="text-reset">Annualreport.pdf</a></span>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="mb-0">Dec 18, 2022</p>
-                                                                    <span class="fs-12">by Alejandro</span>
-                                                                </td>
-                                                                <td>7.2 MB</td>
-                                                                <td>
-                                                                    Gary Coley
-                                                                </td>
-                                                                <td id="tooltip-container2">
-                                                                    <div class="avatar-group">
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" data-bs-placement="top" title="Mat Helme">
-                                                                            <img src="assets/images/users/avatar-9.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" data-bs-placement="top" title="Michael Zenaty">
-                                                                            <img src="assets/images/users/avatar-7.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" data-bs-placement="top" title="James Anderson">
-                                                                            <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="btn-group dropdown">
-                                                                        <a href="#" class="table-action-btn dropdown-toggle arrow-none btn btn-light px-1 btn-xs" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted vertical-middle"></i>Share</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-link me-2 text-muted vertical-middle"></i>Get Sharable Link</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-pencil-line me-2 text-muted vertical-middle"></i>Rename</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-download-line me-2 text-muted vertical-middle"></i>Download</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-delete-bin-line me-2 text-muted vertical-middle"></i>Remove</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-    
-                                                            <tr>
-                                                                <td>
-                                                                    <span class="fw-semibold"><a href="javascript: void(0);" class="text-reset">Wireframes</a></span>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="mb-0">Nov 25, 2022</p>
-                                                                    <span class="fs-12">by Dunkle</span>
-                                                                </td>
-                                                                <td>54.2 MB</td>
-                                                                <td>
-                                                                    Jasper Rigg
-                                                                </td>
-                                                                <td id="tooltip-container3">
-                                                                    <div class="avatar-group">
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container3" data-bs-toggle="tooltip" data-bs-placement="top" title="Mat Helme">
-                                                                            <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container3" data-bs-toggle="tooltip" data-bs-placement="top" title="Michael Zenaty">
-                                                                            <img src="assets/images/users/avatar-8.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container3" data-bs-toggle="tooltip" data-bs-placement="top" title="James Anderson">
-                                                                            <img src="assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container3" data-bs-toggle="tooltip" data-bs-placement="top" title="Username">
-                                                                            <img src="assets/images/users/avatar-5.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="btn-group dropdown">
-                                                                        <a href="#" class="table-action-btn dropdown-toggle arrow-none btn btn-light px-1 btn-xs" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted vertical-middle"></i>Share</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-link me-2 text-muted vertical-middle"></i>Get Sharable Link</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-pencil-line me-2 text-muted vertical-middle"></i>Rename</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-download-line me-2 text-muted vertical-middle"></i>Download</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-delete-bin-line me-2 text-muted vertical-middle"></i>Remove</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-    
-                                                            <tr>
-                                                                <td>
-                                                                    <span class="fw-semibold"><a href="javascript: void(0);" class="text-reset">Documentation.docs</a></span>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="mb-0">Feb 9, 2023</p>
-                                                                    <span class="fs-12">by Justin</span>
-                                                                </td>
-                                                                <td>8.3 MB</td>
-                                                                <td>
-                                                                    Cooper Sharwood
-                                                                </td>
-                                                                <td id="tooltip-container4">
-                                                                    <div class="avatar-group">
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container4" data-bs-toggle="tooltip" data-bs-placement="top" title="Mat Helme">
-                                                                            <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                
-                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container4" data-bs-toggle="tooltip" data-bs-placement="top" title="Michael Zenaty">
-                                                                            <img src="assets/images/users/avatar-10.jpg" class="rounded-circle avatar-xs" alt="friend">
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="btn-group dropdown">
-                                                                        <a href="#" class="table-action-btn dropdown-toggle arrow-none btn btn-light px-1 btn-xs" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted vertical-middle"></i>Share</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-link me-2 text-muted vertical-middle"></i>Get Sharable Link</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-pencil-line me-2 text-muted vertical-middle"></i>Rename</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-download-line me-2 text-muted vertical-middle"></i>Download</a>
-                                                                            <a class="dropdown-item" href="#"><i class="ri-delete-bin-line me-2 text-muted vertical-middle"></i>Remove</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-    
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-    
-                                            </div> <!-- end .mt-3-->
-
-                                        </div> 
-                                        <!-- end inbox-rightbar-->
+                                            <!-- end col-->
+                                        </div>
+                                        <!-- end row -->
                                     </div>
                                     <!-- end card-body -->
-                                    <div class="clearfix"></div>
-                                </div> <!-- end card-box -->
+                                </div> <!-- end card -->
+                            </div>
+                            <!-- end chat area-->
 
-                            </div> <!-- end Col -->
-                        </div><!-- End row -->
+                        </div> <!-- end row-->
 
                     </div> <!-- container -->
 
@@ -1561,6 +1606,7 @@
                 </div>
             </div>
         </div>  
+
         <!-- Vendor js -->
         <script src="assets/js/vendor.min.js"></script>
 

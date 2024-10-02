@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Dashboard | Powerx - Bootstrap 5 Admin & Dashboard Template</title>
+        <title>Calendar | Powerx - Bootstrap 5 Admin & Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -11,11 +11,8 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-        <!-- Daterangepicker css -->
-        <link rel="stylesheet" href="assets/vendor/daterangepicker/daterangepicker.css">
-
-        <!-- Vector Map css -->
-        <link rel="stylesheet" href="assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css">
+        <!-- Fullcalendar css -->
+        <link href="assets/vendor/fullcalendar/main.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Theme Config Js -->
         <script src="assets/js/config.js"></script>
@@ -40,7 +37,7 @@
                         <!-- Topbar Brand Logo -->
                         <div class="logo-topbar">
                             <!-- Logo light -->
-                            <a href="index.html" class="logo-light">
+                            <a href="index.php" class="logo-light">
                                 <span class="logo-lg">
                                     <img src="assets/images/logo.png" alt="logo">
                                 </span>
@@ -50,7 +47,7 @@
                             </a>
 
                             <!-- Logo Dark -->
-                            <a href="index.html" class="logo-dark">
+                            <a href="index.php" class="logo-dark">
                                 <span class="logo-lg">
                                     <img src="assets/images/logo-dark.png" alt="dark logo">
                                 </span>
@@ -382,31 +379,31 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="pages-profile.html" class="dropdown-item">
+                                <a href="pages-profile.php" class="dropdown-item">
                                     <i class="ri-account-circle-line fs-18 align-middle me-1"></i>
                                     <span>My Account</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="pages-profile.html" class="dropdown-item">
+                                <a href="pages-profile.php" class="dropdown-item">
                                     <i class="ri-settings-4-line fs-18 align-middle me-1"></i>
                                     <span>Settings</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="pages-faq.html" class="dropdown-item">
+                                <a href="pages-faq.php" class="dropdown-item">
                                     <i class="ri-customer-service-2-line fs-18 align-middle me-1"></i>
                                     <span>Support</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="auth-lock-screen.html" class="dropdown-item">
+                                <a href="auth-lock-screen.php" class="dropdown-item">
                                     <i class="ri-lock-password-line fs-18 align-middle me-1"></i>
                                     <span>Lock Screen</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="auth-logout-2.html" class="dropdown-item">
+                                <a href="auth-logout-2.php" class="dropdown-item">
                                     <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
                                     <span>Logout</span>
                                 </a>
@@ -421,7 +418,7 @@
             <div class="leftside-menu">
 
                 <!-- Brand Logo Light -->
-                <a href="index.html" class="logo logo-light">
+                <a href="index.php" class="logo logo-light">
                     <span class="logo-lg">
                         <img src="assets/images/logo.png" alt="logo">
                     </span>
@@ -431,7 +428,7 @@
                 </a>
 
                 <!-- Brand Logo Dark -->
-                <a href="index.html" class="logo logo-dark">
+                <a href="index.php" class="logo logo-dark">
                     <span class="logo-lg">
                         <img src="assets/images/logo-dark.png" alt="dark logo">
                     </span>
@@ -448,7 +445,7 @@
                 <div class="h-100" id="leftside-menu-container" data-simplebar>
                     <!-- Leftbar User -->
                     <div class="leftbar-user">
-                        <a href="pages-profile.html">
+                        <a href="pages-profile.php">
                             <img src="assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
                             <span class="leftbar-user-name mt-2">Michael Berndt</span>
                         </a>
@@ -460,21 +457,21 @@
                         <li class="side-nav-title">Main</li>
 
                         <li class="side-nav-item">
-                            <a href="index.html" class="side-nav-link">
+                            <a href="index.php" class="side-nav-link">
                                 <i class="ri-dashboard-2-fill"></i>
                                 <span> Dashboard </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="apps-calendar.html" class="side-nav-link">
+                            <a href="apps-calendar.php" class="side-nav-link">
                                 <i class="ri-calendar-event-fill"></i>
                                 <span> Calendar </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="apps-chat.html" class="side-nav-link">
+                            <a href="apps-chat.php" class="side-nav-link">
                                 <i class="ri-message-3-fill"></i>
                                 <span> Chat </span>
                             </a>
@@ -489,10 +486,10 @@
                             <div class="collapse" id="sidebarEmail">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="apps-email-inbox.html">Inbox</a>
+                                        <a href="apps-email-inbox.php">Inbox</a>
                                     </li>
                                     <li>
-                                        <a href="apps-email-read.html">Read Email</a>
+                                        <a href="apps-email-read.php">Read Email</a>
                                     </li>
                                 </ul>
                             </div>
@@ -509,82 +506,82 @@
                             <div class="collapse" id="sidebarBaseUI">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="ui-accordions.html">Accordions</a>
+                                        <a href="ui-accordions.php">Accordions</a>
                                     </li>
                                     <li>
-                                        <a href="ui-alerts.html">Alerts</a>
+                                        <a href="ui-alerts.php">Alerts</a>
                                     </li>
                                     <li>
-                                        <a href="ui-avatars.html">Avatars</a>
+                                        <a href="ui-avatars.php">Avatars</a>
                                     </li>
                                     <li>
-                                        <a href="ui-badges.html">Badges</a>
+                                        <a href="ui-badges.php">Badges</a>
                                     </li>
                                     <li>
-                                        <a href="ui-breadcrumb.html">Breadcrumb</a>
+                                        <a href="ui-breadcrumb.php">Breadcrumb</a>
                                     </li>
                                     <li>
-                                        <a href="ui-buttons.html">Buttons</a>
+                                        <a href="ui-buttons.php">Buttons</a>
                                     </li>
                                     <li>
-                                        <a href="ui-cards.html">Cards</a>
+                                        <a href="ui-cards.php">Cards</a>
                                     </li>
                                     <li>
-                                        <a href="ui-carousel.html">Carousel</a>
+                                        <a href="ui-carousel.php">Carousel</a>
                                     </li>
                                     <li>
-                                        <a href="ui-collapse.html">Collapse</a>
+                                        <a href="ui-collapse.php">Collapse</a>
                                     </li>
                                     <li>
-                                        <a href="ui-dropdowns.html">Dropdowns</a>
+                                        <a href="ui-dropdowns.php">Dropdowns</a>
                                     </li>
                                     <li>
-                                        <a href="ui-embed-video.html">Embed Video</a>
+                                        <a href="ui-embed-video.php">Embed Video</a>
                                     </li>
                                     <li>
-                                        <a href="ui-grid.html">Grid</a>
+                                        <a href="ui-grid.php">Grid</a>
                                     </li>
                                     <li>
-                                        <a href="ui-links.html">Links</a>
+                                        <a href="ui-links.php">Links</a>
                                     </li>
                                     <li>
-                                        <a href="ui-list-group.html">List Group</a>
+                                        <a href="ui-list-group.php">List Group</a>
                                     </li>
                                     <li>
-                                        <a href="ui-modals.html">Modals</a>
+                                        <a href="ui-modals.php">Modals</a>
                                     </li>
                                     <li>
-                                        <a href="ui-notifications.html">Notifications</a>
+                                        <a href="ui-notifications.php">Notifications</a>
                                     </li>
                                     <li>
-                                        <a href="ui-offcanvas.html">Offcanvas</a>
+                                        <a href="ui-offcanvas.php">Offcanvas</a>
                                     </li>
                                     <li>
-                                        <a href="ui-placeholders.html">Placeholders</a>
+                                        <a href="ui-placeholders.php">Placeholders</a>
                                     </li>
                                     <li>
-                                        <a href="ui-pagination.html">Pagination</a>
+                                        <a href="ui-pagination.php">Pagination</a>
                                     </li>
                                     <li>
-                                        <a href="ui-popovers.html">Popovers</a>
+                                        <a href="ui-popovers.php">Popovers</a>
                                     </li>
                                     <li>
-                                        <a href="ui-progress.html">Progress</a>
+                                        <a href="ui-progress.php">Progress</a>
                                     </li>
                                     <li>
-                                        <a href="ui-spinners.html">Spinners</a>
+                                        <a href="ui-spinners.php">Spinners</a>
                                     </li>
                                     <li>
-                                        <a href="ui-tabs.html">Tabs</a>
+                                        <a href="ui-tabs.php">Tabs</a>
                                     </li>
                                     <li>
-                                        <a href="ui-tooltips.html">Tooltips</a>
+                                        <a href="ui-tooltips.php">Tooltips</a>
                                     </li>
                                     <li>
-                                        <a href="ui-typography.html">Typography</a>
+                                        <a href="ui-typography.php">Typography</a>
                                     </li>
                                     <li>
-                                        <a href="ui-utilities.html">Utilities</a>
+                                        <a href="ui-utilities.php">Utilities</a>
                                     </li>
                                 </ul>
                             </div>
@@ -599,19 +596,19 @@
                             <div class="collapse" id="sidebarExtendedUI">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="extended-dragula.html">Dragula</a>
+                                        <a href="extended-dragula.php">Dragula</a>
                                     </li>
                                     <li>
-                                        <a href="extended-range-slider.html">Range Slider</a>
+                                        <a href="extended-range-slider.php">Range Slider</a>
                                     </li>
                                     <li>
-                                        <a href="extended-ratings.html">Ratings</a>
+                                        <a href="extended-ratings.php">Ratings</a>
                                     </li>
                                     <li>
-                                        <a href="extended-scrollbar.html">Scrollbar</a>
+                                        <a href="extended-scrollbar.php">Scrollbar</a>
                                     </li>
                                     <li>
-                                        <a href="extended-scrollspy.html">Scrollspy</a>
+                                        <a href="extended-scrollspy.php">Scrollspy</a>
                                     </li>
                                 </ul>
                             </div>
@@ -626,10 +623,10 @@
                             <div class="collapse" id="sidebarIcons">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="icons-remixicons.html">Remix Icons</a>
+                                        <a href="icons-remixicons.php">Remix Icons</a>
                                     </li>
                                     <li>
-                                        <a href="icons-bootstrap.html">Bootstrap Icons</a>
+                                        <a href="icons-bootstrap.php">Bootstrap Icons</a>
                                     </li>
                                 </ul>
                             </div>
@@ -644,55 +641,55 @@
                             <div class="collapse" id="sidebarCharts">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="charts-apex-area.html">Area</a>
+                                        <a href="charts-apex-area.php">Area</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-bar.html">Bar</a>
+                                        <a href="charts-apex-bar.php">Bar</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-bubble.html">Bubble</a>
+                                        <a href="charts-apex-bubble.php">Bubble</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-candlestick.html">Candlestick</a>
+                                        <a href="charts-apex-candlestick.php">Candlestick</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-column.html">Column</a>
+                                        <a href="charts-apex-column.php">Column</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-heatmap.html">Heatmap</a>
+                                        <a href="charts-apex-heatmap.php">Heatmap</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-line.html">Line</a>
+                                        <a href="charts-apex-line.php">Line</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-mixed.html">Mixed</a>
+                                        <a href="charts-apex-mixed.php">Mixed</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-timeline.html">Timeline</a>
+                                        <a href="charts-apex-timeline.php">Timeline</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-boxplot.html">Boxplot</a>
+                                        <a href="charts-apex-boxplot.php">Boxplot</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-treemap.html">Treemap</a>
+                                        <a href="charts-apex-treemap.php">Treemap</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-pie.html">Pie</a>
+                                        <a href="charts-apex-pie.php">Pie</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-radar.html">Radar</a>
+                                        <a href="charts-apex-radar.php">Radar</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-radialbar.html">RadialBar</a>
+                                        <a href="charts-apex-radialbar.php">RadialBar</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-scatter.html">Scatter</a>
+                                        <a href="charts-apex-scatter.php">Scatter</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-polar-area.html">Polar Area</a>
+                                        <a href="charts-apex-polar-area.php">Polar Area</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-sparklines.html">Sparklines</a>
+                                        <a href="charts-apex-sparklines.php">Sparklines</a>
                                     </li>
                                 </ul>
                             </div>
@@ -707,22 +704,22 @@
                             <div class="collapse" id="sidebarForms">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="form-elements.html">Basic Elements</a>
+                                        <a href="form-elements.php">Basic Elements</a>
                                     </li>
                                     <li>
-                                        <a href="form-advanced.html">Form Advanced</a>
+                                        <a href="form-advanced.php">Form Advanced</a>
                                     </li>
                                     <li>
-                                        <a href="form-validation.html">Validation</a>
+                                        <a href="form-validation.php">Validation</a>
                                     </li>
                                     <li>
-                                        <a href="form-wizard.html">Wizard</a>
+                                        <a href="form-wizard.php">Wizard</a>
                                     </li>
                                     <li>
-                                        <a href="form-fileuploads.html">File Uploads</a>
+                                        <a href="form-fileuploads.php">File Uploads</a>
                                     </li>
                                     <li>
-                                        <a href="form-editors.html">Editors</a>
+                                        <a href="form-editors.php">Editors</a>
                                     </li>
                                 </ul>
                             </div>
@@ -737,10 +734,10 @@
                             <div class="collapse" id="sidebarTables">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="tables-basic.html">Basic Tables</a>
+                                        <a href="tables-basic.php">Basic Tables</a>
                                     </li>
                                     <li>
-                                        <a href="tables-datatable.html">Data Tables</a>
+                                        <a href="tables-datatable.php">Data Tables</a>
                                     </li>
                                 </ul>
                             </div>
@@ -755,10 +752,10 @@
                             <div class="collapse" id="sidebarMaps">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="maps-google.html">Google Maps</a>
+                                        <a href="maps-google.php">Google Maps</a>
                                     </li>
                                     <li>
-                                        <a href="maps-vector.html">Vector Maps</a>
+                                        <a href="maps-vector.php">Vector Maps</a>
                                     </li>
                                 </ul>
                             </div>
@@ -775,25 +772,25 @@
                             <div class="collapse" id="sidebarPages">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="pages-invoice.html">Invoice</a>
+                                        <a href="pages-invoice.php">Invoice</a>
                                     </li>
                                     <li>
-                                        <a href="pages-faq.html">FAQ</a>
+                                        <a href="pages-faq.php">FAQ</a>
                                     </li>
                                     <li>
-                                        <a href="pages-pricing.html">Pricing</a>
+                                        <a href="pages-pricing.php">Pricing</a>
                                     </li>
                                     <li>
-                                        <a href="pages-maintenance.html">Maintenance</a>
+                                        <a href="pages-maintenance.php">Maintenance</a>
                                     </li>
                                     <li>
-                                        <a href="pages-starter.html">Starter Page</a>
+                                        <a href="pages-starter.php">Starter Page</a>
                                     </li>
                                     <li>
-                                        <a href="pages-preloader.html">With Preloader</a>
+                                        <a href="pages-preloader.php">With Preloader</a>
                                     </li>
                                     <li>
-                                        <a href="pages-timeline.html">Timeline</a>
+                                        <a href="pages-timeline.php">Timeline</a>
                                     </li>
                                 </ul>
                             </div>
@@ -808,22 +805,22 @@
                             <div class="collapse" id="sidebarPagesAuth">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="auth-login.html">Login</a>
+                                        <a href="auth-login.php">Login</a>
                                     </li>
                                     <li>
-                                        <a href="auth-register.html">Register</a>
+                                        <a href="auth-register.php">Register</a>
                                     </li>
                                     <li>
-                                        <a href="auth-logout.html">Logout</a>
+                                        <a href="auth-logout.php">Logout</a>
                                     </li>
                                     <li>
-                                        <a href="auth-recoverpw.html">Recover Password</a>
+                                        <a href="auth-recoverpw.php">Recover Password</a>
                                     </li>
                                     <li>
-                                        <a href="auth-lock-screen.html">Lock Screen</a>
+                                        <a href="auth-lock-screen.php">Lock Screen</a>
                                     </li>
                                     <li>
-                                        <a href="auth-confirm-mail.html">Confirm Mail</a>
+                                        <a href="auth-confirm-mail.php">Confirm Mail</a>
                                     </li>
                                 </ul>
                             </div>
@@ -838,13 +835,13 @@
                             <div class="collapse" id="sidebarPagesError">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="error-404.html">Error 404</a>
+                                        <a href="error-404.php">Error 404</a>
                                     </li>
                                     <li>
-                                        <a href="error-404-alt.html">Error 404-alt</a>
+                                        <a href="error-404-alt.php">Error 404-alt</a>
                                     </li>
                                     <li>
-                                        <a href="error-500.html">Error 500</a>
+                                        <a href="error-500.php">Error 500</a>
                                     </li>
                                 </ul>
                             </div>
@@ -859,16 +856,16 @@
                             <div class="collapse" id="sidebarLayouts">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="layouts-compact.html" target="_blank">Compact</a>
+                                        <a href="layouts-compact.php" target="_blank">Compact</a>
                                     </li>
                                     <li>
-                                        <a href="layouts-icon-view.html" target="_blank">Icon View</a>
+                                        <a href="layouts-icon-view.php" target="_blank">Icon View</a>
                                     </li>
                                     <li>
-                                        <a href="layouts-full.html" target="_blank">Full View</a>
+                                        <a href="layouts-full.php" target="_blank">Full View</a>
                                     </li>
                                     <li>
-                                        <a href="layouts-fullscreen.html" target="_blank">Fullscreen View</a>
+                                        <a href="layouts-fullscreen.php" target="_blank">Fullscreen View</a>
                                     </li>
                                 </ul>
                             </div>
@@ -940,16 +937,13 @@
             </div>
             <!-- ========== Left Sidebar End ========== -->
 
-            <!-- ============================================================== -->
-            <!-- Start Page Content here -->
-            <!-- ============================================================== -->
-
             <div class="content-page">
                 <div class="content">
 
                     <!-- Start Content-->
                     <div class="container-fluid">
 
+                        <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="bg-flower">
@@ -959,335 +953,124 @@
                                 <div class="bg-flower-2">
                                     <img src="assets/images/flowers/img-1.png">
                                 </div>
-
-                                <div class="page-title-box">                                    
+        
+                                <div class="page-title-box">
                                     <div class="page-title-right">
-                                        <form class="d-flex">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="dash-daterange">
-                                                <span class="input-group-text bg-primary border-primary text-white">
-                                                    <i class="ri-calendar-todo-fill fs-13"></i>
-                                                </span>
-                                            </div>
-                                            <a href="javascript: void(0);" class="btn btn-primary ms-2">
-                                                <i class="ri-refresh-line"></i>
-                                            </a>
-                                        </form>
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Powerx</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Apps</a></li>
+                                            <li class="breadcrumb-item active">Calendar</li>
+                                        </ol>
                                     </div>
-                                    <h4 class="page-title">Dashboard</h4>
+                                    <h4 class="page-title">Calendar</h4>
                                 </div>
                             </div>
                         </div>
+                        <!-- end page title -->
 
                         <div class="row">
-        
-                            <div class="col-sm-6 col-xxl-3">
+                            <div class="col-12">
+
                                 <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="Campaign Sent">Campaign Sent</h5>
-                                                <h3 class="my-1 py-1">9,184</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-success me-2"><i class="ri-arrow-up-line"></i> 3.27%</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="text-end">
-                                                    <div id="campaign-sent-chart" data-colors="#6da09c"></div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-        
-                            <div class="col-sm-6 col-xxl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="New Leads">New Leads</h5>
-                                                <h3 class="my-1 py-1">3,254</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-success me-2"><i class="ri-arrow-up-line"></i> 5.38%</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="text-end">
-                                                    <div id="new-leads-chart" data-colors="#87bf8a"></div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-
-                            <div class="col-sm-6 col-xxl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="Deals">Deals</h5>
-                                                <h3 class="my-1 py-1">861</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-success me-2"><i class="ri-arrow-up-line"></i> 4.87%</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="text-end">
-                                                    <div id="deals-chart" data-colors="#e7607b"></div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-
-                            <div class="col-sm-6 col-xxl-3">
-                                <div class="card text-bg-primary border-primary">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-white text-opacity-75 fw-normal mt-0 text-truncate" title="Booked Revenue">Booked Revenue</h5>
-                                                <h3 class="my-1 py-1">$253k</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-white text-opacity-75 me-2"><i class="ri-arrow-up-line"></i> 11.7%</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="text-end">
-                                                    <div id="booked-revenue-chart" data-colors="#d89e70"></div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="d-flex card-header border-bottom-0 justify-content-between align-items-center">
-                                        <h4 class="header-title">Revenue</h4>
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div dir="ltr">
-                                            <div id="revenue-chart" class="apex-charts mt-3" data-colors="#6da09c,#47ad77"></div>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="d-flex card-header justify-content-between border-bottom-0 align-items-center">
-                                        <h4 class="header-title">Total Sales</h4>
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body pt-0">
-                                        <div id="average-sales" class="apex-charts mb-3"
-                                            data-colors="#6da09c"></div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">Brooklyn, New York</h5>
-                                        <div class="progress-w-percent">
-                                            <span class="progress-value fw-bold">72k </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 72%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">The Castro, San Francisco</h5>
-                                        <div class="progress-w-percent mb-0">
-                                            <span class="progress-value fw-bold">39k </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="d-flex card-header justify-content-between border-bottom-0 align-items-center">
-                                        <h4 class="header-title">Total Sales</h4>
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body pt-0">
-                                        <div id="country-chart" class="apex-charts" data-colors="#6da09c"></div>
-
-                                        <div class="mt-2 text-center">
-                                            <ul class="list-inline mb-0">
-                                                <li class="list-inline-item"><img class="ms-3 pe-1" src="assets/images/browsers/chrome.png" height="18" alt="chrome"><span class="align-middle">45.87%</span></li>
-                                                <li class="list-inline-item"><img class="ms-3 pe-1" src="assets/images/browsers/firefox.png" height="18" alt="chrome"><span class="align-middle">3.25%</span></li>
-                                                <li class="list-inline-item"><img class="ms-3 pe-1" src="assets/images/browsers/safari.png" height="18" alt="chrome"><span class="align-middle">9.68%</span></li>
-                                            </ul>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="d-flex card-header justify-content-between align-items-center">
-                                        <h4 class="header-title">Top Selling Products</h4>
-                                        <a href="javascript:void(0);" class="btn btn-sm btn-info">Export <i class="ri-download-line ms-1"></i></a>
-                                    </div>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table table-borderless table-hover table-nowrap table-centered m-0">
-                                                <thead class="border-top border-bottom bg-light-subtle border-light">
-                                                    <tr>
-                                                        <th class="py-1">Product</th>
-                                                        <th class="py-1">Price</th>
-                                                        <th class="py-1">Orders</th>
-                                                        <th class="py-1">Avl. Quantity</th>
-                                                        <th class="py-1">Seller</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>ASOS Ridley High Waist</td>
-                                                        <td>$79.49</td>
-                                                        <td>82</td>
-                                                        <td>8,540</td>
-                                                        <td>Adidas</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Marco Lightweight Shirt</td>
-                                                        <td>$12.5</td>
-                                                        <td>58</td>
-                                                        <td>6,320</td>
-                                                        <td>Puma</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Half Sleeve Shirt</td>
-                                                        <td>$9.99</td>
-                                                        <td>254</td>
-                                                        <td>10,258</td>
-                                                        <td>Nike</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Lightweight Jacket</td>
-                                                        <td>$69.99</td>
-                                                        <td>560</td>
-                                                        <td>1,020</td>
-                                                        <td>Puma</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Marco Sport Shoes</td>
-                                                        <td>$119.99</td>
-                                                        <td>75</td>
-                                                        <td>357</td>
-                                                        <td>Adidas</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Custom Women's T-shirts</td>
-                                                        <td>$45.00</td>
-                                                        <td>85</td>
-                                                        <td>135</td>
-                                                        <td>Branded</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="#!" class="text-primary text-decoration-underline fw-bold btn mb-2">View All</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> <!-- end col -->
-
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="d-flex card-header justify-content-between align-items-center">
-                                        <h4 class="header-title">Revenue By Locations</h4>
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-12">
-                                                <div id="world-map-markers" class="mt-3 mb-3" style="height: 298px">
+                                            <div class="col-lg-3">
+                                                <div class="d-grid">
+                                                    <button class="btn btn-lg fs-16 btn-danger" id="btn-new-event">
+                                                        <i class="ri-add-circle-fill"></i> Create New Event
+                                                    </button>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> <!-- end card-->
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
+                                                <div id="external-events" class="mt-3">
+                                                    <p class="text-muted">Drag and drop your event or click in the calendar</p>
+                                                    <div class="external-event bg-success-subtle text-success" data-class="bg-success"><i class="ri-focus-fill me-2 vertical-middle"></i>New Theme Release</div>
+                                                    <div class="external-event bg-info-subtle text-info" data-class="bg-info"><i class="ri-focus-fill me-2 vertical-middle"></i>My Event</div>
+                                                    <div class="external-event bg-warning-subtle text-warning" data-class="bg-warning"><i class="ri-focus-fill me-2 vertical-middle"></i>Meet manager</div>
+                                                    <div class="external-event bg-danger-subtle text-danger" data-class="bg-danger"><i class="ri-focus-fill me-2 vertical-middle"></i>Create New theme</div>
+                                                </div>
 
-                    </div>
-                    <!-- container -->
+                                                <div class="mt-5 d-none d-xl-block">
+                                                    <h5 class="text-center">How It Works ?</h5>
+                                                
+                                                    <ul class="ps-3">
+                                                        <li class="text-muted mb-3">
+                                                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                                                        </li>
+                                                        <li class="text-muted mb-3">
+                                                            Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage.
+                                                        </li>
+                                                        <li class="text-muted mb-3">
+                                                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                                                        </li>
+                                                    </ul>
+                                                </div>
 
-                </div>
-                <!-- content -->
+                                            </div> <!-- end col-->
+
+                                            <div class="col-lg-9">
+                                                <div class="mt-4 mt-lg-0">
+                                                    <div id="calendar"></div>
+                                                </div>
+                                            </div> <!-- end col -->
+
+                                        </div> <!-- end row -->
+                                    </div> <!-- end card body-->
+                                </div> <!-- end card -->
+
+                                <!-- Add New Event MODAL -->
+                                <div class="modal fade" id="event-modal" tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <form class="needs-validation" name="event-form" id="form-event" novalidate>
+                                                <div class="modal-header py-3 px-4 border-bottom-0">
+                                                    <h5 class="modal-title" id="modal-title">Event</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body px-4 pb-4 pt-0">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="control-label form-label">Event Name</label>
+                                                                <input class="form-control" placeholder="Insert Event Name" type="text" name="title" id="event-title" required />
+                                                                <div class="invalid-feedback">Please provide a valid event name</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="mb-3">
+                                                                <label class="control-label form-label">Category</label>
+                                                                <select class="form-select" name="category" id="event-category" required>
+                                                                    <option value="bg-danger" selected>Danger</option>
+                                                                    <option value="bg-success">Success</option>
+                                                                    <option value="bg-primary">Primary</option>
+                                                                    <option value="bg-info">Info</option>
+                                                                    <option value="bg-dark">Dark</option>
+                                                                    <option value="bg-warning">Warning</option>
+                                                                </select>
+                                                                <div class="invalid-feedback">Please select a valid event category</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <button type="button" class="btn btn-danger" id="btn-delete-event">Delete</button>
+                                                        </div>
+                                                        <div class="col-6 text-end">
+                                                            <button type="button" class="btn btn-light me-1" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-success" id="btn-save-event">Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div> <!-- end modal-content-->
+                                    </div> <!-- end modal dialog-->
+                                </div>
+                                <!-- end modal-->
+                            </div>
+                            <!-- end col-12 -->
+                        </div> <!-- end row -->
+
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
 
                 <!-- Footer Start -->
                 <footer class="footer">
@@ -1431,27 +1214,20 @@
                     </div>
                 </div>
             </div>
-        </div>          
-        
+        </div>  
+
         <!-- Vendor js -->
         <script src="assets/js/vendor.min.js"></script>
 
-        <!-- Daterangepicker js -->
-        <script src="assets/vendor/daterangepicker/moment.min.js"></script>
-        <script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
-        
-        <!-- Apex Charts js -->
-        <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+        <!-- Fullcalendar js -->
+        <script src="assets/vendor/fullcalendar/main.min.js"></script>
 
-        <!-- Vector Map js -->
-        <script src="assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="assets/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
-
-        <!-- Dashboard App js -->
-        <script src="assets/js/pages/demo.dashboard.js"></script>
+        <!-- Calendar App Demo js -->
+        <script src="assets/js/pages/demo.calendar.js"></script>
 
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
 
     </body>
-</html> 
+
+</html>

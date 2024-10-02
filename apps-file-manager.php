@@ -3,16 +3,13 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Calendar | Powerx - Bootstrap 5 Admin & Dashboard Template</title>
+        <title>File Manager | Powerx - Bootstrap 5 Admin & Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-        <!-- Fullcalendar css -->
-        <link href="assets/vendor/fullcalendar/main.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Theme Config Js -->
         <script src="assets/js/config.js"></script>
@@ -37,7 +34,7 @@
                         <!-- Topbar Brand Logo -->
                         <div class="logo-topbar">
                             <!-- Logo light -->
-                            <a href="index.html" class="logo-light">
+                            <a href="index.php" class="logo-light">
                                 <span class="logo-lg">
                                     <img src="assets/images/logo.png" alt="logo">
                                 </span>
@@ -47,7 +44,7 @@
                             </a>
 
                             <!-- Logo Dark -->
-                            <a href="index.html" class="logo-dark">
+                            <a href="index.php" class="logo-dark">
                                 <span class="logo-lg">
                                     <img src="assets/images/logo-dark.png" alt="dark logo">
                                 </span>
@@ -379,31 +376,31 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="pages-profile.html" class="dropdown-item">
+                                <a href="pages-profile.php" class="dropdown-item">
                                     <i class="ri-account-circle-line fs-18 align-middle me-1"></i>
                                     <span>My Account</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="pages-profile.html" class="dropdown-item">
+                                <a href="pages-profile.php" class="dropdown-item">
                                     <i class="ri-settings-4-line fs-18 align-middle me-1"></i>
                                     <span>Settings</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="pages-faq.html" class="dropdown-item">
+                                <a href="pages-faq.php" class="dropdown-item">
                                     <i class="ri-customer-service-2-line fs-18 align-middle me-1"></i>
                                     <span>Support</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="auth-lock-screen.html" class="dropdown-item">
+                                <a href="auth-lock-screen.php" class="dropdown-item">
                                     <i class="ri-lock-password-line fs-18 align-middle me-1"></i>
                                     <span>Lock Screen</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="auth-logout-2.html" class="dropdown-item">
+                                <a href="auth-logout-2.php" class="dropdown-item">
                                     <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
                                     <span>Logout</span>
                                 </a>
@@ -418,7 +415,7 @@
             <div class="leftside-menu">
 
                 <!-- Brand Logo Light -->
-                <a href="index.html" class="logo logo-light">
+                <a href="index.php" class="logo logo-light">
                     <span class="logo-lg">
                         <img src="assets/images/logo.png" alt="logo">
                     </span>
@@ -428,7 +425,7 @@
                 </a>
 
                 <!-- Brand Logo Dark -->
-                <a href="index.html" class="logo logo-dark">
+                <a href="index.php" class="logo logo-dark">
                     <span class="logo-lg">
                         <img src="assets/images/logo-dark.png" alt="dark logo">
                     </span>
@@ -445,7 +442,7 @@
                 <div class="h-100" id="leftside-menu-container" data-simplebar>
                     <!-- Leftbar User -->
                     <div class="leftbar-user">
-                        <a href="pages-profile.html">
+                        <a href="pages-profile.php">
                             <img src="assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
                             <span class="leftbar-user-name mt-2">Michael Berndt</span>
                         </a>
@@ -457,21 +454,21 @@
                         <li class="side-nav-title">Main</li>
 
                         <li class="side-nav-item">
-                            <a href="index.html" class="side-nav-link">
+                            <a href="index.php" class="side-nav-link">
                                 <i class="ri-dashboard-2-fill"></i>
                                 <span> Dashboard </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="apps-calendar.html" class="side-nav-link">
+                            <a href="apps-calendar.php" class="side-nav-link">
                                 <i class="ri-calendar-event-fill"></i>
                                 <span> Calendar </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="apps-chat.html" class="side-nav-link">
+                            <a href="apps-chat.php" class="side-nav-link">
                                 <i class="ri-message-3-fill"></i>
                                 <span> Chat </span>
                             </a>
@@ -486,10 +483,10 @@
                             <div class="collapse" id="sidebarEmail">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="apps-email-inbox.html">Inbox</a>
+                                        <a href="apps-email-inbox.php">Inbox</a>
                                     </li>
                                     <li>
-                                        <a href="apps-email-read.html">Read Email</a>
+                                        <a href="apps-email-read.php">Read Email</a>
                                     </li>
                                 </ul>
                             </div>
@@ -506,82 +503,82 @@
                             <div class="collapse" id="sidebarBaseUI">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="ui-accordions.html">Accordions</a>
+                                        <a href="ui-accordions.php">Accordions</a>
                                     </li>
                                     <li>
-                                        <a href="ui-alerts.html">Alerts</a>
+                                        <a href="ui-alerts.php">Alerts</a>
                                     </li>
                                     <li>
-                                        <a href="ui-avatars.html">Avatars</a>
+                                        <a href="ui-avatars.php">Avatars</a>
                                     </li>
                                     <li>
-                                        <a href="ui-badges.html">Badges</a>
+                                        <a href="ui-badges.php">Badges</a>
                                     </li>
                                     <li>
-                                        <a href="ui-breadcrumb.html">Breadcrumb</a>
+                                        <a href="ui-breadcrumb.php">Breadcrumb</a>
                                     </li>
                                     <li>
-                                        <a href="ui-buttons.html">Buttons</a>
+                                        <a href="ui-buttons.php">Buttons</a>
                                     </li>
                                     <li>
-                                        <a href="ui-cards.html">Cards</a>
+                                        <a href="ui-cards.php">Cards</a>
                                     </li>
                                     <li>
-                                        <a href="ui-carousel.html">Carousel</a>
+                                        <a href="ui-carousel.php">Carousel</a>
                                     </li>
                                     <li>
-                                        <a href="ui-collapse.html">Collapse</a>
+                                        <a href="ui-collapse.php">Collapse</a>
                                     </li>
                                     <li>
-                                        <a href="ui-dropdowns.html">Dropdowns</a>
+                                        <a href="ui-dropdowns.php">Dropdowns</a>
                                     </li>
                                     <li>
-                                        <a href="ui-embed-video.html">Embed Video</a>
+                                        <a href="ui-embed-video.php">Embed Video</a>
                                     </li>
                                     <li>
-                                        <a href="ui-grid.html">Grid</a>
+                                        <a href="ui-grid.php">Grid</a>
                                     </li>
                                     <li>
-                                        <a href="ui-links.html">Links</a>
+                                        <a href="ui-links.php">Links</a>
                                     </li>
                                     <li>
-                                        <a href="ui-list-group.html">List Group</a>
+                                        <a href="ui-list-group.php">List Group</a>
                                     </li>
                                     <li>
-                                        <a href="ui-modals.html">Modals</a>
+                                        <a href="ui-modals.php">Modals</a>
                                     </li>
                                     <li>
-                                        <a href="ui-notifications.html">Notifications</a>
+                                        <a href="ui-notifications.php">Notifications</a>
                                     </li>
                                     <li>
-                                        <a href="ui-offcanvas.html">Offcanvas</a>
+                                        <a href="ui-offcanvas.php">Offcanvas</a>
                                     </li>
                                     <li>
-                                        <a href="ui-placeholders.html">Placeholders</a>
+                                        <a href="ui-placeholders.php">Placeholders</a>
                                     </li>
                                     <li>
-                                        <a href="ui-pagination.html">Pagination</a>
+                                        <a href="ui-pagination.php">Pagination</a>
                                     </li>
                                     <li>
-                                        <a href="ui-popovers.html">Popovers</a>
+                                        <a href="ui-popovers.php">Popovers</a>
                                     </li>
                                     <li>
-                                        <a href="ui-progress.html">Progress</a>
+                                        <a href="ui-progress.php">Progress</a>
                                     </li>
                                     <li>
-                                        <a href="ui-spinners.html">Spinners</a>
+                                        <a href="ui-spinners.php">Spinners</a>
                                     </li>
                                     <li>
-                                        <a href="ui-tabs.html">Tabs</a>
+                                        <a href="ui-tabs.php">Tabs</a>
                                     </li>
                                     <li>
-                                        <a href="ui-tooltips.html">Tooltips</a>
+                                        <a href="ui-tooltips.php">Tooltips</a>
                                     </li>
                                     <li>
-                                        <a href="ui-typography.html">Typography</a>
+                                        <a href="ui-typography.php">Typography</a>
                                     </li>
                                     <li>
-                                        <a href="ui-utilities.html">Utilities</a>
+                                        <a href="ui-utilities.php">Utilities</a>
                                     </li>
                                 </ul>
                             </div>
@@ -596,19 +593,19 @@
                             <div class="collapse" id="sidebarExtendedUI">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="extended-dragula.html">Dragula</a>
+                                        <a href="extended-dragula.php">Dragula</a>
                                     </li>
                                     <li>
-                                        <a href="extended-range-slider.html">Range Slider</a>
+                                        <a href="extended-range-slider.php">Range Slider</a>
                                     </li>
                                     <li>
-                                        <a href="extended-ratings.html">Ratings</a>
+                                        <a href="extended-ratings.php">Ratings</a>
                                     </li>
                                     <li>
-                                        <a href="extended-scrollbar.html">Scrollbar</a>
+                                        <a href="extended-scrollbar.php">Scrollbar</a>
                                     </li>
                                     <li>
-                                        <a href="extended-scrollspy.html">Scrollspy</a>
+                                        <a href="extended-scrollspy.php">Scrollspy</a>
                                     </li>
                                 </ul>
                             </div>
@@ -623,10 +620,10 @@
                             <div class="collapse" id="sidebarIcons">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="icons-remixicons.html">Remix Icons</a>
+                                        <a href="icons-remixicons.php">Remix Icons</a>
                                     </li>
                                     <li>
-                                        <a href="icons-bootstrap.html">Bootstrap Icons</a>
+                                        <a href="icons-bootstrap.php">Bootstrap Icons</a>
                                     </li>
                                 </ul>
                             </div>
@@ -641,55 +638,55 @@
                             <div class="collapse" id="sidebarCharts">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="charts-apex-area.html">Area</a>
+                                        <a href="charts-apex-area.php">Area</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-bar.html">Bar</a>
+                                        <a href="charts-apex-bar.php">Bar</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-bubble.html">Bubble</a>
+                                        <a href="charts-apex-bubble.php">Bubble</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-candlestick.html">Candlestick</a>
+                                        <a href="charts-apex-candlestick.php">Candlestick</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-column.html">Column</a>
+                                        <a href="charts-apex-column.php">Column</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-heatmap.html">Heatmap</a>
+                                        <a href="charts-apex-heatmap.php">Heatmap</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-line.html">Line</a>
+                                        <a href="charts-apex-line.php">Line</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-mixed.html">Mixed</a>
+                                        <a href="charts-apex-mixed.php">Mixed</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-timeline.html">Timeline</a>
+                                        <a href="charts-apex-timeline.php">Timeline</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-boxplot.html">Boxplot</a>
+                                        <a href="charts-apex-boxplot.php">Boxplot</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-treemap.html">Treemap</a>
+                                        <a href="charts-apex-treemap.php">Treemap</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-pie.html">Pie</a>
+                                        <a href="charts-apex-pie.php">Pie</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-radar.html">Radar</a>
+                                        <a href="charts-apex-radar.php">Radar</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-radialbar.html">RadialBar</a>
+                                        <a href="charts-apex-radialbar.php">RadialBar</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-scatter.html">Scatter</a>
+                                        <a href="charts-apex-scatter.php">Scatter</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-polar-area.html">Polar Area</a>
+                                        <a href="charts-apex-polar-area.php">Polar Area</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-sparklines.html">Sparklines</a>
+                                        <a href="charts-apex-sparklines.php">Sparklines</a>
                                     </li>
                                 </ul>
                             </div>
@@ -704,22 +701,22 @@
                             <div class="collapse" id="sidebarForms">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="form-elements.html">Basic Elements</a>
+                                        <a href="form-elements.php">Basic Elements</a>
                                     </li>
                                     <li>
-                                        <a href="form-advanced.html">Form Advanced</a>
+                                        <a href="form-advanced.php">Form Advanced</a>
                                     </li>
                                     <li>
-                                        <a href="form-validation.html">Validation</a>
+                                        <a href="form-validation.php">Validation</a>
                                     </li>
                                     <li>
-                                        <a href="form-wizard.html">Wizard</a>
+                                        <a href="form-wizard.php">Wizard</a>
                                     </li>
                                     <li>
-                                        <a href="form-fileuploads.html">File Uploads</a>
+                                        <a href="form-fileuploads.php">File Uploads</a>
                                     </li>
                                     <li>
-                                        <a href="form-editors.html">Editors</a>
+                                        <a href="form-editors.php">Editors</a>
                                     </li>
                                 </ul>
                             </div>
@@ -734,10 +731,10 @@
                             <div class="collapse" id="sidebarTables">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="tables-basic.html">Basic Tables</a>
+                                        <a href="tables-basic.php">Basic Tables</a>
                                     </li>
                                     <li>
-                                        <a href="tables-datatable.html">Data Tables</a>
+                                        <a href="tables-datatable.php">Data Tables</a>
                                     </li>
                                 </ul>
                             </div>
@@ -752,10 +749,10 @@
                             <div class="collapse" id="sidebarMaps">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="maps-google.html">Google Maps</a>
+                                        <a href="maps-google.php">Google Maps</a>
                                     </li>
                                     <li>
-                                        <a href="maps-vector.html">Vector Maps</a>
+                                        <a href="maps-vector.php">Vector Maps</a>
                                     </li>
                                 </ul>
                             </div>
@@ -772,25 +769,25 @@
                             <div class="collapse" id="sidebarPages">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="pages-invoice.html">Invoice</a>
+                                        <a href="pages-invoice.php">Invoice</a>
                                     </li>
                                     <li>
-                                        <a href="pages-faq.html">FAQ</a>
+                                        <a href="pages-faq.php">FAQ</a>
                                     </li>
                                     <li>
-                                        <a href="pages-pricing.html">Pricing</a>
+                                        <a href="pages-pricing.php">Pricing</a>
                                     </li>
                                     <li>
-                                        <a href="pages-maintenance.html">Maintenance</a>
+                                        <a href="pages-maintenance.php">Maintenance</a>
                                     </li>
                                     <li>
-                                        <a href="pages-starter.html">Starter Page</a>
+                                        <a href="pages-starter.php">Starter Page</a>
                                     </li>
                                     <li>
-                                        <a href="pages-preloader.html">With Preloader</a>
+                                        <a href="pages-preloader.php">With Preloader</a>
                                     </li>
                                     <li>
-                                        <a href="pages-timeline.html">Timeline</a>
+                                        <a href="pages-timeline.php">Timeline</a>
                                     </li>
                                 </ul>
                             </div>
@@ -805,22 +802,22 @@
                             <div class="collapse" id="sidebarPagesAuth">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="auth-login.html">Login</a>
+                                        <a href="auth-login.php">Login</a>
                                     </li>
                                     <li>
-                                        <a href="auth-register.html">Register</a>
+                                        <a href="auth-register.php">Register</a>
                                     </li>
                                     <li>
-                                        <a href="auth-logout.html">Logout</a>
+                                        <a href="auth-logout.php">Logout</a>
                                     </li>
                                     <li>
-                                        <a href="auth-recoverpw.html">Recover Password</a>
+                                        <a href="auth-recoverpw.php">Recover Password</a>
                                     </li>
                                     <li>
-                                        <a href="auth-lock-screen.html">Lock Screen</a>
+                                        <a href="auth-lock-screen.php">Lock Screen</a>
                                     </li>
                                     <li>
-                                        <a href="auth-confirm-mail.html">Confirm Mail</a>
+                                        <a href="auth-confirm-mail.php">Confirm Mail</a>
                                     </li>
                                 </ul>
                             </div>
@@ -835,13 +832,13 @@
                             <div class="collapse" id="sidebarPagesError">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="error-404.html">Error 404</a>
+                                        <a href="error-404.php">Error 404</a>
                                     </li>
                                     <li>
-                                        <a href="error-404-alt.html">Error 404-alt</a>
+                                        <a href="error-404-alt.php">Error 404-alt</a>
                                     </li>
                                     <li>
-                                        <a href="error-500.html">Error 500</a>
+                                        <a href="error-500.php">Error 500</a>
                                     </li>
                                 </ul>
                             </div>
@@ -856,16 +853,16 @@
                             <div class="collapse" id="sidebarLayouts">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="layouts-compact.html" target="_blank">Compact</a>
+                                        <a href="layouts-compact.php" target="_blank">Compact</a>
                                     </li>
                                     <li>
-                                        <a href="layouts-icon-view.html" target="_blank">Icon View</a>
+                                        <a href="layouts-icon-view.php" target="_blank">Icon View</a>
                                     </li>
                                     <li>
-                                        <a href="layouts-full.html" target="_blank">Full View</a>
+                                        <a href="layouts-full.php" target="_blank">Full View</a>
                                     </li>
                                     <li>
-                                        <a href="layouts-fullscreen.html" target="_blank">Fullscreen View</a>
+                                        <a href="layouts-fullscreen.php" target="_blank">Fullscreen View</a>
                                     </li>
                                 </ul>
                             </div>
@@ -937,6 +934,10 @@
             </div>
             <!-- ========== Left Sidebar End ========== -->
 
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
             <div class="content-page">
                 <div class="content">
 
@@ -959,114 +960,459 @@
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Powerx</a></li>
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Apps</a></li>
-                                            <li class="breadcrumb-item active">Calendar</li>
+                                            <li class="breadcrumb-item active">File Manager</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Calendar</h4>
+                                    <h4 class="page-title">File Manager</h4>
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
 
                         <div class="row">
-                            <div class="col-12">
 
+                            <!-- Right Sidebar -->
+                            <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <div class="d-grid">
-                                                    <button class="btn btn-lg fs-16 btn-danger" id="btn-new-event">
-                                                        <i class="ri-add-circle-fill"></i> Create New Event
-                                                    </button>
-                                                </div>
-                                                <div id="external-events" class="mt-3">
-                                                    <p class="text-muted">Drag and drop your event or click in the calendar</p>
-                                                    <div class="external-event bg-success-subtle text-success" data-class="bg-success"><i class="ri-focus-fill me-2 vertical-middle"></i>New Theme Release</div>
-                                                    <div class="external-event bg-info-subtle text-info" data-class="bg-info"><i class="ri-focus-fill me-2 vertical-middle"></i>My Event</div>
-                                                    <div class="external-event bg-warning-subtle text-warning" data-class="bg-warning"><i class="ri-focus-fill me-2 vertical-middle"></i>Meet manager</div>
-                                                    <div class="external-event bg-danger-subtle text-danger" data-class="bg-danger"><i class="ri-focus-fill me-2 vertical-middle"></i>Create New theme</div>
-                                                </div>
+                                        <!-- Left sidebar -->
+                                        <div class="page-aside-left">
 
-                                                <div class="mt-5 d-none d-xl-block">
-                                                    <h5 class="text-center">How It Works ?</h5>
-                                                
-                                                    <ul class="ps-3">
-                                                        <li class="text-muted mb-3">
-                                                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                                                        </li>
-                                                        <li class="text-muted mb-3">
-                                                            Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage.
-                                                        </li>
-                                                        <li class="text-muted mb-3">
-                                                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                                                        </li>
-                                                    </ul>
+                                            <div class="btn-group d-block mb-2">
+                                                <button type="button" class="btn btn-success dropdown-toggle w-100" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ri-file-add-line"></i> Create New </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="#"><i class="ri-folder-5-line me-1"></i> Folder</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-file-2-line me-1"></i> File</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-file-list-3-line me-1"></i> Document</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-upload-line me-1"></i> Choose File</a>
                                                 </div>
-
-                                            </div> <!-- end col-->
-
-                                            <div class="col-lg-9">
-                                                <div class="mt-4 mt-lg-0">
-                                                    <div id="calendar"></div>
+                                            </div>
+                                            <div class="email-menu-list mt-3">
+                                                <a href="#" class="list-group-item border-0"><i class="ri-folders-line fs-18 align-middle me-2"></i>My Files</a>
+                                                <a href="#" class="list-group-item border-0"><i class="ri-drive-line fs-18 align-middle me-2"></i>Google Drive</a>
+                                                <a href="#" class="list-group-item border-0"><i class="ri-dropbox-line fs-18 align-middle me-2"></i>Dropbox</a>
+                                                <a href="#" class="list-group-item border-0"><i class="ri-user-voice-line fs-18 align-middle me-2"></i>Share with me</a>
+                                                <a href="#" class="list-group-item border-0"><i class="ri-time-line fs-18 align-middle me-2"></i>Recent</a>
+                                                <a href="#" class="list-group-item border-0"><i class="ri-star-line fs-18 align-middle me-2"></i>Starred</a>
+                                                <a href="#" class="list-group-item border-0"><i class="ri-delete-bin-line fs-18 align-middle me-2"></i>Deleted Files</a>
+                                            </div>
+    
+                                            <div class="mt-5">
+                                                <h4><span class="badge rounded-pill p-1 px-2 bg-dark-subtle text-dark">FREE</span></h4>
+                                                <h6 class="text-uppercase mt-3">Storage</h6>
+                                                <div class="progress my-2 progress-sm">
+                                                    <div class="progress-bar progress-lg bg-success" role="progressbar" style="width: 46%" aria-valuenow="46" aria-valuemin="0" aria-valuemax="100"></div>
                                                 </div>
-                                            </div> <!-- end col -->
+                                                <p class="text-muted fs-13 mb-0">7.02 GB (46%) of 15 GB used</p>
+                                            </div>
 
-                                        </div> <!-- end row -->
-                                    </div> <!-- end card body-->
-                                </div> <!-- end card -->
+                                        </div>
+                                        <!-- End Left sidebar -->
 
-                                <!-- Add New Event MODAL -->
-                                <div class="modal fade" id="event-modal" tabindex="-1">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <form class="needs-validation" name="event-form" id="form-event" novalidate>
-                                                <div class="modal-header py-3 px-4 border-bottom-0">
-                                                    <h5 class="modal-title" id="modal-title">Event</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body px-4 pb-4 pt-0">
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="control-label form-label">Event Name</label>
-                                                                <input class="form-control" placeholder="Insert Event Name" type="text" name="title" id="event-title" required />
-                                                                <div class="invalid-feedback">Please provide a valid event name</div>
-                                                            </div>
+                                        <div class="page-aside-right">
+
+                                            <div class="d-lg-flex justify-content-between align-items-center">
+                                                <div class="app-search">
+                                                    <form>
+                                                        <div class="mb-2 position-relative">
+                                                            <input type="text" class="form-control" placeholder="Search files...">
+                                                            <span class="ri-search-line search-icon"></span>
                                                         </div>
-                                                        <div class="col-12">
-                                                            <div class="mb-3">
-                                                                <label class="control-label form-label">Category</label>
-                                                                <select class="form-select" name="category" id="event-category" required>
-                                                                    <option value="bg-danger" selected>Danger</option>
-                                                                    <option value="bg-success">Success</option>
-                                                                    <option value="bg-primary">Primary</option>
-                                                                    <option value="bg-info">Info</option>
-                                                                    <option value="bg-dark">Dark</option>
-                                                                    <option value="bg-warning">Warning</option>
-                                                                </select>
-                                                                <div class="invalid-feedback">Please select a valid event category</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <button type="button" class="btn btn-danger" id="btn-delete-event">Delete</button>
-                                                        </div>
-                                                        <div class="col-6 text-end">
-                                                            <button type="button" class="btn btn-light me-1" data-bs-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-success" id="btn-save-event">Save</button>
-                                                        </div>
-                                                    </div>
+                                                    </form>
                                                 </div>
-                                            </form>
-                                        </div> <!-- end modal-content-->
-                                    </div> <!-- end modal dialog-->
-                                </div>
-                                <!-- end modal-->
-                            </div>
-                            <!-- end col-12 -->
-                        </div> <!-- end row -->
+                                                <div>
+                                                    <button type="submit" class="btn btn-sm btn-light"><i class="ri-list-check"></i></button>
+                                                    <button type="submit" class="btn btn-sm"><i class="ri-grid-fill"></i></button>
+                                                </div>
+                                            </div>
+    
+                                            <div class="mt-3">
+                                                <h5 class="mb-2">Quick Access</h5>
+    
+                                                <div class="row mx-n1 g-0">
+                                                    <div class="col-xxl-3 col-lg-6">
+                                                        <div class="card m-1 shadow-none border">
+                                                            <div class="p-2">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="avatar-sm">
+                                                                            <span class="avatar-title bg-light text-secondary rounded">
+                                                                                <i class="ri-file-zip-line fs-20 fw-normal"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col ps-0">
+                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Powerx-sketch.zip</a>
+                                                                        <p class="mb-0 fs-13">2.3 MB</p>
+                                                                    </div>
+                                                                </div> <!-- end row -->
+                                                            </div> <!-- end .p-2-->
+                                                        </div> <!-- end col -->
+                                                    </div> <!-- end col-->
+    
+                                                    <div class="col-xxl-3 col-lg-6">
+                                                        <div class="card m-1 shadow-none border">
+                                                            <div class="p-2">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="avatar-sm">
+                                                                            <span class="avatar-title bg-light text-secondary rounded">
+                                                                                <i class="ri-folder-2-line fw-normal fs-20"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col ps-0">
+                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Compile Version</a>
+                                                                        <p class="mb-0 fs-13">87.2 MB</p>
+                                                                    </div>
+                                                                </div> <!-- end row -->
+                                                            </div> <!-- end .p-2-->
+                                                        </div> <!-- end col -->
+                                                    </div> <!-- end col-->
+    
+                                                    <div class="col-xxl-3 col-lg-6">
+                                                        <div class="card m-1 shadow-none border">
+                                                            <div class="p-2">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="avatar-sm">
+                                                                            <span class="avatar-title bg-primary-subtle text-primary rounded">
+                                                                                <i class="ri-folder-2-line fw-normal fs-20"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col ps-0">
+                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">admin.zip</a>
+                                                                        <p class="mb-0 fs-13">45.1 MB</p>
+                                                                    </div>
+                                                                </div> <!-- end row -->
+                                                            </div> <!-- end .p-2-->
+                                                        </div> <!-- end col -->
+                                                    </div> <!-- end col-->
+    
+                                                    <div class="col-xxl-3 col-lg-6">
+                                                        <div class="card m-1 shadow-none border">
+                                                            <div class="p-2">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="avatar-sm">
+                                                                            <span class="avatar-title bg-light text-secondary rounded">
+                                                                                <i class="ri-file-pdf-line fw-normal fs-20"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col ps-0">
+                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Docs.pdf</a>
+                                                                        <p class="mb-0 fs-13">7.5 MB</p>
+                                                                    </div>
+                                                                </div> <!-- end row -->
+                                                            </div> <!-- end .p-2-->
+                                                        </div> <!-- end col -->
+                                                    </div> <!-- end col-->
+    
+                                                    <div class="col-xxl-3 col-lg-6">
+                                                        <div class="card m-1 shadow-none border">
+                                                            <div class="p-2">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="avatar-sm">
+                                                                            <span class="avatar-title bg-light text-secondary rounded">
+                                                                                <i class="ri-file-pdf-line fw-normal fs-20"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col ps-0">
+                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">License-details.pdf</a>
+                                                                        <p class="mb-0 fs-13">784 KB</p>
+                                                                    </div>
+                                                                </div> <!-- end row -->
+                                                            </div> <!-- end .p-2-->
+                                                        </div> <!-- end col -->
+                                                    </div> <!-- end col-->
+    
+                                                    <div class="col-xxl-3 col-lg-6">
+                                                        <div class="card m-1 shadow-none border">
+                                                            <div class="p-2">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="avatar-sm">
+                                                                            <span class="avatar-title bg-light text-secondary rounded">
+                                                                                <i class="ri-folder-5-line fw-normal fs-20"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col ps-0">
+                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Purchase Verification</a>
+                                                                        <p class="mb-0 fs-13">2.2 MB</p>
+                                                                    </div>
+                                                                </div> <!-- end row -->
+                                                            </div> <!-- end .p-2-->
+                                                        </div> <!-- end col -->
+                                                    </div> <!-- end col-->
+    
+                                                    <div class="col-xxl-3 col-lg-6">
+                                                        <div class="card m-1 shadow-none border">
+                                                            <div class="p-2">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="avatar-sm">
+                                                                            <span class="avatar-title bg-light text-secondary rounded">
+                                                                                <i class="ri-folder-5-line fw-normal fs-20"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col ps-0">
+                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Powerx Integrations</a>
+                                                                        <p class="mb-0 fs-13">874 MB</p>
+                                                                    </div>
+                                                                </div> <!-- end row -->
+                                                            </div> <!-- end .p-2-->
+                                                        </div> <!-- end col -->
+                                                    </div> <!-- end col-->
+                                                </div> <!-- end row-->
+                                            </div> <!-- end .mt-3-->
+    
+    
+                                            <div class="mt-3">
+                                                <h5 class="mb-3">Recent</h5>
+    
+                                                <div class="table-responsive">
+                                                    <table class="table table-centered table-nowrap table-borderless table-hover mb-0">
+                                                        <thead class="border-top border-bottom bg-light-subtle border-light">
+                                                            <tr>
+                                                                <th class="border-0">Name</th>
+                                                                <th class="border-0">Last Modified</th>
+                                                                <th class="border-0">Size</th>
+                                                                <th class="border-0">Owner</th>
+                                                                <th class="border-0">Members</th>
+                                                                <th class="border-0" style="width: 80px;">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <span class="fw-semibold"><a href="javascript: void(0);" class="text-reset">App Design & Development</a></span>
+                                                                </td>
+                                                                <td>
+                                                                    <p class="mb-0">Jan 03, 2023</p>
+                                                                    <span class="fs-12">by Andrew</span>
+                                                                </td>
+                                                                <td>128 MB</td>
+                                                                <td>
+                                                                    Danielle Thompson
+                                                                </td>
+                                                                <td id="tooltip-container">
+                                                                    <div class="avatar-group">
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Mat Helme">
+                                                                            <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Michael Zenaty">
+                                                                            <img src="assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" title="James Anderson">
+                                                                            <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Username">
+                                                                            <img src="assets/images/users/avatar-5.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="">
+                                                                    <div class="btn-group dropdown">
+                                                                        <a href="#" class="table-action-btn dropdown-toggle arrow-none btn btn-light px-1 btn-xs" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></a>
+                                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                                            <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted vertical-middle"></i>Share</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-link me-2 text-muted vertical-middle"></i>Get Sharable Link</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-pencil-line me-2 text-muted vertical-middle"></i>Rename</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-download-line me-2 text-muted vertical-middle"></i>Download</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-delete-bin-line me-2 text-muted vertical-middle"></i>Remove</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            
+                                                            <tr>
+                                                                <td>
+                                                                    <span class="fw-semibold"><a href="javascript: void(0);" class="text-reset">Powerx-sketch-design.zip</a></span>
+                                                                </td>
+                                                                <td>
+                                                                    <p class="mb-0">Feb 13, 2023</p>
+                                                                    <span class="fs-12">by Coderthemes</span>
+                                                                </td>
+                                                                <td>521 MB</td>
+                                                                <td>
+                                                                    Coder Themes
+                                                                </td>
+                                                                <td id="tooltip-container1">
+                                                                    <div class="avatar-group">
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="Mat Helme">
+                                                                            <img src="assets/images/users/avatar-4.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="Michael Zenaty">
+                                                                            <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container1" data-bs-toggle="tooltip" data-bs-placement="top" title="James Anderson">
+                                                                            <img src="assets/images/users/avatar-6.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="btn-group dropdown">
+                                                                        <a href="#" class="table-action-btn dropdown-toggle arrow-none btn btn-light px-1 btn-xs" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></a>
+                                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                                            <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted vertical-middle"></i>Share</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-link me-2 text-muted vertical-middle"></i>Get Sharable Link</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-pencil-line me-2 text-muted vertical-middle"></i>Rename</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-download-line me-2 text-muted vertical-middle"></i>Download</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-delete-bin-line me-2 text-muted vertical-middle"></i>Remove</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+    
+                                                            <tr>
+                                                                <td>
+                                                                    <span class="fw-semibold"><a href="javascript: void(0);" class="text-reset">Annualreport.pdf</a></span>
+                                                                </td>
+                                                                <td>
+                                                                    <p class="mb-0">Dec 18, 2022</p>
+                                                                    <span class="fs-12">by Alejandro</span>
+                                                                </td>
+                                                                <td>7.2 MB</td>
+                                                                <td>
+                                                                    Gary Coley
+                                                                </td>
+                                                                <td id="tooltip-container2">
+                                                                    <div class="avatar-group">
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" data-bs-placement="top" title="Mat Helme">
+                                                                            <img src="assets/images/users/avatar-9.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" data-bs-placement="top" title="Michael Zenaty">
+                                                                            <img src="assets/images/users/avatar-7.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container2" data-bs-toggle="tooltip" data-bs-placement="top" title="James Anderson">
+                                                                            <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="btn-group dropdown">
+                                                                        <a href="#" class="table-action-btn dropdown-toggle arrow-none btn btn-light px-1 btn-xs" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></a>
+                                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                                            <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted vertical-middle"></i>Share</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-link me-2 text-muted vertical-middle"></i>Get Sharable Link</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-pencil-line me-2 text-muted vertical-middle"></i>Rename</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-download-line me-2 text-muted vertical-middle"></i>Download</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-delete-bin-line me-2 text-muted vertical-middle"></i>Remove</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+    
+                                                            <tr>
+                                                                <td>
+                                                                    <span class="fw-semibold"><a href="javascript: void(0);" class="text-reset">Wireframes</a></span>
+                                                                </td>
+                                                                <td>
+                                                                    <p class="mb-0">Nov 25, 2022</p>
+                                                                    <span class="fs-12">by Dunkle</span>
+                                                                </td>
+                                                                <td>54.2 MB</td>
+                                                                <td>
+                                                                    Jasper Rigg
+                                                                </td>
+                                                                <td id="tooltip-container3">
+                                                                    <div class="avatar-group">
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container3" data-bs-toggle="tooltip" data-bs-placement="top" title="Mat Helme">
+                                                                            <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container3" data-bs-toggle="tooltip" data-bs-placement="top" title="Michael Zenaty">
+                                                                            <img src="assets/images/users/avatar-8.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container3" data-bs-toggle="tooltip" data-bs-placement="top" title="James Anderson">
+                                                                            <img src="assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container3" data-bs-toggle="tooltip" data-bs-placement="top" title="Username">
+                                                                            <img src="assets/images/users/avatar-5.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="btn-group dropdown">
+                                                                        <a href="#" class="table-action-btn dropdown-toggle arrow-none btn btn-light px-1 btn-xs" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></a>
+                                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                                            <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted vertical-middle"></i>Share</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-link me-2 text-muted vertical-middle"></i>Get Sharable Link</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-pencil-line me-2 text-muted vertical-middle"></i>Rename</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-download-line me-2 text-muted vertical-middle"></i>Download</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-delete-bin-line me-2 text-muted vertical-middle"></i>Remove</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+    
+                                                            <tr>
+                                                                <td>
+                                                                    <span class="fw-semibold"><a href="javascript: void(0);" class="text-reset">Documentation.docs</a></span>
+                                                                </td>
+                                                                <td>
+                                                                    <p class="mb-0">Feb 9, 2023</p>
+                                                                    <span class="fs-12">by Justin</span>
+                                                                </td>
+                                                                <td>8.3 MB</td>
+                                                                <td>
+                                                                    Cooper Sharwood
+                                                                </td>
+                                                                <td id="tooltip-container4">
+                                                                    <div class="avatar-group">
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container4" data-bs-toggle="tooltip" data-bs-placement="top" title="Mat Helme">
+                                                                            <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                
+                                                                        <a href="javascript: void(0);" class="avatar-group-item mb-0" data-bs-container="#tooltip-container4" data-bs-toggle="tooltip" data-bs-placement="top" title="Michael Zenaty">
+                                                                            <img src="assets/images/users/avatar-10.jpg" class="rounded-circle avatar-xs" alt="friend">
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="btn-group dropdown">
+                                                                        <a href="#" class="table-action-btn dropdown-toggle arrow-none btn btn-light px-1 btn-xs" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></a>
+                                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                                            <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted vertical-middle"></i>Share</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-link me-2 text-muted vertical-middle"></i>Get Sharable Link</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-pencil-line me-2 text-muted vertical-middle"></i>Rename</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-download-line me-2 text-muted vertical-middle"></i>Download</a>
+                                                                            <a class="dropdown-item" href="#"><i class="ri-delete-bin-line me-2 text-muted vertical-middle"></i>Remove</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+    
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+    
+                                            </div> <!-- end .mt-3-->
+
+                                        </div> 
+                                        <!-- end inbox-rightbar-->
+                                    </div>
+                                    <!-- end card-body -->
+                                    <div class="clearfix"></div>
+                                </div> <!-- end card-box -->
+
+                            </div> <!-- end Col -->
+                        </div><!-- End row -->
 
                     </div> <!-- container -->
 
@@ -1215,15 +1561,8 @@
                 </div>
             </div>
         </div>  
-
         <!-- Vendor js -->
         <script src="assets/js/vendor.min.js"></script>
-
-        <!-- Fullcalendar js -->
-        <script src="assets/vendor/fullcalendar/main.min.js"></script>
-
-        <!-- Calendar App Demo js -->
-        <script src="assets/js/pages/demo.calendar.js"></script>
 
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>

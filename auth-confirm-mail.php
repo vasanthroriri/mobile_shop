@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Lock Screen | Powerx - Bootstrap 5 Admin & Dashboard Template</title>
+        <title>Confirm Email | Powerx - Bootstrap 5 Admin & Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -30,44 +30,36 @@
                         <div class="card bg-transparent mb-0">
                             <!-- Logo-->
                             <div class="auth-brand">
-                                <a href="index.html" class="logo-light">
+                                <a href="index.php" class="logo-light">
                                     <img src="assets/images/logo.png" alt="logo" height="22">
                                 </a>
-                                <a href="index.html" class="logo-dark">
+                                <a href="index.php" class="logo-dark">
                                     <img src="assets/images/logo-dark.png" alt="dark logo" height="22">
                                 </a>
                             </div>
 
                             <div class="card-body p-4">
                                 
-                                <div class="w-75">
-                                    <img src="assets/images/users/avatar-1.jpg" height="64" alt="user-image" class="rounded-circle shadow">
-                                    <h4 class="text-dark-50 mt-3 fw-bold">Hi ! Tosha </h4>
-                                    <p class="text-muted mb-4">Enter your password to access the admin.</p>
+                                <div class="m-auto">
+                                    <img src="assets/images/svg/mail_sent.svg" alt="mail sent image" height="64" />
+                                    <h4 class="text-dark-50 mt-4 fw-bold">Please check your email</h4>
+                                    <p class="text-muted mb-4">
+                                        A email has been send to <b>youremail@domain.com</b>.
+                                        Please check for an email from company and click on the included link to
+                                        reset your password. 
+                                    </p>
                                 </div>
 
-                                <form action="#">
-                                    <div class="mb-3">
-                                        <label for="password" class="form-label">Password</label>
-                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
-                                    </div>
-
+                                <form action="index.php">
                                     <div class="mb-0 text-center">
-                                        <button class="btn btn-primary w-100" type="submit">Log In</button>
+                                        <button class="btn btn-primary w-100" type="submit"><i class="ri-home-4-line me-1"></i> Back to Home</button>
                                     </div>
                                 </form>
-                                
+
                             </div> <!-- end card-body-->
                         </div>
                         <!-- end card-->
-
-                        <div class="row mt-3">
-                            <div class="col-12 text-center">
-                                <p class="text-muted bg-body">Not you? return <a href="auth-login.html" class="text-muted ms-1 link-offset-3 text-decoration-underline"><b>Sign In</b></a></p>
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
+                        
                     </div> <!-- end col -->
                 </div>
                 <!-- end row -->
@@ -79,7 +71,6 @@
         <footer class="footer footer-alt fw-medium">
             <span class="bg-body"><script>document.write(new Date().getFullYear())</script> © Powerx - Coderthemes.com</span>
         </footer>
-
         <!-- Vendor js -->
         <script src="assets/js/vendor.min.js"></script>
         

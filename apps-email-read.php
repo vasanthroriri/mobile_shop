@@ -3,13 +3,17 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Chat | Powerx - Bootstrap 5 Admin & Dashboard Template</title>
+        <title>Email Read | Powerx - Bootstrap 5 Admin & Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- Quill css -->
+        <link href="assets/vendor/quill/quill.core.css" rel="stylesheet" type="text/css" />
+        <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet" type="text/css" />
 
         <!-- Theme Config Js -->
         <script src="assets/js/config.js"></script>
@@ -34,7 +38,7 @@
                         <!-- Topbar Brand Logo -->
                         <div class="logo-topbar">
                             <!-- Logo light -->
-                            <a href="index.html" class="logo-light">
+                            <a href="index.php" class="logo-light">
                                 <span class="logo-lg">
                                     <img src="assets/images/logo.png" alt="logo">
                                 </span>
@@ -44,7 +48,7 @@
                             </a>
 
                             <!-- Logo Dark -->
-                            <a href="index.html" class="logo-dark">
+                            <a href="index.php" class="logo-dark">
                                 <span class="logo-lg">
                                     <img src="assets/images/logo-dark.png" alt="dark logo">
                                 </span>
@@ -376,31 +380,31 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="pages-profile.html" class="dropdown-item">
+                                <a href="pages-profile.php" class="dropdown-item">
                                     <i class="ri-account-circle-line fs-18 align-middle me-1"></i>
                                     <span>My Account</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="pages-profile.html" class="dropdown-item">
+                                <a href="pages-profile.php" class="dropdown-item">
                                     <i class="ri-settings-4-line fs-18 align-middle me-1"></i>
                                     <span>Settings</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="pages-faq.html" class="dropdown-item">
+                                <a href="pages-faq.php" class="dropdown-item">
                                     <i class="ri-customer-service-2-line fs-18 align-middle me-1"></i>
                                     <span>Support</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="auth-lock-screen.html" class="dropdown-item">
+                                <a href="auth-lock-screen.php" class="dropdown-item">
                                     <i class="ri-lock-password-line fs-18 align-middle me-1"></i>
                                     <span>Lock Screen</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="auth-logout-2.html" class="dropdown-item">
+                                <a href="auth-logout-2.php" class="dropdown-item">
                                     <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
                                     <span>Logout</span>
                                 </a>
@@ -415,7 +419,7 @@
             <div class="leftside-menu">
 
                 <!-- Brand Logo Light -->
-                <a href="index.html" class="logo logo-light">
+                <a href="index.php" class="logo logo-light">
                     <span class="logo-lg">
                         <img src="assets/images/logo.png" alt="logo">
                     </span>
@@ -425,7 +429,7 @@
                 </a>
 
                 <!-- Brand Logo Dark -->
-                <a href="index.html" class="logo logo-dark">
+                <a href="index.php" class="logo logo-dark">
                     <span class="logo-lg">
                         <img src="assets/images/logo-dark.png" alt="dark logo">
                     </span>
@@ -442,7 +446,7 @@
                 <div class="h-100" id="leftside-menu-container" data-simplebar>
                     <!-- Leftbar User -->
                     <div class="leftbar-user">
-                        <a href="pages-profile.html">
+                        <a href="pages-profile.php">
                             <img src="assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
                             <span class="leftbar-user-name mt-2">Michael Berndt</span>
                         </a>
@@ -454,21 +458,21 @@
                         <li class="side-nav-title">Main</li>
 
                         <li class="side-nav-item">
-                            <a href="index.html" class="side-nav-link">
+                            <a href="index.php" class="side-nav-link">
                                 <i class="ri-dashboard-2-fill"></i>
                                 <span> Dashboard </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="apps-calendar.html" class="side-nav-link">
+                            <a href="apps-calendar.php" class="side-nav-link">
                                 <i class="ri-calendar-event-fill"></i>
                                 <span> Calendar </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="apps-chat.html" class="side-nav-link">
+                            <a href="apps-chat.php" class="side-nav-link">
                                 <i class="ri-message-3-fill"></i>
                                 <span> Chat </span>
                             </a>
@@ -483,10 +487,10 @@
                             <div class="collapse" id="sidebarEmail">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="apps-email-inbox.html">Inbox</a>
+                                        <a href="apps-email-inbox.php">Inbox</a>
                                     </li>
                                     <li>
-                                        <a href="apps-email-read.html">Read Email</a>
+                                        <a href="apps-email-read.php">Read Email</a>
                                     </li>
                                 </ul>
                             </div>
@@ -503,82 +507,82 @@
                             <div class="collapse" id="sidebarBaseUI">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="ui-accordions.html">Accordions</a>
+                                        <a href="ui-accordions.php">Accordions</a>
                                     </li>
                                     <li>
-                                        <a href="ui-alerts.html">Alerts</a>
+                                        <a href="ui-alerts.php">Alerts</a>
                                     </li>
                                     <li>
-                                        <a href="ui-avatars.html">Avatars</a>
+                                        <a href="ui-avatars.php">Avatars</a>
                                     </li>
                                     <li>
-                                        <a href="ui-badges.html">Badges</a>
+                                        <a href="ui-badges.php">Badges</a>
                                     </li>
                                     <li>
-                                        <a href="ui-breadcrumb.html">Breadcrumb</a>
+                                        <a href="ui-breadcrumb.php">Breadcrumb</a>
                                     </li>
                                     <li>
-                                        <a href="ui-buttons.html">Buttons</a>
+                                        <a href="ui-buttons.php">Buttons</a>
                                     </li>
                                     <li>
-                                        <a href="ui-cards.html">Cards</a>
+                                        <a href="ui-cards.php">Cards</a>
                                     </li>
                                     <li>
-                                        <a href="ui-carousel.html">Carousel</a>
+                                        <a href="ui-carousel.php">Carousel</a>
                                     </li>
                                     <li>
-                                        <a href="ui-collapse.html">Collapse</a>
+                                        <a href="ui-collapse.php">Collapse</a>
                                     </li>
                                     <li>
-                                        <a href="ui-dropdowns.html">Dropdowns</a>
+                                        <a href="ui-dropdowns.php">Dropdowns</a>
                                     </li>
                                     <li>
-                                        <a href="ui-embed-video.html">Embed Video</a>
+                                        <a href="ui-embed-video.php">Embed Video</a>
                                     </li>
                                     <li>
-                                        <a href="ui-grid.html">Grid</a>
+                                        <a href="ui-grid.php">Grid</a>
                                     </li>
                                     <li>
-                                        <a href="ui-links.html">Links</a>
+                                        <a href="ui-links.php">Links</a>
                                     </li>
                                     <li>
-                                        <a href="ui-list-group.html">List Group</a>
+                                        <a href="ui-list-group.php">List Group</a>
                                     </li>
                                     <li>
-                                        <a href="ui-modals.html">Modals</a>
+                                        <a href="ui-modals.php">Modals</a>
                                     </li>
                                     <li>
-                                        <a href="ui-notifications.html">Notifications</a>
+                                        <a href="ui-notifications.php">Notifications</a>
                                     </li>
                                     <li>
-                                        <a href="ui-offcanvas.html">Offcanvas</a>
+                                        <a href="ui-offcanvas.php">Offcanvas</a>
                                     </li>
                                     <li>
-                                        <a href="ui-placeholders.html">Placeholders</a>
+                                        <a href="ui-placeholders.php">Placeholders</a>
                                     </li>
                                     <li>
-                                        <a href="ui-pagination.html">Pagination</a>
+                                        <a href="ui-pagination.php">Pagination</a>
                                     </li>
                                     <li>
-                                        <a href="ui-popovers.html">Popovers</a>
+                                        <a href="ui-popovers.php">Popovers</a>
                                     </li>
                                     <li>
-                                        <a href="ui-progress.html">Progress</a>
+                                        <a href="ui-progress.php">Progress</a>
                                     </li>
                                     <li>
-                                        <a href="ui-spinners.html">Spinners</a>
+                                        <a href="ui-spinners.php">Spinners</a>
                                     </li>
                                     <li>
-                                        <a href="ui-tabs.html">Tabs</a>
+                                        <a href="ui-tabs.php">Tabs</a>
                                     </li>
                                     <li>
-                                        <a href="ui-tooltips.html">Tooltips</a>
+                                        <a href="ui-tooltips.php">Tooltips</a>
                                     </li>
                                     <li>
-                                        <a href="ui-typography.html">Typography</a>
+                                        <a href="ui-typography.php">Typography</a>
                                     </li>
                                     <li>
-                                        <a href="ui-utilities.html">Utilities</a>
+                                        <a href="ui-utilities.php">Utilities</a>
                                     </li>
                                 </ul>
                             </div>
@@ -593,19 +597,19 @@
                             <div class="collapse" id="sidebarExtendedUI">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="extended-dragula.html">Dragula</a>
+                                        <a href="extended-dragula.php">Dragula</a>
                                     </li>
                                     <li>
-                                        <a href="extended-range-slider.html">Range Slider</a>
+                                        <a href="extended-range-slider.php">Range Slider</a>
                                     </li>
                                     <li>
-                                        <a href="extended-ratings.html">Ratings</a>
+                                        <a href="extended-ratings.php">Ratings</a>
                                     </li>
                                     <li>
-                                        <a href="extended-scrollbar.html">Scrollbar</a>
+                                        <a href="extended-scrollbar.php">Scrollbar</a>
                                     </li>
                                     <li>
-                                        <a href="extended-scrollspy.html">Scrollspy</a>
+                                        <a href="extended-scrollspy.php">Scrollspy</a>
                                     </li>
                                 </ul>
                             </div>
@@ -620,10 +624,10 @@
                             <div class="collapse" id="sidebarIcons">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="icons-remixicons.html">Remix Icons</a>
+                                        <a href="icons-remixicons.php">Remix Icons</a>
                                     </li>
                                     <li>
-                                        <a href="icons-bootstrap.html">Bootstrap Icons</a>
+                                        <a href="icons-bootstrap.php">Bootstrap Icons</a>
                                     </li>
                                 </ul>
                             </div>
@@ -638,55 +642,55 @@
                             <div class="collapse" id="sidebarCharts">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="charts-apex-area.html">Area</a>
+                                        <a href="charts-apex-area.php">Area</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-bar.html">Bar</a>
+                                        <a href="charts-apex-bar.php">Bar</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-bubble.html">Bubble</a>
+                                        <a href="charts-apex-bubble.php">Bubble</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-candlestick.html">Candlestick</a>
+                                        <a href="charts-apex-candlestick.php">Candlestick</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-column.html">Column</a>
+                                        <a href="charts-apex-column.php">Column</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-heatmap.html">Heatmap</a>
+                                        <a href="charts-apex-heatmap.php">Heatmap</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-line.html">Line</a>
+                                        <a href="charts-apex-line.php">Line</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-mixed.html">Mixed</a>
+                                        <a href="charts-apex-mixed.php">Mixed</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-timeline.html">Timeline</a>
+                                        <a href="charts-apex-timeline.php">Timeline</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-boxplot.html">Boxplot</a>
+                                        <a href="charts-apex-boxplot.php">Boxplot</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-treemap.html">Treemap</a>
+                                        <a href="charts-apex-treemap.php">Treemap</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-pie.html">Pie</a>
+                                        <a href="charts-apex-pie.php">Pie</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-radar.html">Radar</a>
+                                        <a href="charts-apex-radar.php">Radar</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-radialbar.html">RadialBar</a>
+                                        <a href="charts-apex-radialbar.php">RadialBar</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-scatter.html">Scatter</a>
+                                        <a href="charts-apex-scatter.php">Scatter</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-polar-area.html">Polar Area</a>
+                                        <a href="charts-apex-polar-area.php">Polar Area</a>
                                     </li>
                                     <li>
-                                        <a href="charts-apex-sparklines.html">Sparklines</a>
+                                        <a href="charts-apex-sparklines.php">Sparklines</a>
                                     </li>
                                 </ul>
                             </div>
@@ -701,22 +705,22 @@
                             <div class="collapse" id="sidebarForms">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="form-elements.html">Basic Elements</a>
+                                        <a href="form-elements.php">Basic Elements</a>
                                     </li>
                                     <li>
-                                        <a href="form-advanced.html">Form Advanced</a>
+                                        <a href="form-advanced.php">Form Advanced</a>
                                     </li>
                                     <li>
-                                        <a href="form-validation.html">Validation</a>
+                                        <a href="form-validation.php">Validation</a>
                                     </li>
                                     <li>
-                                        <a href="form-wizard.html">Wizard</a>
+                                        <a href="form-wizard.php">Wizard</a>
                                     </li>
                                     <li>
-                                        <a href="form-fileuploads.html">File Uploads</a>
+                                        <a href="form-fileuploads.php">File Uploads</a>
                                     </li>
                                     <li>
-                                        <a href="form-editors.html">Editors</a>
+                                        <a href="form-editors.php">Editors</a>
                                     </li>
                                 </ul>
                             </div>
@@ -731,10 +735,10 @@
                             <div class="collapse" id="sidebarTables">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="tables-basic.html">Basic Tables</a>
+                                        <a href="tables-basic.php">Basic Tables</a>
                                     </li>
                                     <li>
-                                        <a href="tables-datatable.html">Data Tables</a>
+                                        <a href="tables-datatable.php">Data Tables</a>
                                     </li>
                                 </ul>
                             </div>
@@ -749,10 +753,10 @@
                             <div class="collapse" id="sidebarMaps">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="maps-google.html">Google Maps</a>
+                                        <a href="maps-google.php">Google Maps</a>
                                     </li>
                                     <li>
-                                        <a href="maps-vector.html">Vector Maps</a>
+                                        <a href="maps-vector.php">Vector Maps</a>
                                     </li>
                                 </ul>
                             </div>
@@ -769,25 +773,25 @@
                             <div class="collapse" id="sidebarPages">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="pages-invoice.html">Invoice</a>
+                                        <a href="pages-invoice.php">Invoice</a>
                                     </li>
                                     <li>
-                                        <a href="pages-faq.html">FAQ</a>
+                                        <a href="pages-faq.php">FAQ</a>
                                     </li>
                                     <li>
-                                        <a href="pages-pricing.html">Pricing</a>
+                                        <a href="pages-pricing.php">Pricing</a>
                                     </li>
                                     <li>
-                                        <a href="pages-maintenance.html">Maintenance</a>
+                                        <a href="pages-maintenance.php">Maintenance</a>
                                     </li>
                                     <li>
-                                        <a href="pages-starter.html">Starter Page</a>
+                                        <a href="pages-starter.php">Starter Page</a>
                                     </li>
                                     <li>
-                                        <a href="pages-preloader.html">With Preloader</a>
+                                        <a href="pages-preloader.php">With Preloader</a>
                                     </li>
                                     <li>
-                                        <a href="pages-timeline.html">Timeline</a>
+                                        <a href="pages-timeline.php">Timeline</a>
                                     </li>
                                 </ul>
                             </div>
@@ -802,22 +806,22 @@
                             <div class="collapse" id="sidebarPagesAuth">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="auth-login.html">Login</a>
+                                        <a href="auth-login.php">Login</a>
                                     </li>
                                     <li>
-                                        <a href="auth-register.html">Register</a>
+                                        <a href="auth-register.php">Register</a>
                                     </li>
                                     <li>
-                                        <a href="auth-logout.html">Logout</a>
+                                        <a href="auth-logout.php">Logout</a>
                                     </li>
                                     <li>
-                                        <a href="auth-recoverpw.html">Recover Password</a>
+                                        <a href="auth-recoverpw.php">Recover Password</a>
                                     </li>
                                     <li>
-                                        <a href="auth-lock-screen.html">Lock Screen</a>
+                                        <a href="auth-lock-screen.php">Lock Screen</a>
                                     </li>
                                     <li>
-                                        <a href="auth-confirm-mail.html">Confirm Mail</a>
+                                        <a href="auth-confirm-mail.php">Confirm Mail</a>
                                     </li>
                                 </ul>
                             </div>
@@ -832,13 +836,13 @@
                             <div class="collapse" id="sidebarPagesError">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="error-404.html">Error 404</a>
+                                        <a href="error-404.php">Error 404</a>
                                     </li>
                                     <li>
-                                        <a href="error-404-alt.html">Error 404-alt</a>
+                                        <a href="error-404-alt.php">Error 404-alt</a>
                                     </li>
                                     <li>
-                                        <a href="error-500.html">Error 500</a>
+                                        <a href="error-500.php">Error 500</a>
                                     </li>
                                 </ul>
                             </div>
@@ -853,16 +857,16 @@
                             <div class="collapse" id="sidebarLayouts">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="layouts-compact.html" target="_blank">Compact</a>
+                                        <a href="layouts-compact.php" target="_blank">Compact</a>
                                     </li>
                                     <li>
-                                        <a href="layouts-icon-view.html" target="_blank">Icon View</a>
+                                        <a href="layouts-icon-view.php" target="_blank">Icon View</a>
                                     </li>
                                     <li>
-                                        <a href="layouts-full.html" target="_blank">Full View</a>
+                                        <a href="layouts-full.php" target="_blank">Full View</a>
                                     </li>
                                     <li>
-                                        <a href="layouts-fullscreen.html" target="_blank">Fullscreen View</a>
+                                        <a href="layouts-fullscreen.php" target="_blank">Fullscreen View</a>
                                     </li>
                                 </ul>
                             </div>
@@ -943,7 +947,8 @@
 
                     <!-- Start Content-->
                     <div class="container-fluid">
-
+                        
+                        <!-- start page email-title -->
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
@@ -959,509 +964,280 @@
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Powerx</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Apps</a></li>
-                                            <li class="breadcrumb-item active">Chat</li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Email</a></li>
+                                            <li class="breadcrumb-item active">Email Read</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Chat</h4>
+                                    <h4 class="page-title">Email Read</h4>
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
+                        <!-- end page email-title --> 
 
                         <div class="row">
-                            <!-- start chat users-->
-                            <div class="col-xl-3 col-lg-4">
+
+                            <!-- Right Sidebar -->
+                            <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
+                                        <!-- Left sidebar -->
+                                        <div class="page-aside-left">
 
-                                        <div class="d-flex align-items-start mb-3">
-                                            <img src="assets/images/users/avatar-1.jpg" class="me-2 rounded-circle" height="42" alt="Brandon Smith">
-                                            <div class="w-100">
-                                                <h5 class="mb-0">
-                                                    <a href="pages-profile.html" class="text-reset lh-base">Michael Berndt</a>
-                                                </h5>
-                                                <p class="mb-0 text-muted">
-                                                    <small class="ri-checkbox-blank-circle-fill text-success"></small> Online
-                                                </p>
+                                            <div class="d-grid">
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#compose-modal">Compose</button>
                                             </div>
-                                            <a href="javascript: void(0);" class="text-reset fs-20">
-                                                <i class="ri-settings-5-line"></i>
-                                            </a>
-                                        </div>
 
-                                        <!-- start search box -->
-                                        <div class="app-search">
-                                            <form>
-                                                <div class="mb-2 w-100 position-relative">
-                                                    <input type="search" class="form-control" placeholder="People, groups &amp; messages...">
-                                                    <span class="ri-search-line search-icon"></span>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <!-- end search box -->
-
-                                        <h6 class="fs-13 text-muted text-uppercase mt-2">Group Chats</h6>
-                                        <div class="py-2">
-                                            <a href="javascript: void(0);" class="text-reset mb-2 d-block">
-                                                <i class="ri-checkbox-blank-circle-line me-1 text-success"></i>
-                                                <span class="mb-0 mt-1">App Development</span>
-                                            </a>
-
-                                            <a href="javascript: void(0);" class="text-reset mb-2 d-block">
-                                                <i class="ri-checkbox-blank-circle-line me-1 text-warning"></i>
-                                                <span class="mb-0 mt-1">Office Work</span>
-                                            </a>
-                                        </div>
-
-                                        <h6 class="fs-13 text-muted text-uppercase mb-2">Contacts</h6>
-                                    </div> <!-- end card-body-->
-
-                                    <div class="card-body p-0">
-                                        <!-- users -->
-                                        <div class="row">
-                                            <div class="col">
-                                                <div data-simplebar style="max-height: 380px;">
-                                                    <a href="javascript:void(0);" class="text-body">
-                                                        <div class="d-flex align-items-start py-2 px-3">
-                                                            <img src="assets/images/users/avatar-2.jpg" class="me-2 rounded-circle" height="42" alt="Brandon Smith" />
-                                                            <div class="w-100">
-                                                                <h5 class="my-0">
-                                                                    <span class="float-end text-muted fw-normal fs-12">4:30am</span>
-                                                                    Brandon Smith
-                                                                </h5>
-                                                                <p class="mt-1 mb-0 text-muted">
-                                                                    <span class="w-25 float-end text-end"><span class="badge bg-danger-subtle text-danger">3</span></span>
-                                                                    <span class="w-75">How are you today?</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-
-                                                    <a href="javascript:void(0);" class="text-body">
-                                                        <div class="d-flex align-items-start py-2 px-3 bg-light-subtle border-top border-bottom border-light">
-                                                            <img src="assets/images/users/avatar-5.jpg" class="me-2 rounded-circle" height="42" alt="James Z" />
-                                                            <div class="w-100">
-                                                                <h5 class="my-0">
-                                                                    <span class="float-end text-muted fw-normal fs-12">5:30am</span>
-                                                                    James Zavel
-                                                                </h5>
-                                                                <p class="mt-1 mb-0 text-muted">
-                                                                    <span class="w-75">typing...</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-
-                                                    <a href="javascript:void(0);" class="text-body">
-                                                        <div class="d-flex align-items-start py-2 px-3">
-                                                            <img src="assets/images/users/avatar-7.jpg" class="me-2 rounded-circle" height="42" alt="Maria C" />
-                                                            <div class="w-100">
-                                                                <h5 class="my-0">
-                                                                    <span class="float-end text-muted fw-normal fs-12">Thu</span>
-                                                                    Maria C
-                                                                </h5>
-                                                                <p class="mt-1 mb-0 text-muted">
-                                                                    <span class="w-25 float-end text-end"><span class="badge bg-danger-subtle text-danger">2</span></span>
-                                                                    <span class="w-75">Are we going to have this week's planning meeting today?</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-
-                                                    <a href="javascript:void(0);" class="text-body">
-                                                        <div class="d-flex align-items-start py-2 px-3">
-                                                            <img src="assets/images/users/avatar-10.jpg" class="me-2 rounded-circle" height="42" alt="Rhonda D" />
-                                                            <div class="w-100">
-                                                                <h5 class="my-0">
-                                                                    <span class="float-end text-muted fw-normal fs-12">Wed</span>
-                                                                    Rhonda D
-                                                                </h5>
-                                                                <p class="mt-1 mb-0 text-muted">
-                                                                    <span class="w-75">Please check these design assets...</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-
-                                                    <a href="javascript:void(0);" class="text-body">
-                                                        <div class="d-flex align-items-start py-2 px-3">
-                                                            <img src="assets/images/users/avatar-3.jpg" class="me-2 rounded-circle" height="42" alt="Michael H" />
-                                                            <div class="w-100">
-                                                                <h5 class="my-0">
-                                                                    <span class="float-end text-muted fw-normal fs-12">Tue</span>
-                                                                    Michael H
-                                                                </h5>
-                                                                <p class="mt-1 mb-0 text-muted">
-                                                                    <span class="w-75">Are you free for 15 min? I would like to discuss something...</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-
-                                                    <a href="javascript:void(0);" class="text-body">
-                                                        <div class="d-flex align-items-start py-2 px-3">
-                                                            <img src="assets/images/users/avatar-6.jpg" class="me-2 rounded-circle" height="42" alt="Thomas R" />
-                                                            <div class="w-100">
-                                                                <h5 class="my-0">
-                                                                    <span class="float-end text-muted fw-normal fs-12">Tue</span>
-                                                                    Thomas R
-                                                                </h5>
-                                                                <p class="mt-1 mb-0 text-muted">
-                                                                    <span class="w-75">Let's have meeting today between me, you and Tony...</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-
-                                                    <a href="javascript:void(0);" class="text-body">
-                                                        <div class="d-flex align-items-start py-2 px-3">
-                                                            <img src="assets/images/users/avatar-8.jpg" class="me-2 rounded-circle" height="42" alt="Thomas J" />
-                                                            <div class="w-100">
-                                                                <h5 class="my-0">
-                                                                    <span class="float-end text-muted fw-normal fs-12">Tue</span>
-                                                                    Thomas J
-                                                                </h5>
-                                                                <p class="mt-1 mb-0 text-muted">
-                                                                    <span class="w-75">Howdy?</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-
-                                                    <a href="javascript:void(0);" class="text-body">
-                                                        <div class="d-flex align-items-start py-2 px-3">
-                                                            <img src="assets/images/users/avatar-4.jpg" class="me-2 rounded-circle" height="42" alt="Ricky J" />
-                                                            <div class="w-100">
-                                                                <h5 class="my-0">
-                                                                    <span class="float-end text-muted fw-normal fs-12">Mon</span>
-                                                                    Ricky J
-                                                                </h5>
-                                                                <p class="mt-1 mb-0 text-muted">
-                                                                    <span class="w-75">Are you interested in learning?</span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <!-- end slimscroll-->
+                                            <div class="email-menu-list mt-3">
+                                                <a href="javascript: void(0);" class="text-danger fw-bold"><i class="ri-inbox-line me-2"></i>Inbox<span class="badge badge-danger-lighten float-end ms-2">7</span></a>
+                                                <a href="javascript: void(0);"><i class="ri-star-line me-2"></i>Starred</a>
+                                                <a href="javascript: void(0);"><i class="ri-time-line me-2"></i>Snoozed</a>
+                                                <a href="javascript: void(0);"><i class="ri-article-line me-2"></i>Draft<span class="badge badge-info-lighten float-end ms-2">32</span></a>
+                                                <a href="javascript: void(0);"><i class="ri-mail-send-line me-2"></i>Sent Mail</a>
+                                                <a href="javascript: void(0);"><i class="ri-delete-bin-line me-2"></i>Trash</a>
+                                                <a href="javascript: void(0);"><i class="ri-price-tag-3-line me-2"></i>Important</a>
+                                                <a href="javascript: void(0);"><i class="ri-alert-line me-2"></i>Spam</a>
                                             </div>
-                                            <!-- End col -->
-                                        </div>
-                                        <!-- end users -->
-                                    </div>
-                                </div> <!-- end card-->
-                            </div>
-                            <!-- end chat users-->
 
-                            <!-- chat area -->
-                            <div class="col-xl-9 col-lg-8">
-
-                                <div class="card">
-                                    <div class="card-body py-2 px-3 border-bottom border-light">
-                                        <div class="row justify-content-between py-1">
-                                            <div class="col-sm-7">
-                                                <div class="d-flex align-items-start">
-                                                    <img src="assets/images/users/avatar-5.jpg" class="me-2 rounded-circle" height="36" alt="Brandon Smith">
-                                                    <div>
-                                                        <h5 class="my-0 font-15">
-                                                            <a href="pages-profile.html" class="text-reset">James Zavel</a>
-                                                        </h5>
-                                                        <p class="mt-1 mb-0 text-muted fs-12">
-                                                            <small class="ri-checkbox-blank-circle-fill text-danger"></small> Offline
-                                                        </p>
-                                                    </div>
+                                            <div class="mt-4">
+                                                <h6 class="text-uppercase">Labels</h6>
+                                                <div class="email-menu-list labels-list mt-2">
+                                                    <a href="javascript: void(0);"><i class="ri-checkbox-blank-circle-fill fs-13 text-info me-2"></i>Updates</a>
+                                                    <a href="javascript: void(0);"><i class="ri-checkbox-blank-circle-fill fs-13 text-warning me-2"></i>Friends</a>
+                                                    <a href="javascript: void(0);"><i class="ri-checkbox-blank-circle-fill fs-13 text-success me-2"></i>Family</a>
+                                                    <a href="javascript: void(0);"><i class="ri-checkbox-blank-circle-fill fs-13 text-primary me-2"></i>Social</a>
+                                                    <a href="javascript: void(0);"><i class="ri-checkbox-blank-circle-fill fs-13 text-danger me-2"></i>Important</a>
+                                                    <a href="javascript: void(0);"><i class="ri-checkbox-blank-circle-fill fs-13 text-secondary me-2"></i>Promotions</a>
                                                 </div>
                                             </div>
-                                            <div class="col-auto">
-                                                <div id="tooltips-container">
-                                                    <a href="javascript: void(0);" class="text-reset fs-20 p-1 d-inline-block">
-                                                        <i class="ri-phone-line" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Voice Call"></i>
-                                                    </a>
-                                                    <a href="javascript: void(0);" class="text-reset fs-20 p-1 d-inline-block">
-                                                        <i class="ri-vidicon-line" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Video Call"></i>
-                                                    </a>
-                                                    <a href="javascript: void(0);" class="text-reset fs-20 p-1 d-inline-block">
-                                                        <i class="ri-group-line" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Add Users"></i>
-                                                    </a>
-                                                    <a href="javascript: void(0);" class="text-reset fs-20 p-1 d-inline-block">
-                                                        <i class="ri-delete-bin-line" data-bs-container="#tooltips-container" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete Chat"></i>
-                                                    </a>
+
+                                            <div class="mt-5">
+                                                <h4><span class="badge rounded-pill p-1 px-2 badge-secondary-lighten">FREE</span></h4>
+                                                <h6 class="text-uppercase mt-3">Storage</h6>
+                                                <div class="progress my-2 progress-sm">
+                                                    <div class="progress-bar progress-lg bg-success" role="progressbar" style="width: 46%" aria-valuenow="46" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <p class="text-muted fs-13 mb-0">7.02 GB (46%) of 15 GB used</p>
+                                            </div>
+
+                                        </div>
+                                        <!-- End Left sidebar -->
+
+                                        <div class="page-aside-right">
+
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-secondary"><i class="ri-inbox-archive-line fs-16"></i></button>
+                                                <button type="button" class="btn btn-secondary"><i class="ri-spam-2-line fs-16"></i></button>
+                                                <button type="button" class="btn btn-secondary"><i class="ri-delete-bin-line fs-16"></i></button>
+                                            </div>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-secondary dropdown-toggle arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="ri-folder-2-line fs-16"></i>
+                                                    <i class="ri-arrow-down-s-line"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <span class="dropdown-header">Move to:</span>
+                                                    <a class="dropdown-item" href="javascript: void(0);">Social</a>
+                                                    <a class="dropdown-item" href="javascript: void(0);">Promotions</a>
+                                                    <a class="dropdown-item" href="javascript: void(0);">Updates</a>
+                                                    <a class="dropdown-item" href="javascript: void(0);">Forums</a>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body p-0">
-                                        <ul class="conversation-list p-3" data-simplebar style="max-height: 520px;">
-                                            <li class="clearfix">
-                                                <div class="chat-avatar">
-                                                    <img src="assets/images/users/avatar-5.jpg" class="rounded" alt="James Z" />
-                                                    <i>10:00</i>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-secondary dropdown-toggle arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="ri-price-tag-3-line fs-16"></i>
+                                                    <i class="ri-arrow-down-s-line"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <span class="dropdown-header">Label as:</span>
+                                                    <a class="dropdown-item" href="javascript: void(0);">Updates</a>
+                                                    <a class="dropdown-item" href="javascript: void(0);">Social</a>
+                                                    <a class="dropdown-item" href="javascript: void(0);">Promotions</a>
+                                                    <a class="dropdown-item" href="javascript: void(0);">Forums</a>
                                                 </div>
-                                                <div class="conversation-text">
-                                                    <div class="ctext-wrap">
-                                                        <i>James Z</i>
-                                                        <p>
-                                                            Hello!
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="conversation-actions dropdown">
-                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+                                            </div>
 
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">Copy Message</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                    </div>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-secondary dropdown-toggle arrow-none" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="ri-more-line fs-16"></i> More
+                                                    <i class="ri-arrow-down-s-line"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <span class="dropdown-header">More Options :</span>
+                                                    <a class="dropdown-item" href="javascript: void(0);">Mark as Unread</a>
+                                                    <a class="dropdown-item" href="javascript: void(0);">Add to Tasks</a>
+                                                    <a class="dropdown-item" href="javascript: void(0);">Add Star</a>
+                                                    <a class="dropdown-item" href="javascript: void(0);">Mute</a>
                                                 </div>
-                                            </li>
-                                            <li class="clearfix odd">
-                                                <div class="chat-avatar">
-                                                    <img src="assets/images/users/avatar-1.jpg" class="rounded" alt="Geneva M" />
-                                                    <i>10:01</i>
-                                                </div>
-                                                <div class="conversation-text">
-                                                    <div class="ctext-wrap">
-                                                        <i>Geneva M</i>
-                                                        <p>
-                                                            Hi, How are you? What about our next meeting?
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="conversation-actions dropdown">
-                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+                                            </div>
 
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">Copy Message</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="chat-avatar">
-                                                    <img src="assets/images/users/avatar-5.jpg" class="rounded" alt="James Z" />
-                                                    <i>10:01</i>
-                                                </div>
-                                                <div class="conversation-text">
-                                                    <div class="ctext-wrap">
-                                                        <i>James Z</i>
-                                                        <p>
-                                                            Yeah everything is fine
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="conversation-actions dropdown">
-                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+                                            <div class="mt-3">
+                                                <h5 class="fs-18">Your elite author Graphic Optimization reward is ready!</h5>
 
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">Copy Message</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix odd">
-                                                <div class="chat-avatar">
-                                                    <img src="assets/images/users/avatar-1.jpg" class="rounded" alt="Geneva M" />
-                                                    <i>10:02</i>
-                                                </div>
-                                                <div class="conversation-text">
-                                                    <div class="ctext-wrap">
-                                                        <i>Geneva M</i>
-                                                        <p>
-                                                            Wow that's great
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="conversation-actions dropdown">
-                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+                                                <hr/>
 
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">Copy Message</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                <div class="d-flex mb-3 mt-1">
+                                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-2.jpg" alt="placeholder image" height="32">
+                                                    <div class="w-100 overflow-hidden">
+                                                        <small class="float-end">April 24, 2023, 10:59 PM</small>
+                                                        <h6 class="m-0 fs-14">Steven Smith</h6>
+                                                        <small class="text-muted">From: jonathan@domain.com</small>
                                                     </div>
                                                 </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="chat-avatar">
-                                                    <img src="assets/images/users/avatar-5.jpg" alt="James Z" class="rounded" />
-                                                    <i>10:02</i>
-                                                </div>
-                                                <div class="conversation-text">
-                                                    <div class="ctext-wrap">
-                                                        <i>James Z</i>
-                                                        <p>
-                                                            Let's have it today if you are free
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="conversation-actions dropdown">
-                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
 
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">Copy Message</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix odd">
-                                                <div class="chat-avatar">
-                                                    <img src="assets/images/users/avatar-1.jpg" alt="Geneva M" class="rounded" />
-                                                    <i>10:03</i>
-                                                </div>
-                                                <div class="conversation-text">
-                                                    <div class="ctext-wrap">
-                                                        <i>Geneva M</i>
-                                                        <p>
-                                                            Sure thing! let me know if 2pm works for you
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="conversation-actions dropdown">
-                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+                                                <p>Hi Coderthemes!</p>
+                                                <p>Clicking ‘Order Service’ on the right-hand side of the above page will present you with an order page. This service has the following Briefing Guidelines that will need to be filled before placing your order:</p>
+                                                <ol>
+                                                    <li>Your design preferences (Color, style, shapes, Fonts, others) </li>
+                                                    <li>Tell me, why is your item different? </li>
+                                                    <li>Do you want to bring up a specific feature of your item? If yes, please tell me </li>
+                                                    <li>Do you have any preference or specific thing you would like to change or improve on your item page? </li>
+                                                    <li>Do you want to include your item's or your provider's logo on the page? if yes, please send it to me in vector format (Ai or EPS) </li>
+                                                    <li>Please provide me with the copy or text to display</li>
+                                                </ol>
 
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">Copy Message</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="chat-avatar">
-                                                    <img src="assets/images/users/avatar-5.jpg" alt="James Z" class="rounded" />
-                                                    <i>10:04</i>
-                                                </div>
-                                                <div class="conversation-text">
-                                                    <div class="ctext-wrap">
-                                                        <i>James Z</i>
-                                                        <p>
-                                                            Sorry, I have another meeting scheduled at 2pm. Can we have it at 3pm instead?
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="conversation-actions dropdown">
-                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+                                                <p>Filling in this form with the above information will ensure that they will be able to start work quickly.</p>
+                                                <p>You can complete your order by putting your coupon code into the Promotional code box and clicking ‘Apply Coupon’.</p>
+                                                <p><b>Best,</b> <br/> Graphic Studio</p>
+                                                <hr/>
 
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">Copy Message</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="chat-avatar">
-                                                    <img src="assets/images/users/avatar-5.jpg" alt="James Z" class="rounded" />
-                                                    <i>10:04</i>
-                                                </div>
-                                                <div class="conversation-text">
-                                                    <div class="ctext-wrap">
-                                                        <i>James Z</i>
-                                                        <p>
-                                                            We can also discuss about the presentation talk format if you have some extra mins
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="conversation-actions dropdown">
-                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
+                                                <h5 class="mb-3">Attachments</h5>
 
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">Copy Message</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix odd">
-                                                <div class="chat-avatar">
-                                                    <img src="assets/images/users/avatar-1.jpg" alt="Geneva M" class="rounded" />
-                                                    <i>10:05</i>
-                                                </div>
-                                                <div class="conversation-text">
-                                                    <div class="ctext-wrap">
-                                                        <i>Geneva M</i>
-                                                        <p>
-                                                            3pm it is. Sure, let's discuss about presentation format, it would be great to finalize today. I am attaching the last year format and assets here...
-                                                        </p>
-                                                    </div>
-                                                    <div class="card mt-2 mb-1 shadow-none border text-start">
-                                                        <div class="p-2">
-                                                            <div class="row align-items-center">
-                                                                <div class="col-auto">
-                                                                    <div class="avatar-sm">
-                                                                        <span class="avatar-title bg-primary rounded">
-                                                                            .ZIP
-                                                                        </span>
+                                                <div class="row">
+                                                    <div class="col-xl-4">
+                                                        <div class="card mb-1 shadow-none border">
+                                                            <div class="p-2">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="avatar-sm">
+                                                                            <span class="avatar-title bg-primary-subtle text-primary rounded">
+                                                                                .ZIP
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col ps-0">
+                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Powerx-admin-design.zip</a>
+                                                                        <p class="mb-0">2.3 MB</p>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- Button -->
+                                                                        <a href="javascript:void(0);" class="btn btn-link btn-lg text-muted">
+                                                                            <i class="ri-download-2-line"></i>
+                                                                        </a>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col ps-0">
-                                                                    <a href="javascript:void(0);" class="text-muted fw-bold">Powerx-sketch.zip</a>
-                                                                    <p class="mb-0 text-muted">2.3 MB</p>
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <!-- Button -->
-                                                                    <a href="javascript:void(0);" class="btn btn-link btn-lg text-muted">
-                                                                        <i class="ri-download-2-line"></i>
-                                                                    </a>
+                                                            </div>
+                                                        </div>
+                                                    </div> <!-- end col -->
+                                                    <div class="col-xl-4">
+                                                        <div class="card mb-1 shadow-none border">
+                                                            <div class="p-2">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <img src="assets/images/small/small-4.jpg" class="avatar-sm rounded" alt="file-image">
+                                                                    </div>
+                                                                    <div class="col ps-0">
+                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Dashboard-design.jpg</a>
+                                                                        <p class="mb-0">3.25 MB</p>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- Button -->
+                                                                        <a href="javascript:void(0);" class="btn btn-link btn-lg text-muted">
+                                                                            <i class="ri-download-2-line"></i>
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="conversation-actions dropdown">
-                                                    <button class="btn btn-sm btn-link fs-18" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
-
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#">Copy Message</a>
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Delete</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="bg-light p-3 rounded">
-                                                    <form class="needs-validation" novalidate="" name="chat-form" id="chat-form">
-                                                        <div class="row">
-                                                            <div class="col mb-2 mb-sm-0">
-                                                                <input type="text" class="form-control border-0" placeholder="Enter your text" required="" />
-                                                                <div class="invalid-feedback">
-                                                                    Please enter your messsage
+                                                    </div> <!-- end col -->
+                                                    <div class="col-xl-4">
+                                                        <div class="card mb-0 shadow-none border">
+                                                            <div class="p-2">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-auto">
+                                                                        <div class="avatar-sm">
+                                                                            <span class="avatar-title bg-secondary text-light rounded">
+                                                                                .MP4
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col ps-0">
+                                                                        <a href="javascript:void(0);" class="text-muted fw-bold">Admin-bug-report.mp4</a>
+                                                                        <p class="mb-0">7.05 MB</p>
+                                                                    </div>
+                                                                    <div class="col-auto">
+                                                                        <!-- Button -->
+                                                                        <a href="javascript:void(0);" class="btn btn-link btn-lg text-muted">
+                                                                            <i class="ri-download-2-line"></i>
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-auto">
-                                                                <div class="btn-group">
-                                                                    <a href="#" class="btn btn-light"><i class="ri-attachment-2"></i></a>
-                                                                    <button type="submit" class="btn btn-success chat-send w-100"><i class="ri-send-plane-2-line"></i></button>
-                                                                </div>
-                                                            </div>
-                                                            <!-- end col -->
                                                         </div>
-                                                        <!-- end row-->
-                                                    </form>
+                                                    </div> <!-- end col -->
                                                 </div>
+                                                <!-- end row-->
+                                                
+                                                <div class="mt-5">
+                                                    <a href="" class="btn btn-secondary me-2"><i class="ri-reply-line me-1"></i> Reply</a>
+                                                    <a href="" class="btn btn-light">Forward <i class="ri-share-forward-2-fill ms-1"></i></a>
+                                                </div>
+     
                                             </div>
-                                            <!-- end col-->
-                                        </div>
-                                        <!-- end row -->
+                                            <!-- end .mt-4 -->
+
+                                        </div> 
+                                        <!-- end inbox-rightbar-->
                                     </div>
-                                    <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div>
-                            <!-- end chat area-->
 
-                        </div> <!-- end row-->
+                                    <div class="clearfix"></div>
+                                </div> <!-- end card-box -->
 
+                            </div> <!-- end Col -->
+                        </div><!-- End row -->
+                        
                     </div> <!-- container -->
 
                 </div> <!-- content -->
+
+                <!-- Compose Modal -->
+                <div id="compose-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="compose-header-modalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header modal-colored-header bg-primary">
+                                <h4 class="modal-title" id="compose-header-modalLabel">New Message</h4>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="p-1">
+                                <div class="modal-body px-3 pt-3 pb-0">
+                                    <form>
+                                        <div class="mb-2">
+                                            <label for="msgto" class="form-label">To</label>
+                                            <input type="text" id="msgto" class="form-control" placeholder="Example@email.com">
+                                        </div>
+                                        <div class="mb-2">
+                                            <label for="mailsubject" class="form-label">Subject</label>
+                                            <input type="text" id="mailsubject" class="form-control" placeholder="Your subject">
+                                        </div>
+                                        <div class="write-mdg-box mb-3">
+                                            <label class="form-label">Message</label>
+                                            <div id="snow-editor" style="height: 200px;">
+                                                <h3>This is a simple editable area.</h3>
+                                                <p>
+                                                    End of simple area
+                                                </p>
+                                            </div><!-- end Snow-editor-->
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="px-3 pb-3">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><i class="ri-send-plane-2-line me-1"></i> Send Message</button>
+                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
 
                 <!-- Footer Start -->
                 <footer class="footer">
@@ -1610,9 +1386,14 @@
         <!-- Vendor js -->
         <script src="assets/js/vendor.min.js"></script>
 
+        <!-- Quill Editor js -->
+        <script src="assets/vendor/quill/quill.min.js"></script>
+
+        <!-- Page init js -->
+        <script src="assets/js/pages/demo.inbox.js"></script>
+
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
 
     </body>
-
 </html>
