@@ -63,7 +63,7 @@
                 <a href="masterSubject.php" class="side-nav-link"><i class="bi bi-list-columns-reverse"></i>Subject</a>
             </li>
             <li>
-                <a href="fees.php" class="side-nav-link"><i class="bi bi-currency-rupee"></i>Brand</a>
+                <a href="brand.php" class="side-nav-link"><i class="bi bi-currency-rupee"></i>Brand</a>
             </li>
             
             <!-- <li>

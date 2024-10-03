@@ -2,15 +2,15 @@
 session_start();
     
     include("class.php");
-    $uniCenterId = $_SESSION['centerId'];
-    $university_result = universityTable($uniCenterId); // Call the function to fetch universities 
+    
+    $brand_result = brandTable(); // Call the function to fetch universities 
     
     
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include("head.php"); ?>
+<?php include "head.php"; ?>
 <body>
     <!-- Begin page -->
     <div class="wrapper">
@@ -34,7 +34,7 @@ session_start();
         <div class="content-page">
             <div class="content">
             <div id="studentDetail"></div>
-            <?php include("formUniversity.php");?> <!---add Student popup--->
+            <?php include "formBrand.php";?> <!---add Student popup--->
 
                 <!-- Start Content-->
                 <div class="container-fluid" id="StuContent" >
@@ -54,11 +54,11 @@ session_start();
                                 <div class="page-title-right">
                                     <div class="d-flex flex-wrap gap-2">
                                         <button type="button" id="addUniversityBtn" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addUniversityModal">
-                                        <i class="bi bi-plus">Brand
+                                        <i class="bi bi-plus-square"></i> Brand
                                         </button>
                                     </div>
                                 </div>
-                                <h3 class="page-title">University List</h3>   
+                                <h3 class="page-title">Brand List</h3>   
                             </div>
                         </div>
                     </div>
@@ -70,8 +70,8 @@ session_start();
                     <thead>
                         <tr class="bg-light">
                                     <th scope="col-1">S.No.</th>
-                                    <th scope="col">University Name</th>
-                                    <th scope="col">Study Center Code</th>
+                                    <th scope="col">Brand Name</th>
+                                    <!-- <th scope="col">Study Center Code</th> -->
                                     <th scope="col">Action</th>
                                     
                       </tr>
@@ -81,24 +81,24 @@ session_start();
 
                     $i =1;
 
-                    while ($row = $university_result->fetch_assoc()) {
-                        $id = $row['uni_id'];
+                    while ($row = $brand_result->fetch_assoc()) {
+                        $id = $row['brand_id'];
                         
 
             ?>
 
             <tr>
                         <td scope="row"><?php echo $i ; $i++ ?></td>
-                        <td><?php echo $row['uni_name'] ?></td>
-                        <td><?php echo $row['uni_study_code'] ?></td>
+                        <td><?php echo $row['brand_name'] ?></td>
+                        
                         <td>
-                        <?php if ($user_role == 'Admin') { ?>
+                        
                             <button  class="btn btn-circle btn-warning text-white modalBtn" onclick="editUiversity(<?php echo $id; ?>);" data-bs-toggle="modal" data-bs-target="#editUniversityModal"><i class='bi bi-pencil-square'></i></button>
-                               <button onclick="goViewUniversity(<?php echo $row['uni_id']; ?>);" class="btn btn-circle btn-success text-white modalBtn" ><i class="bi bi-eye-fill"></i></button>
-                            <button class="btn btn-circle btn-danger text-white" onclick="goDeleteUniversity(<?php echo $row['uni_id']; ?>);"><i class="bi bi-trash"></i></button>
-                            <?php } else { ?>
-                            <button class="btn btn-circle btn-success text-white modalBtn" onclick="goViewUniversity(<?php echo $row['uni_id']; ?>);"><i class="bi bi-eye-fill"></i></button>
-                            <?php } ?>
+                           
+                            <button class="btn btn-circle btn-danger text-white" onclick="goDeleteUniversity(<?php echo $id; ?>);"><i class="bi bi-trash"></i></button>
+                            
+                           
+                            
 
                         </td>
                       </tr>
@@ -178,65 +178,7 @@ session_start();
             });
 
 
-        $('#addInputButton').click(function() {
-            var newInputDiv = $('<div class="row"></div>');
 
-            var input1Div = $('<div class="col-sm-5"></div>');
-            var input1Label = $('<label class="form-label"><b>Department</b></label>');
-            var input1 = $('<input type="text" class="form-control" name="department[]" required>');
-            input1Div.append(input1Label);
-            input1Div.append(input1);
-
-            var input2Div = $('<div class="col-sm-5"></div>');
-            var input2Label = $('<label class="form-label"><b>Contact No.</b></label>');
-            var input2 = $('<input type="tel" class="form-control" pattern="[0-9]{10}" name="contact[]" required>');
-            input2Div.append(input2Label);
-            input2Div.append(input2);
-
-            var deleteButtonDiv = $('<div class="col-sm-2 d-flex align-items-end"></div>');
-            var deleteButton = $('<button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>');
-            deleteButton.click(function() {
-                newInputDiv.remove();
-            });
-            deleteButtonDiv.append(deleteButton);
-
-            newInputDiv.append(input1Div);
-            newInputDiv.append(input2Div);
-            newInputDiv.append(deleteButtonDiv);
-
-            $('#additionalInputs').append(newInputDiv);
-        });
-
-        //---------------------------------------------------------------------------------------------------\
-
-        $('#editInputButton').click(function() {
-            var newInputDiv = $('<div class="row"></div>');
-
-            var input1Div = $('<div class="col-sm-5"></div>');
-            var input1Label = $('<label class="form-label"><b>Department</b></label>');
-            var input1 = $('<input type="text" class="form-control" name="editdepartment[]" required>');
-            input1Div.append(input1Label);
-            input1Div.append(input1);
-
-            var input2Div = $('<div class="col-sm-5"></div>');
-            var input2Label = $('<label class="form-label"><b>Contact No.</b></label>');
-            var input2 = $('<input type="tel" class="form-control" pattern="[0-9]{10}" name="editcontact[]" required>');
-            input2Div.append(input2Label);
-            input2Div.append(input2);
-
-            var deleteButtonDiv = $('<div class="col-sm-2 d-flex align-items-end"></div>');
-            var deleteButton = $('<button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>');
-            deleteButton.click(function() {
-                newInputDiv.remove();
-            });
-            deleteButtonDiv.append(deleteButton);
-
-            newInputDiv.append(input1Div);
-            newInputDiv.append(input2Div);
-            newInputDiv.append(deleteButtonDiv);
-
-            $('#editItionalInputs').append(newInputDiv);
-        });
 
 
     });
@@ -330,7 +272,7 @@ function editUiversity(editId) {
             var formData = new FormData(this);
 
             $.ajax({
-                url: 'action/actUniversity.php',
+                url: 'action/actBrand.php',
                 type: 'POST',
                 data: formData,
                 contentType: false,
@@ -367,7 +309,7 @@ function editUiversity(editId) {
       },
                 error: function(jqXHR, textStatus, errorThrown) {
                     // Handle error response
-                    alert('Error adding university: ' + textStatus);
+                    alert('Error adding Brand: ' + textStatus);
                 }
             });
         });

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2024 at 06:38 AM
+-- Generation Time: Oct 03, 2024 at 05:43 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_demo`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brand_tbl`
+--
+
+CREATE TABLE `brand_tbl` (
+  `brand_id` int(11) NOT NULL,
+  `brand_name` varchar(50) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `brand_status` enum('Active','Inactive') NOT NULL DEFAULT 'Active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `brand_tbl`
+--
+
+INSERT INTO `brand_tbl` (`brand_id`, `brand_name`, `created_at`, `updated_at`, `brand_status`) VALUES
+(1, 'Samsung', '2024-10-03 20:48:58', '2024-10-03 15:18:58', 'Active'),
+(2, 'Poco', '2024-10-03 20:49:10', '2024-10-03 15:19:10', 'Active');
 
 -- --------------------------------------------------------
 
@@ -282,6 +304,16 @@ CREATE TABLE `jeno_opening` (
   `open_update_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `open_status` enum('Active','Inactive') NOT NULL DEFAULT 'Active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `jeno_opening`
+--
+
+INSERT INTO `jeno_opening` (`open_id`, `open_date`, `open_open_online`, `open_open_cash`, `open_close_online`, `open_close_cash`, `open_create_at`, `open_update_at`, `open_status`) VALUES
+(1, '2024-08-05', 0, 0, -4300, 800, '0000-00-00 00:00:00', '2024-08-05 16:19:19', 'Active'),
+(2, '2024-08-05', 0, 0, -4300, 800, '0000-00-00 00:00:00', '2024-08-05 16:19:19', 'Active'),
+(3, '2024-08-05', 0, 0, -4300, 800, '0000-00-00 00:00:00', '2024-08-05 16:19:19', 'Active'),
+(4, '2024-08-05', -4300, 800, -4300, 800, '0000-00-00 00:00:00', '2024-08-05 16:19:19', 'Active');
 
 -- --------------------------------------------------------
 
@@ -587,6 +619,12 @@ INSERT INTO `jeno_user` (`user_id`, `user_name`, `user_username`, `user_password
 --
 
 --
+-- Indexes for table `brand_tbl`
+--
+ALTER TABLE `brand_tbl`
+  ADD PRIMARY KEY (`brand_id`);
+
+--
 -- Indexes for table `jeno_book`
 --
 ALTER TABLE `jeno_book`
@@ -699,6 +737,12 @@ ALTER TABLE `jeno_user`
 --
 
 --
+-- AUTO_INCREMENT for table `brand_tbl`
+--
+ALTER TABLE `brand_tbl`
+  MODIFY `brand_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `jeno_book`
 --
 ALTER TABLE `jeno_book`
@@ -750,7 +794,7 @@ ALTER TABLE `jeno_location`
 -- AUTO_INCREMENT for table `jeno_opening`
 --
 ALTER TABLE `jeno_opening`
-  MODIFY `open_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `open_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `jeno_payment_history`
