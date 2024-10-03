@@ -68,6 +68,10 @@
             <li>
                 <a href="product.php" class="side-nav-link"><i class="bi bi-currency-rupee"></i>Product</a>
             </li>
+
+            <li>
+                <a href="sales.php" class="side-nav-link"><i class="bi bi-list-stars"></i><span>Sales </span></a>
+            </li>
             
             <!-- <li>
                 <a href="masterBooks.php" class="side-nav-link"><i class="bi bi-book"></i>Books</a>
