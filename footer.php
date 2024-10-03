@@ -1,15 +1,10 @@
 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © Powerx - Coderthemes.com
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-md-end footer-links d-none d-md-block">
-                                    <a href="javascript: void(0);">About</a>
-                                    <a href="javascript: void(0);">Support</a>
-                                    <a href="javascript: void(0);">Contact Us</a>
-                                </div>
+                            <div class="col-md-12">
+                                <center>
+                                <p>&copy; Jeno Study Center. All Rights Reserved. <br />Designed and Developed by <a href="#">Roriri Software Solutions Pvt Ltd</a>.</p>
+                                </center>
                             </div>
                         </div>
                     </div>

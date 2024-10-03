@@ -1,534 +1,356 @@
+
+<?php 
+session_start();
+    include("class.php");
+
+if(isset($_SESSION['user']) && $_SESSION['user'] != '')
+    {
+        header("Location:dashboard.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JENO Study Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
 
-    <?php include "head.php" ?>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    
+    <!-- Theme Config Js -->
+    <script src="assets/js/config.js"></script>
 
-    <body>
-        <!-- Begin page -->
-        <div class="wrapper">
+    <!-- App css -->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
-            
-            <!-- ========== Topbar Start ========== -->
-            <?php include "top.php" ?>
-            <!-- ========== Topbar End ========== -->
+    <!-- Icons css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
-            <!-- ========== Left Sidebar Start ========== -->
-            <?php include "left.php" ?>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-            <!-- ========== Left Sidebar End ========== -->
-
-            <!-- ============================================================== -->
-            <!-- Start Page Content here -->
-            <!-- ============================================================== -->
-
-            <div class="content-page">
-                <div class="content">
-
-                    <!-- Start Content-->
-                    <div class="container-fluid">
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="bg-flower">
-                                    <img src="assets/images/flowers/img-3.png">
-                                </div>
-
-                                <div class="bg-flower-2">
-                                    <img src="assets/images/flowers/img-1.png">
-                                </div>
-
-                                <div class="page-title-box">                                    
-                                    <div class="page-title-right">
-                                        <form class="d-flex">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="dash-daterange">
-                                                <span class="input-group-text bg-primary border-primary text-white">
-                                                    <i class="ri-calendar-todo-fill fs-13"></i>
-                                                </span>
-                                            </div>
-                                            <a href="javascript: void(0);" class="btn btn-primary ms-2">
-                                                <i class="ri-refresh-line"></i>
-                                            </a>
-                                        </form>
-                                    </div>
-                                    <h4 class="page-title">Dashboard</h4>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-        
-                            <div class="col-sm-6 col-xxl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="Campaign Sent">Campaign Sent</h5>
-                                                <h3 class="my-1 py-1">9,184</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-success me-2"><i class="ri-arrow-up-line"></i> 3.27%</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="text-end">
-                                                    <div id="campaign-sent-chart" data-colors="#6da09c"></div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-        
-                            <div class="col-sm-6 col-xxl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="New Leads">New Leads</h5>
-                                                <h3 class="my-1 py-1">3,254</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-success me-2"><i class="ri-arrow-up-line"></i> 5.38%</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="text-end">
-                                                    <div id="new-leads-chart" data-colors="#87bf8a"></div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-
-                            <div class="col-sm-6 col-xxl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="Deals">Deals</h5>
-                                                <h3 class="my-1 py-1">861</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-success me-2"><i class="ri-arrow-up-line"></i> 4.87%</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="text-end">
-                                                    <div id="deals-chart" data-colors="#e7607b"></div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-
-                            <div class="col-sm-6 col-xxl-3">
-                                <div class="card text-bg-primary border-primary">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-white text-opacity-75 fw-normal mt-0 text-truncate" title="Booked Revenue">Booked Revenue</h5>
-                                                <h3 class="my-1 py-1">$253k</h3>
-                                                <p class="mb-0 text-muted">
-                                                    <span class="text-white text-opacity-75 me-2"><i class="ri-arrow-up-line"></i> 11.7%</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="text-end">
-                                                    <div id="booked-revenue-chart" data-colors="#d89e70"></div>
-                                                </div>
-                                            </div>
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="d-flex card-header border-bottom-0 justify-content-between align-items-center">
-                                        <h4 class="header-title">Revenue</h4>
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div dir="ltr">
-                                            <div id="revenue-chart" class="apex-charts mt-3" data-colors="#6da09c,#47ad77"></div>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="d-flex card-header justify-content-between border-bottom-0 align-items-center">
-                                        <h4 class="header-title">Total Sales</h4>
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body pt-0">
-                                        <div id="average-sales" class="apex-charts mb-3"
-                                            data-colors="#6da09c"></div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">Brooklyn, New York</h5>
-                                        <div class="progress-w-percent">
-                                            <span class="progress-value fw-bold">72k </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 72%;" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-
-                                        <h5 class="mb-1 mt-0 fw-normal">The Castro, San Francisco</h5>
-                                        <div class="progress-w-percent mb-0">
-                                            <span class="progress-value fw-bold">39k </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar" role="progressbar" style="width: 39%;" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                            <div class="col-lg-4">
-                                <div class="card">
-                                    <div class="d-flex card-header justify-content-between border-bottom-0 align-items-center">
-                                        <h4 class="header-title">Total Sales</h4>
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body pt-0">
-                                        <div id="country-chart" class="apex-charts" data-colors="#6da09c"></div>
-
-                                        <div class="mt-2 text-center">
-                                            <ul class="list-inline mb-0">
-                                                <li class="list-inline-item"><img class="ms-3 pe-1" src="assets/images/browsers/chrome.png" height="18" alt="chrome"><span class="align-middle">45.87%</span></li>
-                                                <li class="list-inline-item"><img class="ms-3 pe-1" src="assets/images/browsers/firefox.png" height="18" alt="chrome"><span class="align-middle">3.25%</span></li>
-                                                <li class="list-inline-item"><img class="ms-3 pe-1" src="assets/images/browsers/safari.png" height="18" alt="chrome"><span class="align-middle">9.68%</span></li>
-                                            </ul>
-                                        </div>
-                                    </div> <!-- end card-body-->
-                                </div> <!-- end card-->
-                            </div> <!-- end col-->
-
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="d-flex card-header justify-content-between align-items-center">
-                                        <h4 class="header-title">Top Selling Products</h4>
-                                        <a href="javascript:void(0);" class="btn btn-sm btn-info">Export <i class="ri-download-line ms-1"></i></a>
-                                    </div>
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table class="table table-borderless table-hover table-nowrap table-centered m-0">
-                                                <thead class="border-top border-bottom bg-light-subtle border-light">
-                                                    <tr>
-                                                        <th class="py-1">Product</th>
-                                                        <th class="py-1">Price</th>
-                                                        <th class="py-1">Orders</th>
-                                                        <th class="py-1">Avl. Quantity</th>
-                                                        <th class="py-1">Seller</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>ASOS Ridley High Waist</td>
-                                                        <td>$79.49</td>
-                                                        <td>82</td>
-                                                        <td>8,540</td>
-                                                        <td>Adidas</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Marco Lightweight Shirt</td>
-                                                        <td>$12.5</td>
-                                                        <td>58</td>
-                                                        <td>6,320</td>
-                                                        <td>Puma</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Half Sleeve Shirt</td>
-                                                        <td>$9.99</td>
-                                                        <td>254</td>
-                                                        <td>10,258</td>
-                                                        <td>Nike</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Lightweight Jacket</td>
-                                                        <td>$69.99</td>
-                                                        <td>560</td>
-                                                        <td>1,020</td>
-                                                        <td>Puma</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Marco Sport Shoes</td>
-                                                        <td>$119.99</td>
-                                                        <td>75</td>
-                                                        <td>357</td>
-                                                        <td>Adidas</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Custom Women's T-shirts</td>
-                                                        <td>$45.00</td>
-                                                        <td>85</td>
-                                                        <td>135</td>
-                                                        <td>Branded</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="#!" class="text-primary text-decoration-underline fw-bold btn mb-2">View All</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> <!-- end col -->
-
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="d-flex card-header justify-content-between align-items-center">
-                                        <h4 class="header-title">Revenue By Locations</h4>
-                                        <div class="dropdown">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div id="world-map-markers" class="mt-3 mb-3" style="height: 298px">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> <!-- end card-->
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                    </div>
-                    <!-- container -->
-
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins';
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+        }
+        .left, .right {
+            flex: 1;
+            padding: 40px;
+        }
+        .left {
+            background-color: #fff;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 40px;
+        }
+        .login-tab {
+            background: linear-gradient(90deg, #ae43ef, #d78bfd);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 19px;
+            cursor: pointer;
+        }
+        .login-tab:hover {
+            background: linear-gradient(90deg, #d78bfd, #ae43ef);
+        }
+        .welcome-message {
+            text-align: center;
+        }
+        .welcome-message h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .welcome-message p {
+            font-size: 18px;
+            color: #d78bfd;
+            margin-bottom: 28px;
+            font-size: 16px;
+        }
+        .login-form {
+            text-align: center;
+        }
+        .login-form h2 {
+            font-size: 15px;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        label {
+            font-size: 14px;
+            color: #666;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"], select {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .password-container {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+        .password-container .show-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        button[type="submit"] {
+            background-color: #ae43ef;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+        }
+        .right {
+            background: linear-gradient(90deg, #ae43ef, #d78bfd);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .image-container h1 {
+            font-size: 66px;
+            margin-bottom: 10px;
+            letter-spacing: 10px;
+        }
+        .image-container p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        .image-container img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            zoom: 4;
+        }
+        .show-password {
+            margin-left: -30px;
+            cursor: pointer;
+            font-size: 24px;
+            position: relative;
+            top: -3px;
+        }
+        .error-message {
+            text-align: left;
+            color: red;
+            font-size: 0.9em;
+            display: none; /* Hide by default */
+        }
+        .session-message {
+            color: red;
+            padding: 5px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .session-message.success {
+            background-color: #28a745;
+        }
+        .session-message.error {
+            /* background-color: #dc3545; */
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .image-container h1 {
+                font-size: 36px;
+            }
+            .image-container p {
+                font-size: 16px;
+            }
+            .footer {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="authentication-bg position-relative">
+    <div class="container">
+            <div class="left">
+                <div class="header">
+                    <button class="login-tab">Login</button>
                 </div>
-                <!-- content -->
-
-                <!-- Footer Start -->
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> © Powerx - Coderthemes.com
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-md-end footer-links d-none d-md-block">
-                                    <a href="javascript: void(0);">About</a>
-                                    <a href="javascript: void(0);">Support</a>
-                                    <a href="javascript: void(0);">Contact Us</a>
-                                </div>
-                            </div>
+                <div class="welcome-message">
+                    <h1>Welcome Back!</h1>
+                    <p>Glad to see you again</p>
+                </div>
+                <div class="login-form">
+                    <h2>Login With Your Account Below</h2>
+                      <!-- Display session message -->
+                <?php
+                
+                if (isset($_SESSION['message'])) {
+                    $message_type = $_SESSION['message_type']; // success or error
+                    echo "<div class='session-message {$message_type}'>{$_SESSION['message']}</div>";
+                    // Unset session message after displaying
+                    unset($_SESSION['message']);
+                    unset($_SESSION['message_type']);
+                }
+                ?>
+                    <form id="loginForm" action="actLogin.php" method="POST" onsubmit="return validateForm()">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter username...">
+                        <span class="error-message" id="usernameError"></span>
+                        
+                        <label for="password">Password</label>
+                        <div class="password-container">
+                            <input type="password" id="password" name="password" placeholder="Enter password...">
+                            <span class="show-password"><i class='bx bx-show'></i></span>
                         </div>
-                    </div>
-                </footer>
-                <!-- end Footer -->
+                        <span class="error-message" id="passwordError"></span>
 
+                        <label for="location">Location</label>
+                        <select id="location" name="location">
+                            <option value="">----select----</option>
+                            <?php 
+                                     $location_result = getLocation(); // Call the function to fetch universities 
+                                     while ($row = $location_result->fetch_assoc()) {
+                                     $id = $row['loc_id']; 
+                                    $name = $row['loc_short_name'];    
+                        
+                                      ?>
+                        
+                            <option value="<?php echo $id;?>"><?php echo $name;?></option>
+
+                        <?php } ?>
+
+                        </select>
+                        <span class="error-message" id="locationError"></span>
+
+                        <label for="role">Privilege</label>
+                        <select id="role" name="role">
+                            <option value="">----select----</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Staff">Staff</option>
+                        </select>
+                        <span class="error-message" id="privilegeError"></span>
+
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
             </div>
-
-            <!-- ============================================================== -->
-            <!-- End Page content -->
-            <!-- ============================================================== -->
-
+            <div class="right">
+                <div class="image-container">
+                    <h1>JENO</h1>
+                    <p><b>EDUCATIONAL ORGANIZATION</b></p>
+                    <img src="assets/images/logo/Lock1.png" alt="Illustration">
+                </div>
+            </div>
         </div>
-        <!-- END wrapper -->
 
-        <!-- Theme Settings -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="theme-settings-offcanvas">
-            <div class="d-flex align-items-center bg-primary p-3 offcanvas-header">
-                <h5 class="text-white m-0">Theme Settings</h5>
-                <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
+    
 
-            <div class="offcanvas-body p-0">
-                <div data-simplebar class="h-100">
-                    <div class="card border-0 mb-0 p-3">
-                        <div class="alert alert-warning" role="alert">
-                            <strong>Customize </strong> the overall color scheme, sidebar menu, etc.
-                        </div>
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
+    
+    <!-- App js -->
+    <script src="assets/js/app.min.js"></script>
 
-                        <h5 class="my-3 fs-16 fw-bold">Color Scheme</h5>
+    <script>
+        $(document).ready(function() {
+            $('.show-password').on('click', function() {
+                let passwordInput = $('#password');
+                if (passwordInput.attr('type') === 'password') {
+                    passwordInput.attr('type', 'text');
+                    $(this).html('<i class="bx bx-hide"></i>');
+                } else {
+                    passwordInput.attr('type', 'password');
+                    $(this).html('<i class="bx bx-show"></i>');
+                }
+            });
+        });
 
-                        <div class="d-flex flex-column gap-2">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" name="data-bs-theme" id="layout-color-light" value="light">
-                                <label class="form-check-label" for="layout-color-light">Light</label>
-                            </div>
+        function validateForm() {
+            // Clear previous error messages
+            document.getElementById('usernameError').style.display = 'none';
+            document.getElementById('passwordError').style.display = 'none';
+            document.getElementById('locationError').style.display = 'none';
+            document.getElementById('privilegeError').style.display = 'none';
 
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" name="data-bs-theme" id="layout-color-dark" value="dark">
-                                <label class="form-check-label" for="layout-color-dark">Dark</label>
-                            </div>
-                        </div>
+            // Get form values
+            var username = document.getElementById('username').value.trim();
+            var password = document.getElementById('password').value.trim();
+            var location = document.getElementById('location').value;
+            var role = document.getElementById('role').value;
 
-                        <div>
-                            <h5 class="my-3 fs-16 fw-bold">Menu Color</h5>
+            // Check if fields are empty and display error messages
+            var valid = true;
 
-                            <div class="d-flex flex-column gap-2">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" name="data-menu-color" id="leftbar-color-light" value="light">
-                                    <label class="form-check-label" for="leftbar-color-light">Light</label>
-                                </div>
+            if (username === "") {
+                document.getElementById('usernameError').textContent = "Username is required.";
+                document.getElementById('usernameError').style.display = 'inline';
+                valid = false;
+            }
 
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" name="data-menu-color" id="leftbar-color-dark" value="dark">
-                                    <label class="form-check-label" for="leftbar-color-dark">Dark</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" name="data-menu-color" id="leftbar-color-brand" value="brand">
-                                    <label class="form-check-label" for="leftbar-color-brand">Brand</label>
-                                </div>
-                            </div>
-                        </div>
+            if (password === "") {
+                document.getElementById('passwordError').textContent = "Password is required.";
+                document.getElementById('passwordError').style.display = 'inline';
+                valid = false;
+            }
 
-                        <div id="sidebar-size">
-                            <h5 class="my-3 fs-16 fw-bold">Sidebar Size</h5>
+            if (location === "") {
+                document.getElementById('locationError').textContent = "Please select a location.";
+                document.getElementById('locationError').style.display = 'inline';
+                valid = false;
+            }
 
-                            <div class="d-flex flex-column gap-2">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" name="data-sidenav-size" id="leftbar-size-default" value="default">
-                                    <label class="form-check-label" for="leftbar-size-default">Default</label>
-                                </div>
+            if (role === "") {
+                document.getElementById('privilegeError').textContent = "Please select a privilege.";
+                document.getElementById('privilegeError').style.display = 'inline';
+                valid = false;
+            }
 
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" name="data-sidenav-size" id="leftbar-size-compact" value="compact">
-                                    <label class="form-check-label" for="leftbar-size-compact">Compact</label>
-                                </div>
-
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" name="data-sidenav-size" id="leftbar-size-small" value="condensed">
-                                    <label class="form-check-label" for="leftbar-size-small">Condensed</label>
-                                </div>
-
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" name="data-sidenav-size" id="leftbar-size-full" value="full">
-                                    <label class="form-check-label" for="leftbar-size-full">Full Layout</label>
-                                </div>
-
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" name="data-sidenav-size" id="leftbar-size-fullscreen" value="fullscreen">
-                                    <label class="form-check-label" for="leftbar-size-fullscreen">Fullscreen Layout</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="layout-position">
-                            <h5 class="my-3 fs-16 fw-bold">Layout Position</h5>
-
-                            <div class="btn-group checkbox" role="group">
-                                <input type="radio" class="btn-check" name="data-layout-position" id="layout-position-fixed" value="fixed">
-                                <label class="btn btn-soft-primary w-sm" for="layout-position-fixed">Fixed</label>
-
-                                <input type="radio" class="btn-check" name="data-layout-position" id="layout-position-scrollable" value="scrollable">
-                                <label class="btn btn-soft-primary w-sm ms-0" for="layout-position-scrollable">Scrollable</label>
-                            </div>
-                        </div>
-
-                        <div id="sidebar-user">
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <label class="fs-16 fw-bold m-0" for="sidebaruser-check">Sidebar User Info</label>
-                                <div class="form-check form-switch">
-                                    <input type="checkbox" class="form-check-input" name="sidebar-user" id="sidebaruser-check">
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="offcanvas-footer border-top p-3 text-center">
-                <div class="row">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light w-100" id="reset-layout">Reset</button>
-                    </div>
-                    <div class="col-6">
-                        <a href="#" role="button" class="btn btn-primary w-100">Buy Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>          
-        
-        <!-- Vendor js -->
-        <script src="assets/js/vendor.min.js"></script>
-
-        <!-- Daterangepicker js -->
-        <script src="assets/vendor/daterangepicker/moment.min.js"></script>
-        <script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
-        
-        <!-- Apex Charts js -->
-        <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-
-        <!-- Vector Map js -->
-        <script src="assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="assets/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
-
-        <!-- Dashboard App js -->
-        <script src="assets/js/pages/demo.dashboard.js"></script>
-
-        <!-- App js -->
-        <script src="assets/js/app.min.js"></script>
-
-    </body>
-</html> 
+            return valid;
+        }
+    </script>
+</body>
+</html>
