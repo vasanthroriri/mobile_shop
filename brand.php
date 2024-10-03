@@ -163,6 +163,75 @@ session_start();
     <script src="assets/js/app.min.js"></script>
 
     <!-------Start Add Student--->
+
+    <script>
+
+     // Ajax form submission
+$('#addBrandForm').submit(function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    var form = this; // Get the form element
+    var submitButton = $(this).find('button[type="submit"]'); // Get the submit button
+
+    // Disable the submit button to avoid double click
+    submitButton.prop('disabled', true);
+
+    if (form.checkValidity() === false) {
+        // If the form is invalid, display validation errors
+        form.reportValidity();
+        submitButton.prop('disabled', false); // Re-enable the button if validation fails
+        return;
+    }
+    
+    var formData = new FormData(this);
+
+    $.ajax({
+        url: 'action/actBrand.php',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        success: function(response) {
+            // Handle success response
+            console.log(response);
+            if (response.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: response.message,
+                    timer: 2000
+                }).then(function() {
+                    $('#addUniversityModal').modal('hide');
+                    $('#scroll-horizontal-datatable').load(location.href + ' #scroll-horizontal-datatable > *', function() {
+                        $('#scroll-horizontal-datatable').DataTable().destroy();
+                        $('#scroll-horizontal-datatable').DataTable({
+                            "paging": true, // Enable pagination
+                            "ordering": true, // Enable sorting
+                            "searching": true // Enable searching
+                        });
+                    });
+                    submitButton.prop('disabled', false); // Re-enable the button after success
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: response.message
+                });
+                submitButton.prop('disabled', false); // Re-enable the button on error
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            // Handle error response
+            alert('Error adding Brand: ' + textStatus);
+            submitButton.prop('disabled', false); // Re-enable the button on AJAX error
+        }
+    });
+});
+
+        
+    </script>
   
     <script>
     $(document).ready(function() {
@@ -176,9 +245,6 @@ session_start();
             
 
             });
-
-
-
 
 
     });
@@ -198,55 +264,17 @@ function editUiversity(editId) {
     $('#editUniversity').addClass('needs-validation');
 
     $.ajax({
-        url: 'action/actUniversity.php',
+        url: 'action/actBrand.php',
         method: 'POST',
         data: {
             editId: editId
         },
         //dataType: 'json', // Specify the expected data type as JSON
         success: function(response) {
-            $('#editid').val(response.uni_id);
-            $('#editUniversityName').val(response.uni_name);
-            $('#editStudyCode').val(response.uni_study_code);
+            $('#editid').val(response.brand_id);
+            $('#editBrandName').val(response.brand_name);
             
-            // Clear previous input fields
-        $('#editItionalInputs').empty();
-
-            // Assuming uni_department and uni_contact arrays are of equal length and matched by index
-            if (Array.isArray(response.uni_department) && Array.isArray(response.uni_contact)) {
-                response.uni_department.forEach(function(department, index) {
-                    var contact = response.uni_contact[index];
-                    var newInputDiv = $('<div class="row mb-3"></div>'); // Added mb-3 class for some margin
-
-                    var input1Div = $('<div class="col-sm-5"></div>');
-                    var input1Label = $('<label class="form-label"><b>Department</b></label>');
-                    var input1 = $('<input type="text" class="form-control" name="editdepartment[]" required>').val(department);
-                    input1Div.append(input1Label);
-                    input1Div.append(input1);
-
-                    var input2Div = $('<div class="col-sm-5"></div>');
-                    var input2Label = $('<label class="form-label"><b>Contact No.</b></label>');
-                    var input2 = $('<input type="tel" class="form-control" pattern="[0-9]{10}" name="editcontact[]" required>').val(contact);
-                    input2Div.append(input2Label);
-                    input2Div.append(input2);
-
-                    var deleteButtonDiv = $('<div class="col-sm-2 d-flex align-items-end"></div>');
-                    var deleteButton = $('<button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>');
-                    deleteButton.click(function() {
-                        newInputDiv.remove();
-                    });
-                    deleteButtonDiv.append(deleteButton);
-
-                    newInputDiv.append(input1Div);
-                    newInputDiv.append(input2Div);
-                    newInputDiv.append(deleteButtonDiv);
-
-                    $('#editItionalInputs').append(newInputDiv);
-                });
-            } else {
-                // If not arrays or lengths do not match, handle the error accordingly
-                console.error('Department and contact arrays are not properly matched.');
-            }
+           
                     },
         error: function(xhr, status, error) {
             // Handle errors here
@@ -258,62 +286,7 @@ function editUiversity(editId) {
 
 
 
-       // Ajax form submission
-       $('#addUniversity').submit(function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            var form = this; // Get the form element
-            if (form.checkValidity() === false) {
-                // If the form is invalid, display validation errors
-                form.reportValidity();
-                return;
-            }
-            
-            var formData = new FormData(this);
-
-            $.ajax({
-                url: 'action/actBrand.php',
-                type: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                dataType: 'json',
-                success: function(response) {
-
-                // Handle success response
-        console.log(response);
-        if (response.success) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: response.message,
-            timer: 2000
-          }).then(function() {
-            $('#addUniversityModal').modal('hide');
-            $('#scroll-horizontal-datatable').load(location.href + ' #scroll-horizontal-datatable > *', function() {
-              $('#scroll-horizontal-datatable').DataTable().destroy();
-              $('#scroll-horizontal-datatable').DataTable({
-                "paging": true, // Enable pagination
-                "ordering": true, // Enable sorting
-                "searching": true // Enable searching
-              });
-            });
-          });
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: response.message
-          });
-        }
-      },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    // Handle error response
-                    alert('Error adding Brand: ' + textStatus);
-                }
-            });
-        });
-
+       
 
 
 
@@ -322,7 +295,7 @@ function editUiversity(editId) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    $('#editUniversity').off('submit').on('submit', function(e) {
+    $('#editBrand').off('submit').on('submit', function(e) {
         e.preventDefault(); // Prevent the form from submitting normally
 
         var form = this; // Get the form element
@@ -334,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var formData = new FormData(this);
         $.ajax({
-            url: "action/actUniversity.php",
+            url: "action/actBrand.php",
             method: 'POST',
             data: formData,
             contentType: false,
@@ -379,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'An error occurred while Edit student data.'
+                    text: 'An error occurred while Edit Brand data.'
                 });
                 // Re-enable the submit button on error
                 $('#updateBtn').prop('disabled', false);
@@ -392,10 +365,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function goDeleteUniversity(id)
         {
     //alert(id);
-    if(confirm("Are you sure you want to delete university?"))
+    if(confirm("Are you sure you want to delete Brand ?"))
     {
       $.ajax({
-        url: 'action/actUniversity.php',
+        url: 'action/actBrand.php',
         method: 'POST',
         data: {
           deleteId: id
@@ -425,66 +398,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-    function goViewUniversity(id)
-{
-    //location.href = "clientDetail.php?clientId="+id;
-    $.ajax({
-        url: 'action/actUniversity.php',
-        method: 'POST',
-        data: {
-            id: id
-        },
-        dataType: 'json', // Specify the expected data type as JSON
-        success: function(response) {
-          
-          $('#StuContent').hide();
-          $('#universityView').removeClass('d-none');
-        
-          $('#viewUniversityName').text(response.uni_name);
-          $('#viewStudyCenterCode').text(response.uni_study_code);
-
-     // Clear previous input fields
-     $('#viewuniversity').empty();
-
-            // Assuming uni_department and uni_contact arrays are of equal length and matched by index
-            if (Array.isArray(response.uni_department) && Array.isArray(response.uni_contact)) {
-                response.uni_department.forEach(function(department, index) {
-                    var contact = response.uni_contact[index];
-                    var newInputDiv = $('<div class="row mb-3"></div>'); // Added mb-3 class for some margin
-
-                    var input1Div = $('<div class="col-sm-6"></div>');
-                    var input1Card = $('<div class="card p-3"></div>');
-                    var input1Label = $('<h4>Department</h4>');
-                    var input1 = $('<span class="detail"></span>').text(department);
-                    input1Card.append(input1Label);
-                    input1Card.append(input1);
-                    input1Div.append(input1Card);
-
-                    var input2Div = $('<div class="col-sm-6"></div>');
-                    var input2Card = $('<div class="card p-3"></div>');
-                    var input2Label = $('<h4>Contact</h4>');
-                    var input2 = $('<span class="detail"></span>').text(contact);
-                    input2Card.append(input2Label);
-                    input2Card.append(input2);
-                    input2Div.append(input2Card);
-
-                    newInputDiv.append(input1Div);
-                    newInputDiv.append(input2Div);
-
-                    $('#viewuniversity').append(newInputDiv);
-                });
-            } else {
-                // If not arrays or lengths do not match, handle the error accordingly
-                console.error('Department and contact arrays are not properly matched.');
-            }
-
-        },
-        error: function(xhr, status, error) {
-            // Handle errors here
-            console.error('AJAX request failed:', status, error);
-        }
-    });
-}
+ 
 
 
 

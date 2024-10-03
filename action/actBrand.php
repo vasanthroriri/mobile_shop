@@ -26,8 +26,8 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addBrand') {
         $response['message'] = "Brand name already exists!";
     } else {
         // Insert the new university if it doesn't exist
-        $university_sql = "INSERT INTO `jeno_university`
-            (`uni_name`) 
+        $university_sql = "INSERT INTO `brand_tbl`
+            (`brand_name`) 
             VALUES 
             (?)";
 
@@ -38,7 +38,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addBrand') {
             $response['success'] = true;
             $response['message'] = "Brand added successfully!";
         } else {
-            $response['message'] = "Error adding university: " . $stmt->error;
+            $response['message'] = "Error adding Brand: " . $stmt->error;
         }
     }
 
@@ -52,7 +52,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
     
     $editId = $_POST['editId'];
 
-    $selQuery = "SELECT `uni_id`, `uni_study_code`, `uni_name`, `uni_department`, `uni_contact` FROM `jeno_university` WHERE uni_id = $editId";
+    $selQuery = "SELECT `brand_id`, `brand_name` FROM `brand_tbl` WHERE brand_id = $editId";
     $result = mysqli_query($conn, $selQuery);
 
     if ($result) {
@@ -60,16 +60,14 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
 
         // Prepare university details array
         $universityDetails = [
-            'uni_id' => $row['uni_id'],
-            'uni_study_code' => $row['uni_study_code'],
-            'uni_name' => $row['uni_name'],
-            'uni_department' => json_decode($row['uni_department']), // Decode JSON string to array
-            'uni_contact' => json_decode($row['uni_contact']) // Decode JSON string to array
+            'brand_id' => $row['brand_id'],
+            'brand_name' => $row['brand_name'],
+
         ];
 
         echo json_encode($universityDetails);
     } else {
-        $response['message'] = "Error fetching university details: " . mysqli_error($conn);
+        $response['message'] = "Error fetching Brand details: " . mysqli_error($conn);
         echo json_encode($response);
     }
 
@@ -78,37 +76,22 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
 
 
     // Handle updating student details
-        if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'editUniversity') {
+        if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'editBrand') {
             $editid = $_POST['editid'];
-            $editUniversityName = $_POST['editUniversityName'];
-            $editStudyCode = $_POST['editStudyCode'];
-            $editdepartment = $_POST['editdepartment'];
-            $editcontact = $_POST['editcontact'];
-            // Other fields
+            $editBrandName = $_POST['editBrandName'];
+           
+  
             
-            $updatedBy = $_SESSION['userId'];
-            $uniCenterId = $_SESSION['centerId'];
-            // JSON encode arrays
-            $editdep = json_encode($editdepartment);
-            $editcon = json_encode($editcontact);
-            
-            
-            $editUniversity ="UPDATE `jeno_university`
-             SET 
-             `uni_study_code`='$editStudyCode'
-             ,`uni_name`='$editUniversityName'
-             ,`uni_department`='$editdep'
-             ,`uni_contact`='$editcon'
-             ,`uni_center_id`='$uniCenterId'
-             ,`uni_updated_by`='$updatedBy' 
-             WHERE uni_id = $editid";
+            $editUniversity ="UPDATE `brand_tbl`
+             SET `brand_name`='$editBrandName'
+             WHERE brand_id = $editid";
             
             $universityres = mysqli_query($conn, $editUniversity);
 
                 if ($universityres) {
-                    $_SESSION['message'] = "University details Updated successfully!";
+                    $_SESSION['message'] = "Brand details Updated successfully!";
                     $response['success'] = true;
-                    $response['message'] = "University details Updated successfully!";
+                    $response['message'] = "Brand details Updated successfully!";
                 } 
                 else {
                 $response['message'] = "Error: " . mysqli_error($conn);
@@ -124,16 +107,16 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                 $id = $_POST['deleteId'];
                 $updatedBy = $_SESSION['userId'];
 
-                $queryDel = "UPDATE `jeno_university` SET `uni_updated_by`='$updatedBy',`uni_status`='Inactive' WHERE uni_id = $id;";
+                $queryDel = "UPDATE `brand_tbl` SET `brand_status`='Inactive' WHERE brand_id = $id;";
                 $reDel = mysqli_query($conn, $queryDel);
 
                 if ($reDel) {
                     
-                    $_SESSION['message'] = "University details have been deleted successfully!";
+                    $_SESSION['message'] = "Brand details have been deleted successfully!";
                     $response['success'] = true;
-                    $response['message'] = "University details have been deleted successfully!";
+                    $response['message'] = "Brand details have been deleted successfully!";
                 } else {
-                    $_SESSION['message'] = "Unexpected error in deleting University details!";
+                    $_SESSION['message'] = "Unexpected error in deleting Brand details!";
                     $response['message'] = "Error: " . mysqli_error($conn);
                 }
 
@@ -143,34 +126,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
 
 
 
-            // Check if employee id is provided
-            if(isset($_POST['id']) && $_POST['id'] != '') {
-                $uniId = $_POST['id'];
-
-                // Prepare and execute the SQL query
-                $selQuery = "SELECT `uni_id`, `uni_study_code`, `uni_name`, `uni_department`, `uni_contact` FROM `jeno_university` WHERE uni_id = $uniId;";
-                
-                $result1 = $conn->query($selQuery);
-
-                if($result1) {
-                    $row = mysqli_fetch_assoc($result1);
-
-             // Prepare university details array
-        $universityDetails = [
-            'uni_id' => $row['uni_id'],
-            'uni_study_code' => $row['uni_study_code'],
-            'uni_name' => $row['uni_name'],
-            'uni_department' => json_decode($row['uni_department']), // Decode JSON string to array
-            'uni_contact' => json_decode($row['uni_contact']) // Decode JSON string to array
-        ];
-
-          echo json_encode($universityDetails);
-          exit();
-                      
-                } else {
-                    echo "Error executing query: " . $conn->error;
-                }
-            }
+           
 
 
 
