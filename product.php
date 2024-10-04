@@ -1,9 +1,9 @@
 <?php
 session_start();
-    include "class.php" ;
+
+  include("class.php");
     
-    $selQuery = "SELECT * FROM `jeno_staff` WHERE stf_status='Active'";
-    $resQuery = mysqli_query($conn , $selQuery); 
+    $brand_result = productTable(); // Call the function to fetch products 
     
 ?>
 <!DOCTYPE html>
@@ -33,9 +33,9 @@ session_start();
         <div class="content-page">
             <div class="content">
 
-            <?php include "formProduct.php" ;?> <!---add Staff popup--->
+            <?php include "formProduct.php" ;?> <!---add Product popup--->
                 <!-- Start Content-->
-                <div class="container-fluid" id="StaffContent">
+                <div class="container-fluid" id="ProductContent">
 
                     <!-- start page title -->
                     <div class="row">
@@ -51,7 +51,7 @@ session_start();
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <div class="d-flex flex-wrap gap-2">
-                                        <button type="button" id="addStaffBtn" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addStaffModal">
+                                        <button type="button" id="addProductBtn" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addProductModal">
                                             Add New Product
                                         </button>
                                     </div>
@@ -75,29 +75,27 @@ session_start();
                       </tr>
                     </thead>
                     <tbody>
-                      <?php $i=1; while($row = mysqli_fetch_array($resQuery , MYSQLI_ASSOC)) { 
-                        $id = $row['stf_id'];  
-                        $stf_name = $row['stf_name'];
-                        $stf_mobile=$row['stf_mobile']; 
-                        $stf_role = $row['stf_role'];  
-                        $stf_joining_date  = $row['stf_joining_date']; 
-                        $stf_email = $row['stf_email'];  
+                    <?php  
 
-                        $date = new DateTime($stf_joining_date);
-                        $formattedDate = $date->format('d-m-Y');
-                        ?>
+                        $i =1;
+                        while ($row = $brand_result->fetch_assoc()) {
+                            $id = $row['product_id'];
+                            
+
+                    ?>
                      <tr>
                         <td><?php echo $i; $i++; ?></td>
-                        <td><?php echo $stf_name; ?></td>
-                        <td><?php echo $stf_mobile; ?></td>
-                        <td><?php echo $stf_role; ?></td>
-                        <td><?php echo $formattedDate; ?></td>
-                        <td><?php echo $stf_email; ?></td>
+                        <td><?php echo $row['product_name']; ?></td>
+                        <td><?php echo $row['model_name']; ?></td>
+                        <td><?php echo $row['brand_name']; ?></td>
+                        <td><?php echo $row['product_price']; ?></td>
+                        <td><?php echo $row['product_quantity']; ?></td>
+                        
                     
                         <td>
-                            <button type="button" class="btn btn-circle btn-warning text-white modalBtn" onclick="goEditStaff(<?php echo $id; ?>);" data-bs-toggle="modal" data-bs-target="#editStaffModal"><i class='bi bi-pencil-square'></i></button>
-                            <button class="btn btn-circle btn-success text-white modalBtn" onclick="goViewStaff(<?php echo $id; ?>);"><i class="bi bi-eye-fill"></i></button>
-                            <button class="btn btn-circle btn-danger text-white" onclick="goDeleteStaff(<?php echo $id; ?>);"><i class="bi bi-trash"></i></button>
+                            <button type="button" class="btn btn-circle btn-warning text-white modalBtn" onclick="goEditProduct(<?php echo $id; ?>);" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class='bi bi-pencil-square'></i></button>
+                            <button class="btn btn-circle btn-success text-white modalBtn" onclick="goViewProduct(<?php echo $id; ?>);"><i class="bi bi-eye-fill"></i></button>
+                            <button class="btn btn-circle btn-danger text-white" onclick="goDeleteProduct(<?php echo $id; ?>);"><i class="bi bi-trash"></i></button>
                         </td>
                       </tr>
                       <?php } ?>
@@ -154,29 +152,7 @@ session_start();
 
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
-    <script>
 
-    // Function to set the max attribute to today's date
-    function setMaxDate() {
-            var today = new Date().toISOString().split('T')[0];
-            document.getElementById('dateofjoin').setAttribute('max', today);
-            document.getElementById('dateofjoinEdit').setAttribute('max', today);
-        }
-
-        // Call setMaxDate when the window loads
-        window.onload = setMaxDate;
-
-        document.addEventListener('DOMContentLoaded', (event) => {
-    const dobInput = document.getElementById('dob');
-    const dobInput1 = document.getElementById('dobEdit');
-    const today = new Date();
-    const eighteenYearsAgo = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
-    const maxDate = eighteenYearsAgo.toISOString().split('T')[0];
-    dobInput.setAttribute('max', maxDate);
-    dobInput1.setAttribute('max', maxDate);
-    });
-
-    </script>
 
   <script>
 
@@ -185,40 +161,38 @@ session_start();
 
      
 
-      $('#addStaffBtn').click(function() {
+      $('#addProductBtn').click(function() {
 
-      $('#addStaff').removeClass('was-validated');
-      $('#addStaff').addClass('needs-validation');
-      $('#username').removeClass('is-invalid is-valid');
-      $('#addStaff')[0].reset(); // Reset the form
+      $('#addProduct').removeClass('was-validated');
+      $('#addProduct').addClass('needs-validation');
+      $('#addProduct')[0].reset(); // Reset the form
 
       });
 
       $('#backButton').click(function() {
-        $('#staffView').addClass('d-none');
-        $('#StaffContent').show();
+        $('#productView').addClass('d-none');
+        $('#ProductContent').show();
     });
   
-  $('#addStaff').off('submit').on('submit', function(e) {
-    if (!isUsernameValid) {
-        e.preventDefault();
-        $('#username').focus(); // Set focus to the invalid input
-        return false;
-    }
-
+  $('#addProduct').off('submit').on('submit', function(e) {
     e.preventDefault(); 
 
     var form = this; // Get the form element
+    var submitButton = $(this).find('button[type="submit"]'); // Get the submit button
+
+    // Disable the submit button to avoid double click
+    submitButton.prop('disabled', true);
             if (form.checkValidity() === false) {
                 // If the form is invalid, display validation errors
                 form.reportValidity();
+                submitButton.prop('disabled', false); // Re-enable the button if validation fails
                 return;
             }
 
             var formData = new FormData(form);
 
     $.ajax({
-      url: "action/actStaff.php",
+      url: "action/actProduct.php",
       method: 'POST',
       data: formData,
       contentType: false,
@@ -234,7 +208,7 @@ session_start();
             text: response.message,
             timer: 2000
           }).then(function() {
-            $('#addStaffModal').modal('hide');
+            $('#addProductModal').modal('hide');
             $('#scroll-horizontal-datatable').load(location.href + ' #scroll-horizontal-datatable > *', function() {
               $('#scroll-horizontal-datatable').DataTable().destroy();
               $('#scroll-horizontal-datatable').DataTable({
@@ -243,6 +217,7 @@ session_start();
                 "searching": true // Enable searching
               });
             });
+            submitButton.prop('disabled', false); // Re-enable the button after success
           });
         } else {
           Swal.fire({
@@ -250,55 +225,23 @@ session_start();
             title: 'Error',
             text: response.message
           });
+          submitButton.prop('disabled', false); // Re-enable the button on error
         }
       },
-      error: function(xhr, status, error) {
-        // Handle error response
-        console.error(xhr.responseText);
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'An error occurred while adding Staff data.'
-        });
-        // Re-enable the submit button on error
-        $('#submitBtn').prop('disabled', false);
-      }
+      error: function(jqXHR, textStatus, errorThrown) {
+            // Handle error response
+            alert('Error adding Brand: ' + textStatus);
+            submitButton.prop('disabled', false); // Re-enable the button on AJAX error
+        }
     });
   });
-
-
-  var isUsernameValid = true; // Flag to track username validity
-
-$('#username').on('input', function() {
-    var username = $(this).val();
-    if (username.length > 0) {
-        $.ajax({
-            url: 'check_username.php',
-            type: 'post',
-            data: { username: username },
-            success: function(response) {
-              if (response == "exists") {
-                    $('#username').removeClass('is-valid').addClass('is-invalid');
-                    isUsernameValid = false; // Set the flag to false if the username exists
-                } else {
-                    $('#username').removeClass('is-invalid').addClass('is-valid');
-                    isUsernameValid = true; // Set the flag to true if the username is valid
-                }
-            }
-        });
-    } else {
-        $('#username').removeClass('is-invalid is-valid');
-        isUsernameValid = true; // Reset the flag if the input is empty
-    }
-});
-
 });
 
 
-function goEditStaff(editId)
+function goEditProduct(editId)
 { 
       $.ajax({
-        url: 'action/actStaff.php',
+        url: 'action/actProduct.php',
         method: 'POST',
         data: {
           editId: editId
@@ -306,25 +249,18 @@ function goEditStaff(editId)
         dataType: 'json', // Specify the expected data type as JSON
         success: function(response) {
 
-          $('#editStaff').removeClass('was-validated');
-          $('#editStaff').addClass('needs-validation');
-          $('#editStaff')[0].reset(); // Reset the form
+          $('#editProduct').removeClass('was-validated');
+          $('#editProduct').addClass('needs-validation');
+          $('#editProduct')[0].reset(); // Reset the form
 
-          $('#staffId').val(response.stfId);
-          $('#staffNameEdit').val(response.name);
-          $('#dobEdit').val(response.birth);
-          $('#mobileEdit').val(response.mobile);
-          $('#emailEdit').val(response.email);
-          $('#addressEdit').val(response.address);
-          $('#genderEdit').val(response.gender);
-          $('#designationEdit').val(response.role);
-          $('#salaryEdit').val(response.salary);
-          $('#dateofjoinEdit').val(response.joining_date);
-          $('#editLocation').val(response.sft_center_id);
-          $('#usernameEdit').val(response.username).prop('disabled', true);
-          $('#passwordEdit').val(response.password);
-          // Remove the 'required' attribute from the aadhar field
-          $('#aadharEdit').removeAttr('required');
+          $('#productIdEdit').val(response.product_id);
+          $('#brandEdit').val(response.brand_id);
+          $('#modelEdit').val(response.model_name);
+          $('#productNameEdit').val(response.product_name);
+          $('#quantityEdit').val(response.product_quantity);
+          $('#priceEdit').val(response.product_price);
+          $('#placeEdit').val(response.place);
+          $('#emiNoEdit').val(response.emiNo);
         },
         error: function(xhr, status, error) {
             // Handle errors here
@@ -334,12 +270,12 @@ function goEditStaff(editId)
     
 }
 
-function goDeleteStaff(id)
+function goDeleteProduct(id)
 {
-    if(confirm("Are you sure you want to delete Staff?"))
+    if(confirm("Are you sure you want to delete Product?"))
     {
       $.ajax({
-        url: 'action/actStaff.php',
+        url: 'action/actProduct.php',
         method: 'POST',
         data: {
           deleteId: id
@@ -367,10 +303,10 @@ function goDeleteStaff(id)
     }
 }
 
-function goViewStaff(id)
+function goViewProduct(id)
 {
     $.ajax({
-        url: 'action/actStaff.php',
+        url: 'action/actProduct.php',
         method: 'POST',
         data: {
             id: id
@@ -378,29 +314,17 @@ function goViewStaff(id)
         dataType: 'json', // Specify the expected data type as JSON
         success: function(response) {
           
-          $('#StaffContent').hide();
-          $('#staffView').removeClass('d-none');
+          $('#ProductContent').hide();
+          $('#productView').removeClass('d-none');
         
-          $('#staffNameView').text(response.nameView);
-          $('#dobView').text(response.birthView);
-          $('#mobileView').text(response.mobileView);
-          $('#emailView').text(response.emailView);
-          $('#addressView').text(response.addressView);
-          $('#genderView').text(response.genderView);
-          $('#designationView').text(response.roleView);
-          $('#salaryView').text(response.salaryView);
-          $('#dateofjoinView').text(response.joining_dateView);
-          $('#usernameView').text(response.usernameView);
-          $('#passwordView').text(response.passwordView);
-          $('#viewLocation').text(response.center_name);
-
-          var aadharImageUrl = 'assets/images/staff/' + response.aadharView;
-
-            // Create a link for the Aadhar card
-            $('#aadharView')
-                .attr('href', aadharImageUrl)
-                .attr('target', '_blank')
-                .text('View Aadhar Card');
+          $('#productNameView').text(response.ProductNameView);
+          $('#modelView').text(response.modelView);
+          $('#quantityView').text(response.quantityView);
+          $('#priceView').text(response.priceView);
+          $('#placeView').text(response.placeView);
+          $('#emiView').text(response.emiView);
+          $('#brandView').text(response.brandNameView);
+          
 
         },
         error: function(xhr, status, error) {
@@ -413,7 +337,7 @@ function goViewStaff(id)
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    $('#editStaff').off('submit').on('submit', function(e) {
+    $('#editProduct').off('submit').on('submit', function(e) {
         e.preventDefault(); // Prevent the form from submitting normally
 
         var form = this; // Get the form element
@@ -425,7 +349,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             var formData = new FormData(form);
         $.ajax({
-            url: "action/actStaff.php",
+            url: "action/actProduct.php",
             method: 'POST',
             data: formData,
             contentType: false,
@@ -442,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         text: response.message,
                         timer: 2000
                     }).then(function() {
-                      $('#editStaffModal').modal('hide'); // Close the modal
+                      $('#editProductModal').modal('hide'); // Close the modal
                         
                           $('#scroll-horizontal-datatable').load(location.href + ' #scroll-horizontal-datatable > *', function() {
                                

@@ -462,24 +462,43 @@ function electiveTable() {
         // brand select table 
 
         function productTable() {
-            global $conn; // Assuming $conn is your database connection variable
+            global $conn; 
         
+            if (!$conn) {
+                die("Database connection failed.");
+            }
         
-           // Query to retrieve course name based on course_id
-           $brand_query = "SELECT `brand_id`, `brand_name` FROM `brand_tbl` WHERE brand_status = 'Active';";
+            $product_query = "SELECT 
+                                a.product_id,
+                                a.brand_id,
+                                a.product_name,
+                                a.model_name,
+                                a.product_price,
+                                a.place,
+                                a.emi_no,
+                                a.product_status,
+                                a.product_quantity,
+                                b.brand_name
+                            FROM    
+                                product_tbl AS a
+                            LEFT JOIN
+                                brand_tbl AS b ON a.brand_id=b.brand_id
+                            WHERE a.product_status='Active';";
         
-           // Execute the query
-           $brand_result = $conn->query($brand_query);
+            $product_result = $conn->query($product_query);
         
-           // Check if query was successful
-           if ($brand_result) {
-               // Fetch the course name
+            if ($product_result) {
                
-        
-               return $brand_result;
-           } else {
-               // Query execution failed
-               return "Query failed: " . $conn->error;
-           }
+                if ($product_result->num_rows > 0) {
+                   
+                    return $product_result;
+                } else {
+                    
+                    return "No products found.";
+                }
+            } else {
+                return "Query failed: " . $conn->error;
+            }
         }
+        
 ?>

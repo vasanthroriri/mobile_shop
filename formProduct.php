@@ -1,9 +1,9 @@
 <!-- Modal -->
-<div class="modal fade" id="addStaffModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="addProductModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form class="needs-validation" novalidate name="frmAddStaff" id="addStaff" enctype="multipart/form-data">
-                    <input type="hidden" name="hdnAction" value="addStaffId">
+                <form class="needs-validation" novalidate name="frmAddProduct" id="addProduct" enctype="multipart/form-data">
+                    <input type="hidden" name="hdnAction" value="addProductId">
                     <div class="modal-header">
                         <h4 class="modal-title" id="staticBackdropLabel">Add Product</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -12,105 +12,62 @@
                         <div class="row p-3">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="staffName" class="form-label"><b>Name</b><span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" pattern="^[a-zA-Z]+( [a-zA-Z]+)?(\.[a-zA-Z]+)?$" title="Please enter only letters (A-Z, a-z), with at most one space and one dot."  placeholder="Enter Staff Name" name="staffName" id="staffName" required="required">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="dob" class="form-label"><b>Date of Birth</b><span class="text-danger">*</span></label>
-                                    <input type="date" class="form-control" placeholder="Enter Date of Birth" name="dob" id="dob" required="required">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="gender" class="form-label"><b>Gender</b><span class="text-danger">*</span></label>
-                                    <select class="form-control" id="gender" name="gender" required="required">
-                                        <option value="">--Select the Gender--</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Transgender">Transgender</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="mobile" class="form-label"><b>Mobile No</b><span class="text-danger">*</span></label>
-                                    <input type="tel" class="form-control" pattern="[0-9]{10}" placeholder="Enter Mobile No." name="mobile" id="mobile" required>
-                                    <!-- <div class="invalid-feedback">
-                                        Please enter a valid 10-digit mobile number.
-                                    </div> -->
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="dateofjoin" class="form-label"><b>Date of Joining</b><span class="text-danger">*</span></label>
-                                    <input type="date" class="form-control" placeholder="Enter Date of Join" name="dateofjoin" id="dateofjoin" required="required">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="salary" class="form-label"><b>Salary</b></label>
-                                    <input type="number" class="form-control" pattern="[0-9]{12}" placeholder="Enter Salary" name="salary" id="salary">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="designation" class="form-label"><b>Designation</b></label>
-                                    <input type="text" class="form-control"  placeholder="Enter designation" name="designation" id="designation">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="email" class="form-label"><b>Email</b></label>
-                                    <input type="email" class="form-control" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter Email Id" name="email" id="email">
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="address" class="form-label"><b>Address</b><span class="text-danger">*</span></label>
-                                    <textarea class="form-control" placeholder="Enter address" name="address" id="address" required="required"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="aadhar" class="form-label"><b>Aadhar card</b>(Allowed formats: jpg, jpeg, png)<span class="text-danger">*</span></label>
-                                    <input type="file" class="form-control" name="aadhar" id="aadhar" required="required" accept=".jpg,.jpeg,.png">
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="location" class="form-label"><b>Location</b><span class="text-danger">*</span></label>
-                                    <select class="form-control" id="location" name="location" required="required">
-                                        <option value="">--Select the Location--</option>
-                                        
+                                    <label for="brand" class="form-label"><b>Brand</b><span class="text-danger">*</span></label>
+                                    <select class="form-control" id="brand" name="brand" required="required">
+                                        <option value="">--Select the Brand--</option>
                                         <?php 
-                                     $location_result = getLocation(); // Call the function to fetch universities 
-                                     while ($row = $location_result->fetch_assoc()) {
-                                     $id = $row['loc_id']; 
-                                    $name = $row['loc_short_name'];    
-                        
-                                      ?>
-                        
-                                <option value="<?php echo $id;?>"><?php echo $name;?></option>
+                                            $product_result = brandTable(); // Call the function to fetch universities 
+                                            while ($row = $product_result->fetch_assoc()) {
+                                            $id = $row['brand_id']; 
+                                            $name = $row['brand_name'];    
+                                
+                                            ?>
+                                
+                                        <option value="<?php echo $id;?>"><?php echo $name;?></option>
 
-                                <?php } ?>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="username" class="form-label"><b>Username</b><span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control"  placeholder="Enter Username" name="username" id="username" required="required">
-                                    <div class="invalid-feedback">
-                                        The username is invalid or already exists.
-                                    </div>
+                                    <label for="model" class="form-label"><b>Model</b><span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter Model" name="model" id="model" required="required">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="password" class="form-label"><b>Password</b><span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Enter Password" name="password" id="password" required="required">
+                                    <label for="productName" class="form-label"><b>Product Name</b><span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter Product Name" name="productName" id="productName" required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="quantity" class="form-label"><b>Product Quantity</b><span class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" placeholder="Enter Product Quantity" name="quantity" id="quantity" required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="price" class="form-label"><b>Product Price</b><span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter Product Price" name="price" id="price" required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="place" class="form-label"><b>Place</b><span class="text-danger">*</span></label>
+                                    <select class="form-control" id="place" name="place" required="required">
+                                        <option value="">--Select the Place--</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="emiNo" class="form-label"><b>EMI No</b></label>
+                                    <input type="text" class="form-control" placeholder="Enter EMI No." name="emiNo" id="emiNo">
                                 </div>
                             </div>
                         </div>
@@ -127,125 +84,83 @@
     <!-- ------------------------------------------------------------------------------------------------------------------ -->
 
     <!-- Modal -->
-    <div class="modal fade" id="editStaffModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="editProductModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-            <form class="needs-validation" novalidate name="frmEditStaff" id="editStaff" enctype="multipart/form-data">
+            <form class="needs-validation" novalidate name="frmEditProduct" id="editProduct" enctype="multipart/form-data">
                     <input type="hidden" name="hdnAction" value="addEditId">
-                    <input type="hidden" name="hdnStaffId" id="staffId">
+                    <input type="hidden" name="hdnProductId" id="productIdEdit">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="staticBackdropLabel">Edit Staff</h4>
+                        <h4 class="modal-title" id="staticBackdropLabel">Edit Product</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body p-3">
                         <div class="row p-3">
-                            <div class="col-sm-6">
+                        <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="staffNameEdit" class="form-label"><b>Name</b><span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" pattern="^[a-zA-Z]+( [a-zA-Z]+)?(\.[a-zA-Z]+)?$" title="Please enter only letters (A-Z, a-z), with at most one space and one dot." placeholder="Enter Staff Name" name="staffNameEdit" id="staffNameEdit" required="required">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="dobEdit" class="form-label"><b>Date of Birth</b><span class="text-danger">*</span></label>
-                                    <input type="date" class="form-control" placeholder="Enter Date of Birth" name="dobEdit" id="dobEdit" required="required">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="genderEdit" class="form-label"><b>Gender</b><span class="text-danger">*</span></label>
-                                    <select class="form-control" id="genderEdit" name="genderEdit" required="required">
-                                        <option value="">--Select the Gender--</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Transgender">Transgender</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="mobileEdit" class="form-label"><b>Mobile No</b><span class="text-danger">*</span></label>
-                                    <input type="tel" class="form-control" pattern="[0-9]{10}" placeholder="Enter Mobile No." name="mobileEdit" id="mobileEdit" required>
-                                    <!-- <div class="invalid-feedback">
-                                        Please enter a valid 10-digit mobile number.
-                                    </div> -->
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="dateofjoinEdit" class="form-label"><b>Date of Joining</b><span class="text-danger">*</span></label>
-                                    <input type="date" class="form-control" placeholder="Enter Date of Join" name="dateofjoinEdit" id="dateofjoinEdit" required="required">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="salaryEdit" class="form-label"><b>Salary</b></label>
-                                    <input type="number" class="form-control" pattern="[0-9]{12}" placeholder="Enter Salary" name="salaryEdit" id="salaryEdit">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="designationEdit" class="form-label"><b>Designation</b></label>
-                                    <input type="text" class="form-control"  placeholder="Enter designation" name="designationEdit" id="designationEdit">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="emailEdit" class="form-label"><b>Email</b></label>
-                                    <input type="email" class="form-control" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" placeholder="Enter Email Id" name="emailEdit" id="emailEdit">
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="addressEdit" class="form-label"><b>Address</b><span class="text-danger">*</span></label>
-                                    <textarea class="form-control" placeholder="Enter address" name="addressEdit" id="addressEdit" required="required"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="aadharEdit" class="form-label"><b>Aadhar card</b>(Allowed formats: jpg, jpeg, png)<span class="text-danger">*</span></label>
-                                    <input type="file" class="form-control" name="aadharEdit" id="aadharEdit" required="required" accept=".jpg,.jpeg,.png">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="editLocation" class="form-label"><b>Location</b><span class="text-danger">*</span></label>
-                                    <select class="form-control" id="editLocation" name="editLocation" required="required">
-                                        <option value="">--Select the Location--</option>
-                                        
+                                    <label for="brandEdit" class="form-label"><b>Brand</b><span class="text-danger">*</span></label>
+                                    <select class="form-control" id="brandEdit" name="brandEdit" required="required">
+                                        <option value="">--Select the Brand--</option>
                                         <?php 
-                                     $location_result = getLocation(); // Call the function to fetch universities 
-                                     while ($row = $location_result->fetch_assoc()) {
-                                     $id = $row['loc_id']; 
-                                    $name = $row['loc_short_name'];    
-                        
-                                      ?>
-                        
-                                <option value="<?php echo $id;?>"><?php echo $name;?></option>
+                                            $product_result = brandTable(); // Call the function to fetch universities 
+                                            while ($row = $product_result->fetch_assoc()) {
+                                            $id = $row['brand_id']; 
+                                            $name = $row['brand_name'];    
+                                
+                                            ?>
+                                
+                                        <option value="<?php echo $id;?>"><?php echo $name;?></option>
 
-                                <?php } ?>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="usernameEdit" class="form-label"><b>Username</b><span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control"  placeholder="Enter Username" name="usernameEdit" id="usernameEdit" required="required">
-                                    
+                                    <label for="modelEdit" class="form-label"><b>Model</b><span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter Model" name="modelEdit" id="modelEdit" required="required">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="passwordEdit" class="form-label"><b>Password</b><span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Enter Password" name="passwordEdit" id="passwordEdit" required="required">
+                                    <label for="productNameEdit" class="form-label"><b>Name</b><span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter Product Name" name="productNameEdit" id="productNameEdit" required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="quantityEdit" class="form-label"><b>Product Quantity</b><span class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" placeholder="Enter Product Quantity" name="quantityEdit" id="quantityEdit" required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="priceEdit" class="form-label"><b>Product Price</b><span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter Product Price" name="priceEdit" id="priceEdit" required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="placeEdit" class="form-label"><b>Place</b><span class="text-danger">*</span></label>
+                                    <select class="form-control" id="placeEdit" name="placeEdit" required="required">
+                                        <option value="">--Select the Place--</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="emiNoEdit" class="form-label"><b>EMI No</b></label>
+                                    <input type="text" class="form-control" placeholder="Enter EMI No." name="emiNoEdit" id="emiNoEdit">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary" id="updateBtn">Save changes</button>
                     </div>
                 </form>
             </div> <!-- end modal content-->
@@ -257,11 +172,11 @@
 
     <!-- View Modal -->
 
- <div class=" d-none " id="staffView">
+ <div class=" d-none " id="productView">
         
-        <form name="frmViewStaff" method="post">
+        <form name="frmViewProduct" method="post">
             <div class="page-title-box">
-            <h3 class="page-title">Staff Details</h3>
+            <h3 class="page-title">Product Details</h3>
             </div>  
             <div class="modal-footer mb-3">
                 <button type="button" class="btn btn-danger" id="backButton">Back</button>
@@ -270,81 +185,47 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="card p-3">
-                            <h4>Staff Name</h4> 
-                            <span class="detail" id="staffNameView"></span>
+                            <h4>Product Name</h4> 
+                            <span class="detail" id="productNameView"></span>
                         </div>
                     </div>  
                     <div class="col-sm-3">
                         <div class="card p-3">
-                            <h4>Date of Birth</h4>
-                            <span class="detail" id="dobView"></span>
+                            <h4>Brand</h4>
+                            <span class="detail" id="brandView"></span>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="card p-3">
-                            <h4>Gender</h4> 
-                            <span class="detail" id="genderView"></span>
+                            <h4>Model</h4> 
+                            <span class="detail" id="modelView"></span>
                         </div>
                     </div>  
                     <div class="col-sm-3">
                         <div class="card p-3">
-                            <h4>Mobile No</h4>
-                            <span class="detail" id="mobileView"></span>
+                            <h4>Price</h4>
+                            <span class="detail" id="priceView"></span>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="card p-3">
-                            <h4>Date of Joining</h4> 
-                            <span class="detail" id="dateofjoinView"></span>
+                            <h4>Quantity</h4> 
+                            <span class="detail" id="quantityView"></span>
                         </div>
                     </div>  
                     <div class="col-sm-3">
                         <div class="card p-3">
-                            <h4>Salary</h4>
-                            <span class="detail" id="salaryView"></span>
+                            <h4>Place</h4>
+                            <span class="detail" id="placeView"></span>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="card p-3">
-                            <h4>Designation</h4> 
-                            <span class="detail" id="designationView"></span>
+                            <h4>EMI No</h4> 
+                            <span class="detail" id="emiView"></span>
                         </div>
                     </div>  
-                    <div class="col-sm-3">
-                        <div class="card p-3">
-                            <h4>Email</h4>
-                            <span class="detail" id="emailView"></span>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card p-3">
-                            <h4>Address</h4> 
-                            <span class="detail" id="addressView"></span>
-                        </div>
-                    </div>  
-                    <div class="col-sm-3">
-                        <div class="card p-3">
-                            <h4>Aadhar card</h4>
-                            <span class="detail"><a id="aadharView" href="#" target="_blank">View Aadhar Card</a></span>
-                        </div>
-                    </div> <div class="col-sm-3">
-                        <div class="card p-3">
-                            <h4>Location </h4>
-                            <span class="detail" id="viewLocation"></span>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card p-3">
-                            <h4>Username</h4> 
-                            <span class="detail" id="usernameView"></span>
-                        </div>
-                    </div>  
-                    <div class="col-sm-3">
-                        <div class="card p-3">
-                            <h4>Password</h4>
-                            <span class="detail" id="passwordView"></span>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             
