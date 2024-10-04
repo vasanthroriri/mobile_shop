@@ -38,7 +38,12 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="productName" class="form-label"><b>Product Name</b><span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Enter Product Name" name="productName" id="productName" required="required">
+                                    <select class="form-control" id="productName" name="productName" required="required">
+                                        <option value="">--Select the Product--</option>
+                                        <option value="Mobile">Mobile</option>
+                                        <option value="Tempered Glass">Tempered Glass</option>
+                                        <option value="Back Cover">Back Cover</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -123,8 +128,13 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="productNameEdit" class="form-label"><b>Name</b><span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Enter Product Name" name="productNameEdit" id="productNameEdit" required="required">
+                                    <label for="productNameEdit" class="form-label"><b>Product Name</b><span class="text-danger">*</span></label>
+                                    <select class="form-control" id="productNameEdit" name="productNameEdit" required="required">
+                                        <option value="">--Select the Product--</option>
+                                        <option value="Mobile">Mobile</option>
+                                        <option value="Tempered Glass">Tempered Glass</option>
+                                        <option value="Back Cover">Back Cover</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
