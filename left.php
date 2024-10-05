@@ -66,12 +66,11 @@
                 <a href="brand.php" class="side-nav-link"><i class="bi bi-currency-rupee"></i>Brand</a>
             </li>
             <li>
-                <a href="product.php" class="side-nav-link"><i class="bi bi-currency-rupee"></i>Product</a>
+                <a href="product.php" class="side-nav-link"><i class="bi bi-boxes"></i>Product</a>
             </li>
             <li>
-                <a href="stock.php" class="side-nav-link"><i class="bi bi-currency-rupee"></i>Stock</a>
+                <a href="stock.php" class="side-nav-link"><i class="bi bi-graph-up-arrow"></i>Stock</a>
             </li>
-
             <li>
                 <a href="sales.php" class="side-nav-link"><i class="bi bi-list-stars"></i><span>Sales </span></a>
             </li>
