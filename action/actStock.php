@@ -237,8 +237,8 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
             
             
                 $courseQuery = "SELECT `mod_id`
-                , `Mod_name` 
-                FROM `modale_tbl` WHERE mod_brand_id = $brandId AND mod_status = 'Active';";
+                , `mod_name` 
+                FROM `model_tbl` WHERE mod_brand_id = $brandId AND mod_status = 'Active';";
                 $courseResult = mysqli_query($conn, $courseQuery);
             
                 if ($courseResult) {
@@ -246,7 +246,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                         // Push each course as an object into the courses array
                         $course = array(
                             'mod_id' => $row['mod_id'],
-                            'Mod_name' => $row['Mod_name']
+                            'mod_name' => $row['mod_name']
                         );
                         $courses[] = $course;
                     }

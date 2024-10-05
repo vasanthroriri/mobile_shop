@@ -175,7 +175,7 @@ session_start();
                 
                  // Loop through each course in the response and append to options
                  $.each(response, function(index, course) {
-                    options += '<option value="' + course.mod_id + '">' + course.Mod_name + '</option>';
+                    options += '<option value="' + course.mod_id + '">' + course.mod_name + '</option>';
                 });
                 $('#modelName').html(options); // Update the course dropdown
             },
@@ -205,7 +205,7 @@ session_start();
                 
                  // Loop through each course in the response and append to options
                  $.each(response, function(index, course) {
-                    options += '<option value="' + course.mod_id + '">' + course.Mod_name + '</option>';
+                    options += '<option value="' + course.mod_id + '">' + course.mod_name + '</option>';
                 });
                 $('#editModelName').html(options); // Update the course dropdown
             },
@@ -317,7 +317,7 @@ function goEditStock(editId)
           $('#editProduct')[0].reset(); // Reset the form
 
 
-          
+
 
           $('#productIdEdit').val(response.stock_id);
           $('#brandEdit').val(response.brand_id);
