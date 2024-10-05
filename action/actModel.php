@@ -12,9 +12,9 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addModel') {
     $brand = $_POST['brand'];
     $modelName = $_POST['modelName'];
 
-    $elective_sql = "INSERT INTO `modale_tbl`
+    $elective_sql = "INSERT INTO `model_tbl`
     (`mod_brand_id`
-    ,`Mod_name`)
+    ,`mod_name`)
      VALUES 
      ('$brand'
      ,'$modelName')";
@@ -37,7 +37,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
     
     $editId = $_POST['editId'];
 
-    $selQuery = "SELECT `mod_id`, `mod_brand_id`, `Mod_name` FROM `modale_tbl` WHERE mod_id = $editId";
+    $selQuery = "SELECT `mod_id`, `mod_brand_id`, `mod_name` FROM `model_tbl` WHERE mod_id = $editId";
     $result = mysqli_query($conn, $selQuery);
 
     if ($result) {
@@ -68,8 +68,8 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
             $modelNameEdit = $_POST['modelNameEdit'];
             
            
-            $editModel ="UPDATE `modale_tbl` 
-            SET `mod_brand_id`='$brandEdit',`Mod_name`='$modelNameEdit' WHERE mod_id = $model_id";
+            $editModel ="UPDATE `model_tbl` 
+            SET `mod_brand_id`='$brandEdit',`mod_name`='$modelNameEdit' WHERE mod_id = $model_id";
             
             $model_result = mysqli_query($conn, $editModel);
 
@@ -92,7 +92,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                 $id = $_POST['deleteId'];
                 
 
-                $queryDel = "UPDATE `modale_tbl` SET `mod_status`='Inactive' WHERE mod_id= $id;";
+                $queryDel = "UPDATE `model_tbl` SET `mod_status`='Inactive' WHERE mod_id= $id;";
                 $reDel = mysqli_query($conn, $queryDel);
 
                 if ($reDel) {
