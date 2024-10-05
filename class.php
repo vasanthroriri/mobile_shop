@@ -459,39 +459,66 @@ function electiveTable() {
                return "Query failed: " . $conn->error;
            }
         }
-        // brand select table 
+
+        // product select table 
 
         function productTable() {
+            global $conn; // Assuming $conn is your database connection variable
+        
+        
+           // Query to retrieve course name based on course_id
+           $product_query = "SELECT product_id, product_name FROM product_tbl WHERE product_status='Active'";
+        
+           // Execute the query
+           $product_result = $conn->query($product_query);
+        
+           // Check if query was successful
+           if ($product_result) {
+               // Fetch the course name
+               
+        
+               return $product_result;
+           } else {
+               // Query execution failed
+               return "Query failed: " . $conn->error;
+           }
+        }
+        // stock select table 
+
+        function stockTable() {
             global $conn; 
         
             if (!$conn) {
                 die("Database connection failed.");
             }
         
-            $product_query = "SELECT 
-                                a.product_id,
+            $stock_query = "SELECT
+                                a.stock_id,
                                 a.brand_id,
-                                a.product_name,
+                                a.product_id,
                                 a.model_name,
                                 a.product_price,
+                                a.product_quantity,
                                 a.place,
                                 a.emi_no,
-                                a.product_status,
-                                a.product_quantity,
-                                b.brand_name
-                            FROM    
-                                product_tbl AS a
-                            LEFT JOIN
-                                brand_tbl AS b ON a.brand_id=b.brand_id
-                            WHERE a.product_status='Active';";
+                                a.stock_status,
+                                b.product_name,
+                                b.product_status,
+                                c.brand_name,
+                                c.brand_status
+
+                                FROM stock_tbl AS a 
+                                LEFT JOIN product_tbl AS b ON b.product_id=a.product_id
+                                LEFT JOIN brand_tbl AS c ON c.brand_id=a.brand_id
+                                WHERE a.stock_status='Active'";
+                                        
+            $stock_result = $conn->query($stock_query);
         
-            $product_result = $conn->query($product_query);
-        
-            if ($product_result) {
+            if ($stock_result) {
                
-                if ($product_result->num_rows > 0) {
+                if ($stock_result->num_rows > 0) {
                    
-                    return $product_result;
+                    return $stock_result;
                 } else {
                     
                     return "No products found.";
