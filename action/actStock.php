@@ -10,7 +10,7 @@ $response = ['success' => false, 'message' => ''];
 // Handle adding a product
 if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
     $productName = $_POST['productName'];
-    $model = $_POST['model'];
+    $model = $_POST['modelName'];
     $brandName=$_POST['brand'];
     $productQuantity=$_POST['quantity'];
     $productPrice=$_POST['price'];
@@ -19,7 +19,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
 
 
     // Check if the product name already exists
-    $check_sql = "SELECT COUNT(*) AS count FROM stock_tbl WHERE product_id='$productName' AND model_name='$model'";
+    $check_sql = "SELECT COUNT(*) AS count FROM stock_tbl WHERE product_id='$productName' AND model_id='$model'";
     $result = $conn->query($check_sql);
     $row = $result->fetch_assoc();
     $exists = $row['count'] > 0;
@@ -34,7 +34,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
                             `stock_tbl`
                             ( `brand_id`, 
                             `product_id`, 
-                            `model_name`, 
+                            `model_id`, 
                             `product_price`,
                             `product_quantity`,
                             `place`,
@@ -70,7 +70,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                                 a.stock_id,
                                 a.brand_id,
                                 a.product_id,
-                                a.model_name,
+                                a.model_id,
                                 a.product_price,
                                 a.product_quantity,
                                 a.place,
@@ -100,7 +100,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
             'product_quantity'=>$row['product_quantity'],
             'place'=>$row['place'],
             'emiNo'=>$row['emi_no'],
-            'model_name'=>$row['model_name'],
+            'model_name'=>$row['model_id'],
             'stock_id'=>$row['stock_id'],
 
         ];
@@ -227,6 +227,38 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                     echo "Error executing query: " . $conn->error;
                 }
             }
+
+
+            // brand select
+
+            if (isset($_POST['brand']) && $_POST['brand'] != '') {
+    
+                $brandId = $_POST['brand'];
+            
+            
+                $courseQuery = "SELECT `mod_id`
+                , `Mod_name` 
+                FROM `modale_tbl` WHERE mod_brand_id = $brandId AND mod_status = 'Active';";
+                $courseResult = mysqli_query($conn, $courseQuery);
+            
+                if ($courseResult) {
+                    while ($row = mysqli_fetch_assoc($courseResult)) {
+                        // Push each course as an object into the courses array
+                        $course = array(
+                            'mod_id' => $row['mod_id'],
+                            'Mod_name' => $row['Mod_name']
+                        );
+                        $courses[] = $course;
+                    }
+            
+                    echo json_encode($courses);
+                } else {
+                    $response['message'] = "Error fetching Model Name details: " . mysqli_error($conn);
+                    echo json_encode($response);
+                }
+            
+                exit(); 
+                }
             
 
            

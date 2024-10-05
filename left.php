@@ -75,9 +75,9 @@
                 <a href="sales.php" class="side-nav-link"><i class="bi bi-list-stars"></i><span>Sales </span></a>
             </li>
             
-            <!-- <li>
-                <a href="masterBooks.php" class="side-nav-link"><i class="bi bi-book"></i>Books</a>
-            </li> -->
+            <li>
+                <a href="model.php" class="side-nav-link"><i class="bi bi-book"></i>Model</a>
+            </li>
         </ul>
     </div>
     </li>
