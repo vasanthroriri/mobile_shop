@@ -316,6 +316,9 @@ function goEditStock(editId)
           $('#editProduct').addClass('needs-validation');
           $('#editProduct')[0].reset(); // Reset the form
 
+
+          
+
           $('#productIdEdit').val(response.stock_id);
           $('#brandEdit').val(response.brand_id);
           $('#editModelName').val(response.model_id);
