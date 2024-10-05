@@ -89,7 +89,7 @@ session_start();
             <tr>
                         <td scope="row"><?php echo $i ; $i++ ?></td>
                         <td><?php echo $row['brand_name'] ?></td>
-                        <td><?php echo $row['Mod_name'] ?></td>
+                        <td><?php echo $row['mod_name'] ?></td>
                         <td>
                           
                                 <button  class="btn btn-circle btn-warning text-white modalBtn" onclick="editelective(<?php echo $id; ?>);" data-bs-toggle="modal" data-bs-target="#editModelModal"><i class='bi bi-pencil-square'></i></button>

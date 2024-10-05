@@ -537,10 +537,10 @@ function electiveTable() {
            // Query to retrieve course name based on course_id
            $model_query = "SELECT
                     a.mod_id,   
-                    a.Mod_name,
+                    a.mod_name,
                     b.brand_name
                 FROM
-                    `modale_tbl` AS a LEFT JOIN brand_tbl AS b ON a.mod_brand_id =b.brand_id
+                    `model_tbl` AS a LEFT JOIN brand_tbl AS b ON a.mod_brand_id =b.brand_id
                 WHERE
                     a.mod_status = 'Active';";
         
