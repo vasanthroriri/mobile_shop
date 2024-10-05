@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-  include("class.php");
+  include "class.php";
     
     $stock_result = stockTable(); // Call the function to fetch products 
     
@@ -76,29 +76,32 @@ session_start();
                     </thead>
                     <tbody>
                     <?php  
-
-                        $i =1;
-                        while ($row = $stock_result->fetch_assoc()) {
-                            $id = $row['stock_id'];
-                            
-
+                    if (is_string($stock_result)) {
+                      // If it's a string, it's an error message
+                      echo "<tr><td colspan='7'>" . $stock_result . "</td></tr>";
+                    } else {
+                      // If it's a valid result set
+                      $i = 1;
+                      while ($row = $stock_result->fetch_assoc()) {
+                          $id = $row['stock_id'];
                     ?>
-                     <tr>
-                        <td><?php echo $i; $i++; ?></td>
-                        <td><?php echo $row['product_name']; ?></td>
-                        <td><?php echo $row['model_name']; ?></td>
-                        <td><?php echo $row['brand_name']; ?></td>
-                        <td><?php echo $row['product_price']; ?></td>
-                        <td><?php echo $row['product_quantity']; ?></td>
-                        
-                    
-                        <td>
-                            <button type="button" class="btn btn-circle btn-warning text-white modalBtn" onclick="goEditStock(<?php echo $id; ?>);" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class='bi bi-pencil-square'></i></button>
-                            <button class="btn btn-circle btn-success text-white modalBtn" onclick="goViewStock(<?php echo $id; ?>);"><i class="bi bi-eye-fill"></i></button>
-                            <button class="btn btn-circle btn-danger text-white" onclick="goDeleteStock(<?php echo $id; ?>);"><i class="bi bi-trash"></i></button>
-                        </td>
-                      </tr>
-                      <?php } ?>
+                          <tr>
+                              <td><?php echo $i; $i++; ?></td>
+                              <td><?php echo $row['product_name']; ?></td>
+                              <td><?php echo $row['model_id']; ?></td>
+                              <td><?php echo $row['brand_name']; ?></td>
+                              <td><?php echo $row['product_price']; ?></td>
+                              <td><?php echo $row['product_quantity']; ?></td>
+                              <td>
+                                  <button type="button" class="btn btn-circle btn-warning text-white modalBtn" onclick="goEditStock(<?php echo $id; ?>);" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class='bi bi-pencil-square'></i></button>
+                                  <button class="btn btn-circle btn-success text-white modalBtn" onclick="goViewStock(<?php echo $id; ?>);"><i class="bi bi-eye-fill"></i></button>
+                                  <button class="btn btn-circle btn-danger text-white" onclick="goDeleteStock(<?php echo $id; ?>);"><i class="bi bi-trash"></i></button>
+                              </td>
+                          </tr>
+                    <?php 
+                      } 
+                    } 
+                    ?>
                     </tbody>
                   </table>
 
@@ -175,6 +178,36 @@ session_start();
                     options += '<option value="' + course.mod_id + '">' + course.Mod_name + '</option>';
                 });
                 $('#modelName').html(options); // Update the course dropdown
+            },
+            error: function(xhr, status, error) {
+                console.error("AJAX request failed: " + status + ", " + error);
+            }
+        });
+    });
+
+
+    $('#brandEdit').change(function() {
+        var brandId = $(this).val();
+        
+        if (brandId === "") {
+            $('#editModelName').html('<option value="">--Select the Model--</option>'); // Clear the course dropdown
+            return; // No university selected, exit the function
+        }
+
+        $.ajax({
+            url: "action/actStock.php", // URL of the PHP script to handle the request
+            type: "POST",
+            data: { brand: brandId },
+            dataType: 'json',
+            success: function(response) {
+                
+                var options = '<option value="">--Select the Model--</option>';
+                
+                 // Loop through each course in the response and append to options
+                 $.each(response, function(index, course) {
+                    options += '<option value="' + course.mod_id + '">' + course.Mod_name + '</option>';
+                });
+                $('#editModelName').html(options); // Update the course dropdown
             },
             error: function(xhr, status, error) {
                 console.error("AJAX request failed: " + status + ", " + error);
@@ -285,7 +318,7 @@ function goEditStock(editId)
 
           $('#productIdEdit').val(response.stock_id);
           $('#brandEdit').val(response.brand_id);
-          $('#modelEdit').val(response.model_name);
+          $('#editModelName').val(response.model_id);
           $('#productNameEdit').val(response.product_id);
           $('#quantityEdit').val(response.product_quantity);
           $('#priceEdit').val(response.product_price);

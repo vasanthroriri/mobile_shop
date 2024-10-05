@@ -10,7 +10,7 @@ $response = ['success' => false, 'message' => ''];
 // Handle adding a product
 if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
     $productName = $_POST['productName'];
-    $model = $_POST['model'];
+    $model = $_POST['modelName'];
     $brandName=$_POST['brand'];
     $productQuantity=$_POST['quantity'];
     $productPrice=$_POST['price'];
@@ -19,7 +19,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
 
 
     // Check if the product name already exists
-    $check_sql = "SELECT COUNT(*) AS count FROM stock_tbl WHERE product_id='$productName' AND model_name='$model'";
+    $check_sql = "SELECT COUNT(*) AS count FROM stock_tbl WHERE product_id='$productName' AND model_id='$model'";
     $result = $conn->query($check_sql);
     $row = $result->fetch_assoc();
     $exists = $row['count'] > 0;
@@ -34,7 +34,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
                             `stock_tbl`
                             ( `brand_id`, 
                             `product_id`, 
-                            `model_name`, 
+                            `model_id`, 
                             `product_price`,
                             `product_quantity`,
                             `place`,
@@ -70,7 +70,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                                 a.stock_id,
                                 a.brand_id,
                                 a.product_id,
-                                a.model_name,
+                                a.model_id,
                                 a.product_price,
                                 a.product_quantity,
                                 a.place,
@@ -100,7 +100,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
             'product_quantity'=>$row['product_quantity'],
             'place'=>$row['place'],
             'emiNo'=>$row['emi_no'],
-            'model_name'=>$row['model_name'],
+            'model_name'=>$row['model_id'],
             'stock_id'=>$row['stock_id'],
 
         ];
