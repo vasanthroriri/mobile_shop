@@ -88,7 +88,7 @@ session_start();
                           <tr>
                               <td><?php echo $i; $i++; ?></td>
                               <td><?php echo $row['product_name']; ?></td>
-                              <td><?php echo $row['model_id']; ?></td>
+                              <td><?php echo $row['mod_name']; ?></td>
                               <td><?php echo $row['brand_name']; ?></td>
                               <td><?php echo $row['product_price']; ?></td>
                               <td><?php echo $row['product_quantity']; ?></td>
@@ -301,39 +301,58 @@ session_start();
 });
 
 
-function goEditStock(editId)
-{ 
-      $.ajax({
+function goEditStock(editId) {
+    $.ajax({
         url: 'action/actStock.php',
         method: 'POST',
         data: {
-          editId: editId
+            editId: editId
         },
-        dataType: 'json', // Specify the expected data type as JSON
+        dataType: 'json', // Expecting JSON response
         success: function(response) {
+            $('#editProduct').removeClass('was-validated');
+            $('#editProduct').addClass('needs-validation');
+            $('#editProduct')[0].reset(); // Reset the form
+            
+            // Assign the response data to variables
+            var brandId = response.brand_id; // Assign correctly
 
-          $('#editProduct').removeClass('was-validated');
-          $('#editProduct').addClass('needs-validation');
-          $('#editProduct')[0].reset(); // Reset the form
+            // First AJAX call for model options based on brand
+            $.ajax({
+                url: "action/actStock.php",
+                type: "POST",
+                data: { brand: brandId },
+                dataType: 'json',
+                success: function(modelResponse) {
+                    // Populate the models dropdown
+                    var options = '<option value="">--Select the Model--</option>';
+                    $.each(modelResponse, function(index, model) {
+                        options += '<option value="' + model.mod_id + '">' + model.mod_name + '</option>';
+                    });
+                    $('#editModelName').html(options); // Update the models dropdown
+                    
+                    // After populating the dropdown, set the selected value
+                    $('#editModelName').val(response.model_id);
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX request for model data failed: " + status + ", " + error);
+                }
+            });
 
-
-
-
-          $('#productIdEdit').val(response.stock_id);
-          $('#brandEdit').val(response.brand_id);
-          $('#editModelName').val(response.model_id);
-          $('#productNameEdit').val(response.product_id);
-          $('#quantityEdit').val(response.product_quantity);
-          $('#priceEdit').val(response.product_price);
-          $('#placeEdit').val(response.place);
-          $('#emiNoEdit').val(response.emiNo);
+            // Set the other form fields
+            $('#productIdEdit').val(response.stock_id);
+            $('#brandEdit').val(brandId); // Brand ID
+            $('#editModelName').val(response.model_id); // model ID
+            $('#productNameEdit').val(response.product_id);
+            $('#quantityEdit').val(response.product_quantity);
+            $('#priceEdit').val(response.product_price);
+            $('#placeEdit').val(response.place);
+            $('#emiNoEdit').val(response.emi_no);
         },
         error: function(xhr, status, error) {
-            // Handle errors here
             console.error('AJAX request failed:', status, error);
         }
     });
-    
 }
 
 function goDeleteStock(id)

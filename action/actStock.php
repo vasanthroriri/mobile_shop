@@ -100,7 +100,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
             'product_quantity'=>$row['product_quantity'],
             'place'=>$row['place'],
             'emiNo'=>$row['emi_no'],
-            'model_name'=>$row['model_id'],
+            'model_id'=>$row['model_id'],
             'stock_id'=>$row['stock_id'],
 
         ];
@@ -182,24 +182,33 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
             
                 // Prepare and execute the SQL query
                 $selQuery1 = "SELECT
-                                a.stock_id,
-                                a.brand_id,
-                                a.product_id,
-                                a.model_name,
-                                a.product_price,
-                                a.product_quantity,
-                                a.place,
-                                a.emi_no,
-                                a.stock_status,
-                                b.product_name,
-                                b.product_status,
-                                c.brand_name,
-                                c.brand_status
-
-                                FROM stock_tbl AS a 
-                                LEFT JOIN product_tbl AS b ON b.product_id=a.product_id
-                                LEFT JOIN brand_tbl AS c ON c.brand_id=a.brand_id
-                                WHERE a.stock_id='$proId';";
+                            a.stock_id,
+                            a.brand_id,
+                            a.product_id,
+                            a.model_id,
+                            a.product_price,
+                            a.product_quantity,
+                            a.place,
+                            a.emi_no,
+                            a.stock_status,
+                            b.product_name,
+                            b.product_status,
+                            c.brand_name,
+                            c.brand_status,
+                            d.mod_name
+                        FROM
+                            stock_tbl AS a
+                        LEFT JOIN product_tbl AS b
+                        ON
+                            b.product_id = a.product_id
+                        LEFT JOIN brand_tbl AS c
+                        ON
+                            c.brand_id = a.brand_id
+                        LEFT JOIN model_tbl AS d
+                        ON
+                            a.model_id = d.mod_id
+                        WHERE
+                            a.stock_id = '$proId';";
                 
                 $result1 = $conn->query($selQuery1);
             
@@ -210,7 +219,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                 $productView = [
                        
                         'ProductNameView' => $row['product_name'],
-                        'modelView' => $row['model_name'],
+                        'modelView' => $row['mod_name'],
                         'quantityView' => $row['product_quantity'],
                         'priceView' => $row['product_price'],
                         'placeView' => $row['place'],
