@@ -227,6 +227,38 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                     echo "Error executing query: " . $conn->error;
                 }
             }
+
+
+            // brand select
+
+            if (isset($_POST['brand']) && $_POST['brand'] != '') {
+    
+                $brandId = $_POST['brand'];
+            
+            
+                $courseQuery = "SELECT `mod_id`
+                , `Mod_name` 
+                FROM `modale_tbl` WHERE mod_brand_id = $brandId AND mod_status = 'Active';";
+                $courseResult = mysqli_query($conn, $courseQuery);
+            
+                if ($courseResult) {
+                    while ($row = mysqli_fetch_assoc($courseResult)) {
+                        // Push each course as an object into the courses array
+                        $course = array(
+                            'mod_id' => $row['mod_id'],
+                            'Mod_name' => $row['Mod_name']
+                        );
+                        $courses[] = $course;
+                    }
+            
+                    echo json_encode($courses);
+                } else {
+                    $response['message'] = "Error fetching Model Name details: " . mysqli_error($conn);
+                    echo json_encode($response);
+                }
+            
+                exit(); 
+                }
             
 
            

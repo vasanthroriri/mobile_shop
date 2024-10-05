@@ -31,8 +31,11 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="model" class="form-label"><b>Model</b><span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Enter Model" name="model" id="model" required="required">
+                                    <label for="modelName" class="form-label"><b>Model Name</b><span class="text-danger">*</span></label>
+                                    <select class="form-control" name="modelName" id="modelName" required="required">
+                                    <option value="">--Select the Model--</option>
+
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">

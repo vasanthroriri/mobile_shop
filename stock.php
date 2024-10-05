@@ -152,6 +152,36 @@ session_start();
 
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
+    <script>
+      $('#brand').change(function() {
+        var brandId = $(this).val();
+        
+        if (brandId === "") {
+            $('#modelName').html('<option value="">--Select the Model--</option>'); // Clear the course dropdown
+            return; // No university selected, exit the function
+        }
+
+        $.ajax({
+            url: "action/actStock.php", // URL of the PHP script to handle the request
+            type: "POST",
+            data: { brand: brandId },
+            dataType: 'json',
+            success: function(response) {
+                
+                var options = '<option value="">--Select the Model--</option>';
+                
+                 // Loop through each course in the response and append to options
+                 $.each(response, function(index, course) {
+                    options += '<option value="' + course.mod_id + '">' + course.Mod_name + '</option>';
+                });
+                $('#modelName').html(options); // Update the course dropdown
+            },
+            error: function(xhr, status, error) {
+                console.error("AJAX request failed: " + status + ", " + error);
+            }
+        });
+    });
+    </script>
 
 
   <script>

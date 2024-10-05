@@ -527,5 +527,37 @@ function electiveTable() {
                 return "Query failed: " . $conn->error;
             }
         }
+
+
+        // model table function 
+
+        function modelTable() {
+            global $conn; // Assuming $conn is your database connection variable
+        
+        
+           // Query to retrieve course name based on course_id
+           $model_query = "SELECT
+                    a.mod_id,   
+                    a.Mod_name,
+                    b.brand_name
+                FROM
+                    `modale_tbl` AS a LEFT JOIN brand_tbl AS b ON a.mod_brand_id =b.brand_id
+                WHERE
+                    a.mod_status = 'Active';";
+        
+           // Execute the query
+           $model_result = $conn->query($model_query);
+        
+           // Check if query was successful
+           if ($model_result) {
+               // Fetch the course name
+               
+        
+               return $model_result;
+           } else {
+               // Query execution failed
+               return "Query failed: " . $conn->error;
+           }
+        }
         
 ?>
