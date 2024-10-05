@@ -176,6 +176,58 @@ session_start();
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
     <script>
+        document.getElementById('submitBilling').addEventListener('click', function () {
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+
+    const customerName = document.getElementById('customerName').value;
+    const customerPhone = document.getElementById('customerPhone').value;
+    const billingAddress = document.getElementById('billingAddress').value;
+
+    if (!customerName || !customerPhone || !billingAddress) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    const totalAmount = cart.reduce((acc, product) => acc + product.total, 0);  // Calculate total price
+    const gstNumber = 12345;  // For now, hard-code GST number or get it from a field
+    const productsJSON = JSON.stringify(cart);  // Convert cart products to JSON
+
+    const billingData = {
+        customerName: customerName,
+        customerPhone: customerPhone,
+        billingAddress: billingAddress,
+        products: productsJSON,
+        totalPrice: totalAmount,
+        gstNo: gstNumber
+    };
+
+    // Send data to the server using AJAX
+    $.ajax({
+        url: "action/actBill.php",  // URL of the PHP script that handles the submission
+        type: "POST",
+        data: billingData,
+        success: function (response) {
+            const jsonResponse = JSON.parse(response);
+            if (jsonResponse.success) {
+                alert('Billing submitted successfully!');
+                // Reset the form and cart
+                document.getElementById('billingForm').reset();
+                cart = [];
+                updateCartTable();
+            } else {
+                alert('Error: ' + jsonResponse.message);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error('AJAX Error: ' + error);
+        }
+    });
+});
+    </script>
+    <script>
     let cart = [];
 
     // Function to add product to cart
