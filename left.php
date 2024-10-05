@@ -72,7 +72,7 @@
                 <a href="stock.php" class="side-nav-link"><i class="bi bi-graph-up-arrow"></i>Stock</a>
             </li>
             <li>
-                <a href="sales.php" class="side-nav-link"><i class="bi bi-list-stars"></i><span>Sales </span></a>
+                <a href="bill.php" class="side-nav-link"><i class="bi bi-list-stars"></i><span>Bill </span></a>
             </li>
             
             <li>
