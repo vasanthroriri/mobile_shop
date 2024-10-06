@@ -370,7 +370,7 @@ $('#productQuantity').on('input', function() {
         customerName: customerName,
         customerPhone: customerPhone,
         billingAddress: billingAddress,
-        products: product,
+        products: productsJSON,
         totalPrice: totalAmount,
         gstNo: gstNumber
     };

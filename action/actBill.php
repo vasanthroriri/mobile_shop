@@ -21,23 +21,34 @@ if (isset($_POST['customerName']) && $_POST['customerName'] != '') {
         $response = array('success' => true, 'message' => 'Invoice created successfully.');
 
         // Decode the JSON products to an associative array
-        $productDetails = json_decode($products, true);
+        $productDetails = json_decode($_POST['products'], true);
         
-        // Loop through each product to update stock
-        foreach ($productDetails as $productId => $quantity) {
-            // Prepare the SQL query to update stock quantity
-            $updateQuery = "UPDATE stock_tbl SET quantity = quantity - $quantity WHERE product_id = $productId";
-            mysqli_query($conn, $updateQuery); // Execute the update query
+        // Check if JSON decoding was successful and the result is an array
+        if (is_array($productDetails)) {
+            // Loop through each product to update stock
+            foreach ($productDetails as $product) {
+                $productId = $product['product_id'];
+                $quantity = $product['quantity'];
+                $brandId = $product['brand_id']; // Get brand ID
+                $modelId = $product['model_id']; // Get model ID
+
+                // Prepare the SQL query to update stock quantity
+                $updateQuery = "UPDATE stock_tbl SET product_quantity = product_quantity - $quantity 
+                WHERE brand_id = $brandId AND product_id = $productId AND model_id = $modelId";
+                mysqli_query($conn, $updateQuery); // Execute the update query
+            }
+        } else {
+            // If JSON decoding failed, add an error response
+            $response = array('success' => false, 'message' => 'Error: Invalid product data format.');
         }
     } else {
-        // Error response
+        // Error response for query execution
         $response = array('success' => false, 'message' => 'Error: ' . mysqli_error($conn));
     }
 
     // Return JSON response
     echo json_encode($response);
 }
-
 
 
 // brand select
