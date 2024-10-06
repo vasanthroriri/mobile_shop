@@ -56,7 +56,7 @@ session_start();
                                         </button>
                                     </div>
                                 </div>
-                                <h3 class="page-title">Stock List</h3>   
+                                <h3 class="page-title">Sales List</h3>   
                             </div>
                         </div>
                     </div>

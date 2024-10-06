@@ -595,5 +595,59 @@ function electiveTable() {
                return "Query failed: " . $conn->error;
            }
         }
+
+
+        // sales funtion
+            
+        function salesTable() {
+            global $conn; 
         
+            if (!$conn) {
+                die("Database connection failed.");
+            }
+        
+                $stock_query = "SELECT
+                                    a.stock_id,
+                                    a.brand_id,
+                                    a.product_id,
+                                    a.model_id,
+                                    a.product_price,
+                                    a.product_quantity,
+                                    a.place,
+                                    a.emi_no,
+                                    a.stock_status,
+                                    b.product_name,
+                                    b.product_status,
+                                    c.brand_name,
+                                    c.brand_status,
+                                    d.mod_name
+                                FROM
+                                    stock_tbl AS a
+                                LEFT JOIN product_tbl AS b
+                                ON
+                                    b.product_id = a.product_id
+                                LEFT JOIN brand_tbl AS c
+                                ON
+                                    c.brand_id = a.brand_id
+                                LEFT JOIN model_tbl AS d
+                                ON
+                                    a.model_id = d.mod_id
+                                WHERE
+                                    a.stock_status = 'Active';";
+                                        
+            $stock_result = $conn->query($stock_query);
+        
+            if ($stock_result) {
+               
+                if ($stock_result->num_rows > 0) {
+                   
+                    return $stock_result;
+                } else {
+                    
+                    return "No products found.";
+                }
+            } else {
+                return "Query failed: " . $conn->error;
+            }
+        }
 ?>
