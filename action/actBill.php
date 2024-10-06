@@ -1,6 +1,9 @@
 <?php
+include("../db/dbConnection.php");
 session_start();
-include "class.php"; // Ensure your database connection is included here
+header('Content-Type: application/json');
+
+$response = ['success' => false, 'message' => ''];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $customerName = mysqli_real_escape_string($conn, $_POST['customerName']);
@@ -10,21 +13,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $totalPrice = (int)$_POST['totalPrice'];
     $gstNo = (int)$_POST['gstNo'];
     
-    // Set default invoice status as 'Pending'
-    $invoiceStatus = 'Pending'; 
-
+    
     // Prepare the SQL query to insert data into the invoice table
-    $query = "INSERT INTO invoice 
-        (customer_name, customer_phone, billing_address, products, total_price, gst_no, invoice_status, created_at)
-        VALUES ('$customerName', '$customerPhone', '$billingAddress', '$products', $totalPrice, $gstNo, '$invoiceStatus', NOW())";
+    $query = "INSERT INTO invoice_tbl 
+        (customer_name, customer_phone, billing_address, products, total_price, gst_no)
+        VALUES ('$customerName', '$customerPhone', '$billingAddress', '$products', $totalPrice, $gstNo)";
 
     // Execute the query
     if (mysqli_query($conn, $query)) {
         // Success response
-        $response = array('success' => true, 'message' => 'Invoice created successfully.');
+        $response['success'] = true;
+        $response['message'] = "Bill Created successfully!";
+        
     } else {
         // Error response
-        $response = array('success' => false, 'message' => 'Error: ' . mysqli_error($conn));
+        $response['message'] = "Error adding Product: " . $query->error;
     }
 
     // Return JSON response
