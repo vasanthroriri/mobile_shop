@@ -69,6 +69,7 @@ session_start();
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Model Name</th>
                             <th>Product Name</th>
                             <th>Quantity</th>
                             <th>Price</th>
@@ -79,7 +80,7 @@ session_start();
                     <tbody id="cartTableBody"></tbody>
                     <tfoot>
                         <tr>
-                            <th colspan="4" class="text-end">Total:</th>
+                            <th colspan="5" class="text-end">Total:</th>
                             <th id="totalAmount">0</th>
                             <th></th>
                         </tr>
@@ -100,20 +101,79 @@ session_start();
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div class="mb-3">
-                                    <label for="productName" class="form-label">Product Name</label>
-                                    <input type="text" class="form-control" id="productName" required>
-                                    <div class="invalid-feedback">Please enter product name.</div>
+                            <div class="col-sm-12">
+                                <div class="form-group ">
+                                    <label for="brand" class="form-label"><b>Brand Name</b><span class="text-danger">*</span></label>
+                                    <select class="form-control" name="brand" id="brand" required="required">
+                                        
+                                        <option value="">--Select the Brand--</option>
+                                        <?php 
+                                        
+                                     $brand_result = brandTable(); // Call the function to fetch universities 
+                                     while ($row = $brand_result->fetch_assoc()) {
+                                     $id = $row['brand_id']; 
+                                    $name = $row['brand_name'];    
+                        
+                                      ?>
+                        
+                        <option value="<?php echo $id;?>"><?php echo $name;?></option>
+
+                        <?php } ?>
+                                    </select>
+                                    <div class="invalid-feedback">Please enter Brand.</div>
                                 </div>
-                                <div class="mb-3">
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="form-group ">
+                                    <label for="modelName" class="form-label"><b>Model Name</b><span class="text-danger">*</span></label>
+                                    <select class="form-control" name="modelName" id="modelName" required="required">
+                                        <option value="">--Select the Model--</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please enter Model.</div>
+                                </div>
+                            </div>
+
+                                <div class="col-sm-12">
+                                    <div class="form-group ">
+                                        <label for="productName" class="form-label"><b>Product Name</b><span class="text-danger">*</span></label>
+                                        <select class="form-control" name="productName" id="productName" required="required">
+                                            
+                                            <option value="">--Select the Product--</option>
+                                            <?php 
+                                            
+                                        $product_result = prodectTable(); // Call the function to fetch universities 
+                                        while ($pro = $product_result->fetch_assoc()) {
+                                        $id = $pro['product_id']; 
+                                        $name = $pro['product_name'];    
+                            
+                                        ?>
+                            
+                            <option value="<?php echo $id;?>"><?php echo $name;?></option>
+
+                            <?php } ?>
+                                        </select>
+                                        <div class="invalid-feedback">Please enter Product.</div>
+                                        <div class="invalid-feedback" id="modelBrandInvalid">Please select both Model and Brand.</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-12">
+                                <div class="form-group">
                                     <label for="productQuantity" class="form-label">Quantity</label>
                                     <input type="number" class="form-control" id="productQuantity" required>
                                     <div class="invalid-feedback">Please enter quantity.</div>
+                                    <span id="quantityError" class="text-danger" style="display:none;">Quantity exceeds available stock.</span>
                                 </div>
-                                <div class="mb-3">
+                            </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
                                     <label for="productPrice" class="form-label">Price</label>
+                                    <input type="hidden" class="form-control" id="actualPrice" required>
                                     <input type="number" class="form-control" id="productPrice" required>
                                     <div class="invalid-feedback">Please enter price.</div>
+                                    <div class="invalid-feedback" id="priceDivError"> price Not Valid.</div>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -176,6 +236,117 @@ session_start();
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
     <script>
+        $('#brand').change(function() {
+        var brandId = $(this).val();
+        
+        if (brandId === "") {
+            $('#modelName').html('<option value="">--Select the Model--</option>'); // Clear the course dropdown
+            return; // No university selected, exit the function
+        }
+
+        $.ajax({
+            url: "action/actBill.php", // URL of the PHP script to handle the request
+            type: "POST",
+            data: { brand: brandId },
+            dataType: 'json',
+            success: function(response) {
+                
+                var options = '<option value="">--Select the Model--</option>';
+                
+                 // Loop through each course in the response and append to options
+                 $.each(response, function(index, course) {
+                    options += '<option value="' + course.mod_id + '">' + course.mod_name + '</option>';
+                });
+                $('#modelName').html(options); // Update the course dropdown
+            },
+            error: function(xhr, status, error) {
+                console.error("AJAX request failed: " + status + ", " + error);
+            }
+        });
+    });
+
+
+
+    $('#productName').change(function() {
+    var productId = $(this).val();
+    var modelId = $('#modelName').val();
+    var brandId = $('#brand').val();
+
+    // Hide all error messages by default
+    $('#productInvalid').hide();
+    $('#modelBrandInvalid').hide();
+
+    if (!productId) {
+        $('#productInvalid').show(); // Show product selection error if not selected
+        return;
+    }
+
+    if (!brandId || !modelId) {
+        $('#modelBrandInvalid').show(); // Show model and brand error if not selected
+        return;
+    }
+
+    $.ajax({
+        url: "action/actBill.php",
+        type: "POST",
+        data: { brandId: brandId, modelId: modelId, productId: productId },
+        dataType: 'json',
+        success: function(response) {
+            if (response.product_price) {
+                $('#productPrice').val(response.product_price);
+                $('#actualPrice').val(response.product_price);
+                $('#priceDivError').hide(); // Show model and brand error if not selected
+            } else {
+                $('#productPrice').val('');
+                $('#actualPrice').val('');
+                // alert(response.message || 'No price data available');
+                $('#priceDivError').show(); // Show model and brand error if not selected
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("AJAX request failed: " + status + ", " + error);
+        }
+    });
+});
+
+
+
+$('#productQuantity').on('input', function() {
+    var quantity = $(this).val();
+    var productId = $('#productName').val();
+    var modelId = $('#modelName').val();
+    var brandId = $('#brand').val();
+
+    // Check if product, model, and brand are selected
+    if (!productId || !modelId || !brandId) {
+        $('#quantityError').hide(); // Hide error if necessary fields are not selected
+        return;
+    }
+
+    // Make AJAX call to check stock availability
+    $.ajax({
+        url: "action/actBill.php", // Your PHP script to check stock
+        type: "POST",
+        data: { brandIdQty: brandId, modelId: modelId, productId: productId },
+        dataType: 'json',
+        success: function(response) {
+            if (response && response.stock >= quantity) {
+                $('#quantityError').hide(); // Hide error if quantity is within stock limit
+            } else {
+                $('#quantityError').show(); // Show error if quantity exceeds available stock
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("AJAX request failed: " + status + ", " + error);
+        }
+    });
+});
+
+
+
+   
+    </script>
+    <script>
         document.getElementById('submitBilling').addEventListener('click', function () {
     if (cart.length === 0) {
         alert('Your cart is empty!');
@@ -199,7 +370,7 @@ session_start();
         customerName: customerName,
         customerPhone: customerPhone,
         billingAddress: billingAddress,
-        products: productsJSON,
+        products: product,
         totalPrice: totalAmount,
         gstNo: gstNumber
     };
@@ -212,7 +383,7 @@ session_start();
         success: function (response) {
             const jsonResponse = JSON.parse(response);
             if (jsonResponse.success) {
-                alert('Billing submitted successfully!');
+                // alert('Billing submitted successfully!');
                 // Reset the form and cart
                 document.getElementById('billingForm').reset();
                 cart = [];
@@ -232,28 +403,54 @@ session_start();
 
     // Function to add product to cart
     document.getElementById('addToCart').addEventListener('click', function () {
-        const productName = document.getElementById('productName').value;
-        const productQuantity = parseInt(document.getElementById('productQuantity').value);
-        const productPrice = parseFloat(document.getElementById('productPrice').value);
+        const brandId = document.getElementById('brand').value;
+    const modelId = document.getElementById('modelName').value;
+    const productId = document.getElementById('productName').value;
+    const productQuantity = parseInt(document.getElementById('productQuantity').value);
+    const actualPrice = parseFloat(document.getElementById('actualPrice').value);
+    const productPrice = parseFloat(document.getElementById('productPrice').value);
 
-        if (!productName || !productQuantity || !productPrice) {
-            alert('Please fill all fields');
-            return;
-        }
+    if (!productId || !productQuantity || !productPrice) {
+        alert('Please fill all fields');
+        return;
+    }
 
-        const totalPrice = productQuantity * productPrice;
-
-        const product = {
-            name: productName,
-            quantity: productQuantity,
-            price: productPrice,
-            total: totalPrice
-        };
+    // AJAX call to fetch product details based on selected IDs
+    $.ajax({
+        url: "action/actBill.php",  // Adjust the URL as necessary
+        type: "POST",
+        data: {
+            brand_id: brandId,
+            model_id: modelId,
+            product_id: productId
+        },
+        success: function (response) {
+            const productData = JSON.parse(response);
+            const totalPrice = productQuantity * productPrice;
+            const actualtotalPrice = productQuantity * productPrice;
+            const product = {
+                brand: productData.brand_name,
+                model: productData.mod_name,
+                model_id: productData.model_id,
+                product_id: productData.product_id,
+                brand_id: productData.brand_id,
+                product: productData.product_name,
+                quantity: productQuantity,
+                price: productPrice,
+                acutaltotal: actualtotalPrice,
+                total: totalPrice
+            };
         cart.push(product);
 
         updateCartTable();
-        $('#addProductModal').modal('hide');
+        // $('#addProductModal').modal('hide');
         document.getElementById('addProductForm').reset();
+    },
+        error: function (xhr, status, error) {
+            console.error('AJAX Error: ' + error);
+            alert('Failed to fetch product details.');
+        }
+    });
     });
 
     // Function to update the cart table
@@ -265,7 +462,8 @@ session_start();
         cart.forEach((product, index) => {
             const row = `<tr>
                 <td>${index + 1}</td>
-                <td>${product.name}</td>
+                <td>${product.brand + ' '+product.model}</td>
+                <td>${product.product}</td>
                 <td>${product.quantity}</td>
                 <td>${product.price.toFixed(2)}</td>
                 <td>${product.total.toFixed(2)}</td>
@@ -284,33 +482,7 @@ session_start();
         updateCartTable(); // Update table after removal
     }
 
-    // Handle billing submission
-    document.getElementById('submitBilling').addEventListener('click', function () {
-        if (cart.length === 0) {
-            alert('Your cart is empty!');
-            return;
-        }
-
-        const customerName = document.getElementById('customerName').value;
-        const customerPhone = document.getElementById('customerPhone').value;
-        const billingAddress = document.getElementById('billingAddress').value;
-
-        const billingData = {
-            customerName,
-            customerPhone,
-            billingAddress,
-            cart
-        };
-
-        console.log(billingData); // Here you would send the data to your server
-
-        alert('Billing submitted successfully!');
-
-        // Reset the form and cart
-        document.getElementById('billingForm').reset();
-        cart = [];
-        updateCartTable();
-    });
+   
 
     // Bootstrap validation
     (function () {
@@ -326,108 +498,6 @@ session_start();
             }, false);
         });
     })();
-</script>
-    
-
-  <script>
-
-    
-    $(document).ready(function () {
-
-     
-
-      $('#addStaffBtn').click(function() {
-
-      $('#addStaff').removeClass('was-validated');
-      $('#addStaff').addClass('needs-validation');
-      $('#username').removeClass('is-invalid is-valid');
-      $('#addStaff')[0].reset(); // Reset the form
-
-      });
-
-      $('#backButton').click(function() {
-        $('#staffView').addClass('d-none');
-        $('#StaffContent').show();
-    });
-  
-  $('#addStaff').off('submit').on('submit', function(e) {
-    if (!isUsernameValid) {
-        e.preventDefault();
-        $('#username').focus(); // Set focus to the invalid input
-        return false;
-    }
-
-    e.preventDefault(); 
-
-    var form = this; // Get the form element
-            if (form.checkValidity() === false) {
-                // If the form is invalid, display validation errors
-                form.reportValidity();
-                return;
-            }
-
-            var formData = new FormData(form);
-
-    $.ajax({
-      url: "action/actStaff.php",
-      method: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false,
-      dataType: 'json',
-      success: function(response) {
-        // Handle success response
-        console.log(response);
-        if (response.success) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: response.message,
-            timer: 2000
-          }).then(function() {
-            $('#addStaffModal').modal('hide');
-            $('#scroll-horizontal-datatable').load(location.href + ' #scroll-horizontal-datatable > *', function() {
-              $('#scroll-horizontal-datatable').DataTable().destroy();
-              $('#scroll-horizontal-datatable').DataTable({
-                "paging": true, // Enable pagination
-                "ordering": true, // Enable sorting
-                "searching": true // Enable searching
-              });
-            });
-          });
-        } else {
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: response.message
-          });
-        }
-      },
-      error: function(xhr, status, error) {
-        // Handle error response
-        console.error(xhr.responseText);
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'An error occurred while adding Staff data.'
-        });
-        // Re-enable the submit button on error
-        $('#submitBtn').prop('disabled', false);
-      }
-    });
-  });
-
-
- 
-
-});
-
-
-
-
-
-
-
 </script>
     
 
