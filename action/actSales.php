@@ -268,6 +268,62 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
             
                 exit(); 
                 }
+
+
+                // view function
+
+                if (isset($_GET['invoice_id'])) {
+                    $invoice_id = (int)$_GET['invoice_id'];
+                
+                    // Fetch the invoice data
+                    $query = "
+                        SELECT 
+                            customer_name, 
+                            customer_phone, 
+                            billing_address, 
+                            products, 
+                            total_price 
+                        FROM 
+                            invoice_tbl 
+                        WHERE 
+                            invoice_id = $invoice_id";
+                
+                    $result = mysqli_query($conn, $query);
+                
+                    if ($row = mysqli_fetch_assoc($result)) {
+                        $customerName = $row['customer_name'];
+                        $customerPhone = $row['customer_phone'];
+                        $billingAddress = $row['billing_address'];
+                        $totalPrice = $row['total_price'];
+                        $products = json_decode($row['products'], true);
+                
+                        // Generate HTML for invoice details
+                        echo "<p><strong>Customer Name:</strong> $customerName</p>";
+                        echo "<p><strong>Phone:</strong> $customerPhone</p>";
+                        echo "<p><strong>Address:</strong> $billingAddress</p>";
+                        echo "<p><strong>Total Price:</strong> ₹" . number_format($totalPrice, 2) . "</p>";
+                
+                        echo "<h5>Products</h5>";
+                        echo "<table class='table table-bordered'>";
+                        echo "<thead><tr><th>Brand</th><th>Model</th><th>Product</th><th>Quantity</th><th>Price</th></tr></thead>";
+                        echo "<tbody>";
+                
+                        foreach ($products as $product) {
+                            echo "<tr>";
+                            echo "<td>{$product['brand']}</td>";
+                            echo "<td>{$product['model']}</td>";
+                            echo "<td>{$product['product']}</td>";
+                            echo "<td>{$product['quantity']}</td>";
+                            echo "<td>₹" . number_format($product['total'], 2) . "</td>";
+                            echo "</tr>";
+                        }
+                        
+                        echo "</tbody></table>";
+                    } else {
+                        echo "No details found for this invoice.";
+                    }
+                    exit(); 
+                } 
             
 
            

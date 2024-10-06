@@ -33,7 +33,22 @@ session_start();
         <div class="content-page">
             <div class="content">
 
-            <?php include "formStock.php" ;?> <!---add Product popup--->
+            <div class="modal fade" id="invoiceDetailsModal" tabindex="-1" aria-labelledby="invoiceDetailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="invoiceDetailsModalLabel">Bill Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="invoiceDetailsBody">
+        <!-- Invoice details will be loaded here via AJAX -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
                 <!-- Start Content-->
                 <div class="container-fluid" id="ProductContent">
 
@@ -49,17 +64,14 @@ session_start();
                             </div>
         
                             <div class="page-title-box">
-                                <div class="page-title-right">
-                                    <div class="d-flex flex-wrap gap-2">
-                                        <button type="button" id="addProductBtn" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addProductModal">
-                                            Add New Stock
-                                        </button>
-                                    </div>
-                                </div>
+                                
                                 <h3 class="page-title">Sales List</h3>   
                             </div>
                         </div>
                     </div>
+
+                                    <!-- Modal for displaying invoice details -->
+
 
              <table id="scroll-horizontal-datatable" class="table table-striped w-100 nowrap">
                     <thead>
@@ -76,38 +88,62 @@ session_start();
                     </thead>
                     <tbody>
                     <?php  
-                    if (is_string($stock_result)) {
-                      // If it's a string, it's an error message
-                      echo "<tr><td colspan='7'>" . $stock_result . "</td></tr>";
-                    } else {
-                      // If it's a valid result set
-                      $i = 1;
-                      while ($row = $stock_result->fetch_assoc()) {
-                          $id = $row['stock_id'];
-                    ?>
-                          <tr>
-                              <td><?php echo $i; $i++; ?></td>
-                              <td><?php echo $row['product_name']; ?></td>
-                              <td><?php echo $row['mod_name']; ?></td>
-                              <td><?php echo $row['brand_name']; ?></td>
-                              <td><?php echo $row['product_price']; ?></td>
-                              <td><?php echo $row['product_quantity']; ?></td>
-                              <td>
-                                  <button type="button" class="btn btn-circle btn-warning text-white modalBtn" onclick="goEditStock(<?php echo $id; ?>);" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class='bi bi-pencil-square'></i></button>
-                                  <button class="btn btn-circle btn-success text-white modalBtn" onclick="goViewStock(<?php echo $id; ?>);"><i class="bi bi-eye-fill"></i></button>
-                                  <button class="btn btn-circle btn-danger text-white" onclick="goDeleteStock(<?php echo $id; ?>);"><i class="bi bi-trash"></i></button>
-                              </td>
-                          </tr>
-                    <?php 
-                      } 
-                    } 
-                    ?>
+                   // Query to fetch invoices with active status
+                            $query = "
+                                SELECT 
+                                    invoice_id, 
+                                    customer_name, 
+                                    customer_phone, 
+                                    products, 
+                                    total_price 
+                                FROM 
+                                    invoice_tbl 
+                                WHERE 
+                                    invoice_status = 'Active' 
+                                ORDER BY 
+                                    invoice_id DESC;
+                            ";
+
+                            $result = mysqli_query($conn, $query);
+                            $serialNumber = 1;
+
+                            while ($row = mysqli_fetch_assoc($result)) {
+                            $products = json_decode($row['products'], true); // Decode JSON products data
+
+                            foreach ($products as $product) {
+                                $brandName = $product['brand'];  
+                                $modelName = $product['model'];     // Extract brand from JSON
+                                $productName = $product['product'];  // Extract product name from JSON
+                                $amount = $product['total'];         // Extract amount from JSON
+
+                                echo "<tr class='bg-light'>
+                                        <td>{$serialNumber}</td>
+                                        <td>{$row['customer_name']}</td>
+                                        <td>{$row['customer_phone']}</td>
+                                        <td>{$brandName} {$modelName}</td>
+                                        <td>{$productName}</td>
+                                        <td>{$amount}</td>
+                                        <td>
+                                            <!-- Add actions such as View, Edit, or Delete here -->
+                                           <button class='btn btn-primary btn-sm' onclick='viewInvoiceDetails({$row['invoice_id']})'>
+                                            <i class='bi bi-eye-fill'></i></button>
+                                         <button class='btn btn-warning btn-sm' onclick=\"window.location.href='generate_pdf.php?invoice_id={$row['invoice_id']}'\">Download</button>
+                                            
+                                        </td>
+                                    </tr>";
+                                $serialNumber++;
+                            }
+                            }
+                                                ?>
                     </tbody>
                   </table>
 
                             </div> <!-- end card -->
                         </div><!-- end col-->
                     </div> <!-- end row-->
+
+
+    
 
                 </div> <!-- container -->
 
@@ -156,6 +192,26 @@ session_start();
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
     <script>
+
+function viewInvoiceDetails(invoiceId) {
+    // Fetch invoice details via AJAX
+    $.ajax({
+        url: 'action/actSales.php', // PHP script to fetch invoice details
+        type: 'GET',
+        data: { invoice_id: invoiceId },
+        dataType: 'html', // Expect HTML response
+        success: function(response) {
+            // Load the response into the modal body
+            $('#invoiceDetailsBody').html(response);
+            // Show the modal
+            $('#invoiceDetailsModal').modal('show');
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching invoice details:', error);
+        }
+    });
+}
+
       $('#brand').change(function() {
         var brandId = $(this).val();
         
