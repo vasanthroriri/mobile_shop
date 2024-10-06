@@ -568,5 +568,32 @@ function electiveTable() {
                return "Query failed: " . $conn->error;
            }
         }
+
+
+
+
+        // brand select table 
+
+        function prodectTable() {
+            global $conn; // Assuming $conn is your database connection variable
+        
+        
+           // Query to retrieve course name based on course_id
+           $product_query = "SELECT `product_id`, `product_name` FROM `product_tbl` WHERE product_status = 'Active';";
+        
+           // Execute the query
+           $product_result = $conn->query($product_query);
+        
+           // Check if query was successful
+           if ($product_result) {
+               // Fetch the course name
+               
+        
+               return $product_result;
+           } else {
+               // Query execution failed
+               return "Query failed: " . $conn->error;
+           }
+        }
         
 ?>

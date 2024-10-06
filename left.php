@@ -46,22 +46,22 @@
     </a>
     <div class="collapse" id="sidebarEmail">
         <ul class="side-nav-second-level">
-            <li>
+            <!-- <li>
                 <a href="masterStaff.php" class="side-nav-link"><i class="bi bi-person-bounding-box"></i>Staff</a>
             </li>
             <li>
                 <a href="masterUniversity.php" class="side-nav-link"><i class="bi bi-buildings"></i>University</a>
-            </li>
-            
+            </li> -->
+<!--             
             <li>
                 <a href="course.php" class="side-nav-link"><i class="bi bi-ui-radios-grid"></i><span>Courses Details</span></a>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
                 <a href="electiveSubject.php" class="side-nav-link"><i class="bi bi-list-stars"></i><span>Elective Subject </span></a>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
                 <a href="masterSubject.php" class="side-nav-link"><i class="bi bi-list-columns-reverse"></i>Subject</a>
-            </li>
+            </li> -->
             <li>
                 <a href="brand.php" class="side-nav-link"><i class="bi bi-currency-rupee"></i>Brand</a>
             </li>
