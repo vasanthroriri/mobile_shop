@@ -124,7 +124,7 @@
 
 
 <li class="side-nav-item">
-    <a href="dailyReport.php" class="side-nav-link">
+    <a href="report.php" class="side-nav-link">
     <i class="bi bi-explicit"></i>
         <span> Income Report </span>
     </a>

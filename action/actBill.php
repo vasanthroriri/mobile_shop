@@ -9,11 +9,12 @@ if (isset($_POST['customerName']) && $_POST['customerName'] != '') {
     $products = mysqli_real_escape_string($conn, $_POST['products']);  // This will be a JSON string
     $totalPrice = (int)$_POST['totalPrice'];
     $gstNo = (int)$_POST['gstNo'];
+    $date=date('Y-m-d');
 
     // Prepare the SQL query to insert data into the invoice table
     $query = "INSERT INTO invoice_tbl 
-        (customer_name, customer_phone, billing_address, products, total_price, gst_no, created_at)
-        VALUES ('$customerName', '$customerPhone', '$billingAddress', '$products', $totalPrice, $gstNo, NOW())";
+        (customer_name, customer_phone, billing_address, products, total_price,invoice_date, gst_no)
+        VALUES ('$customerName', '$customerPhone', '$billingAddress', '$products', $totalPrice,'$date', $gstNo)";
 
     // Execute the query
     if (mysqli_query($conn, $query)) {

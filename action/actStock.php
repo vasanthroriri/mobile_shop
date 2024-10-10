@@ -119,7 +119,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
         if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addEditId') {
             $editid = $_POST['hdnProductId'];
             $editBrand = $_POST['brandEdit'];
-            $editModel = $_POST['modelEdit'];
+            $editModel = $_POST['editModelName'];
             $editProductName = $_POST['productNameEdit'];
             $editPrice = $_POST['priceEdit'];
             $editQuantity = $_POST['quantityEdit'];
@@ -132,7 +132,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                                 SET 
                                 `brand_id`='$editBrand',
                                 `product_id`='$editProductName',
-                                `model_name`='$editModel',
+                                `model_id`='$editModel',
                                 `product_price`='$editPrice',
                                 `product_quantity`='$editQuantity',
                                 `place`='$editPlace',

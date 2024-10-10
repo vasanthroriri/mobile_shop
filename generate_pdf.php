@@ -21,6 +21,7 @@ if (isset($_GET['invoice_id'])) {
         $customerPhone = $row['customer_phone'];
         $billingAddress = $row['billing_address'];
         $totalPrice = $row['total_price'];
+        $date=$row['invoice_date'];
         $products = json_decode($row['products'], true);
 
         // Calculate GST (12%)
@@ -45,6 +46,7 @@ if (isset($_GET['invoice_id'])) {
         $pdf->Cell(0, 10, $customerName, 0, 1);
         $pdf->Cell(0, 10, "Phone: " . $customerPhone, 0, 1);
         $pdf->Cell(0, 10, "Address: " . $billingAddress, 0, 1);
+        $pdf->Cell(0, 10, "Date: " . date('d F Y', strtotime($date)), 0, 1);
         
         // Add line break
         $pdf->Ln(10);

@@ -650,4 +650,60 @@ function electiveTable() {
                 return "Query failed: " . $conn->error;
             }
         }
+
+        // invoice select table 
+
+        function reportTable() {
+            global $conn; // Assuming $conn is your database connection variable
+        
+            // Check if a specific date is selected from the form (via GET request)
+            if (isset($_GET['reportDate']) && !empty($_GET['reportDate'])) {
+                $selectedDate = $_GET['reportDate'];
+            } else {
+                // If no date is selected, use the current date
+                $selectedDate = date('Y-m-d');
+            }
+        
+            // Query to retrieve reports based on the selected date
+            $product_query = "SELECT invoice_id,
+                                     customer_name,
+                                     customer_phone,
+                                     billing_address,
+                                     products,
+                                     total_price,
+                                     gst_no,
+                                     invoice_date
+                              FROM invoice_tbl
+                              WHERE invoice_status = 'Active'
+                              AND invoice_date = '$selectedDate'";
+        
+            // Query to calculate the total amount for the selected date
+            $total_amount_query = "SELECT SUM(total_price) AS total_amount 
+                                   FROM invoice_tbl 
+                                   WHERE invoice_status = 'Active' 
+                                   AND invoice_date = '$selectedDate'";
+        
+            // Execute the report query
+            $product_result = $conn->query($product_query);
+        
+            // Execute the total amount query
+            $total_result = $conn->query($total_amount_query);
+        
+            // Fetch the total amount (default to 0 if no records are found)
+            $total_amount = 0;
+            if ($total_result && $total_row = $total_result->fetch_assoc()) {
+                $total_amount = $total_row['total_amount'] ?? 0;
+            }
+        
+            // Check if the report query was successful
+            if ($product_result) {
+                // Return both the report result and the total amount
+                return ['result' => $product_result, 'total_amount' => $total_amount];
+            } else {
+                // Query execution failed
+                return "Query failed: " . $conn->error;
+            }
+        }
+        
+        
 ?>
