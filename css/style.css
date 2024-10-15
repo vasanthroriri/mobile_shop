@@ -1,0 +1,345 @@
+/* table pagination */
+
+.pagination { display: inline-block;    padding-left: 0;    margin: 20px 0;    border-radius: 4px }
+
+.pagination>li { display: inline }
+
+.pagination>li>a,
+.pagination>li>span { float: left;  padding: 6px 12px;  margin-left: -1px;  line-height: 1.42857143; color: #337ab7; text-decoration: none;
+    background-color: #fff;    border: 1px solid #ddd }
+
+.pagination>li:first-child>a,
+.pagination>li:first-child>span {    margin-left: 0;    border-top-left-radius: 4px;    border-bottom-left-radius: 4px }
+
+.pagination>li:last-child>a,
+.pagination>li:last-child>span {    border-top-right-radius: 4px;    border-bottom-right-radius: 4px }
+
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {    z-index: 2;    color: #000000;    background-color: #eee;    border-color: #ddd }
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {    z-index: 3;    color: rgb(0, 0, 0);    cursor: default;    background-color: #dbeeff;    border-color: #a4d5ff }
+
+.pagination>.disabled>a,
+.pagination>.disabled>a:focus,
+.pagination>.disabled>a:hover,
+.pagination>.disabled>span,
+.pagination>.disabled>span:focus,
+.pagination>.disabled>span:hover {    color: #777;    cursor: not-allowed;    background-color: #fff;    border-color: #ddd }
+
+.pagination-lg>li>a,
+.pagination-lg>li>span {    padding: 10px 16px;    font-size: 18px;    line-height: 1.3333333 }
+
+.pagination-lg>li:first-child>a,
+.pagination-lg>li:first-child>span {    border-top-left-radius: 6px;    border-bottom-left-radius: 6px }
+
+.pagination-lg>li:last-child>a,
+.pagination-lg>li:last-child>span {    border-top-right-radius: 6px;    border-bottom-right-radius: 6px }
+
+.pagination-sm>li>a,
+.pagination-sm>li>span {    padding: 5px 10px;    font-size: 12px;    line-height: 1.5 }
+
+.pagination-sm>li:first-child>a,
+.pagination-sm>li:first-child>span {    border-top-left-radius: 3px;    border-bottom-left-radius: 3px }
+
+.pagination-sm>li:last-child>a,
+.pagination-sm>li:last-child>span {    border-top-right-radius: 3px;    border-bottom-right-radius: 3px }
+
+
+/* CARDS */
+/* Float four columns side by side */
+.column {    float: left;    width: 33.3%;    padding: 0 10px; }
+
+/* Float four columns side by side */
+.column2 {    float: left;    width: 50%;    padding: 0 10px; }
+
+/* Remove extra left and right margins, due to padding */
+.row {    margin: 0 -5px; }
+
+/* Clear floats after the columns */
+.row:after {    content: "";    display: table;    clear: both; }
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    .column2 {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+            
+/* Style the counter cards */
+.card {    border-radius: 15px;    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);    padding: 40px;    text-align: center;    background-color: #FFFF; }
+
+
+/* ADD POPUP */
+/* MODAL */
+
+h1,h2,h3,h4,h5,h6 {    font-weight: normal; }
+
+h1 {    font-size: 1.875rem;    font-weight: 300;    margin: 60px 0 30px 0;    color: #fff; }
+
+button {    background-color: #0D52E9;    position: relative;    color: #fff;    border: none;    font-size: 0.75em;    letter-spacing: 1px;    text-transform: uppercase;
+    cursor: pointer;    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);    transition: 0.25s cubic-bezier(0.55, 0, 0.1, 1); }
+
+button:hover {    background: #0c4ddb; }
+
+button:focus {    outline: none; }
+
+/**
+ * Overlay
+ * -- only show for tablet and up
+ */
+@media only screen and (min-width: 40em) {
+    .modal-overlay  {        display: flex;        align-items: center;        justify-content: center;        position: fixed;        top: 0;        left: 0;        width: 100%;
+        height: 100%;        z-index: 5;        background-color: rgba(0, 0, 0, 0.6);        opacity: 0;        visibility: hidden;        -webkit-backface-visibility: hidden;     
+        backface-visibility: hidden;        transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+    }
+    .modal-overlay.active {        opacity: 1;        visibility: visible;    }
+}
+.modal2 {    display: flex;    align-items: center;    justify-content: center;    position: relative;    margin: 0 auto;    background-color: #fff;    width: 50%;    max-width: 75rem;
+    min-height: 20rem;    padding: 1rem;    border-radius: 3px;    opacity: 0;    overflow-y: auto;    visibility: hidden;    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    -webkit-backface-visibility: hidden;    backface-visibility: hidden;    transform: scale(1.2);    transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1); }
+
+.modal2 .close-modal {    position: absolute;    cursor: pointer;    top: 5px;    right: 15px;    opacity: 0;    -webkit-backface-visibility: hidden;    backface-visibility: hidden;
+    transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);    transition-delay: 0.3s; }
+
+.modal2 .close-modal svg {    width: 1.75em;    height: 1.75em; }
+
+.modal2 .modal-content2 {    opacity: 0;    -webkit-backface-visibility: hidden;    backface-visibility: hidden;    transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+    transition-delay: 0.3s; }
+
+.modal2.active {    visibility: visible;    opacity: 1;    transform: scale(1); }
+
+.modal2.active .modal-content2 {    opacity: 1; }
+
+.modal2.active .close-modal {    transform: translateY(10px);    opacity: 1; }
+
+/**
+ * Mobile styling
+ */
+@media only screen and (max-width: 39.9375em) {
+    h1 {        font-size: 1.5rem;    }
+
+    .modal2 {        position: fixed;        top: 0;        left: 0;        width: 100%;        height: 100%;        overflow: scroll;        -webkit-overflow-scrolling: touch;
+        border-radius: 0;        transform: scale(1.1);        padding: 0 !important;        z-index: 999;    }
+
+    .close-modal {        display: none;    }
+    .modal-content2{        margin-top: 32rem;    }
+    .closeModal{        width: 100%;    }
+}
+
+input[type=text],
+input[type=date],
+input[type=number],
+input[type=textarea],
+input[type=password],input[type=email],
+select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.session {
+    color:red;
+}
+.detail
+{
+    text-align:left;padding:20px;color:blue;font-size:30px;font-family:helvetica;
+}
+table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+  }
+table td  {
+    min-width: 40px; 
+    text-align: left;
+}
+table th  {
+    min-width: 200px; 
+    text-align: left;
+}
+
+@media screen and (min-width: 600px) {
+ table td  {
+    max-width: 60px; 
+    text-align: left;
+}
+table th  {
+    max-width: 60px; 
+    text-align: left;
+}
+}
+.modallabel {    float: left; }
+
+
+/* view modal  */
+
+/* https://github.com/gbaierski/bersk-alert */
+@keyframes alert-transition {
+    from {        top: -300px;        opacity: 0    }
+
+    to {        top: 0;        opacity: 1    }
+}
+
+#info-header {    background-color: #018df0; }
+
+#info-button:hover {    color: white;    background-color: #018df0; }
+
+#confirm-header {    background-color: #fcba03; }
+
+#confirm-button:hover {    color: white;    background-color: #fcba03; }
+
+#success-header {    background-color: #01f084; }
+
+#success-button:hover {    color: white;    background-color: #01f084; }
+
+#error-header {    background-color: #f03101; }
+
+#error-button:hover {    color: white;    background-color: #f03101; }
+
+#delete-header {    background-color: #f03101; }
+
+#delete-button:hover {    color: white;    background-color: #f03101; }
+
+.alert {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 150px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.alert-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border-radius: 3px;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: alert-transition;
+    -webkit-animation-duration: 0.4s;
+    animation-name: alert-transition;
+    animation-duration: 0.4s
+}
+
+.alert-title {
+    font-size: 140%;
+    text-align: center;
+}
+
+.alert-text {
+    font-size: 90%;
+    text-align: center;
+}
+
+.alert-close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.alert-close:hover,
+.alert-close:focus {
+    color: rgb(218, 218, 218);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.alert-body {
+    padding: 2px 16px;
+}
+
+.alert-header {
+    padding: 2px 16px;
+    color: white;
+    border-radius: 2px;
+}
+
+.alert-actions {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 0px;
+}
+
+.alert-button {
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 3px;
+    border: none;
+    transition: all .2s cubic-bezier(.22, .61, .36, 1);
+}
+
+.alert-button:hover {
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+/* ADD BUTTON DESIGN */
+
+.fourth {
+    border: none;
+    text-align: center;
+    width: 200PX;
+    height: 50PX;
+    border-radius: 20PX;
+    font-size: 13PX;
+    border-color: #f1c40f;
+    color: #fff;
+    background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    transition: 300ms ease-in-out;
+}
+
+.fourth:hover {
+    background-position: 0;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    z-index: 9999; /* Set z-index higher to ensure it's on top */
+  }
+
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  

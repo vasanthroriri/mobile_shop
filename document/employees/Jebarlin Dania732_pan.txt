@@ -1,0 +1,95 @@
+
+    Dilton IT Hub Management
+
+ModuleAdmin screenUAT scheduled dateN/ACode Freeze dateN/ARelease dateN/A
+     Description of module
+      The Dilton IT Hub Management System is designed to revolutionize the way computer sales and service companies operate. This comprehensive platform provides an all-in-one solution for managing client details, employee information, product inventory, sales transactions, service requests, payments, and expenses. By integrating these functionalities into a single, user-friendly system, Dilton IT Hub ensures a streamlined and efficient process for managing both sales and technical services.
+1. Dashboard  Overview
+      The Dilton IT Hub Management System is designed to revolutionize the way computer sales and service companies operate. This comprehensive platform provides an all-in-one solution for managing client details, employee information, product inventory, sales transactions, service requests, payments, and expenses. By integrating these functionalities into a single, user-friendly system, Dilton IT Hub ensures a streamlined and efficient process for managing both sales and technical services.
+1.1  Dashboard  Overview
+
+      
+
+      
+
+2. Client Management
+      The Client Management module in the Dilton IT Hub Admin Panel is designed to efficiently handle client information and interactions. This module enables administrators to add, edit, view, and delete client records, ensuring that client data is always up-to-date and easily accessible.
+
+2.1 Add Client
+      Allows users to add a new client record to the system by providing essential details such as client name, contact information, address, etc.
+
+
+It is important to ensure all required form controls are filled out, in the correct format. This is called client-side form validation, and helps ensure data submitted matches the requirements set forth in the various form controls.
+
+2.2  Edit Client
+      Enables users to modify the existing client information. Users can edit details such as contact information, address and any other relevant data
+
+
+
+
+
+
+   2.3View Client
+      Provides a detailed view of a specific client profile, including all recorded information such as personal details, etc.
+     
+
+       2.4 Delete Client
+      To enhance security, only users with the "Administrator" role can delete client records. This section details how an administrator can delete a client.
+      
+
+3. 
+Customer Management
+      The Customer Management module in the Dilton IT Hub Admin Panel is designed to efficiently handle customer information and interactions. This module enables administrators to add, edit, view, and delete client records, ensuring that customer data is always up-to-date and easily accessible.
+      
+
+3.1 Add Customer
+      Allows users to add a new customer record to the system by providing essential details such as customer name, contact information, address, etc.
+      
+
+
+
+It is important to ensure all required form controls are filled out, in the correct format. This is called customer -side form validation, and helps ensure data submitted matches the requirements set forth in the various form controls.
+
+ 	3.2  Edit Customer
+      Enables users to modify the existing customer information. Users can edit details such as contact information, address and any other relevant data
+
+
+
+
+3.3  View Customer
+      Provides a detailed view of a specific customer profile, including all recorded information such as personal details, etc.
+     
+
+      3.4  Delete Customer
+      To enhance security, only users with the "Administrator" role can delete client records. This section details how an administrator can delete a customer.
+      
+
+
+3. Employee Management
+      The Employee Management module in the Dilton IT Hub Admin Panel is designed to efficiently handle employee information and interactions. This module enables administrators to add, edit, view, and delete employee records, ensuring that employee data is always up-to-date and easily accessible.
+      
+
+3.1 Add Employee
+      Allows users to add a new employee record to the system by providing essential details such as employee name, contact information, address, etc.
+
+
+
+It is important to ensure all required form controls are filled out, in the correct format. This is called employee -side form validation, and helps ensure data submitted matches the requirements set forth in the various form controls.
+
+ 	3.2  Edit Employee
+      Enables users to modify the existing employee information. Users can edit details such as contact information, address and any other relevant data
+
+
+
+
+     3.3  View Employee
+      Provides a detailed view of a specific employee profile, including all recorded information such as personal details, etc.
+     
+
+
+ 	 3.4  Delete Employee
+      To enhance security, only users with the "Administrator" role can delete employee  records. This section details how an administrator can delete a employee.
+
+
+
+
