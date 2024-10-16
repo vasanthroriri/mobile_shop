@@ -460,6 +460,28 @@ function electiveTable() {
            }
         }
 
+        function rackTable() {
+            global $conn; // Assuming $conn is your database connection variable
+        
+        
+           // Query to retrieve course name based on course_id
+           $brand_query = "SELECT `rack_id`, `rack_no`, `rack_name` FROM `rack_tbl` WHERE status = 'Active';";
+        
+           // Execute the query
+           $brand_result = $conn->query($brand_query);
+        
+           // Check if query was successful
+           if ($brand_result) {
+               // Fetch the course name
+               
+        
+               return $brand_result;
+           } else {
+               // Query execution failed
+               return "Query failed: " . $conn->error;
+           }
+        }
+
         // product select table 
 
         function productTable() {
