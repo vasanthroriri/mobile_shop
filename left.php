@@ -53,18 +53,12 @@
                 <a href="brand.php" class="side-nav-link"><i class="bi bi-list-stars"></i>Brand</a>
             </li>
             <li>
-                <a href="product.php" class="side-nav-link"><i class="bi bi-boxes"></i>Product</a>
-            </li>
-            <!-- <li>
-                <a href="stock.php" class="side-nav-link"><i class="bi bi-graph-up-arrow"></i>Stock</a>
-            </li> -->
-            <!-- <li>
-                <a href="bill.php" class="side-nav-link"><i class="bi bi-list-stars"></i><span>Bill </span></a>
-            </li> -->
-            
-            <li>
                 <a href="model.php" class="side-nav-link"><i class="bi bi-book"></i>Model</a>
             </li>
+            <li>
+                <a href="product.php" class="side-nav-link"><i class="bi bi-boxes"></i>Product</a>
+            </li>
+            
         </ul>
     </div>
     </li>
