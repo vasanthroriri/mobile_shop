@@ -61,49 +61,62 @@ session_start();
                         </div>
                     </div>
 
-             <table id="scroll-horizontal-datatable" class="table table-striped w-100 nowrap">
-                    <thead>
-                        <tr class="bg-light">
-                                    <th scope="col-1">S.No.</th>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Model</th>
-                                    <th scope="col">Brand</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th> 
-                                    <th scope="col">Action</th>
-                                    
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php  
-                    if (is_string($stock_result)) {
-                      // If it's a string, it's an error message
-                      echo "<tr><td colspan='7'>" . $stock_result . "</td></tr>";
-                    } else {
-                      // If it's a valid result set
-                      $i = 1;
-                      while ($row = $stock_result->fetch_assoc()) {
-                          $id = $row['stock_id'];
-                    ?>
-                          <tr>
-                              <td><?php echo $i; $i++; ?></td>
-                              <td><?php echo $row['product_name']; ?></td>
-                              <td><?php echo $row['mod_name']; ?></td>
-                              <td><?php echo $row['brand_name']; ?></td>
-                              <td><?php echo $row['product_price']; ?></td>
-                              <td><?php echo $row['product_quantity']; ?></td>
-                              <td>
-                                  <button type="button" class="btn btn-circle btn-warning text-white modalBtn" onclick="goEditStock(<?php echo $id; ?>);" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class='bi bi-pencil-square'></i></button>
-                                  <button class="btn btn-circle btn-success text-white modalBtn" onclick="goViewStock(<?php echo $id; ?>);"><i class="bi bi-eye-fill"></i></button>
-                                  <button class="btn btn-circle btn-danger text-white" onclick="goDeleteStock(<?php echo $id; ?>);"><i class="bi bi-trash"></i></button>
-                              </td>
-                          </tr>
-                    <?php 
-                      } 
-                    } 
-                    ?>
-                    </tbody>
-                  </table>
+                    <table id="stock" class="table table-striped w-100 nowrap">
+    <thead>
+        <tr class="bg-light">
+            <th scope="col-1">S.No.</th>
+            <th scope="col">
+                Product
+                <input type="text" class="form-control form-control-sm" placeholder="Search Product" id="filterProduct">
+            </th>
+            <th scope="col">
+                Product type
+                <input type="text" class="form-control form-control-sm" placeholder="Search Type" id="filterType">
+            </th>
+            <th scope="col">
+                Model
+                <input type="text" class="form-control form-control-sm" placeholder="Search Model" id="filterModel">
+            </th>
+            <th scope="col">
+                Brand
+                <input type="text" class="form-control form-control-sm" placeholder="Search Brand" id="filterBrand">
+            </th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th> 
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php  
+    if (is_string($stock_result)) {
+      // If it's a string, it's an error message
+      echo "<tr><td colspan='7'>" . $stock_result . "</td></tr>";
+    } else {
+      // If it's a valid result set
+      $i = 1;
+      while ($row = $stock_result->fetch_assoc()) {
+          $id = $row['stock_id'];
+    ?>
+          <tr>
+              <td><?php echo $i; $i++; ?></td>
+              <td><?php echo $row['product_name']; ?></td>
+              <td><?php echo $row['name']; ?></td>
+              <td><?php echo $row['mod_name']; ?></td>
+              <td><?php echo $row['brand_name']; ?></td>
+              <td><?php echo $row['product_price']; ?></td>
+              <td><?php echo $row['product_quantity']; ?></td>
+              <td>
+                  <button type="button" class="btn btn-circle btn-warning text-white modalBtn" onclick="goEditStock(<?php echo $id; ?>);" data-bs-toggle="modal" data-bs-target="#editProductModal"><i class='bi bi-pencil-square'></i></button>
+                  <button class="btn btn-circle btn-success text-white modalBtn" onclick="goViewStock(<?php echo $id; ?>);"><i class="bi bi-eye-fill"></i></button>
+                  <button class="btn btn-circle btn-danger text-white" onclick="goDeleteStock(<?php echo $id; ?>);"><i class="bi bi-trash"></i></button>
+              </td>
+          </tr>
+    <?php 
+      } 
+    } 
+    ?>
+    </tbody>
+</table>
 
                             </div> <!-- end card -->
                         </div><!-- end col-->
@@ -156,6 +169,36 @@ session_start();
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
     <script>
+
+$(document).ready(function() {
+    var table = $('#stock').DataTable({
+        // Optional: Add configuration for horizontal scrolling and responsive design
+        "scrollX": true,
+        "responsive": true
+    });
+
+    // Apply the search on product input field
+    $('#filterProduct').on('keyup', function() {
+        table.column(1).search(this.value).draw();
+    });
+
+    // Apply the search on product type input field
+    $('#filterType').on('keyup', function() {
+        table.column(2).search(this.value).draw();
+    });
+
+    // Apply the search on model input field
+    $('#filterModel').on('keyup', function() {
+        table.column(3).search(this.value).draw();
+    });
+
+    // Apply the search on brand input field
+    $('#filterBrand').on('keyup', function() {
+        table.column(4).search(this.value).draw();
+    });
+});
+
+
       $('#brand').change(function() {
         var brandId = $(this).val();
         
@@ -214,6 +257,36 @@ session_start();
             }
         });
     });
+
+
+    $('#productName').change(function() {
+        var brandId = $(this).val();
+        
+        if (brandId === "") {
+            $('#productType').html('<option value="">--Select the Product Type--</option>'); // Clear the course dropdown
+            return; // No university selected, exit the function
+        }
+
+        $.ajax({
+            url: "action/actStock.php", // URL of the PHP script to handle the request
+            type: "POST",
+            data: { product_id: brandId },
+            dataType: 'json',
+            success: function(response) {
+                
+                var options = '<option value="">--Select the Product Type--</option>';
+                
+                 // Loop through each course in the response and append to options
+                 $.each(response, function(index, course) {
+                    options += '<option value="' + course.mod_id + '">' + course.mod_name + '</option>';
+                });
+                $('#productType').html(options); // Update the course dropdown
+            },
+            error: function(xhr, status, error) {
+                console.error("AJAX request failed: " + status + ", " + error);
+            }
+        });
+    });
     </script>
 
 
@@ -229,6 +302,9 @@ session_start();
       $('#addProduct').removeClass('was-validated');
       $('#addProduct').addClass('needs-validation');
       $('#addProduct')[0].reset(); // Reset the form
+      $('#modelName').html('<option value="">--Select the Model--</option>');
+      $('#productType').html('<option value="">--Select the Product Type--</option>');
+      
 
       });
 
@@ -269,12 +345,12 @@ session_start();
             icon: 'success',
             title: 'Success',
             text: response.message,
-            timer: 2000
+            timer: 1000
           }).then(function() {
             $('#addProductModal').modal('hide');
-            $('#scroll-horizontal-datatable').load(location.href + ' #scroll-horizontal-datatable > *', function() {
-              $('#scroll-horizontal-datatable').DataTable().destroy();
-              $('#scroll-horizontal-datatable').DataTable({
+            $('#stock').load(location.href + ' #stock > *', function() {
+              $('#stock').DataTable().destroy();
+              $('#stock').DataTable({
                 "paging": true, // Enable pagination
                 "ordering": true, // Enable sorting
                 "searching": true // Enable searching
@@ -316,6 +392,7 @@ function goEditStock(editId) {
             
             // Assign the response data to variables
             var brandId = response.brand_id; // Assign correctly
+            var product_type = response.product_id; // Assign correctly
 
             // First AJAX call for model options based on brand
             $.ajax({
@@ -344,6 +421,29 @@ function goEditStock(editId) {
             $('#brandEdit').val(brandId); // Brand ID
             $('#editModelName').val(response.model_id); // model ID
             $('#productNameEdit').val(response.product_id);
+
+            // First AJAX call for model options based on brand
+            $.ajax({
+                url: "action/actStock.php",
+                type: "POST",
+                data: { product_id: product_type },
+                dataType: 'json',
+                success: function(modelResponse) {
+                    // Populate the models dropdown
+                    var options = '<option value="">--Select the Product Type--</option>';
+                    $.each(modelResponse, function(index, model) {
+                        options += '<option value="' + model.mod_id + '">' + model.mod_name + '</option>';
+                    });
+                    $('#productTypeEdit').html(options); // Update the models dropdown
+                    
+                    // After populating the dropdown, set the selected value
+                    $('#productTypeEdit').val(response.product_type_id);
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX request for Product Type failed: " + status + ", " + error);
+                }
+            });
+
             $('#quantityEdit').val(response.product_quantity);
             $('#priceEdit').val(response.product_price);
             $('#placeEdit').val(response.place);
@@ -367,11 +467,11 @@ function goDeleteStock(id)
         },
         //dataType: 'json', // Specify the expected data type as JSON
         success: function(response) {
-          $('#scroll-horizontal-datatable').load(location.href + ' #scroll-horizontal-datatable > *', function() {
+          $('#stock').load(location.href + ' #stock > *', function() {
                                
-                               $('#scroll-horizontal-datatable').DataTable().destroy();
+                               $('#stock').DataTable().destroy();
                                
-                                $('#scroll-horizontal-datatable').DataTable({
+                                $('#stock').DataTable({
                                     "paging": true, // Enable pagination
                                     "ordering": true, // Enable sorting
                                     "searching": true // Enable searching
@@ -409,6 +509,7 @@ function goViewStock(id)
           $('#placeView').text(response.placeView);
           $('#emiView').text(response.emiView);
           $('#brandView').text(response.brandNameView);
+          $('#productTypeView').text(response.name);
           
 
         },
@@ -453,11 +554,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     }).then(function() {
                       $('#editProductModal').modal('hide'); // Close the modal
                         
-                          $('#scroll-horizontal-datatable').load(location.href + ' #scroll-horizontal-datatable > *', function() {
+                          $('#stock').load(location.href + ' #stock > *', function() {
                                
-                              $('#scroll-horizontal-datatable').DataTable().destroy();
+                              $('#stock').DataTable().destroy();
                                
-                                $('#scroll-horizontal-datatable').DataTable({
+                                $('#stock').DataTable({
                                    "paging": true, // Enable pagination
                                    "ordering": true, // Enable sorting
                                     "searching": true // Enable searching

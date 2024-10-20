@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="productName" class="form-label"><b>Product Name</b><span class="text-danger">*</span></label>
+                                    <label for="productName" class="form-label"><b>Product Name</b></label>
                                     <select class="form-control" id="productName" name="productName" required="required">
                                         <option value="">--Select the Product--</option>
                                         <?php 
@@ -57,6 +57,27 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="productType" class="form-label"><b>Product Type</b><span class="text-danger">*</span></label>
+                                    <select class="form-control" id="productType" name="productType">
+                                        <option value="">--Select the Product Type--</option>
+                                        <?php 
+                                            $product_result = productTypeTable(); // Call the function to fetch universities 
+                                            while ($row = $product_result->fetch_assoc()) {
+                                            $id = $row['id']; 
+                                            $name = $row['name'];    
+                                
+                                            ?>
+                                
+                                        <option value="<?php echo $id;?>"><?php echo $name;?></option>
+
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="quantity" class="form-label"><b>Product Quantity</b><span class="text-danger">*</span></label>
@@ -82,8 +103,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="emiNo" class="form-label"><b>EMI No</b></label>
-                                    <input type="text" class="form-control" placeholder="Enter EMI No." name="emiNo" id="emiNo">
+                                    <label for="emiNo" class="form-label"><b>IMEI No</b></label>
+                                    <input type="text" class="form-control" placeholder="Enter IMEI No." name="emiNo" id="emiNo">
                                 </div>
                             </div>
                         </div>
@@ -159,6 +180,27 @@
                                     </select>
                                 </div>
                             </div>
+
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="productTypeEdit" class="form-label"><b>Product Type</b></label>
+                                    <select class="form-control" id="productTypeEdit" name="productTypeEdit" >
+                                        <option value="">--Select the Product Type--</option>
+                                        <?php 
+                                            $product_result = productTypeTable(); // Call the function to fetch universities 
+                                            while ($row = $product_result->fetch_assoc()) {
+                                            $id = $row['id']; 
+                                            $name = $row['name'];    
+                                
+                                            ?>
+                                
+                                        <option value="<?php echo $id;?>"><?php echo $name;?></option>
+
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="quantityEdit" class="form-label"><b>Product Quantity</b><span class="text-danger">*</span></label>
@@ -184,8 +226,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="emiNoEdit" class="form-label"><b>EMI No</b></label>
-                                    <input type="text" class="form-control" placeholder="Enter EMI No." name="emiNoEdit" id="emiNoEdit">
+                                    <label for="emiNoEdit" class="form-label"><b>IMEI No</b></label>
+                                    <input type="text" class="form-control" placeholder="Enter IMEI No." name="emiNoEdit" id="emiNoEdit">
                                 </div>
                             </div>
                         </div>
@@ -219,6 +261,12 @@
                         <div class="card p-3">
                             <h4>Product Name</h4> 
                             <span class="detail" id="productNameView"></span>
+                        </div>
+                    </div> 
+                    <div class="col-sm-3">
+                        <div class="card p-3">
+                            <h4>Product Type</h4> 
+                            <span class="detail" id="productTypeView"></span>
                         </div>
                     </div>  
                     <div class="col-sm-3">

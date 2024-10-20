@@ -12,6 +12,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
     $productName = $_POST['productName'];
     $model = $_POST['modelName'];
     $brandName=$_POST['brand'];
+    $productType=$_POST['productType'];
     $productQuantity=$_POST['quantity'];
     $productPrice=$_POST['price'];
     $place=$_POST['place'];
@@ -35,6 +36,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
                             ( `brand_id`, 
                             `product_id`, 
                             `model_id`, 
+                            `product_type_id`,
                             `product_price`,
                             `product_quantity`,
                             `place`,
@@ -43,6 +45,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
                             ('$brandName',
                             '$productName',
                             '$model',
+                            '$productType',
                             '$productPrice',
                             '$productQuantity',
                             '$place',
@@ -70,6 +73,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                                 a.stock_id,
                                 a.brand_id,
                                 a.product_id,
+                                a.product_type_id,
                                 a.model_id,
                                 a.product_price,
                                 a.product_quantity,
@@ -102,6 +106,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
             'emiNo'=>$row['emi_no'],
             'model_id'=>$row['model_id'],
             'stock_id'=>$row['stock_id'],
+            'product_type_id'=>$row['product_type_id'],
 
         ];
 
@@ -120,6 +125,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
             $editid = $_POST['hdnProductId'];
             $editBrand = $_POST['brandEdit'];
             $editModel = $_POST['editModelName'];
+            $productTypeEdit = $_POST['productTypeEdit'];
             $editProductName = $_POST['productNameEdit'];
             $editPrice = $_POST['priceEdit'];
             $editQuantity = $_POST['quantityEdit'];
@@ -133,6 +139,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                                 `brand_id`='$editBrand',
                                 `product_id`='$editProductName',
                                 `model_id`='$editModel',
+                                `product_type_id`='$productTypeEdit',
                                 `product_price`='$editPrice',
                                 `product_quantity`='$editQuantity',
                                 `place`='$editPlace',
@@ -195,7 +202,8 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                             b.product_status,
                             c.brand_name,
                             c.brand_status,
-                            d.mod_name
+                            d.mod_name,
+                            e.name
                         FROM
                             stock_tbl AS a
                         LEFT JOIN product_tbl AS b
@@ -207,6 +215,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                         LEFT JOIN model_tbl AS d
                         ON
                             a.model_id = d.mod_id
+                            LEFT JOIN product_type_tbl AS e ON a.product_type_id = e.id
                         WHERE
                             a.stock_id = '$proId';";
                 
@@ -226,6 +235,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                         'emiView' => $row['emi_no'],
                         'brandIDView' => $row['brand_id'],
                         'brandNameView' => $row['brand_name'],
+                        'name' => $row['name'],
                         
                 ];
             
@@ -268,6 +278,38 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
             
                 exit(); 
                 }
+
+
+
+
+
+                if (isset($_POST['product_id']) && $_POST['product_id'] != '') {
+    
+                    $brandId = $_POST['product_id'];
+                
+                
+                    $courseQuery = "SELECT `id`
+                    ,`name` FROM `product_type_tbl` WHERE pro_id = $brandId AND `status` = 'Active';";
+                    $courseResult = mysqli_query($conn, $courseQuery);
+                    $type = array(); 
+                    if ($courseResult) {
+                        while ($row = mysqli_fetch_assoc($courseResult)) {
+                            // Push each course as an object into the courses array
+                            $course = array(
+                                'mod_id' => $row['id'],
+                                'mod_name' => $row['name']
+                            );
+                            $type[] = $course;
+                        }
+                
+                        echo json_encode($type);
+                    } else {
+                        $response['message'] = "Error fetching paroduct Type details: " . mysqli_error($conn);
+                        echo json_encode($response);
+                    }
+                
+                    exit(); 
+                    }
             
 
            

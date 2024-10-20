@@ -46,9 +46,9 @@
     </a>
     <div class="collapse" id="sidebarEmail">
         <ul class="side-nav-second-level">
-            <li>
-                <a href="rack.php" class="side-nav-link"><i class="bi bi-list-stars"></i>Rack</a>
-            </li>
+        <li>
+    <a href="rack.php" class="side-nav-link"><i class="bi bi-box-seam"></i>Rack</a>
+    </li>
             <li>
                 <a href="brand.php" class="side-nav-link"><i class="bi bi-list-stars"></i>Brand</a>
             </li>
@@ -58,6 +58,9 @@
             <li>
                 <a href="product.php" class="side-nav-link"><i class="bi bi-boxes"></i>Product</a>
             </li>
+            <li>
+        <a href="productType.php" class="side-nav-link"><i class="bi bi-box"></i>Product Type</a>
+        </li>
             
         </ul>
     </div>
