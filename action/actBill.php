@@ -91,10 +91,12 @@ if (isset($_POST['brand']) && $_POST['brand'] != '') {
         $brandId = $_POST['brandId'];
         $modelId = $_POST['modelId'];
         $productId = $_POST['productId'];
+        $productTypeId = $_POST['productTypeId'];
     
         $price_Query = "SELECT `product_price` FROM `stock_tbl` 
                         WHERE brand_id = $brandId AND model_id = $modelId 
-                        AND product_id = $productId AND stock_status = 'Active'";
+                        AND product_id = $productId AND product_type_id = $productTypeId AND stock_status = 'Active'";
+                        
         $price_result = mysqli_query($conn, $price_Query);
     
         header('Content-Type: application/json'); // Set JSON response header
@@ -177,3 +179,42 @@ if (isset($_POST['brand']) && $_POST['brand'] != '') {
     
         exit();
     }
+
+    if (isset($_POST['pro_id']) && $_POST['pro_id'] != '') {
+    
+        $brandId = $_POST['pro_id'];
+    
+    
+        $courseQuery = "SELECT `id`
+        ,`name` FROM `product_type_tbl` WHERE pro_id = $brandId AND `status` = 'Active';";
+        $courseResult = mysqli_query($conn, $courseQuery);
+        $type = array(); 
+        if ($courseResult) {
+            while ($row = mysqli_fetch_assoc($courseResult)) {
+                // Push each course as an object into the courses array
+                $course = array(
+                    'mod_id' => $row['id'],
+                    'mod_name' => $row['name']
+                );
+                $type[] = $course;
+            }
+    
+            echo json_encode($type);
+        } else {
+            $response['message'] = "Error fetching paroduct Type details: " . mysqli_error($conn);
+            echo json_encode($response);
+        }
+    
+        exit(); 
+        }
+
+
+
+
+
+
+        
+            // Default response if no action specified
+            $response['message'] = "Invalid action specified.";
+            echo json_encode($response);
+            exit();

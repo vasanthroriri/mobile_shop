@@ -163,6 +163,20 @@ session_start();
 
 
                                 <div class="col-sm-12">
+                                    <div class="form-group ">
+                                        <label for="productType" class="form-label"><b>Product Type</b></label>
+                                        <select class="form-control" name="productType" id="productType" >
+                                            
+                                            <option value="">--Select the Product Type--</option>
+                        
+                                        </select>
+                                        <div class="invalid-feedback" id="productTypeInvalid">Please enter Product Type.</div>  
+                                        <div class="invalid-feedback" id="productTypeInvalid">Please select both Product.</div>                                      
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="productQuantity" class="form-label">Quantity</label>
                                     <input type="number" class="form-control" id="productQuantity" required>
@@ -269,11 +283,42 @@ session_start();
     });
 
 
-
     $('#productName').change(function() {
-    var productId = $(this).val();
+        var brandId = $(this).val();
+        
+        if (brandId === "") {
+            $('#productType').html('<option value="">--Select the Model--</option>'); // Clear the course dropdown
+            return; // No university selected, exit the function
+        }
+
+        $.ajax({
+            url: "action/actBill.php", // URL of the PHP script to handle the request
+            type: "POST",
+            data: { pro_id: brandId },
+            dataType: 'json',
+            success: function(response) {
+                
+                var options = '<option value="">--Select the Model--</option>';
+                
+                 // Loop through each course in the response and append to options
+                 $.each(response, function(index, course) {
+                    options += '<option value="' + course.mod_id + '">' + course.mod_name + '</option>';
+                });
+                $('#productType').html(options); // Update the course dropdown
+            },
+            error: function(xhr, status, error) {
+                console.error("AJAX request failed: " + status + ", " + error);
+            }
+        });
+    });
+
+
+
+    $('#productType').change(function() {
+    var typeId = $(this).val();
     var modelId = $('#modelName').val();
     var brandId = $('#brand').val();
+    var productId = $('#productName').val();
 
     // Hide all error messages by default
     $('#productInvalid').hide();
@@ -288,11 +333,19 @@ session_start();
         $('#modelBrandInvalid').show(); // Show model and brand error if not selected
         return;
     }
+    if (!typeId) {
+        $('#productTypeInvalid').show(); // Show product selection error if not selected
+        return;
+    }
 
     $.ajax({
         url: "action/actBill.php",
         type: "POST",
-        data: { brandId: brandId, modelId: modelId, productId: productId },
+        data: { brandId: brandId,
+                modelId: modelId,
+                productId: productId,
+                productTypeId: typeId
+             },
         dataType: 'json',
         success: function(response) {
             if (response.product_price) {
@@ -319,6 +372,7 @@ $('#productQuantity').on('input', function() {
     var productId = $('#productName').val();
     var modelId = $('#modelName').val();
     var brandId = $('#brand').val();
+    var productType = $('#productType').val();
 
     // Check if product, model, and brand are selected
     if (!productId || !modelId || !brandId) {

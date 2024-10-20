@@ -33,7 +33,7 @@
                     </div>
 
                     <ul class="topbar-menu d-flex align-items-center gap-3">
-                        <li class="dropdown d-lg-none">
+                        <!-- <li class="dropdown d-lg-none">
                             <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <i class="ri-search-line fs-22"></i>
                             </a>
@@ -42,7 +42,7 @@
                                     <input type="search" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
                                 </form>
                             </div>
-                        </li> 
+                        </li>  -->
 
                         <li class="d-none d-sm-inline-block">
                             <div class="nav-link" id="light-dark-mode">
