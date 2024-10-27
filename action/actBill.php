@@ -19,7 +19,7 @@ if (isset($_POST['customerName']) && $_POST['customerName'] != '') {
     // Execute the query
     if (mysqli_query($conn, $query)) {
         // Success response
-        $response = array('success' => true, 'message' => 'Invoice created successfully.');
+       
 
         // Decode the JSON products to an associative array
         $productDetails = json_decode($_POST['products'], true);
@@ -36,8 +36,11 @@ if (isset($_POST['customerName']) && $_POST['customerName'] != '') {
                 // Prepare the SQL query to update stock quantity
                 $updateQuery = "UPDATE stock_tbl SET product_quantity = product_quantity - $quantity 
                 WHERE brand_id = $brandId AND product_id = $productId AND model_id = $modelId";
+                
                 mysqli_query($conn, $updateQuery); // Execute the update query
             }
+
+            $response = array('success' => true, 'message' => 'Invoice created successfully.');
         } else {
             // If JSON decoding failed, add an error response
             $response = array('success' => false, 'message' => 'Error: Invalid product data format.');
@@ -49,6 +52,7 @@ if (isset($_POST['customerName']) && $_POST['customerName'] != '') {
 
     // Return JSON response
     echo json_encode($response);
+    exit();
 }
 
 
@@ -183,6 +187,12 @@ if (isset($_POST['brand']) && $_POST['brand'] != '') {
     if (isset($_POST['pro_id']) && $_POST['pro_id'] != '') {
     
         $brandId = $_POST['pro_id'];
+
+        $selectQry = "SELECT `id`
+        ,`name` FROM `product_type_tbl` WHERE pro_id = $brandId AND `status` = 'Active';";
+        $result = mysqli_query($conn, $selectQry);
+        $row1 = mysqli_fetch_assoc($result);
+
     
     
         $courseQuery = "SELECT `id`

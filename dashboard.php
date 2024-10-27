@@ -53,20 +53,6 @@ $user_role = $_SESSION['role'];
                             </div>
                         </div>
 
-                        <!-- Filters -->
-      <!-- <div class="row mb-3">
-                    <div class="col-md-5">
-                        <label for="universityFilter">University</label>
-                        <select id="universityFilter" class="form-control">
-                            <option value="">All</option>
-                            <option value="University1">University Of Madras</option>
-                            <option value="University2">Anna University</option>
-                            <option value="University3">MS University</option>
-                            <option value="University4">Alagappa University</option>
-                            
-                        </select>
-                    </div>                 
-                </div> -->
 
                         <div class="row">
         
@@ -127,26 +113,7 @@ $user_role = $_SESSION['role'];
                                 </div> <!-- end card -->
                             </div> <!-- end col -->
 
-                            <div class="col-sm-12">
-                                     <div class="form-group ">
-                                    <label for="university" class="form-label"><b>University Name</b><span class="text-danger">*</span></label>
-                                    <select class="form-control" name="actDashboard" id="university" required="required">
-                                    
-                             <option value="All">--Select the University--</option>
-                                 <?php 
-                              $uniCenterId = $_SESSION['centerId'];
-                                $university_result = universityTable($uniCenterId); // Call the function to fetch universities 
-                                  while ($row = $university_result->fetch_assoc()) {
-                                  $id = $row['uni_id']; 
-                                  $name = $row['uni_name'];        
-                                                
-                                    ?>
-                                                       
-                                 <option value="<?php echo $id;?>"><?php echo $name;?></option>
-                                   <?php } ?>
-                                   </select>
-                                  </div>
-                             </div>
+                        
 
                            
         

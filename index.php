@@ -248,31 +248,21 @@ if(isset($_SESSION['user']) && $_SESSION['user'] != '')
                         </div>
                         <span class="error-message" id="passwordError"></span>
 
-                        <label for="location">Location</label>
+                        <!-- <label for="location">Location</label>
                         <select id="location" name="location">
                             <option value="">----select----</option>
-                            <?php 
-                                     $location_result = getLocation(); // Call the function to fetch universities 
-                                     while ($row = $location_result->fetch_assoc()) {
-                                     $id = $row['loc_id']; 
-                                    $name = $row['loc_short_name'];    
-                        
-                                      ?>
-                        
-                            <option value="<?php echo $id;?>"><?php echo $name;?></option>
-
-                        <?php } ?>
+                          
 
                         </select>
-                        <span class="error-message" id="locationError"></span>
+                        <span class="error-message" id="locationError"></span> -->
 
-                        <label for="role">Privilege</label>
+                        <!-- <label for="role">Privilege</label>
                         <select id="role" name="role">
                             <option value="">----select----</option>
                             <option value="Admin">Admin</option>
                             <option value="Staff">Staff</option>
                         </select>
-                        <span class="error-message" id="privilegeError"></span>
+                        <span class="error-message" id="privilegeError"></span> -->
 
                         <button type="submit">Login</button>
                     </form>
