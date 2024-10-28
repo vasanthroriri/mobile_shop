@@ -55,115 +55,14 @@ $user_role = $_SESSION['role'];
 
 
                         <div class="row">
-        
+
 
                         <div class="col-sm-6 col-xxl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="Campaign Sent">Total University </h5>
-                                                <h3 class="my-1 py-1" id="allUniversity"></h3>
-                                            </div>
-                                            
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-        
-                            <div class="col-sm-6 col-xxl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="New Leads">Total Courses </h5>
-                                                <h3 class="my-1 py-1" id="allCourses"></h3>
-                                            </div>
-                                            
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-
-                            <div class="col-sm-6 col-xxl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="Campaign Sent">Total Faculties </h5>
-                                                <h3 class="my-1 py-1" id="allfaculty"></h3>
-                                            </div>
-                                            
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-
-                            <div class="col-sm-6 col-xxl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="New Leads">Total Staff </h5>
-                                                <h3 class="my-1 py-1" id="allStaff"></h3>
-                                            </div>
-                                            
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-
-                        
-
-                           
-        
-                            <div class="col-sm-6 col-xxl-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="New Leads">Total Enquiries </h5>
-                                                <h3 class="my-1 py-1" id="allEnquiry"></h3>
-                                            </div>
-                                            
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-
-                           
-
-                           
-                            <div class="col-sm-6 col-xxl-3">
-                                <div class="card ">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="Deals">Total Admission</h5>
-                                                <h3 class="my-1 py-1" id="allAdmission">259</h3>                                               
-                                            </div>
-                                            
-                                        </div> <!-- end row-->
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card -->
-                            </div> <!-- end col -->
-                        
-                <!-- ------------------------admin view ----------------- -->
-                
-
-        <?php if ($user_role == 'Admin') { ?>
-                            
-        
-                          
-
-                            
-
-                            <div class="col-sm-6 col-xxl-3">
                                 <div class="card text-bg-primary border-primary">
                                     <div class="card-body">
                                         <div class="row align-items-center">
                                             <div class="col-6">
-                                                <h5 class="text-white text-opacity-75 fw-normal mt-0 text-truncate" title="Booked Revenue">Total Income</h5>
+                                                <h5 class="text-white text-opacity-75 fw-normal mt-0 text-truncate" title="Booked Revenue">Total Income ( <span id="month"></span>)</h5>
                                                 <h3 class="my-1 py-1" id="allIncome"></h3>
                                             </div>
                                             
@@ -172,20 +71,55 @@ $user_role = $_SESSION['role'];
                                 </div> <!-- end card -->
                             </div> <!-- end col -->
 
+
+                            <?php 
+                            
+                            $select_qry ="SELECT 
+                                            b.brand_name,
+                                            d.product_name,
+                                            c.name,
+                                            a.product_quantity
+                                        FROM 
+                                            stock_tbl AS a 
+                                            LEFT JOIN brand_tbl AS b on a.brand_id = b.brand_id
+                                            LEFT JOIN product_type_tbl AS c ON a.product_type_id = c.id
+                                            LEFT JOIN product_tbl AS d ON a.product_id = d.product_id
+                                        WHERE 
+                                            stock_status = 'Active' 
+                                            AND product_quantity <= 3;";
+                            
+                            $product_result = $conn->query($select_qry);
+
+                            while ($row = $product_result->fetch_assoc()) {
+                            
+                            ?>
+
                             <div class="col-sm-6 col-xxl-3">
-                                <div class="card text-bg-primary border-primary">
-                                    <div class="card-body bg-danger">
+                                <div class="card">
+                                    <div class="card-body">
                                         <div class="row align-items-center">
                                             <div class="col-6">
-                                                <h5 class="text-white text-opacity-75 fw-normal mt-0 text-truncate" title="Booked Revenue">Total Expense</h5>
-                                                <h3 class="my-1 py-1" id="allExpense"></h3>
+                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="Campaign Sent"><?php echo $row['brand_name'] ." -" . $row['product_name'] ." -" .$row['name']?> </h5>
+                                                <h3 class="my-1 py-1" > <?php echo $row['product_quantity'] ?></h3>
                                             </div>
-                                           
+                                            
                                         </div> <!-- end row-->
                                     </div> <!-- end card-body -->
                                 </div> <!-- end card -->
                             </div> <!-- end col -->
-                         <?php } ?>
+
+
+                            <?php  } ?>
+        
+
+     
+
+                       
+                        
+                <!-- ------------------------admin view ----------------- -->
+                
+
+      
                         </div>
                        
                         <!-- -----------------------admin view end -------------------- -->
@@ -197,7 +131,7 @@ $user_role = $_SESSION['role'];
                 <!-- content -->
 
                 <!-- Footer Start -->
-             <?php include("footer.php") ?>
+             <?php include "footer.php" ?>
                 <!-- end Footer -->
 
             </div>
@@ -251,15 +185,9 @@ $(document).ready(function() {
             console.log(response);
             if (response.success) {
                 // Assuming response contains the total_active_students count
-                // $('#allStudent').text(response.data.total_active_students);
-                $('#allEnquiry').text(response.data.total_active_enquiry);
-                $('#allAdmission').text(response.data.total_active_admission);
-                $('#allfaculty').text(response.data.total_active_faculty);
-                $('#allStaff').text(response.data.total_active_staff);
-                $('#allExpense').text("₹" + response.data.tran_amount_expense);
-                $('#allIncome').text("₹" + response.data.total_income);
-                $('#allUniversity').text(response.data.total_active_university);
-                $('#allCourses').text(response.data.total_active_course);
+                
+                $('#allIncome').text("₹" + response.data.total_amount);
+                $('#month').text( response.data.month_name);
                 // Other response data can be set here similarly
             } else {
                 console.error('Failed to fetch data:', response.message);
@@ -271,32 +199,6 @@ $(document).ready(function() {
         }
     });
 
-    //----------onchange university --------------------------
-
-    $('#university').change(function() {
-        var universityId = $(this).val();
-        
-        
-
-        $.ajax({
-            url: "action/actDashboard.php", // URL of the PHP script to handle the request
-            type: "POST",
-            data: { university: universityId },
-            dataType: 'json',
-            success: function(response) {
-                
-                // $('#allStudent').text(response.data.total_active_students);
-                $('#allEnquiry').text(response.data.total_active_enquiry);
-                $('#allAdmission').text(response.data.total_active_admission);
-                $('#allExpense').text("₹" + response.data.tran_amount_expense);
-                $('#allIncome').text("₹" + response.data.total_income);
-
-            },
-            error: function(xhr, status, error) {
-                console.error("AJAX request failed: " + status + ", " + error);
-            }
-        });
-    });
 
 });
 </script>
