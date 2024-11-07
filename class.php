@@ -270,15 +270,16 @@ function getLocation() {
         function reportTable() {
             global $conn; // Assuming $conn is your database connection variable
         
-            // Check if a specific date is selected from the form (via GET request)
-            if (isset($_GET['reportDate']) && !empty($_GET['reportDate'])) {
-                $selectedDate = $_GET['reportDate'];
+            // Check if a specific date range is selected from the form (via GET request)
+            if (isset($_GET['startDate']) && !empty($_GET['startDate']) && isset($_GET['endDate']) && !empty($_GET['endDate'])) {
+                $startDate = $_GET['startDate'];
+                $endDate = $_GET['endDate'];
             } else {
-                // If no date is selected, use the current date
-                $selectedDate = date('Y-m-d');
+                // If no date range is selected, use the current date as both start and end date (today's report)
+                $startDate = $endDate = date('Y-m-d');
             }
         
-            // Query to retrieve reports based on the selected date
+            // Query to retrieve reports based on the selected date range
             $product_query = "SELECT invoice_id,
                                      customer_name,
                                      customer_phone,
@@ -289,13 +290,13 @@ function getLocation() {
                                      invoice_date
                               FROM invoice_tbl
                               WHERE invoice_status = 'Active'
-                              AND invoice_date = '$selectedDate'";
+                              AND invoice_date BETWEEN '$startDate' AND '$endDate'";
         
-            // Query to calculate the total amount for the selected date
+            // Query to calculate the total amount for the selected date range
             $total_amount_query = "SELECT SUM(total_price) AS total_amount 
                                    FROM invoice_tbl 
                                    WHERE invoice_status = 'Active' 
-                                   AND invoice_date = '$selectedDate'";
+                                   AND invoice_date BETWEEN '$startDate' AND '$endDate'";
         
             // Execute the report query
             $product_result = $conn->query($product_query);
@@ -318,6 +319,7 @@ function getLocation() {
                 return "Query failed: " . $conn->error;
             }
         }
+        
 
 
           // product Type select table 

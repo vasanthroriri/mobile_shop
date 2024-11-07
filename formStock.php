@@ -81,7 +81,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="quantity" class="form-label"><b>Product Quantity</b><span class="text-danger">*</span></label>
-                                    <input type="number" class="form-control" placeholder="Enter Product Quantity" name="quantity" id="quantity" required="required">
+                                    <input type="number" class="form-control" placeholder="Enter Product Quantity" name="quantity" id="quantity" required="required" min="0">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -92,12 +92,20 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="place" class="form-label"><b>Place</b><span class="text-danger">*</span></label>
+                                    <label for="place" class="form-label"><b>Rack</b><span class="text-danger">*</span></label>
                                     <select class="form-control" id="place" name="place" required="required">
-                                        <option value="">--Select the Place--</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
+                                        <option value="">--Select the Rack--</option>
+                                        <?php 
+                                            $product_result = rackTable(); // Call the function to fetch universities 
+                                            while ($row = $product_result->fetch_assoc()) {
+                                            $id = $row['rack_id']; 
+                                            $name = $row['rack_no']. "-" .$row['rack_name'];    
+                                
+                                            ?>
+                                
+                                        <option value="<?php echo $id;?>"><?php echo $name;?></option>
+
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -204,7 +212,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="quantityEdit" class="form-label"><b>Product Quantity</b><span class="text-danger">*</span></label>
-                                    <input type="number" class="form-control" placeholder="Enter Product Quantity" name="quantityEdit" id="quantityEdit" required="required">
+                                    <input type="number" class="form-control" placeholder="Enter Product Quantity" name="quantityEdit" id="quantityEdit" required="required" min="0">
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -217,10 +225,15 @@
                                 <div class="form-group">
                                     <label for="placeEdit" class="form-label"><b>Place</b><span class="text-danger">*</span></label>
                                     <select class="form-control" id="placeEdit" name="placeEdit" required="required">
-                                        <option value="">--Select the Place--</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
+                                    <option value="">--Select the Rack--</option>
+                                        <?php 
+                                            $product_result = rackTable(); // Call the function to fetch universities 
+                                            while ($row = $product_result->fetch_assoc()) {
+                                            $id = $row['rack_id']; 
+                                            $name = $row['rack_no']. "-" .$row['rack_name'];    
+                                            ?>
+                                        <option value="<?php echo $id;?>"><?php echo $name;?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -295,7 +308,7 @@
                     </div>  
                     <div class="col-sm-3">
                         <div class="card p-3">
-                            <h4>Place</h4>
+                            <h4>Rack</h4>
                             <span class="detail" id="placeView"></span>
                         </div>
                     </div>

@@ -203,7 +203,9 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                             c.brand_name,
                             c.brand_status,
                             d.mod_name,
-                            e.name
+                            e.name,
+                            f.rack_no,
+                            f.rack_name
                         FROM
                             stock_tbl AS a
                         LEFT JOIN product_tbl AS b
@@ -215,7 +217,12 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                         LEFT JOIN model_tbl AS d
                         ON
                             a.model_id = d.mod_id
-                            LEFT JOIN product_type_tbl AS e ON a.product_type_id = e.id
+                        LEFT JOIN product_type_tbl AS e 
+                        ON
+                            a.product_type_id = e.id
+                        LEFT JOIN rack_tbl AS f 
+                        ON
+                            a.place = f.rack_id
                         WHERE
                             a.stock_id = '$proId';";
                 
@@ -231,7 +238,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                         'modelView' => $row['mod_name'],
                         'quantityView' => $row['product_quantity'],
                         'priceView' => $row['product_price'],
-                        'placeView' => $row['place'],
+                        'placeView' => $row['rack_no'] . '-' . $row['rack_name'],
                         'emiView' => $row['emi_no'],
                         'brandIDView' => $row['brand_id'],
                         'brandNameView' => $row['brand_name'],

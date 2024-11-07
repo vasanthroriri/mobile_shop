@@ -57,11 +57,11 @@ session_start();
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <form id="dateFilterForm" method="GET" action="">
-                                        <div class="d-flex flex-wrap gap-2">
-                                            <input type="date" id="reportDate" name="reportDate" class="form-control" value="<?php echo isset($_GET['reportDate']) ? $_GET['reportDate'] : date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>"> 
-                                            
-                                            <button type="submit" class="btn btn-info mb-3">
-                                                <i class="bi bi-filter"></i> Filter by Date
+                                        <div class="d-flex gap-2 align-items-center">
+                                            <input type="date" id="startDate" name="startDate" class="form-control" value="<?php echo isset($_GET['startDate']) ? $_GET['startDate'] : date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>" required>
+                                            <input type="date" id="endDate" name="endDate" class="form-control" value="<?php echo isset($_GET['endDate']) ? $_GET['endDate'] : date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>" required>
+                                            <button type="submit" class="btn btn-info w-100">
+                                                <i class="bi bi-filter"></i> Filter
                                             </button>
                                         </div>
                                     </form>
@@ -87,11 +87,11 @@ session_start();
              <table id="scroll-horizontal-datatable" class="table table-striped w-100 nowrap">
                     <thead>
                         <tr class="bg-light">
-                                    <th scope="col-1">S.No.</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Customer Name</th>
-                                    <th scope="col">Products</th>
-                                    <th scope="col">Total Amount</th>
+                                    <th scope="col-1" class="text-center">S.No.</th>
+                                    <th scope="col" class="text-center">Date</th>
+                                    <th scope="col" class="text-center">Customer Name</th>
+                                    <th scope="col" class="text-center">Products</th>
+                                    <th scope="col" class="text-center">Total Amount</th>
                                     
                                     
                       </tr>
@@ -109,10 +109,10 @@ session_start();
             ?>
 
             <tr>
-                        <td scope="row"><?php echo $i ; $i++ ?></td>
-                        <td><?php echo date('d F Y', strtotime($row['invoice_date'])); ?></td>
-                        <td><?php echo $row['customer_name'] ?></td>
-                        <td><?php
+                        <td class="text-center align-middle"><?php echo $i ; $i++ ?></td>
+                        <td class="text-center align-middle"><?php echo date('d F Y', strtotime($row['invoice_date'])); ?></td>
+                        <td class="text-center align-middle"><?php echo $row['customer_name'] ?></td>
+                        <td class="text-center align-middle"><?php
                             // Decode the JSON data into a PHP array
                             $products = json_decode($row['products'], true);
 
@@ -131,7 +131,7 @@ session_start();
                                 echo "No products available.";
                             }
                             ?></td>
-                        <td><?php echo $row['total_price'] ?></td>
+                        <td class="text-center align-middle"><?php echo $row['total_price'] ?></td>
                         
                         
                         
@@ -198,7 +198,21 @@ session_start();
     <script src="assets/js/app.min.js"></script>
 
     <!-------Start Add Student--->
+    <script>
+    $(document).ready(function() {
+    // Set the min date of endDate based on startDate
+    $('#startDate').on('change', function() {
+        var startDate = $(this).val();
+        console.log("Start Date: " + startDate); // Debugging log
+        $('#endDate').attr('min', startDate);
+    });
 
+    // Set initial min date for endDate on page load if startDate has a value
+    var startDate = $('#startDate').val();
+    console.log("Initial Start Date: " + startDate); // Debugging log
+    $('#endDate').attr('min', startDate);
+});
+</script>
     <script>
 
      // Ajax form submission
