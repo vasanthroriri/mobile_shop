@@ -47,7 +47,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
         $electiveDetails = [
             'mod_id' => $row['mod_id'],
             'mod_brand_id' => $row['mod_brand_id'],
-            'Mod_name' => $row['Mod_name']
+            'Mod_name' => $row['mod_name']
             
         ];
 
