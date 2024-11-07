@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2024 at 06:06 PM
+-- Generation Time: Nov 07, 2024 at 04:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -72,7 +72,11 @@ INSERT INTO `invoice_tbl` (`invoice_id`, `customer_name`, `customer_phone`, `bil
 (1, 'Anushiya', '8056775934', 'Kalakad', '[{\"brand\":\"Samsung\",\"model\":\"a52\",\"model_id\":\"1\",\"product_id\":\"2\",\"brand_id\":\"1\",\"product\":\"Back Cover\",\"quantity\":1,\"price\":150,\"acutaltotal\":150,\"total\":150}]', 150, '2024-10-10', 12345, '2024-10-10 12:34:15', '2024-10-10 07:04:15', 'Active'),
 (2, 'Vasanth', '9894688091', 'Kalakad', '[{\"brand\":\"Samsung\",\"model\":\"a52\",\"model_id\":\"1\",\"product_id\":\"2\",\"brand_id\":\"1\",\"product\":\"Back Cover\",\"quantity\":1,\"price\":150,\"acutaltotal\":150,\"total\":150},{\"brand\":\"Samsung\",\"model\":\"a52\",\"model_id\":\"1\",\"product_id\":\"3\",\"brand_id\":\"1\",\"product\":\"Tempered Glass\",\"quantity\":1,\"price\":100,\"acutaltotal\":100,\"total\":100}]', 250, '2024-10-10', 12345, '2024-10-10 12:36:01', '2024-10-10 07:06:01', 'Active'),
 (3, 'Vasanth', '9894688091', 'Kalakad', '[{\"brand\":\"Samsung\",\"model\":\"a52\",\"model_id\":\"1\",\"product_id\":\"2\",\"brand_id\":\"1\",\"product\":\"Back Cover\",\"quantity\":1,\"price\":150,\"acutaltotal\":150,\"total\":150}]', 150, '2024-10-09', 12345, '2024-10-10 12:44:16', '2024-10-10 07:14:16', 'Active'),
-(4, 'Anushiya', '8056775934', 'Kalakad', '[{\"brand\":\"Redmi\",\"model\":\"Note 13\",\"model_id\":\"3\",\"product_id\":\"1\",\"brand_id\":\"3\",\"product\":\"Mobile\",\"quantity\":1,\"price\":20000,\"acutaltotal\":20000,\"total\":20000}]', 20000, '2024-10-15', 12345, '2024-10-15 11:29:26', '2024-10-15 05:59:26', 'Active');
+(4, 'Anushiya', '8056775934', 'Kalakad', '[{\"brand\":\"Redmi\",\"model\":\"Note 13\",\"model_id\":\"3\",\"product_id\":\"1\",\"brand_id\":\"3\",\"product\":\"Mobile\",\"quantity\":1,\"price\":20000,\"acutaltotal\":20000,\"total\":20000}]', 20000, '2024-10-15', 12345, '2024-10-15 11:29:26', '2024-10-15 05:59:26', 'Active'),
+(5, 'vasanth', '5654645654', 'sdfvdgdf', '[{\"brand\":\"Samsung\",\"model\":\"a52\",\"model_id\":\"1\",\"product_id\":\"1\",\"brand_id\":\"1\",\"product\":\"Mobile\",\"quantity\":1,\"price\":15000,\"acutaltotal\":15000,\"total\":15000}]', 15000, '2024-10-27', 12345, '2024-10-27 10:11:29', '2024-10-27 04:41:29', 'Active'),
+(6, 'vasanth', '5654645654', 'sdfvdgdf', '[{\"brand\":\"Samsung\",\"model\":\"a52\",\"model_id\":\"1\",\"product_id\":\"1\",\"brand_id\":\"1\",\"product\":\"Mobile\",\"quantity\":1,\"price\":15000,\"acutaltotal\":15000,\"total\":15000}]', 15000, '2024-10-27', 12345, '2024-10-27 10:11:39', '2024-10-27 04:41:39', 'Active'),
+(7, 'vasanth', '5654645654', 'sdfvdgdf', '[{\"brand\":\"Samsung\",\"model\":\"a52\",\"model_id\":\"1\",\"product_id\":\"1\",\"brand_id\":\"1\",\"product\":\"Mobile\",\"quantity\":1,\"price\":15000,\"acutaltotal\":15000,\"total\":15000}]', 15000, '2024-10-27', 12345, '2024-10-27 10:15:55', '2024-10-27 04:45:55', 'Active'),
+(8, 'kows', '9894868809', 'csdvfsd', '[{\"brand\":\"Samsung\",\"model\":\"a52\",\"model_id\":\"1\",\"product_id\":\"1\",\"brand_id\":\"1\",\"product\":\"Mobile\",\"quantity\":1,\"price\":15000,\"acutaltotal\":15000,\"total\":15000}]', 15000, '2024-10-27', 12345, '2024-10-27 11:06:38', '2024-10-27 05:36:38', 'Active');
 
 -- --------------------------------------------------------
 
@@ -172,7 +176,8 @@ CREATE TABLE `product_type_tbl` (
 INSERT INTO `product_type_tbl` (`id`, `pro_id`, `name`, `status`, `created_at`) VALUES
 (1, 3, '3D class', 'Active', '2024-10-20 17:56:27'),
 (2, 2, 'Mat class', 'Active', '2024-10-20 17:56:54'),
-(3, 3, 'miror class', 'Active', '2024-10-20 20:00:59');
+(3, 3, 'miror class', 'Active', '2024-10-20 20:00:59'),
+(4, 1, 'Mobile', 'Active', '2024-10-27 10:10:08');
 
 -- --------------------------------------------------------
 
@@ -214,9 +219,10 @@ CREATE TABLE `stock_tbl` (
 
 INSERT INTO `stock_tbl` (`stock_id`, `brand_id`, `product_id`, `model_id`, `product_type_id`, `product_price`, `product_quantity`, `place`, `emi_no`, `created_at`, `upated_at`, `stock_status`) VALUES
 (1, 1, 3, 2, 0, 150, 10, 'A', '', '2024-10-20 17:32:57', '2024-10-20 12:02:57', 'Active'),
-(2, 3, 4, 3, 0, 400, 5, 'A', '', '2024-10-20 17:43:45', '2024-10-20 12:13:45', 'Active'),
+(2, 3, 4, 3, 0, 400, 2, 'A', '', '2024-10-20 17:43:45', '2024-10-20 12:13:45', 'Active'),
 (3, 3, 3, 3, 1, 200, 2, 'B', '', '2024-10-20 18:11:36', '2024-10-20 12:41:36', 'Active'),
-(4, 3, 2, 3, 2, 150, 4, 'B', '', '2024-10-20 18:31:25', '2024-10-20 13:01:25', 'Active');
+(4, 3, 2, 3, 2, 150, 2, 'B', '', '2024-10-20 18:31:25', '2024-10-20 13:01:25', 'Active'),
+(5, 1, 1, 1, 4, 15000, 9, 'A', '', '2024-10-27 10:10:43', '2024-10-27 04:40:43', 'Active');
 
 --
 -- Indexes for dumped tables
@@ -284,7 +290,7 @@ ALTER TABLE `brand_tbl`
 -- AUTO_INCREMENT for table `invoice_tbl`
 --
 ALTER TABLE `invoice_tbl`
-  MODIFY `invoice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `invoice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `jeno_user`
@@ -308,7 +314,7 @@ ALTER TABLE `product_tbl`
 -- AUTO_INCREMENT for table `product_type_tbl`
 --
 ALTER TABLE `product_type_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `rack_tbl`
@@ -320,7 +326,7 @@ ALTER TABLE `rack_tbl`
 -- AUTO_INCREMENT for table `stock_tbl`
 --
 ALTER TABLE `stock_tbl`
-  MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
