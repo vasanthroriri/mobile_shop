@@ -2,8 +2,7 @@
 session_start();
     include "class.php" ;
     
-    $selQuery = "SELECT * FROM `jeno_staff` WHERE stf_status='Active'";
-    $resQuery = mysqli_query($conn , $selQuery); 
+
     
 ?>
 <!DOCTYPE html>
