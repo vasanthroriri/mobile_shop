@@ -12,7 +12,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] != '')
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>JENO Study Center</title>
+    <title>SAKTHI MOBILES</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -270,8 +270,8 @@ if(isset($_SESSION['user']) && $_SESSION['user'] != '')
             </div>
             <div class="right">
                 <div class="image-container">
-                    <h1>JENO</h1>
-                    <p><b>EDUCATIONAL ORGANIZATION</b></p>
+                    <h1>SAKTHI</h1>
+                    <p><b>MOBILES CENTER</b></p>
                     <img src="assets/images/logo/Lock1.png" alt="Illustration">
                 </div>
             </div>

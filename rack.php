@@ -90,6 +90,7 @@ session_start();
                         <td><?php echo $row['rack_no'] ?></td>
                         <td><?php echo $row['rack_name'] ?></td>
                         <td>
+                            <button  class="btn btn-circle btn-warning text-white modalBtn" onclick="goEditRack(<?php echo $id; ?>, '<?php echo $row['rack_no']; ?>', '<?php echo $row['rack_name']; ?>');" data-bs-toggle="modal" data-bs-target="#editRackModal"><i class='bi bi-pencil-square'></i></button>
                             <button class="btn btn-circle btn-danger text-white" onclick="goDeleteRack(<?php echo $id; ?>);"><i class="bi bi-trash"></i></button>
                         </td>
                       </tr>
@@ -187,7 +188,7 @@ $('#addRackForm').submit(function(event) {
                 icon: 'success',
                 title: 'Success',
                 text: response.message,
-                timer: 4000 // Increased timer for visibility
+                timer: 4000 
             }).then(function() {
                 $('#addRackModal').modal('hide');
                 $('#scroll-horizontal-datatable').load(location.href + ' #scroll-horizontal-datatable > *', function() {
@@ -218,6 +219,80 @@ $('#addRackForm').submit(function(event) {
 });
 
 });
+
+$('#editRack').submit(function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    var form = this; // Get the form element
+    var submitButton = $(this).find('button[type="submit"]'); // Get the submit button
+
+    // Disable the submit button to avoid double click
+    submitButton.prop('disabled', true);
+
+    if (form.checkValidity() === false) {
+        // If the form is invalid, display validation errors
+        form.reportValidity();
+        submitButton.prop('disabled', false); // Re-enable the button if validation fails
+        return;
+    }
+    
+    var formData = new FormData(this);
+
+    $.ajax({
+        url: 'action/actRack.php',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        success: function(response) {
+            console.log(response); // Debugging line
+            if (response.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: response.message,
+                    timer: 4000 
+                }).then(function() {
+                    $('#editRackModal').modal('hide');
+                    $('#scroll-horizontal-datatable').load(location.href + ' #scroll-horizontal-datatable > *', function() {
+                                
+                                $('#scroll-horizontal-datatable').DataTable().destroy();
+                                
+                                    $('#scroll-horizontal-datatable').DataTable({
+                                        "paging": true, // Enable pagination
+                                        "ordering": true, // Enable sorting
+                                        "searching": true // Enable searching
+                                    });
+                                });
+                    submitButton.prop('disabled', false);
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: response.message
+                });
+                submitButton.prop('disabled', false);
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('Error adding Brand: ' + textStatus);
+            submitButton.prop('disabled', false);
+        }
+    });
+
+});
+
+function goEditRack(id, rackNo, rackName){
+    $('#editRack').removeClass('was-validated');
+    $('#editRack').addClass('needs-validation');
+    $('#editRack')[0].reset(); // Reset the form
+    $('#updateBtn').prop('disabled', false);
+    $('#editId').val(id);
+    $('#rackNoEdit').val(rackNo);
+    $('#rackNameEdit').val(rackName);
+}
 
 function goDeleteRack(id)
         {
