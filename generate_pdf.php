@@ -21,7 +21,7 @@ if (isset($_GET['invoice_id'])) {
         $customerPhone = $row['customer_phone'];
         $billingAddress = $row['billing_address'];
         $totalPrice = $row['total_price'];
-        $date=$row['invoice_date'];
+        $date = $row['invoice_date'];
         $products = json_decode($row['products'], true);
 
         // Calculate GST (12%)
@@ -29,72 +29,88 @@ if (isset($_GET['invoice_id'])) {
         $grandTotal = $totalPrice + $gstAmount;
 
         // Generate PDF using TCPDF
-        $pdf = new TCPDF();
+        $pdf = new TCPDF('L', 'mm', 'A5'); // Set page size to A5
         $pdf->SetCreator(PDF_CREATOR);
-        $pdf->SetAuthor('Your Company');
+        $pdf->SetAuthor('Sakthi Mobiles');
         $pdf->SetTitle('Invoice');
         $pdf->SetSubject('Invoice Details');
         $pdf->SetKeywords('TCPDF, PDF, invoice');
 
-        // Set margins
-        $pdf->SetMargins(15, 15, 15); // left, top, right
-        $pdf->SetAutoPageBreak(TRUE, 15); // auto page break
+        // Set margins for A5 page
+        $pdf->SetMargins(5, 5, 5, 5); // left, top, right
+        $pdf->SetAutoPageBreak(TRUE, 5); // auto page break
 
         // Add a page
         $pdf->AddPage();
 
         // Set header style
-        $pdf->SetFont('helvetica', 'B', 20);
-        $pdf->Cell(0, 15, 'INVOICE', 0, 1, 'C');
-        $pdf->Ln(5);
-
-        // Company logo (optional)
-        $pdf->Image('path/to/logo.png', 10, 10, 30, '', 'PNG', '', '', false, 300, '', false, false, 0, false, false, false);
-        
-        // Customer details
-        $pdf->SetFont('helvetica', 'B', 14);
-        $pdf->Cell(0, 10, "Bill To:", 0, 1);
-        $pdf->SetFont('helvetica', '', 12);
-        $pdf->Cell(0, 10, $customerName, 0, 1);
-        $pdf->Cell(0, 10, "Phone: " . $customerPhone, 0, 1);
-        $pdf->Cell(0, 10, "Address: " . $billingAddress, 0, 1);
-        $pdf->Cell(0, 10, "Date: " . date('d F Y', strtotime($date)), 0, 1);
-        
-        // Add line break
-        $pdf->Ln(10);
-
-        // Products Table Header
         $pdf->SetFont('helvetica', 'B', 12);
-        $pdf->Cell(50, 10, 'Product', 1, 0, 'C');
-        $pdf->Cell(40, 10, 'Brand', 1, 0, 'C');
-        $pdf->Cell(40, 10, 'Model', 1, 0, 'C');
-        $pdf->Cell(30, 10, 'Quantity', 1, 0, 'C');
-        $pdf->Cell(30, 10, 'Price', 1, 1, 'C');
 
-        // Product details
-        $pdf->SetFont('helvetica', '', 12);
+        // Start of the box for margins
+        $html = '
+            <div style="border: 1px solid black; padding: 5px;">
+                <h3 style="text-align: center;">SAKTHI MOBILES</h3>
+                <h4 style="text-align: center;">Hema Theatre(Opp), Kalakad. Cell : 8870607304</h4>
+                <h4 style="text-align: center;">GST No : 33FCLPR2117B1ZX</h4>
+                <table width="90%">
+                    <tr>
+                        <td width="50%">
+                            Customer Name : ' . $customerName . '<br>
+                            Address : ' . $billingAddress . '<br>
+                            Phone No. : ' . $customerPhone . '
+                        </td>
+                        <td width="50%" style="text-align: right; vertical-align: top;">
+                            <p><strong>Date: </strong>' . date('d F Y', strtotime($date)) . '</p>
+                        </td>
+                    </tr>
+                </table>
+
+                <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                    <thead>
+                        <tr style="background-color: #f1f1f1;">
+                            <th style="text-align: center; width: 50%;">Product</th>
+                            <th style="text-align: center; width: 20%;">Brand</th>
+                            <th style="text-align: center; width: 20%;">Model</th>
+                            <th style="text-align: center; width: 10%;">Quantity</th>
+                            <th style="text-align: center; width: 15%;">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>';
+
+        // Loop through the products and generate rows
         foreach ($products as $product) {
-            $pdf->Cell(50, 10, $product['product'], 1);
-            $pdf->Cell(40, 10, $product['brand'], 1);
-            $pdf->Cell(40, 10, $product['model'], 1);
-            $pdf->Cell(30, 10, $product['quantity'], 1, 0, 'C');
-            $pdf->Cell(30, 10,  number_format($product['total'], 2), 1, 1, 'R');
+            $html .= '
+                <tr>
+                    <td>' . $product['product'] . '</td>
+                    <td>' . $product['brand'] . '</td>
+                    <td>' . $product['model'] . '</td>
+                    <td style="text-align: center;">' . $product['quantity'] . '</td>
+                    <td style="text-align: right;">₹' . number_format($product['total'], 2) . '</td>
+                </tr>';
         }
 
-        // Add line break
-        $pdf->Ln(5);
+        $html .= '</tbody></table>';
 
-    // Use the installed DejaVu Sans font
-    $pdf->SetFont('DejaVu Sans', '', 12); // Change to the font you installed
+        // Total section
+        $html .= '
+            <table border="0" cellpadding="5" cellspacing="0" style="width: 100%; margin-top: 15px; text-align: right;">
+                <tr>
+                    <td style="width: 85%;">Subtotal:</td>
+                    <td>₹' . number_format($totalPrice, 2) . '</td>
+                </tr>
+                <tr>
+                    <td>GST (12%):</td>
+                    <td>₹' . number_format($gstAmount, 2) . '</td>
+                </tr>
+                <tr>
+                    <td><strong>Grand Total:</strong></td>
+                    <td><strong>₹' . number_format($grandTotal, 2) . '</strong></td>
+                </tr>
+            </table>
+        </div>'; // End of the box
 
-    // Total section
-    $pdf->SetFont('DejaVu Sans', 'B', 12);
-    $pdf->Cell(150, 10, "Subtotal:", 0, 0, 'R');
-    $pdf->Cell(30, 10, '₹' . number_format($totalPrice, 2), 0, 1, 'R');
-    $pdf->Cell(150, 10, "GST (12%):", 0, 0, 'R');
-    $pdf->Cell(30, 10, '₹' . number_format($gstAmount, 2), 0, 1, 'R');
-    $pdf->Cell(150, 10, "Grand Total:", 0, 0, 'R');
-    $pdf->Cell(30, 10, '₹' . number_format($grandTotal, 2), 0, 1, 'R');
+        // Write HTML to the PDF
+        $pdf->writeHTML($html, true, false, true, false, '');
 
         // Output PDF
         $pdf->Output('invoice_' . $invoice_id . '.pdf', 'I'); // Change 'I' to 'D' for download
