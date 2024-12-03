@@ -61,8 +61,8 @@ $user_role = $_SESSION['role'];
                                 <div class="card text-bg-primary border-primary">
                                     <div class="card-body">
                                         <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-white text-opacity-75 fw-normal mt-0 text-truncate" title="Booked Revenue">Total Income ( <span id="month"></span>)</h5>
+                                            <div class="col-12">
+                                                <h5 class="text-white text-opacity-75 fw-normal mt-0" title="Booked Revenue">Total Income ( <span id="month"></span>)</h5>
                                                 <h3 class="my-1 py-1" id="allIncome"></h3>
                                             </div>
                                             
@@ -98,8 +98,8 @@ $user_role = $_SESSION['role'];
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <h5 class="text-muted fw-normal mt-0 text-truncate" title="Campaign Sent"><?php echo $row['brand_name'] ." -" . $row['product_name'] ." -" .$row['name']?> </h5>
+                                            <div class="col-12">
+                                                <h5 class="text-muted fw-normal mt-0" title="Campaign Sent"><?php echo $row['brand_name'] ." -" . $row['product_name'] ." -" .$row['name']?> </h5>
                                                 <h3 class="my-1 py-1" > <?php echo $row['product_quantity'] ?></h3>
                                             </div>
                                             

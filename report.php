@@ -71,16 +71,9 @@ session_start();
                         </div>
                     </div>
                     <!-- Show total amount at the top -->
-                    <div class="total-amount-box">
-                        <h4>Total Amount for 
-                            <?php 
-                                // Check if a reportDate is set in the URL, else use the current date
-                                $selectedDate = isset($_GET['reportDate']) ? $_GET['reportDate'] : date('Y-m-d');
-
-                                // Convert the date to "Day Month Year" format
-                                echo date('d F Y', strtotime($selectedDate)); 
-                            ?>: 
-                            <?php echo number_format($total_amount, 2); ?> <!-- Format to 2 decimal places -->
+                    <div class="col-3 total-amount-box bg-primary text-white p-1 rounded"> 
+                        <h4>Total Amount : 
+                            <?php echo "₹ " .number_format($total_amount, 2); ?> <!-- Format to 2 decimal places -->
                         </h4>
                     </div>       
              

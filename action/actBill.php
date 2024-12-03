@@ -1,15 +1,15 @@
 <?php
 session_start();
 include "../class.php"; // Ensure your database connection is included here
-
+date_default_timezone_set('Asia/Kolkata');
 if (isset($_POST['customerName']) && $_POST['customerName'] != '') {
     $customerName = mysqli_real_escape_string($conn, $_POST['customerName']);
     $customerPhone = mysqli_real_escape_string($conn, $_POST['customerPhone']);
     $billingAddress = mysqli_real_escape_string($conn, $_POST['billingAddress']);
     $products = mysqli_real_escape_string($conn, $_POST['products']);  // This will be a JSON string
     $totalPrice = (int)$_POST['totalPrice'];
-    $gstNo = (int)$_POST['gstNo'];
-    $date=date('Y-m-d');
+    $gstNo = $_POST['gstNo'];
+    $date=date('Y-m-d H:i:s');
 
     // Prepare the SQL query to insert data into the invoice table
     $query = "INSERT INTO invoice_tbl 

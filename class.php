@@ -272,11 +272,11 @@ function getLocation() {
         
             // Check if a specific date range is selected from the form (via GET request)
             if (isset($_GET['startDate']) && !empty($_GET['startDate']) && isset($_GET['endDate']) && !empty($_GET['endDate'])) {
-                $startDate = $_GET['startDate'];
-                $endDate = $_GET['endDate'];
+                $startDate = $_GET['startDate']. ' 00:00:00';
+                $endDate = $_GET['endDate']. ' 23:59:59';
             } else {
                 // If no date range is selected, use the current date as both start and end date (today's report)
-                $startDate = $endDate = date('Y-m-d');
+                $startDate = $endDate = date('Y-m-d H:i:s');
             }
         
             // Query to retrieve reports based on the selected date range

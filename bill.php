@@ -403,107 +403,119 @@ $('#productQuantity').on('input', function() {
    
     </script>
     <script>
-        document.getElementById('submitBilling').addEventListener('click', function () {
-            const emptyCartAlert = document.getElementById('emptyCartAlert');
-    if (cart.length === 0) {
-        // Show Bootstrap alert when the cart is empty
-        
-        emptyCartAlert.style.display = 'block';  // Show the alert
-        return;
-    }
-    // Get the form element
-    const form = document.getElementById('billingForm');
+    document.getElementById('submitBilling').addEventListener('click', function (event) {
+        const emptyCartAlert = document.getElementById('emptyCartAlert');
+        const form = document.getElementById('billingForm');
 
-    // Trigger HTML5 validation
-    if (form.checkValidity() === false) {
-        // If the form is invalid, prevent submission and show validation error messages
-        event.preventDefault();  // Prevent actual submission if form is invalid
-        event.stopPropagation(); // Stop further event propagation
-    }
-    
-    // Add Bootstrap validation class to show invalid-feedback messages
-    form.classList.add('was-validated');
-    const customerName = document.getElementById('customerName').value;
-    const customerPhone = document.getElementById('customerPhone').value;
-    const billingAddress = document.getElementById('billingAddress').value;
-
-    // if (!customerName || !customerPhone || !billingAddress) {
-    //     alert('Please fill in all fields.');
-    //     return;
-    // }
-
-    const totalAmount = cart.reduce((acc, product) => acc + product.total, 0);  // Calculate total price
-    const gstNumber = 12345;  // For now, hard-code GST number or get it from a field
-    const productsJSON = JSON.stringify(cart);  // Convert cart products to JSON
-
-    const billingData = {
-        customerName: customerName,
-        customerPhone: customerPhone,
-        billingAddress: billingAddress,
-        products: productsJSON,
-        totalPrice: totalAmount,
-        gstNo: gstNumber
-    };
-
-    // Send data to the server using AJAX
-   // Assuming billingData contains your form data for submission
-   $.ajax({
-    url: "action/actBill.php",  // URL of the PHP script that handles the submission
-    type: "POST",
-    data: billingData,
-    success: function (response) {
-        const jsonResponse = JSON.parse(response);
-        if (jsonResponse.success) {
-            // Display SweetAlert success notification
-            Swal.fire({
-                title: 'Success!',
-                text: jsonResponse.message, // The message returned from the server
-                icon: 'success',
-                timer: 1000, // Auto-close after 0.5 seconds
-                showConfirmButton: true // Hide the OK button since it's auto-closing
-            }).then(() => {
-                // Reset the form and cart after the alert is closed
-                document.getElementById('billingForm').reset();
-
-                // Reset Bootstrap validation styles and hide all error messages
-                const billingForm = document.getElementById('billingForm');
-                billingForm.classList.remove('was-validated'); // Remove validation class
-                
-                // Clear any custom error messages or states
-                const invalidFeedbackElements = billingForm.querySelectorAll('.invalid-feedback');
-                invalidFeedbackElements.forEach(function(feedback) {
-                    feedback.style.display = 'none'; // Hide all invalid-feedback messages
-                });
-
-                // Clear the cart and update the cart table
-                cart = [];
-                updateCartTable();
-            });
+        // Show Bootstrap alert if the cart is empty
+        if (cart.length === 0) {
+            emptyCartAlert.style.display = 'block'; // Show the alert
+            return;
         } else {
-            // Display SweetAlert error notification
-            Swal.fire({
-                title: 'Error!',
-                text: jsonResponse.message,
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
+            emptyCartAlert.style.display = 'none'; // Hide the alert
         }
-    },
-    error: function (xhr, status, error) {
-        console.error('AJAX Error: ' + error);
-        // Show SweetAlert for any AJAX errors
-        Swal.fire({
-            title: 'Error!',
-            text: 'Something went wrong while submitting the billing data.',
-            icon: 'error',
-            confirmButtonText: 'OK'
+
+        // Trigger HTML5 form validation
+        if (!form.checkValidity()) {
+            event.preventDefault(); // Prevent submission
+            event.stopPropagation(); // Stop further propagation
+            form.classList.add('was-validated'); // Add Bootstrap validation styles
+            return;
+        }
+
+        // Retrieve form inputs
+        const customerName = document.getElementById('customerName').value;
+        const customerPhone = document.getElementById('customerPhone').value;
+        const billingAddress = document.getElementById('billingAddress').value;
+
+        <?php
+        // PHP Code to generate the GST number
+        $prefix = "SA";
+        $currentYear = date("y");
+        $newBillNumber = "";
+
+        // Query the database for the latest bill number
+        $query = "SELECT gst_no FROM invoice_tbl WHERE gst_no LIKE '$prefix$currentYear%' ORDER BY gst_no DESC LIMIT 1";
+        $result = $conn->query($query);
+
+        if ($result && $row = $result->fetch_assoc()) {
+            $lastBillNumber = $row['gst_no'];
+            $lastSequence = (int)substr($lastBillNumber, -4);
+            $newSequence = str_pad($lastSequence + 1, 4, "0", STR_PAD_LEFT);
+            $newBillNumber = $prefix . $currentYear . $newSequence;
+        } else {
+            $newBillNumber = $prefix . $currentYear . "0001";
+        }
+        ?>
+        
+        const gstNumber = "<?php echo $newBillNumber; ?>";
+        const totalAmount = cart.reduce((acc, product) => acc + product.total, 0); // Calculate total
+        const productsJSON = JSON.stringify(cart); // Convert cart products to JSON
+        // Prepare billing data
+        const billingData = {
+            customerName: customerName,
+            customerPhone: customerPhone,
+            billingAddress: billingAddress,
+            products: productsJSON,
+            totalPrice: totalAmount,
+            gstNo: gstNumber
+        };
+
+        // Send data to the server via AJAX
+        $.ajax({
+            url: "action/actBill.php",
+            type: "POST",
+            data: billingData,
+            success: function (response) {
+                try {
+                    const jsonResponse = JSON.parse(response);
+                    if (jsonResponse.success) {
+                        // Success notification
+                        Swal.fire({
+                            title: 'Success!',
+                            text: jsonResponse.message,
+                            icon: 'success',
+                            timer: 1000,
+                            showConfirmButton: true
+                        }).then(() => {
+                            // Reset form and cart
+                            form.reset();
+                            form.classList.remove('was-validated');
+                            cart = [];
+                            updateCartTable();
+                        });
+                    } else {
+                        // Error notification
+                        Swal.fire({
+                            title: 'Error!',
+                            text: jsonResponse.message,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                } catch (e) {
+                    console.error('Error parsing JSON response:', e);
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Invalid server response.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX Error:', error);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Something went wrong while submitting the billing data.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
         });
-    }
-});
+    });
+</script>
 
-
-});
-    </script>
     <script>
     let cart = [];
 

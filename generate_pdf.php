@@ -22,6 +22,7 @@ if (isset($_GET['invoice_id'])) {
         $billingAddress = $row['billing_address'];
         $totalPrice = $row['total_price'];
         $date = $row['invoice_date'];
+        $billNo = $row['gst_no'];
         $products = json_decode($row['products'], true);
 
         // Calculate GST (12%)
@@ -49,18 +50,68 @@ if (isset($_GET['invoice_id'])) {
         // Start of the box for margins
         $html = '
             <div style="border: 1px solid black; padding: 5px;">
-                <h3 style="text-align: center;">SAKTHI MOBILES</h3>
-                <h4 style="text-align: center;">Hema Theatre(Opp), Kalakad. Cell : 8870607304</h4>
-                <h4 style="text-align: center;">GST No : 33FCLPR2117B1ZX</h4>
-                <table width="90%">
+                <div style="text-align: center; font-size: 16px; font-weight: bold; margin: 2px 0; line-height: 1.2;">SAKTHI MOBILES</div>
+                <div style="text-align: center; font-size: 12px; margin: 2px 0; line-height: 0.8;">Hema Theatre(Opp), Kalakad. Cell : 8870607304, 9626165143</div>
+                <div style="text-align: center; font-size: 12px; margin: 2px 0; line-height: 0.8;">GST No : 33FCLPR2117B1ZX</div>
+                <table width="100%" style="border-collapse: separate; border-spacing: 0 5px;">
                     <tr>
-                        <td width="50%">
-                            Customer Name : ' . $customerName . '<br>
-                            Address : ' . $billingAddress . '<br>
-                            Phone No. : ' . $customerPhone . '
+                        <td width="20%" style="text-align: left;">
+                            Customer Name
                         </td>
-                        <td width="50%" style="text-align: right; vertical-align: top;">
-                            <p><strong>Date: </strong>' . date('d F Y', strtotime($date)) . '</p>
+                        <td width="3%" style="text-align: left;">
+                            :
+                        </td>
+                        <td width="37%" style="text-align: left;">
+                            ' . $customerName . '
+                        </td>
+                        <td width="20%" style="text-align: right;">
+                            Bill No.
+                        </td>
+                        <td width="3%" style="text-align: right;">
+                            :
+                        </td>
+                        <td width="15%" style="text-align: left;">
+                            ' . $billNo . '
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: left;">
+                            Phone No.
+                        </td>
+                        <td width="3%" style="text-align: left;">
+                            :
+                        </td>
+                        <td width="37%" style="text-align: left;">
+                            ' . $customerPhone . '
+                        </td>
+                        <td width="20%" style="text-align: right;">
+                            Date
+                        </td>
+                        <td width="3%" style="text-align: right;">
+                            :
+                        </td>
+                        <td width="15%" style="text-align: left;">
+                            ' . date('d M Y', strtotime($date)) . '
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: left;">
+                            Address
+                        </td>
+                        <td width="3%" style="text-align: left;">
+                            :
+                        </td>
+                        <td width="37%" style="text-align: left;">
+                            ' . $billingAddress . '
+                        </td>
+                        <td width="20%" style="text-align: right;">
+                            Time
+                        </td>
+                        <td width="3%" style="text-align: right;">
+                            :
+                        </td>
+                        <td width="15%" style="text-align: left;">
+                            ' . date('H:i:s', strtotime($date)) . '
                         </td>
                     </tr>
                 </table>
@@ -68,11 +119,11 @@ if (isset($_GET['invoice_id'])) {
                 <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-top: 15px;">
                     <thead>
                         <tr style="background-color: #f1f1f1;">
-                            <th style="text-align: center; width: 50%;">Product</th>
+                            <th style="text-align: center; width: 20%;">Product</th>
                             <th style="text-align: center; width: 20%;">Brand</th>
                             <th style="text-align: center; width: 20%;">Model</th>
-                            <th style="text-align: center; width: 10%;">Quantity</th>
-                            <th style="text-align: center; width: 15%;">Price</th>
+                            <th style="text-align: center; width: 20%;">Quantity</th>
+                            <th style="text-align: center; width: 20%;">Price</th>
                         </tr>
                     </thead>
                     <tbody>';
@@ -81,11 +132,13 @@ if (isset($_GET['invoice_id'])) {
         foreach ($products as $product) {
             $html .= '
                 <tr>
-                    <td>' . $product['product'] . '</td>
-                    <td>' . $product['brand'] . '</td>
-                    <td>' . $product['model'] . '</td>
+                    <td style="text-align: center;">' . $product['product'] . '</td>
+                    <td style="text-align: center;">' . $product['brand'] . '</td>
+                    <td style="text-align: center;">' . $product['model'] . '</td>
                     <td style="text-align: center;">' . $product['quantity'] . '</td>
-                    <td style="text-align: right;">₹' . number_format($product['total'], 2) . '</td>
+                    <td style="text-align: right;">
+                        <span style="font-family: dejavusans;">₹</span>' . number_format($product['total'], 2) . '
+                    </td>
                 </tr>';
         }
 
@@ -95,18 +148,37 @@ if (isset($_GET['invoice_id'])) {
         $html .= '
             <table border="0" cellpadding="5" cellspacing="0" style="width: 100%; margin-top: 15px; text-align: right;">
                 <tr>
-                    <td style="width: 85%;">Subtotal:</td>
-                    <td>₹' . number_format($totalPrice, 2) . '</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>GST (12%) :</td>
+                    <td><span style="font-family: dejavusans;">₹</span>' . number_format($gstAmount, 2) . '</td>
                 </tr>
                 <tr>
-                    <td>GST (12%):</td>
-                    <td>₹' . number_format($gstAmount, 2) . '</td>
-                </tr>
-                <tr>
-                    <td><strong>Grand Total:</strong></td>
-                    <td><strong>₹' . number_format($grandTotal, 2) . '</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><strong>Grand Total :</strong></td>
+                    <td><strong><span style="font-family: dejavusans;">₹</span>' . number_format($grandTotal, 2) . '</strong></td>
                 </tr>
             </table>
+            <div style="margin-top: 30px; font-size: 12px; text-align: left;">
+                <strong><u>Terms and Conditions:</u></strong><br>
+                1. Goods once sold will not be taken back or exchanged.<br>
+                2. Warranty is provided as per the manufacturer\'s policy.<br>
+                3. Payment should be made in full before delivery.<br>
+                4. Please keep this invoice safe for warranty and service claims.<br>
+            </div><br>
+                <table width="100%">
+                    <tr>
+                        <td style="text-align: left; width: 50%;">
+                            <strong>Customer\'s Signature</strong>
+                        </td>
+                        <td style="text-align: right; width: 48%;">
+                            <strong>Shop Owner\'s Signature</strong>
+                        </td>
+                    </tr>
+                </table>
         </div>'; // End of the box
 
         // Write HTML to the PDF
