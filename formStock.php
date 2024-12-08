@@ -109,12 +109,22 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <!-- <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="emiNo" class="form-label"><b>IMEI No</b></label>
                                     <input type="text" class="form-control" placeholder="Enter IMEI No." name="emiNo" id="emiNo">
                                 </div>
+                            </div> -->
+                            
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="emiNo" class="form-label"><b>Details </b></label>
+                                    <div id="snow-editor" style="height: 300px;">
+                                                  
+                                    </div><!-- end Snow-editor-->
+                                </div>
                             </div>
+
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -237,10 +247,12 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="emiNoEdit" class="form-label"><b>IMEI No</b></label>
-                                    <input type="text" class="form-control" placeholder="Enter IMEI No." name="emiNoEdit" id="emiNoEdit">
+                                    <label for="snow-editor_edit" class="form-label"><b>Details </b></label>
+                                    <div id="snow-editor_edit" style="height: 300px;">
+                                                  
+                                    </div><!-- end Snow-editor-->
                                 </div>
                             </div>
                         </div>
@@ -312,10 +324,10 @@
                             <span class="detail" id="placeView"></span>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-6">
                         <div class="card p-3">
-                            <h4>EMI No</h4> 
-                            <span class="detail" id="emiView"></span>
+                            <h4>Datails</h4> 
+                            <span class="detail" id="datailsView"></span>
                         </div>
                     </div>  
                     

@@ -16,19 +16,19 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
     $productQuantity=$_POST['quantity'];
     $productPrice=$_POST['price'];
     $place=$_POST['place'];
-    $emiNo=$_POST['emiNo'];
+    $datails=$_POST['details'];
 
 
-    // Check if the product name already exists
-    $check_sql = "SELECT COUNT(*) AS count FROM stock_tbl WHERE product_id='$productName' AND model_id='$model'";
-    $result = $conn->query($check_sql);
-    $row = $result->fetch_assoc();
-    $exists = $row['count'] > 0;
+    // // Check if the product name already exists
+    // $check_sql = "SELECT COUNT(*) AS count FROM stock_tbl WHERE product_id='$productName' AND model_id='$model'";
+    // $result = $conn->query($check_sql);
+    // $row = $result->fetch_assoc();
+    // $exists = $row['count'] > 0;
 
-    if ($exists) {
-        $response['success'] = false;
-        $response['message'] = "This Product is already exists!";
-    } else {
+    // if ($exists) {
+    //     $response['success'] = false;
+    //     $response['message'] = "This Product is already exists!";
+    // } else {
         // Insert the new Product if it doesn't exist
         
         $university_sql = "INSERT INTO 
@@ -40,7 +40,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
                             `product_price`,
                             `product_quantity`,
                             `place`,
-                            `emi_no`)
+                            `details`)
                             VALUES 
                             ('$brandName',
                             '$productName',
@@ -49,7 +49,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
                             '$productPrice',
                             '$productQuantity',
                             '$place',
-                            '$emiNo')";
+                            '$datails')";
 
         if ($conn->query($university_sql) === TRUE) {
             $response['success'] = true;
@@ -57,7 +57,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
         } else {
             $response['message'] = "Error adding Product: " . $conn->error;
         }
-    }
+    // }
 
     echo json_encode($response);
     exit();
@@ -78,7 +78,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                                 a.product_price,
                                 a.product_quantity,
                                 a.place,
-                                a.emi_no,
+                                a.details,
                                 a.stock_status,
                                 b.product_name,
                                 b.product_status,
@@ -103,7 +103,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
             'product_price'=>$row['product_price'],
             'product_quantity'=>$row['product_quantity'],
             'place'=>$row['place'],
-            'emiNo'=>$row['emi_no'],
+            'details'=>$row['details'],
             'model_id'=>$row['model_id'],
             'stock_id'=>$row['stock_id'],
             'product_type_id'=>$row['product_type_id'],
@@ -130,7 +130,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
             $editPrice = $_POST['priceEdit'];
             $editQuantity = $_POST['quantityEdit'];
             $editPlace = $_POST['placeEdit'];
-            $editEmiNo = $_POST['emiNoEdit'];
+            $details = $_POST['details'];
            
   
             
@@ -143,7 +143,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                                 `product_price`='$editPrice',
                                 `product_quantity`='$editQuantity',
                                 `place`='$editPlace',
-                                `emi_no`='$editEmiNo'
+                                `details`='$details'
                                 WHERE `stock_id`='$editid'";
             
             $productRes = mysqli_query($conn, $editProduct);
@@ -196,7 +196,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                             a.product_price,
                             a.product_quantity,
                             a.place,
-                            a.emi_no,
+                            a.details,
                             a.stock_status,
                             b.product_name,
                             b.product_status,
@@ -239,7 +239,7 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                         'quantityView' => $row['product_quantity'],
                         'priceView' => $row['product_price'],
                         'placeView' => $row['rack_no'] . '-' . $row['rack_name'],
-                        'emiView' => $row['emi_no'],
+                        'details' => $row['details'],
                         'brandIDView' => $row['brand_id'],
                         'brandNameView' => $row['brand_name'],
                         'name' => $row['name'],

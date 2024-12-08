@@ -168,7 +168,47 @@ session_start();
 
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
+    
+        <!-- Quill Editor js -->
+        <script src="assets/vendor/quill/quill.min.js"></script>
+
+        <!-- Quill Demo js -->
+        <!-- <script src="assets/js/pages/demo.quilljs.js"></script> -->
     <script>
+
+var quillSnow = new Quill("#snow-editor", {
+    theme: "snow",
+    modules: {
+      toolbar: [
+        [{ font: [] }, { size: [] }],
+        ["bold", "italic", "underline", "strike"],
+        [{ color: [] }, { background: [] }],
+        [{ script: "super" }, { script: "sub" }],
+        [{ header: [1, 2, 3, 4, 5, 6, false] }, "blockquote", "code-block"],
+        [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
+        ["direction", { align: [] }],
+        ["link", "image", "video"],
+        ["clean"]
+      ],
+    },
+  });
+
+  var quillSnowEdit = new Quill("#snow-editor_edit", {
+    theme: "snow",
+    modules: {
+      toolbar: [
+        [{ font: [] }, { size: [] }],
+        ["bold", "italic", "underline", "strike"],
+        [{ color: [] }, { background: [] }],
+        [{ script: "super" }, { script: "sub" }],
+        [{ header: [1, 2, 3, 4, 5, 6, false] }, "blockquote", "code-block"],
+        [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
+        ["direction", { align: [] }],
+        ["link", "image", "video"],
+        ["clean"]
+      ],
+    },
+  });
 
 $(document).ready(function() {
     var table = $('#stock').DataTable({
@@ -330,6 +370,10 @@ $(document).ready(function() {
 
             var formData = new FormData(form);
 
+  // Get Quill editor content and append to form data
+  var editorContent = quillSnow.root.innerHTML; // HTML content of the editor
+  formData.append('details', editorContent); // Append it to the FormData object
+
     $.ajax({
       url: "action/actStock.php",
       method: 'POST',
@@ -447,7 +491,8 @@ function goEditStock(editId) {
             $('#quantityEdit').val(response.product_quantity);
             $('#priceEdit').val(response.product_price);
             $('#placeEdit').val(response.place);
-            $('#emiNoEdit').val(response.emi_no);
+            // $('#snow-editor_edit').val(response.datails);
+            quillSnowEdit.root.innerHTML = response.details; // Set the editor content
         },
         error: function(xhr, status, error) {
             console.error('AJAX request failed:', status, error);
@@ -507,7 +552,7 @@ function goViewStock(id)
           $('#quantityView').text(response.quantityView);
           $('#priceView').text(response.priceView);
           $('#placeView').text(response.placeView);
-          $('#emiView').text(response.emiView);
+          $('#datailsView').html(response.details);
           $('#brandView').text(response.brandNameView);
           $('#productTypeView').text(response.name);
           
@@ -534,6 +579,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             var formData = new FormData(form);
+             // Get Quill editor content and append to form data
+  var editorContent = quillSnowEdit.root.innerHTML; // HTML content of the editor
+  formData.append('details', editorContent); // Append it to the FormData object
+
         $.ajax({
             url: "action/actStock.php",
             method: 'POST',

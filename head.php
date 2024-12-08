@@ -43,7 +43,10 @@
 <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet"> -->
 <link href="assets/css/ajax.css" rel="stylesheet" type="text/css" />
 
-    
+        <!-- Quill css -->
+        <link href="assets/vendor/quill/quill.core.css" rel="stylesheet" type="text/css" />
+        <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet" type="text/css" />
+        <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet" type="text/css" />
 
 
 

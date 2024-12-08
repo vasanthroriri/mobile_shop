@@ -3,7 +3,7 @@ session_start();
 
   include "class.php";
     
-    $stock_result = stockTable(); // Call the function to fetch products 
+    // $stock_result = stockTable(); // Call the function to fetch products 
     
 ?>
 <!DOCTYPE html>
@@ -11,6 +11,13 @@ session_start();
 
 <?php include "head.php"; ?>
 <body>
+<style>
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+</style>
     <!-- Begin page -->
     <div class="wrapper">
 
@@ -80,61 +87,79 @@ session_start();
                                     <th scope="col">Costomer Name</th>
                                     <th scope="col">Mobile</th>
                                     <th scope="col">Brand</th>
-                                    <th scope="col">Product</th>
+                                    
                                     <th scope="col">Amount</th> 
                                     <th scope="col">Action</th>
                                     
                       </tr>
                     </thead>
                     <tbody>
-                    <?php  
-                   // Query to fetch invoices with active status
-                            $query = "
-                                SELECT 
-                                    invoice_id, 
-                                    customer_name, 
-                                    customer_phone, 
-                                    products, 
-                                    total_price 
-                                FROM 
-                                    invoice_tbl 
-                                WHERE 
-                                    invoice_status = 'Active' 
-                                ORDER BY 
-                                    invoice_id DESC;
-                            ";
+                    <?php
+// Query to fetch invoices with active status
+$query = "
+    SELECT 
+        invoice_id, 
+        customer_name, 
+        customer_phone, 
+        products, 
+        total_price 
+    FROM 
+        invoice_tbl 
+    WHERE 
+        invoice_status = 'Active' 
+    ORDER BY 
+        invoice_id DESC;
+";
 
-                            $result = mysqli_query($conn, $query);
-                            $serialNumber = 1;
+$result = mysqli_query($conn, $query);
+$serialNumber = 1;
 
-                            while ($row = mysqli_fetch_assoc($result)) {
-                            $products = json_decode($row['products'], true); // Decode JSON products data
+while ($row = mysqli_fetch_assoc($result)) {
+    $products = json_decode($row['products'], true); // Decode JSON products data
+    $productDetails = ""; // Initialize a string to store product details
+    $tooltipContent = ""; // Tooltip content for full product details
 
-                            foreach ($products as $product) {
-                                $brandName = $product['brand'];  
-                                $modelName = $product['model'];     // Extract brand from JSON
-                                $productName = $product['product'];  // Extract product name from JSON
-                                $amount = $product['total'];         // Extract amount from JSON
+    foreach ($products as $product) {
+        $brandName = $product['brand'];
+        $modelName = $product['model'];
+        $productName = $product['product'];
+        $amount = $product['total'];
 
-                                echo "<tr class='bg-light'>
-                                <td>{$serialNumber}</td>
-                                <td>{$row['customer_name']}</td>
-                                <td>{$row['customer_phone']}</td>
-                                <td>{$brandName} {$modelName}</td>
-                                <td>{$productName}</td>
-                                <td>{$amount}</td>
-                                <td>
-                                    <!-- Add actions such as View, Edit, or Delete here -->
-                                    <button class='btn btn-primary btn-sm' onclick='viewInvoiceDetails({$row['invoice_id']})'>
-                                        <i class='bi bi-eye-fill'></i>
-                                    </button>
-                                    <button class='btn btn-warning btn-sm' onclick=\"window.open('generate_pdf.php?invoice_id={$row['invoice_id']}', '_blank')\">Download</button>
-                                </td>
-                            </tr>";
-                                $serialNumber++;
-                            }
-                            }
-                                                ?>
+        // Add each product's details to the tooltip
+        $tooltipContent .= "$brandName $modelName: $productName - $amount\n";
+
+        // Concatenate product details for truncated display
+        $productDetails .= "<div><strong>$brandName $modelName</strong>: $productName - $amount</div>";
+    }
+
+    // Output one row per invoice
+    echo "<tr class='bg-light'>
+        <td>{$serialNumber}</td>
+        <td>{$row['customer_name']}</td>
+        <td>{$row['customer_phone']}</td>
+        <td>
+            <div 
+                class='text-truncate' 
+                style='max-width: 200px;' 
+                data-bs-toggle='tooltip' 
+                data-bs-placement='top' 
+                title='" . htmlspecialchars($tooltipContent) . "'>
+                $productDetails
+            </div>
+        </td>
+        <td>{$row['total_price']}</td>
+        <td>
+            <button class='btn btn-primary btn-sm' onclick='viewInvoiceDetails({$row['invoice_id']})'>
+                <i class='bi bi-eye-fill'></i>
+            </button>
+            <button class='btn btn-warning btn-sm' onclick=\"window.open('generate_pdf.php?invoice_id={$row['invoice_id']}', '_blank')\">Download</button>
+        </td>
+    </tr>";
+
+    $serialNumber++;
+}
+?>
+
                     </tbody>
                   </table>
 
@@ -191,6 +216,15 @@ session_start();
 
     <!-- App js -->
     <script src="assets/js/app.min.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize Bootstrap tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+        new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+});
+</script>
     <script>
 
 function viewInvoiceDetails(invoiceId) {
