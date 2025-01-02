@@ -13,7 +13,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProduct') {
    
 
     // Check if the university name already exists
-    $check_sql = "SELECT COUNT(*) as count FROM `product_tbl` WHERE `product_name` = ?";
+    $check_sql = "SELECT COUNT(*) as count FROM `product_tbl` WHERE `product_name` = ? AND `product_status`='Active'";
     $stmt = $conn->prepare($check_sql);
     $stmt->bind_param("s", $productName);
     $stmt->execute();
