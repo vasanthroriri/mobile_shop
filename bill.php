@@ -45,7 +45,7 @@ session_start();
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="customerPhone" class="form-label">Customer Phone</label>
-                            <input type="tel" class="form-control" id="customerPhone" required>
+                            <input type="tel" class="form-control" id="customerPhone" required pattern="^[0-9]{10}$" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                             <div class="invalid-feedback">Please enter customer phone number.</div>
                         </div>
                     </div>

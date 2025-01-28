@@ -25,10 +25,6 @@ if (isset($_GET['invoice_id'])) {
         $billNo = $row['gst_no'];
         $products = json_decode($row['products'], true);
 
-        // Calculate GST (12%)
-        $gstAmount = $totalPrice * 0.18;
-        $grandTotal = $totalPrice + $gstAmount;
-
         // Generate PDF using TCPDF
         $pdf = new TCPDF('L', 'mm', 'A5'); // Set page size to A5
         $pdf->SetCreator(PDF_CREATOR);
@@ -51,8 +47,8 @@ if (isset($_GET['invoice_id'])) {
         $html = '
             <div style="border: 1px solid black; padding: 5px;">
                 <div style="text-align: center; font-size: 16px; font-weight: bold; margin: 2px 0; line-height: 1.2;">SAKTHI MOBILES</div>
-                <div style="text-align: center; font-size: 12px; margin: 2px 0; line-height: 0.8;">Hema Theatre(Opp), Kalakad. Cell : 8870607304, 9626165143</div>
-                <div style="text-align: center; font-size: 12px; margin: 2px 0; line-height: 0.8;">GST No : 33FCLPR2117B1ZX</div>
+                <div style="text-align: center; font-size: 10px; margin: 2px 0; line-height: 0.5;">Hema Theatre(Opp), Kalakad. Cell : 8870607304, 9626165143</div>
+                <div style="text-align: center; font-size: 12px; margin: 2px 0; line-height: 0.7;">GST No : 33FCLPR2117B1ZX</div>
                 <table width="100%" style="border-collapse: separate; border-spacing: 0 5px;">
                     <tr>
                         <td width="20%" style="text-align: left;">
@@ -119,9 +115,7 @@ if (isset($_GET['invoice_id'])) {
                 <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-top: 15px;">
                     <thead>
                         <tr style="background-color: #f1f1f1;">
-                            <th style="text-align: center; width: 20%;">Product</th>
-                            <th style="text-align: center; width: 20%;">Brand</th>
-                            <th style="text-align: center; width: 20%;">Model</th>
+                            <th style="text-align: center; width: 60%;">Product</th>
                             <th style="text-align: center; width: 20%;">Quantity</th>
                             <th style="text-align: center; width: 20%;">Price</th>
                         </tr>
@@ -130,18 +124,21 @@ if (isset($_GET['invoice_id'])) {
 
         // Loop through the products and generate rows
         foreach ($products as $product) {
+
+            $netRate = $product['total'] / (1 + 0.18);
+            $gstAmount = $product['total'] - $netRate;
+            $cgstAmount = $gstAmount/2;
+            $sgstAmount = $gstAmount/2;
             // Add details to the model if the product is "mobile"
             if (($product['product']) === 'Mobile') {
                 $modelDetails =  $product['details'];
             }
             $html .= '
                 <tr>
-                    <td style="text-align: center;">' . $product['product'] . '</td>
-                    <td style="text-align: center;">' . $product['brand'] . '</td>
-                    <td style="text-align: center;">' . $product['model'] . '</td>
-                    <td style="text-align: center;">' . $product['quantity'] . '</td>
-                    <td style="text-align: right;">
-                        <span style="font-family: dejavusans;">₹</span>' . number_format($product['total'], 2) . '
+                    <td style="text-align: center; width: 60%;">' . $product['product'] . ' - ' . $product['brand'] .' - '. $product['model'] . '</td>
+                    <td style="text-align: center; width: 20%;">' . $product['quantity'] . '</td>
+                    <td style="text-align: right; width: 20%;">
+                        <span style="font-family: dejavusans;">₹</span>' . number_format($netRate, 2) . '
                     </td>
                 </tr>'; 
         }
@@ -152,19 +149,23 @@ if (isset($_GET['invoice_id'])) {
         $html .= '
             <table border="0" cellpadding="5" cellspacing="0" style="width: 100%; margin-top: 15px; text-align: right;">
                 <tr>
-                    <td colspan="3" style="text-align: left;">'. $modelDetails .'</td>
-                    <td>GST (18%) :</td>
-                    <td><span style="font-family: dejavusans;">₹</span>' . number_format($gstAmount, 2) . '</td>
+                    <td rowspan="2" colspan="3" style="text-align: left;">'. $modelDetails .'</td>
+                    <td>CGST (9%) :</td>
+                    <td><span style="font-family: dejavusans;">₹</span>' . number_format($cgstAmount, 2) . '</td>
+                </tr>
+                <tr>
+                    <td>SGST (9%) :</td>
+                    <td><span style="font-family: dejavusans;">₹</span>' . number_format($sgstAmount, 2) . '</td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td><strong>Grand Total :</strong></td>
-                    <td><strong><span style="font-family: dejavusans;">₹</span>' . number_format($grandTotal, 2) . '</strong></td>
+                    <td><strong><span style="font-family: dejavusans;">₹</span>' . number_format($product['total'], 2) . '</strong></td>
                 </tr>
             </table>
-            <div style="margin-top: 30px; font-size: 12px; text-align: left;">
+            <div style="margin-top: 30px; font-size: 10px; text-align: left;">
                 <strong><u>Terms and Conditions:</u></strong><br>
                 1. Goods once sold will not be taken back or exchanged.<br>
                 2. Warranty is provided as per the manufacturer\'s policy.<br>
