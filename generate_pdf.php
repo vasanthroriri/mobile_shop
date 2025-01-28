@@ -26,7 +26,7 @@ if (isset($_GET['invoice_id'])) {
         $products = json_decode($row['products'], true);
 
         // Calculate GST (12%)
-        $gstAmount = $totalPrice * 0.12;
+        $gstAmount = $totalPrice * 0.18;
         $grandTotal = $totalPrice + $gstAmount;
 
         // Generate PDF using TCPDF
@@ -130,6 +130,10 @@ if (isset($_GET['invoice_id'])) {
 
         // Loop through the products and generate rows
         foreach ($products as $product) {
+            // Add details to the model if the product is "mobile"
+            if (($product['product']) === 'Mobile') {
+                $modelDetails =  $product['details'];
+            }
             $html .= '
                 <tr>
                     <td style="text-align: center;">' . $product['product'] . '</td>
@@ -139,7 +143,7 @@ if (isset($_GET['invoice_id'])) {
                     <td style="text-align: right;">
                         <span style="font-family: dejavusans;">₹</span>' . number_format($product['total'], 2) . '
                     </td>
-                </tr>';
+                </tr>'; 
         }
 
         $html .= '</tbody></table>';
@@ -148,10 +152,8 @@ if (isset($_GET['invoice_id'])) {
         $html .= '
             <table border="0" cellpadding="5" cellspacing="0" style="width: 100%; margin-top: 15px; text-align: right;">
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>GST (12%) :</td>
+                    <td colspan="3" style="text-align: left;">'. $modelDetails .'</td>
+                    <td>GST (18%) :</td>
                     <td><span style="font-family: dejavusans;">₹</span>' . number_format($gstAmount, 2) . '</td>
                 </tr>
                 <tr>

@@ -97,7 +97,7 @@ if (isset($_POST['brand']) && $_POST['brand'] != '') {
         $productId = $_POST['productId'];
         $productTypeId = $_POST['productTypeId'];
     
-        $price_Query = "SELECT `product_price` FROM `stock_tbl` 
+        $price_Query = "SELECT `product_price`, `details` FROM `stock_tbl` 
                         WHERE brand_id = $brandId AND model_id = $modelId 
                         AND product_id = $productId AND product_type_id = $productTypeId AND stock_status = 'Active'";
                         
@@ -108,7 +108,7 @@ if (isset($_POST['brand']) && $_POST['brand'] != '') {
         if ($price_result) {
             if (mysqli_num_rows($price_result) > 0) {
                 $row = mysqli_fetch_assoc($price_result);
-                $response = ['product_price' => $row['product_price']];
+                $response = ['product_price' => $row['product_price'], 'details' => $row['details']];
                 echo json_encode($response);
             } else {
                 $response = ['message' => 'No price found for the selected brand, model, and product.'];
@@ -158,7 +158,8 @@ if (isset($_POST['brand']) && $_POST['brand'] != '') {
                         d.product_name,
                         a.brand_id,
                         a.model_id,
-                        a.product_id
+                        a.product_id,
+                        a.details
                     FROM
                         `stock_tbl` AS a
                     LEFT JOIN brand_tbl AS b

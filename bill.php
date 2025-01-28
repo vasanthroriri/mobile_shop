@@ -36,6 +36,7 @@ session_start();
 
                 <!-- Billing Form -->
                 <form id="billingForm" class="needs-validation" novalidate>
+                    <input type="hidden" class="form-control" id="details" name="details">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="customerName" class="form-label">Customer Name</label>
@@ -98,6 +99,7 @@ session_start();
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form id="addProductForm" class="needs-validation" novalidate>
+                        
                             <div class="modal-header">
                                 <h5 class="modal-title" id="addProductModalLabel">Add Product</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -350,6 +352,7 @@ session_start();
             if (response.product_price) {
                 $('#productPrice').val(response.product_price);
                 $('#actualPrice').val(response.product_price);
+                $('#details').val(response.details);
                 $('#priceDivError').hide(); // Show model and brand error if not selected
             } else {
                 $('#productPrice').val('');
@@ -527,6 +530,7 @@ $('#productQuantity').on('input', function() {
     const productQuantity = parseInt(document.getElementById('productQuantity').value);
     const actualPrice = parseFloat(document.getElementById('actualPrice').value);
     const productPrice = parseFloat(document.getElementById('productPrice').value);
+    const details = document.getElementById('details').value;
         // Reset validation states (hide all validation error messages first)
     $('.invalid-feedback').hide(); // Hide all invalid-feedback messages
     let formValid = true;  // Track form validity
@@ -590,7 +594,8 @@ $('#productQuantity').on('input', function() {
                 quantity: productQuantity,
                 price: productPrice,
                 acutaltotal: actualtotalPrice,
-                total: totalPrice
+                total: totalPrice,
+                details: productData.details
             };
         cart.push(product);
 
