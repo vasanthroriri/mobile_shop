@@ -350,12 +350,12 @@ session_start();
         dataType: 'json',
         success: function(response) {
             if (response.product_price) {
-                $('#productPrice').val(response.product_price);
+                // $('#productPrice').val(response.product_price);
                 $('#actualPrice').val(response.product_price);
                 $('#details').val(response.details);
                 $('#priceDivError').hide(); // Show model and brand error if not selected
             } else {
-                $('#productPrice').val('');
+                // $('#productPrice').val('');
                 $('#actualPrice').val('');
                 // alert(response.message || 'No price data available');
                 $('#priceDivError').show(); // Show model and brand error if not selected
@@ -370,7 +370,7 @@ session_start();
 
 
 $('#productQuantity').on('input', function() {
-    var quantity = $(this).val();
+    var quantity = parseInt($('#productQuantity').val()) || 0; // Convert to integer
     var productId = $('#productName').val();
     var modelId = $('#modelName').val();
     var brandId = $('#brand').val();
@@ -386,13 +386,27 @@ $('#productQuantity').on('input', function() {
     $.ajax({
         url: "action/actBill.php", // Your PHP script to check stock
         type: "POST",
-        data: { brandIdQty: brandId, modelId: modelId, productId: productId },
+        data: { brandIdQty: brandId, modelId: modelId, productId: productId , productType: productType },
         dataType: 'json',
         success: function(response) {
-            if (response && response.stock >= quantity) {
-                $('#quantityError').hide(); // Hide error if quantity is within stock limit
-            } else {
-                $('#quantityError').show(); // Show error if quantity exceeds available stock
+
+            if (response) {
+                var availableStock = response.stock;
+                var pricePerUnit = response.price; // Price per unit
+                var totalPrice = quantity * pricePerUnit; // Total price calculation
+
+                // Update price input field
+                // $('#productPrice').val(pricePerUnit);
+
+                 // Update total price field dynamically
+                 $('#productPrice').val(totalPrice.toFixed(2)); // Ensure 2 decimal places
+
+                // Check if quantity exceeds available stock
+                if (quantity > availableStock) {
+                    $('#quantityError').show();
+                } else {
+                    $('#quantityError').hide();
+                }
             }
         },
         error: function(xhr, status, error) {

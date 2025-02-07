@@ -129,21 +129,34 @@ if (isset($_POST['brand']) && $_POST['brand'] != '') {
         $brandId = $_POST['brandIdQty'];
         $modelId = $_POST['modelId'];
         $productId = $_POST['productId'];
+        $productType = $_POST['productType'];
     
-        $price_Query = "SELECT `product_quantity` FROM `stock_tbl` 
+        $price_Query = "SELECT `product_quantity`, `product_price` FROM `stock_tbl` 
                         WHERE brand_id = $brandId AND model_id = $modelId 
                         AND product_id = $productId AND stock_status = 'Active'";
         $price_result = mysqli_query($conn, $price_Query);
     
-    
         if ($price_result && $row = mysqli_fetch_assoc($price_result)) {
-            echo json_encode(['stock' => $row['product_quantity']]);
+            $product_quantity = $row['product_quantity'];
+            $product_price = $row['product_price'];
+            $total_price = $product_quantity * $product_price;
+    
+            echo json_encode([
+                'stock' => $product_quantity,
+                'price' => $product_price,
+                'total_price' => $total_price
+            ]);
         } else {
-            echo json_encode(['stock' => 0]);
+            echo json_encode([
+                'stock' => 0,
+                'price' => 0,
+                'total_price' => 0
+            ]);
         }
     
         exit();
     }
+    
 
 
     

@@ -41,7 +41,7 @@ if (isset($_GET['invoice_id'])) {
         $pdf->AddPage();
 
         // Set header style
-        $pdf->SetFont('helvetica', 'B', 12);
+        $pdf->SetFont('helvetica', 'B', 11);
 
         // Start of the box for margins
         $html = '
@@ -97,7 +97,7 @@ if (isset($_GET['invoice_id'])) {
                         <td width="3%" style="text-align: left;">
                             :
                         </td>
-                        <td width="37%" style="text-align: left;">
+                        <td width="37%" style="text-align: left; font-size: 9px;">
                             ' . $billingAddress . '
                         </td>
                         <td width="20%" style="text-align: right;">
@@ -165,7 +165,7 @@ if (isset($_GET['invoice_id'])) {
                     <td><strong><span style="font-family: dejavusans;">₹</span>' . number_format($product['total'], 2) . '</strong></td>
                 </tr>
             </table>
-            <div style="margin-top: 30px; font-size: 10px; text-align: left;">
+            <div style="margin-top: 30px; font-size: 8px; text-align: left;">
                 <strong><u>Terms and Conditions:</u></strong><br>
                 1. Goods once sold will not be taken back or exchanged.<br>
                 2. Warranty is provided as per the manufacturer\'s policy.<br>

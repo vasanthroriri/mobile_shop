@@ -67,6 +67,13 @@
     </li>
 
     <li class="side-nav-item">
+    <a href="stock.php" class="side-nav-link">
+    <i class="bi bi-graph-up-arrow"></i>
+        <span> Stock </span>
+    </a>
+    </li>
+
+    <li class="side-nav-item">
     <a href="bill.php" class="side-nav-link">
     <i class="bi bi-ui-radios-grid"></i>
         <span> Bill </span>
@@ -80,12 +87,7 @@
     </a>
     </li>
 
-    <li class="side-nav-item">
-    <a href="stock.php" class="side-nav-link">
-    <i class="bi bi-graph-up-arrow"></i>
-        <span> Stock </span>
-    </a>
-    </li>
+  
 
    
 

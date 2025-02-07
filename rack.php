@@ -189,7 +189,7 @@ $('#addRackForm').submit(function(event) {
                 icon: 'success',
                 title: 'Success',
                 text: response.message,
-                timer: 4000 
+                timer: 2000 
             }).then(function() {
                 $('#addRackModal').modal('hide');
                 $('#scroll-horizontal-datatable').load(location.href + ' #scroll-horizontal-datatable > *', function() {
@@ -253,7 +253,7 @@ $('#editRack').submit(function(event) {
                     icon: 'success',
                     title: 'Success',
                     text: response.message,
-                    timer: 4000 
+                    timer: 2000 
                 }).then(function() {
                     $('#editRackModal').modal('hide');
                     $('#scroll-horizontal-datatable').load(location.href + ' #scroll-horizontal-datatable > *', function() {
