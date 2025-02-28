@@ -164,10 +164,10 @@ session_start();
     <script>
     
                         
-    $('#addElectiveBtn').click(function() {
-        $('#addElective').removeClass('was-validated');
-        $('#addElective').addClass('needs-validation');
-        $('#addElective')[0].reset(); // Reset the form
+    $('#addModelBtn').click(function() {
+        $('#addModel').removeClass('was-validated');
+        $('#addModel').addClass('needs-validation');
+        $('#addModel')[0].reset(); // Reset the form
         
     });
 
@@ -242,6 +242,7 @@ $('#addModel').submit(function(event) {
                             "searching": true // Enable searching
                         });
                     });
+                    $('#addModel')[0].reset(); // Reset the form
                 });
             } else {
                 Swal.fire({

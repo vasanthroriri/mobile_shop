@@ -9,21 +9,29 @@ $response = ['success' => false, 'message' => ''];
 
 // Handle adding a university
 if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addModel') {
-    $brand = $_POST['brand'];
-    $modelName = $_POST['modelName'];
+   
 
-    $elective_sql = "INSERT INTO `model_tbl`
-    (`mod_brand_id`
-    ,`mod_name`)
-     VALUES 
-     ('$brand'
-     ,'$modelName')";
+    $brand = trim($_POST['brand']);
+    $modelName = trim($_POST['modelName']);
+    
 
-    if ($conn->query($elective_sql) === TRUE) {
-        $response['success'] = true;
-        $response['message'] = "Model added successfully!";
+    // **Check if model already exists**
+    $check_sql = "SELECT COUNT(*) as count FROM `model_tbl` WHERE `mod_brand_id` = '$brand' AND `mod_name` = '$modelName'";
+    $result = $conn->query($check_sql);
+    $row = $result->fetch_assoc();
+
+    if ($row['count'] > 0) {
+        $response['message'] = "Model name already exists!";
     } else {
-        $response['message'] = "Error adding Model: " . $conn->error;
+        // **Insert new model**
+        $insert_sql = "INSERT INTO `model_tbl` (`mod_brand_id`, `mod_name`) VALUES ('$brand', '$modelName')";
+        
+        if ($conn->query($insert_sql) === TRUE) {
+            $response['success'] = true;
+            $response['message'] = "Model added successfully!";
+        } else {
+            $response['message'] = "Error adding Model: " . $conn->error;
+        }
     }
 
     echo json_encode($response);
@@ -62,30 +70,42 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
 
 
     // Handle updating student details
-        if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'editModel') {
-            $model_id = $_POST['model_id'];
-            $brandEdit = $_POST['brandEdit'];
-            $modelNameEdit = $_POST['modelNameEdit'];
-            
-           
-            $editModel ="UPDATE `model_tbl` 
-            SET `mod_brand_id`='$brandEdit',`mod_name`='$modelNameEdit' WHERE mod_id = $model_id";
-            
-            $model_result = mysqli_query($conn, $editModel);
-
-                if ($model_result) {
-                    $_SESSION['message'] = "Model details Updated successfully!";
-                    $response['success'] = true;
-                    $response['message'] = "Model details Updated successfully!";
-                } 
-                else {
-                $response['message'] = "Error: " . mysqli_error($conn);
+    if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'editModel') {
+       
+    
+        $model_id = trim($_POST['model_id']);
+        $brandEdit = trim($_POST['brandEdit']);
+        $modelNameEdit = trim($_POST['modelNameEdit']);
+        
+     
+    
+        // **Check if another record exists with the same brand & model name (excluding current model_id)**
+        $check_sql = "SELECT COUNT(*) as count FROM `model_tbl` 
+                      WHERE `mod_brand_id` = '$brandEdit' AND `mod_name` = '$modelNameEdit' AND `mod_id` != '$model_id'";
+        
+        $result = $conn->query($check_sql);
+        $row = $result->fetch_assoc();
+    
+        if ($row['count'] > 0) {
+            $response['message'] = "Model name already exists!";
+        } else {
+            // **Update model if no duplicate exists**
+            $editModel = "UPDATE `model_tbl` 
+                          SET `mod_brand_id` = '$brandEdit', `mod_name` = '$modelNameEdit' 
+                          WHERE `mod_id` = '$model_id'";
+    
+            if ($conn->query($editModel) === TRUE) {
+                $_SESSION['message'] = "Model details updated successfully!";
+                $response['success'] = true;
+                $response['message'] = "Model details updated successfully!";
+            } else {
+                $response['message'] = "Error: " . $conn->error;
             }
-            
-            echo json_encode($response);
-            exit();
         }
-
+    
+        echo json_encode($response);
+        exit();
+    }
 
         // // Handle deleting a client
             if (isset($_POST['deleteId'])) {
