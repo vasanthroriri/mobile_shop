@@ -19,16 +19,16 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
     $datails=$_POST['details'];
 
 
-    // // Check if the product name already exists
-    // $check_sql = "SELECT COUNT(*) AS count FROM stock_tbl WHERE product_id='$productName' AND model_id='$model'";
-    // $result = $conn->query($check_sql);
-    // $row = $result->fetch_assoc();
-    // $exists = $row['count'] > 0;
+    // Check if the product name already exists
+    $check_sql = "SELECT COUNT(*) AS count FROM stock_tbl WHERE product_id ='$productName' AND model_id='$model'";
+    $result = $conn->query($check_sql);
+    $row = $result->fetch_assoc();
+    $exists = $row['count'] > 0;
 
-    // if ($exists) {
-    //     $response['success'] = false;
-    //     $response['message'] = "This Product is already exists!";
-    // } else {
+    if ($exists) {
+        $response['success'] = false;
+        $response['message'] = "This Product is already exists!";
+    } else {
         // Insert the new Product if it doesn't exist
         
         $university_sql = "INSERT INTO 
@@ -57,7 +57,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
         } else {
             $response['message'] = "Error adding Product: " . $conn->error;
         }
-    // }
+    }
 
     echo json_encode($response);
     exit();
