@@ -344,7 +344,8 @@ $(document).ready(function() {
       $('#addProduct')[0].reset(); // Reset the form
       $('#modelName').html('<option value="">--Select the Model--</option>');
       $('#productType').html('<option value="">--Select the Product Type--</option>');
-      
+      // Clear Quill editor content
+    quillSnow.root.innerHTML = "";
 
       });
 
