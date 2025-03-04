@@ -178,7 +178,7 @@ if (isset($_GET['invoice_id'])) {
                             <strong>Customer\'s Signature</strong>
                         </td>
                         <td style="text-align: right; width: 48%;">
-                            <strong>Shop Owner\'s Signature</strong>
+                            <strong>For Sakthi Mobiles</strong>
                         </td>
                     </tr>
                 </table>

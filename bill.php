@@ -245,7 +245,8 @@ session_start();
     <script src="assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
     <script src="assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
     
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script> -->
+  <script src="js/sweetalert.js"></script>
   
 
     <!-- Datatable Demo Aapp js -->
@@ -605,6 +606,8 @@ $('#productQuantity').on('input', function() {
                 product_id: productData.product_id,
                 brand_id: productData.brand_id,
                 product: productData.product_name,
+                product_type_id: productData.product_type_id,
+                product_type: productData.product_type_name,
                 quantity: productQuantity,
                 price: productPrice,
                 acutaltotal: actualtotalPrice,
@@ -633,7 +636,7 @@ $('#productQuantity').on('input', function() {
         cart.forEach((product, index) => {
             const row = `<tr>
                 <td>${index + 1}</td>
-                <td>${product.brand + ' '+product.model}</td>
+                <td>${product.brand + ' '+product.model +' '+ product.product_type}</td>
                 <td>${product.product}</td>
                 <td>${product.quantity}</td>
                 <td>${product.price.toFixed(2)}</td>

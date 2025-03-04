@@ -172,7 +172,9 @@ if (isset($_POST['brand']) && $_POST['brand'] != '') {
                         a.brand_id,
                         a.model_id,
                         a.product_id,
-                        a.details
+                        a.details,
+                        e.name as product_type_name,
+                        e.id as product_type_id
                     FROM
                         `stock_tbl` AS a
                     LEFT JOIN brand_tbl AS b
@@ -182,6 +184,7 @@ if (isset($_POST['brand']) && $_POST['brand'] != '') {
                         a.model_id = c.mod_id
                     LEFT JOIN product_tbl d ON
                         a.product_id = d.product_id
+                    LEFT JOIN product_type_tbl as e ON a.product_id =e.pro_id
                     WHERE
                         a.brand_id = $brandId AND a.model_id = $modelId AND a.product_id = $productId AND a.stock_status = 'Active';";
         $price_result = mysqli_query($conn, $price_Query);
