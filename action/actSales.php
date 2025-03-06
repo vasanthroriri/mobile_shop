@@ -305,14 +305,15 @@ if (isset($_POST['editId']) && $_POST['editId'] != '') {
                 
                         echo "<h5>Products</h5>";
                         echo "<table class='table table-bordered'>";
-                        echo "<thead><tr><th>Brand</th><th>Model</th><th>Product</th><th>Quantity</th><th>Price</th></tr></thead>";
+                        echo "<thead><tr><th>Brand</th><th>Model</th><th>Product</th><th>Details</th><th>Quantity</th><th>Price</th></tr></thead>";
                         echo "<tbody>";
                 
                         foreach ($products as $product) {
                             echo "<tr>";
                             echo "<td>{$product['brand']}</td>";
                             echo "<td>{$product['model']}</td>";
-                            echo "<td>{$product['product']}</td>";
+                            echo "<td>{$product['product']} ({$product['product_type']})</td>";
+                            echo "<td>{$product['details']}</td>";
                             echo "<td>{$product['quantity']}</td>";
                             echo "<td>₹" . number_format($product['total'], 2) . "</td>";
                             echo "</tr>";
