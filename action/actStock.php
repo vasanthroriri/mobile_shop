@@ -20,7 +20,7 @@ if (isset($_POST['hdnAction']) && $_POST['hdnAction'] == 'addProductId') {
 
 
     // Check if the product name already exists
-    $check_sql = "SELECT COUNT(*) AS count FROM stock_tbl WHERE product_id ='$productName' AND model_id='$model'";
+    $check_sql = "SELECT COUNT(*) AS count FROM stock_tbl WHERE product_id ='$productName' AND model_id='$model' AND brand_id='$brandName' AND product_type_id='$productType'";
     $result = $conn->query($check_sql);
     $row = $result->fetch_assoc();
     $exists = $row['count'] > 0;
