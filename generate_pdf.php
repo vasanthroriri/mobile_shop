@@ -135,7 +135,7 @@ if (isset($_GET['invoice_id'])) {
             }
             $html .= '
                 <tr>
-                    <td style="text-align: center; width: 60%;">' . $product['product'] . ' - ' . $product['brand'] .' - '. $product['model'] . '</td>
+                    <td style="text-align: center; width: 60%;">' . $product['product'] . ' - ' . $product['brand'] .' - '. $product['model'] . ' - '. $product['product_type'].'</td>
                     <td style="text-align: center; width: 20%;">' . $product['quantity'] . '</td>
                     <td style="text-align: right; width: 20%;">
                         <span style="font-family: dejavusans;">₹</span>' . number_format($netRate, 2) . '

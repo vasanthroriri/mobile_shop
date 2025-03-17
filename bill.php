@@ -542,6 +542,7 @@ $('#productQuantity').on('input', function() {
         const brandId = document.getElementById('brand').value;
     const modelId = document.getElementById('modelName').value;
     const productId = document.getElementById('productName').value;
+    const productType = document.getElementById('productType').value;
     const productQuantity = parseInt(document.getElementById('productQuantity').value);
     const actualPrice = parseFloat(document.getElementById('actualPrice').value);
     const productPrice = parseFloat(document.getElementById('productPrice').value);
@@ -593,7 +594,8 @@ $('#productQuantity').on('input', function() {
         data: {
             brand_id: brandId,
             model_id: modelId,
-            product_id: productId
+            product_id: productId,
+            productType: productType,
         },
         success: function (response) {
             const productData = JSON.parse(response);

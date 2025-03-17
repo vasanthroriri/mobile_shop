@@ -133,7 +133,7 @@ if (isset($_POST['brand']) && $_POST['brand'] != '') {
     
         $price_Query = "SELECT `product_quantity`, `product_price` FROM `stock_tbl` 
                         WHERE brand_id = $brandId AND model_id = $modelId 
-                        AND product_id = $productId AND stock_status = 'Active'";
+                        AND product_id = $productId AND product_type_id = $productType AND stock_status = 'Active'";
         $price_result = mysqli_query($conn, $price_Query);
     
         if ($price_result && $row = mysqli_fetch_assoc($price_result)) {
@@ -164,8 +164,10 @@ if (isset($_POST['brand']) && $_POST['brand'] != '') {
         $brandId = $_POST['brand_id'];
         $modelId = $_POST['model_id'];
         $productId = $_POST['product_id'];
+        $productId = $_POST['product_id'];
+        $productType = $_POST['productType'];
     
-        $price_Query = "SELECT
+        $price_Query = "SELECT DISTINCT
                         b.brand_name,
                         c.mod_name,
                         d.product_name,
@@ -177,16 +179,18 @@ if (isset($_POST['brand']) && $_POST['brand'] != '') {
                         e.id as product_type_id
                     FROM
                         `stock_tbl` AS a
-                    LEFT JOIN brand_tbl AS b
-                    ON
-                        a.brand_id = b.brand_id
-                    LEFT JOIN model_tbl c ON
-                        a.model_id = c.mod_id
-                    LEFT JOIN product_tbl d ON
-                        a.product_id = d.product_id
-                    LEFT JOIN product_type_tbl as e ON a.product_id =e.pro_id
+                    LEFT JOIN brand_tbl AS b ON a.brand_id = b.brand_id
+                    LEFT JOIN model_tbl AS c ON a.model_id = c.mod_id
+                    LEFT JOIN product_tbl AS d ON a.product_id = d.product_id
+                    LEFT JOIN product_type_tbl AS e ON a.product_type_id = e.id
                     WHERE
-                        a.brand_id = $brandId AND a.model_id = $modelId AND a.product_id = $productId AND a.stock_status = 'Active';";
+                        a.brand_id = $brandId 
+                        AND a.model_id = $modelId 
+                        AND a.product_id = $productId 
+                        AND a.stock_status = 'Active' 
+                        AND a.product_type_id = $productType;";
+
+
         $price_result = mysqli_query($conn, $price_Query);
     
     
